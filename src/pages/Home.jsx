@@ -4,7 +4,7 @@ import CaseStudies from "../components/CaseStudies";
 import MeetMentors from "../components/MeetMentors";
 import NewsLetter from "../components/NewsLetter";
 import Results from "../components/Results";
-import bgImage from "../assets/title-bg.svg";
+import bgImage from "../assets/title-bg.png";
 import fromBg from "../assets/from-rectangle1.svg";
 import Faq from "../components/Faq";
 import CircleFlipGrid from "../components/CircleFlipGrid";
