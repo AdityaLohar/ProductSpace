@@ -1,7 +1,7 @@
 import { useState } from "react";
-import netflix from "../assets/netflix.svg";
+import netflix from "../assets/netflix-logo.jpg";
 import primeVideo from "../assets/prime-video.svg";
-import miro from "../assets/miro.svg";
+import miro from "../assets/miro-logo.png";
 import magicBricks from "../assets/magic-bricks.svg";
 import amazon from "../assets/amazon.svg";
 import google from "../assets/google.svg";

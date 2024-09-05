@@ -73,14 +73,14 @@ const CircleFlipGrid = () => {
   return (
     <div className="grid grid-cols-3 gap-0">
       {circleData.map((circle, idx) => (
-        <div key={idx} className="circle-container p-0 m-0  w-[80px] h-[80px] md:w-[126px] md:h-[126px] xl:w-[169px] xl:h-[169px]">
+        <div key={idx} className="circle-container p-0 m-0  w-[85px] h-[85px] md:w-[126px] md:h-[126px] xl:w-[169px] xl:h-[169px]">
           <div className={`circle  ${flipped[idx] ? "flip" : ""}`}>
             {/* Front side with color */}
-            <div className={`circle-front  w-[80px] h-[80px] md:w-[126px] md:h-[126px] xl:w-[169px] xl:h-[169px] ${circle.color} ${circle.borderRadius}`}></div>
+            <div className={`circle-front  w-[85px] h-[85px] md:w-[126px] md:h-[126px] xl:w-[169px] xl:h-[169px] ${circle.color} ${circle.borderRadius}`}></div>
 
             {/* Back side with image */}
             <div
-              className={`circle-back  w-[80px] h-[80px] md:w-[126px] md:h-[126px] xl:w-[169px] xl:h-[169px] ${circle.borderFlipped} bg-cover`}
+              className={`circle-back  w-[85px] h-[85px] md:w-[126px] md:h-[126px] xl:w-[169px] xl:h-[169px] ${circle.borderFlipped} bg-cover`}
               style={{ backgroundImage: `url(${circle.image})` }}
             ></div>
           </div>

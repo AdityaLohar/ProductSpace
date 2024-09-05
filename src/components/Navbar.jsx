@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg ">
-      <div className="flex justify-between items-center px-[10px] md:px-[80px] lg:px-[120px] py-[10px] font-hind">
+      <div className="flex justify-between items-center px-[10px] md:px-[80px] lg:px-[120px] py-[15px] xl:mx-auto max-w-screen-2xl font-hind">
         <div className="hidden lg:block font-semibold text-[23px] pb-1 font-serif">
           Product <span className="text-[#21C1F3]">Space</span>
         </div>
@@ -44,10 +44,15 @@ const Navbar = () => {
           </div>
         </div>
 
-        <button className="lg:hidden bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
+        <a
+          href="https://topmate.io/propel/62841"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="lg:hidden bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
             Book a 1:1 Mentor Call
-        </button>
-
+          </button>
+        </a>
 
         <div className="hidden lg:flex space-x-8 items-center">
           <div className="hidden lg:flex space-x-6 xl:space-x-7 font-medium text-[18px]">
@@ -98,7 +103,13 @@ const Navbar = () => {
             </a>
           </div>
           <button className="bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-4 xl:px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
-            Book a 1:1 Mentor Call
+            <a
+              href="https://topmate.io/propel/62841"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a 1:1 Mentor Call
+            </a>
           </button>
           <div className="rounded-full bg-gray-100 p-3 ml-1">
             <img src={profilePic} alt="profile" className="h-5 w-5" />
@@ -108,7 +119,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden flex flex-col items-start top-0 z-50 bg-white/80 backdrop-blur-lg px-[10px] md:px-[80px] space-y-4 py-4">
+        <div className="lg:hidden flex flex-col items-start top-0 z-50 bg-white/80 backdrop-blur-lg px-[15px] md:px-[80px] space-y-4 py-4">
           <a href="#" className="hover:underline text-[18px]">
             Courses
           </a>
