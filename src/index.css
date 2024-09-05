@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  line-height: 1.2;
+}
+
+body {
+  background-color: transparent !important;
+  background-image: url('./assets/bg-curve1.svg'), url('./assets/bg-curve2.svg'), url('./assets/bg-curve3.svg'), url('./assets/bg-curve4.svg');
+  background-position: top 0% left 0%, top 25% right 0%, bottom 25% left 0%, bottom -20% right 0%;
+  background-size: auto, auto, auto, auto;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment:scroll, scroll, scroll, scroll;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-image: url('./assets/bg-curve1.svg'); /* Only show the first background */
+    background-position: top 1% left;
+    background-size: 106% auto; /* Adjust as needed */
+  }
+}
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.mentor-scrollbar::-webkit-scrollbar {
+  height: 0px; /* Height of the horizontal scrollbar */
+}
+
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.scroll-wrapper {
+  display: flex;
+  width: 200%; /* Double the width of the container */
+  animation: scrollHorizontal linear infinite;
+  animation-duration: 20s; /* Adjust for scrolling speed */
+}
+
+.scroll-item {
+  flex: 0 0 auto; /* Prevent items from shrinking */
+  margin-right: 1.5rem; /* Adjust spacing between cards */
+}
+
+.circle-container {
+  perspective: 1000px;
+}
+
+.circle {
+  /* width: 100px;
+  height: 100px;
+  position: relative; */
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.circle-front,
+.circle-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.circle-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.circle-back {
+  transform: rotateY(180deg);
+  background-size: cover;
+  background-position: center;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
