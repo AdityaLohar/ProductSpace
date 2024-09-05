@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../index.css"; // For custom CSS
-import person from "../assets/person.svg";
+import person from "../assets/Person.svg";
 import meet1 from "../assets/meet.png";
 import meet2 from "../assets/meet.png";
 import meet3 from "../assets/meet.png";
