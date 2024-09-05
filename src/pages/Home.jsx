@@ -5,7 +5,8 @@ import MeetMentors from "../components/MeetMentors";
 import NewsLetter from "../components/NewsLetter";
 import Results from "../components/Results";
 import bgImage from "../assets/title-bg.png";
-import fromBg from "../assets/from-rectangle1.svg";
+// import fromBg from "../assets/from-rectangle1.svg";
+import fromBg from "../assets/from-bg.png";
 import Faq from "../components/Faq";
 import CircleFlipGrid from "../components/CircleFlipGrid";
 import Companies from "../components/Companies";
@@ -21,7 +22,7 @@ const Home = () => {
     bg-[position:top_50%_left_17%] md:bg-[position:top_50%_left_0%]"
               style={{
                 backgroundImage: `url(${fromBg})`,
-                backgroundSize: "105px 105px", // Adjust the background to fit the text
+                backgroundSize: "110px 50px", // Adjust the background to fit the text
                 backgroundRepeat: "no-repeat", // No repeat for the background image
               }}
             >
