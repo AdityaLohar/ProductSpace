@@ -1,6 +1,5 @@
 import AlumniCard from "./AlumniCard";
 import alum from "../assets/AlumFace.svg";
-import { useEffect, useRef, useState } from "react";
 
 const alumni = [
   {
@@ -61,8 +60,6 @@ const alumni = [
 ];
 
 const Alumni = () => {
-  const [isAnimating, setIsAnimating] = useState(true);
-  const scrollWrapperRef = useRef(null);
 
   return (
     <div className="flex flex-col bg-[#AEECFF] mb-10 lg:mb-20 rounded-3xl pb-10">
@@ -87,20 +84,19 @@ const Alumni = () => {
         </div>
       </div>
 
-      <div className="overflow-x-scroll mentor-scrollbar md:scroll-container">
+      <div className="overflow-x-scroll md:overflow-x-hidden mentor-scrollbar md:scroll-container">
         <div
-          className={`scroll-wrapper ml-6 ${isAnimating ? "animate" : ""}`}
-          ref={scrollWrapperRef}
+          className={`scroll-wrapper ml-6 animate`}
         >
-          {[...alumni, ...alumni].map((alumnus) => (
-            <div key={alumnus.id} className="scroll-item">
+          {[...alumni, ...alumni].map((alums, index) => (
+            <div key={`${alums.id}-${index}`} className="scroll-item">
               <AlumniCard
-                profile={alumnus.profile}
-                name={alumnus.name}
-                prevCompany={alumnus.prevCompany}
-                prevPost={alumnus.prevPost}
-                curCompany={alumnus.curCompany}
-                curPost={alumnus.curPost}
+                profile={alums.profile}
+                name={alums.name}
+                prevCompany={alums.prevCompany}
+                prevPost={alums.prevPost}
+                curCompany={alums.curCompany}
+                curPost={alums.curPost}
               />
             </div>
           ))}

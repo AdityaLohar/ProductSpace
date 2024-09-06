@@ -21,7 +21,7 @@ const CaseStudies1 = () => {
   ];
 
   return (
-    <div className="flex flex-col bg-[#F1E6FF] mb-10 lg:mb-20 rounded-3xl pb-10 px-4 md:px-10 lg:px-20">
+    <div className="flex flex-col bg-[#F1E6FF] mb-10 lg:mb-20 rounded-3xl pb-10 px-4 md:px-10 xl:px-20">
       <div className="py-8">
         <div className="text-[28px] lg:text-[44px] font-bold text-center">
           Unlock Real-World Insights
@@ -31,15 +31,15 @@ const CaseStudies1 = () => {
         </div>
       </div>
 
-      <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-2 w-full p-4 relative overflow-hidden">
+      <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-3 xl:gap-4 2xl:gap-5 w-full p-4 relative overflow-hidden">
         {boxes.map((box, index) => (
           <div
             key={index}
             onClick={() => setSelectedBox(index === selectedBox ? null : index)} // Toggle selection
             className={`flex flex-col font-semibold transition-all duration-500 ease-in-out bg-white overflow-hidden ${
               selectedBox === index
-                ? "col-span-2 row-span-2 w-full h-full rounded-2xl items-start" // Big box when selected
-                : "col-span-1 row-span-1 h-[115px] w-[115px] xl:h-[200px] xl:w-[200px] rounded-lg items-start justify-end"
+                ? "col-span-2 row-span-2 h-full w-full rounded-2xl items-start" // Big box when selected
+                : "col-span-1 row-span-1 h-[115px] w-[115px] custom-5:h-[130px] custom-5:w-[130px] custom-6:h-[140px] custom-6:w-[140px] custom-7:h-[150px] custom-7:w-[150px] custom-8:h-[160px] custom-8:w-[160px] xl:h-[170px] xl:w-[170px] 2xl:h-[200px] 2xl:w-[200px] rounded-lg items-start justify-end"
             }`}
             style={{
               backgroundImage: `url(${box.image})`,
@@ -56,7 +56,7 @@ const CaseStudies1 = () => {
             </div>
 
             {selectedBox === index && (
-              <div className="absolute top-[12%] xl:top-[30%] lg:left-0 w-full h-full flex items-center justify-center">
+              <div className="absolute top-[12%] lg:top-[25%] xl:top-[23%] 2xl:top-[30%] lg:left-0 w-full h-full flex items-center justify-center">
                 <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind">
                   <div className="text-[24px] md:text-[18px] xl:text-[24px] pr-4">
                     Improving {box.title} Viewing Experience
@@ -81,7 +81,7 @@ const CaseStudies1 = () => {
         {/* Display the Selected Box */}
         {selectedBox !== null && (
           <div
-            className="w-full h-[300px] md:h-[400px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between overflow-hidden transition-all duration-500 ease-in-out"
+            className="w-full h-[250px] custom-1:h-[300px] custom-2:h-[400px] custom-3:h-[510px] custom-3:w-[520px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between overflow-hidden transition-all duration-500 ease-in-out"
             style={{
               backgroundImage: `url(${boxes[selectedBox].image})`,
               backgroundSize: "cover",
@@ -111,12 +111,12 @@ const CaseStudies1 = () => {
         )}
 
         {/* Non-Selected Boxes */}
-        <div className="flex overflow-x-auto space-x-2 py-2 pb-4 items-center h-[150px]">
+        <div className="flex overflow-x-auto space-x-3 py-2 pb-4 pl-2 items-center h-[150px]">
           {boxes.map((box, index) => (
             <div
               key={index}
               onClick={() => setSelectedBox(index)}
-              className={`flex-shrink-0 transition-all duration-500 ease-in-out h-[100px] w-[100px] md:h-[140px] md:w-[140px] bg-white rounded-xl flex items-end justify-start ${
+              className={`flex-shrink-0 transition-all duration-500 ease-in-out h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-white rounded-xl flex items-end justify-start ${
                 index === selectedBox
                   ? "border-2 border-white h-[110px] w-[110px] scale-110"
                   : ""
@@ -128,7 +128,7 @@ const CaseStudies1 = () => {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="bg-white rounded-2xl text-[10px] md:text-sm px-2 py-1 m-2">
+              <div className="bg-white rounded-2xl text-[10px] md:text-[12px] px-2 py-1 m-2">
                 {box.title}
               </div>
             </div>
@@ -140,3 +140,4 @@ const CaseStudies1 = () => {
 };
 
 export default CaseStudies1;
+

@@ -8,7 +8,7 @@ const HomeHeroSection = () => {
       <div className="w-full lg:w-1/2 px-6 lg:px-0">
         <p
           className="font-sans text-[17px] text-transparent font-semibold ml-0 sm:ml-1 md:text-[24px] pt-8 
-    bg-[position:top_50%_left_17%] md:bg-[position:top_50%_left_0%]"
+    custom-0:bg-[position:top_50%_left_29%] custom-1:bg-[position:top_50%_left_10%] custom-2:bg-[position:top_50%_left_17%] md:bg-[position:top_50%_left_0%]"
           style={{
             backgroundImage: `url(${fromBg})`,
             backgroundSize: "110px 50px", // Adjust the background to fit the text

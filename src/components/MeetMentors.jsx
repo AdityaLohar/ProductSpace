@@ -88,10 +88,13 @@ const MeetMentors = () => {
         </div>
       </div>
 
-      <div className="overflow-x-scroll mentor-scrollbar">
-        <div className="flex">
-          {[...mentors, ...mentors].map((mentor) => (
-            <div key={mentor.id} className="scroll-item pl-4 md:pl-4">
+      <div className="overflow-x-scroll md:overflow-x-hidden mentor-scrollbar md:scroll-container">
+        <div className="flex scroll-wrapper animate">
+          {[...mentors, ...mentors].map((mentor, index) => (
+            <div
+              key={`${mentor.id}-${index}`}
+              className="scroll-item pl-4 md:pl-4"
+            >
               <MentorCard
                 id={mentor.id}
                 profile={mentor.profile}

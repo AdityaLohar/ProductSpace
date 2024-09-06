@@ -3,7 +3,7 @@ import flash from "../assets/flash.svg";
 const BottomBar = () => {
   return (
     <div className="hidden lg:flex fixed bottom-0 left-0 right-0 z-40 bg-white px-[120px] py-4 shadow-[0_-15px_28px_-10px_rgba(0,0,0,0.2)]">
-      <div className="flex gap-0 xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
+      <div className="flex gap-0 2xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
         <div className="flex gap-1 xl:gap-12">
           <div>
             <div className="text-gray-500 font-light border-l border-l-2 border-gray-300 px-2">
@@ -40,7 +40,7 @@ const BottomBar = () => {
         </div>
 
         <div className="flex items-center">
-          <div className="bg-[#FFF7D9] flex gap-1 lg:gap-3 items-center py-1 px-5">
+          <div className="bg-[#FFF7D9] flex gap-1 xl:gap-3 items-center py-1 px-5">
             <div>Seats filling fast</div>
             <div>
               <img src={flash} alt="" className="w-5 h-5" />
@@ -49,7 +49,7 @@ const BottomBar = () => {
         </div>
 
         <div className="flex items-center">
-          <div className="bg-[#FF559E] text-white py-2 px-4 xl:px-10 rounded-full">
+          <div className="bg-[#FF559E] text-white py-2 px-4 2xl:px-8 rounded-full">
             Enroll Now
           </div>
         </div>
