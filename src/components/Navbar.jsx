@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import profilePic from "../assets/Person.svg";
 import logo from "../assets/ps-logo.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigationRef = useRef(null);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
+    if (navigationRef.current) {
+      // Add or remove the active class based on the state
+      if (isOpen) {
+        navigationRef.current.classList.remove("active");
+      } else {
+        navigationRef.current.classList.add("active");
+      }
+    }
   };
 
   return (
@@ -111,15 +120,18 @@ const Navbar = () => {
               Book a 1:1 Mentor Call
             </a>
           </button>
-          <div className="rounded-full bg-gray-100 p-3 ml-1">
+          <button className="rounded-full bg-gray-100 p-3 ml-1">
             <img src={profilePic} alt="profile" className="h-5 w-5" />
-          </div>
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden flex flex-col items-start top-0 z-50 bg-white/80 backdrop-blur-lg px-[15px] md:px-[80px] space-y-4 py-4">
+      {/* {isOpen && ( */}
+        <div
+          ref={navigationRef}
+          className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
+        >
           <a href="#" className="hover:underline text-[18px]">
             Courses
           </a>
@@ -133,7 +145,7 @@ const Navbar = () => {
             <img src={profilePic} alt="profile" className="h-5 w-5" />
           </div>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 };

@@ -6,7 +6,6 @@ const MentorCard = ({
   name,
   company,
   post,
-  interest,
   linkedIn,
   img,
 }) => {
@@ -33,8 +32,8 @@ const MentorCard = ({
 
         <div className="text-[16px] font-medium">{post}</div>
 
-        <div className="text-[16px] font-medium">
-          <img src={img} alt="" />
+        <div className="">
+          <img src={img} alt="mentor-company-logo" />
         </div>
       </div>
     </div>

@@ -64,19 +64,6 @@ const Alumni = () => {
   const [isAnimating, setIsAnimating] = useState(true);
   const scrollWrapperRef = useRef(null);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (scrollWrapperRef.current) {
-  //       scrollWrapperRef.current.style.animationPlayState = "paused";
-  //       setTimeout(() => {
-  //         scrollWrapperRef.current.style.animationPlayState = "running";
-  //       }, 2000); // Pause for 2 seconds
-  //     }
-  //   }, 8000); // Total duration of scroll (including pause)
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
   return (
     <div className="flex flex-col bg-[#AEECFF] mb-10 lg:mb-20 rounded-3xl pb-10">
       <div className="py-5 lg:py-10">

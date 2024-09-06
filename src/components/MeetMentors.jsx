@@ -4,7 +4,6 @@ import img1 from "../assets/magicbricks-logo.png";
 import mentor2 from "../assets/arun-mentor.png";
 import img2 from "../assets/microsoft-logo.png";
 
-import { useEffect, useRef, useState } from "react";
 import MentorCard from "./MentorCard";
 
 const mentors = [
@@ -65,22 +64,6 @@ const mentors = [
 ];
 
 const MeetMentors = () => {
-  const [isAnimating, setIsAnimating] = useState(true);
-  const scrollWrapperRef = useRef(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrollWrapperRef.current) {
-        scrollWrapperRef.current.style.animationPlayState = "paused";
-        setTimeout(() => {
-          scrollWrapperRef.current.style.animationPlayState = "running";
-        }, 2000);
-      }
-    }, 8000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="flex flex-col bg-[#AEECFF] mb-10 lg:mb-20 rounded-3xl pb-10">
       <div className="py-5 lg:py-10">
@@ -108,14 +91,13 @@ const MeetMentors = () => {
       <div className="overflow-x-scroll mentor-scrollbar">
         <div className="flex">
           {[...mentors, ...mentors].map((mentor) => (
-            <div key={mentor.id} className="scroll-item pl-2 md:pl-4">
+            <div key={mentor.id} className="scroll-item pl-4 md:pl-4">
               <MentorCard
                 id={mentor.id}
                 profile={mentor.profile}
                 name={mentor.name}
                 company={mentor.company}
                 post={mentor.post}
-                interest={mentor.interest}
                 linkedIn={mentor.linkedIn}
                 img={mentor.img}
               />

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .active {
+    height: 180px !important;
+  }
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
