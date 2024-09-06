@@ -79,7 +79,7 @@ const CaseStudies = () => {
         {/* Display the Selected Box */}
         {selectedBox !== null && (
           <div
-            className="w-full h-[300px] md:h-[400px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between"
+            className="w-full h-[400px] md:h-[400px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between"
             style={{
               backgroundImage: `url(${boxes[selectedBox].image})`,
               backgroundSize: "cover",
