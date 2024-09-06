@@ -36,7 +36,7 @@ const Flowing = ({ img1 }) => {
 
 const Companies = () => {
   return (
-    <div className="flex flex-col bg-[#F1E6FF] mb-10 lg:mb-20 rounded-3xl pb-10 px-4 md:px-10 lg:px-20">
+    <div className="flex flex-col bg-white px-4 md:px-10 lg:px-20 py-8">
       <div className="py-8">
         <div className="text-[28px] lg:text-[44px] font-bold text-center">
           Trusted by 350+ Product Companies in India

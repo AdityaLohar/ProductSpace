@@ -62,7 +62,7 @@ const alumni = [
 const Alumni = () => {
 
   return (
-    <div className="flex flex-col bg-[#AEECFF] mb-10 lg:mb-20 rounded-3xl pb-10">
+    <div className="flex flex-col bg-[#AEECFF] pb-10">
       <div className="py-5 lg:py-10">
         <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans px-4">
           Our Successful Alumni

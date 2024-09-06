@@ -21,10 +21,10 @@ const CaseStudies1 = () => {
   ];
 
   return (
-    <div className="flex flex-col bg-[#F1E6FF] mb-10 lg:mb-20 rounded-3xl pb-10 px-4 md:px-10 xl:px-20">
+    <div className="flex flex-col bg-[#F1E6FF] md:py-8 px-4 md:px-10 xl:px-20">
       <div className="py-8">
         <div className="text-[28px] lg:text-[44px] font-bold text-center">
-          Unlock Real-World Insights
+          Product Tear-down & Case Studies
         </div>
         <div className="text-[14px] lg:text-sm text-center text-gray-700 font-medium">
           Dive into Case Studies that Drive Product Innovation
@@ -39,7 +39,7 @@ const CaseStudies1 = () => {
             className={`flex flex-col font-semibold transition-all duration-500 ease-in-out bg-white overflow-hidden ${
               selectedBox === index
                 ? "col-span-2 row-span-2 h-full w-full rounded-2xl items-start" // Big box when selected
-                : "col-span-1 row-span-1 h-[115px] w-[115px] custom-5:h-[130px] custom-5:w-[130px] custom-6:h-[140px] custom-6:w-[140px] custom-7:h-[150px] custom-7:w-[150px] custom-8:h-[160px] custom-8:w-[160px] xl:h-[170px] xl:w-[170px] 2xl:h-[200px] 2xl:w-[200px] rounded-lg items-start justify-end"
+                : "col-span-1 row-span-1 custom-5:h-[170px] custom-5:w-[170px] custom-6:h-[180px] custom-6:w-[180px] custom-8:h-[200px] custom-8:w-[200px] 2xl:h-[245px] 2xl:w-[245px] rounded-lg items-start justify-end"
             }`}
             style={{
               backgroundImage: `url(${box.image})`,
@@ -81,7 +81,7 @@ const CaseStudies1 = () => {
         {/* Display the Selected Box */}
         {selectedBox !== null && (
           <div
-            className="w-full h-[250px] custom-1:h-[300px] custom-2:h-[400px] custom-3:h-[510px] custom-3:w-[520px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between overflow-hidden transition-all duration-500 ease-in-out"
+            className="mx-auto w-full h-[250px] custom-1:h-[300px] custom-2:h-[400px] custom-3:h-[510px] custom-3:w-[520px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between overflow-hidden transition-all duration-500 ease-in-out"
             style={{
               backgroundImage: `url(${boxes[selectedBox].image})`,
               backgroundSize: "cover",

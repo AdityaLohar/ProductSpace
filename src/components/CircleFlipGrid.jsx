@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import "../index.css"; // For custom CSS
-import person from "../assets/Person.svg";
-import meet1 from "../assets/meet.png";
+import "../index.css";
+import meet1 from "../assets/networking-events.svg";
 import meet2 from "../assets/meet.png";
-import meet3 from "../assets/meet.png";
-import meet4 from "../assets/meet.png";
-import meet5 from "../assets/meet.png";
+import meet3 from "../assets/networking-events.svg";
+import meet4 from "../assets/personlised-assesment.svg";
+import meet5 from "../assets/personlised-assesment.svg";
 import meet6 from "../assets/meet.png";
 import meet7 from "../assets/meet.png";
-import meet8 from "../assets/meet.png";
-import meet9 from "../assets/meet.png";
+import meet8 from "../assets/networking-events.svg";
+import meet9 from "../assets/live-classroom.svg";
 
 
 const CircleFlipGrid = () => {

@@ -29,12 +29,12 @@ const ResultsCard = ({iconImg, title, subTitle}) => {
 
 const Results = () => {
   return (
-    <div className="flex flex-col bg-[#AEECFF] mb-10 lg:mb-20 rounded-3xl pb-5 md:pb-10">
-      <div className="text-[28px] lg:text-[40px] font-bold p-4 md:p-10 text-center font-sans">
+    <div className="flex flex-col bg-white pb-5 md:pb-10">
+      {/* <div className="text-[28px] lg:text-[40px] font-bold p-4 md:p-10 text-center font-sans">
         Results delivered by Product Space Team
-      </div>
+      </div> */}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-around px-2 lg:px-8 pt-2">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-around px-2 lg:px-8 pt-10">
         <ResultsCard iconImg={placed} title={"2000+ Members"} subTitle={"Already Placed"} />
         <ResultsCard iconImg={packageImage} title={"46.7 LPA"} subTitle={"Highest Package"} />
         <ResultsCard iconImg={increment} title={"4.5x Increment"} subTitle={"Average CTC"} />

@@ -30,6 +30,7 @@ export default {
         "custom-9": "1280px",
         "custom-10": "1445px",
         "custom-11": "1520px",
+        "custom-12": "1620px",
       },
     },
   },

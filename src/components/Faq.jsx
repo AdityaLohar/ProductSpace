@@ -2,9 +2,9 @@
 import DropdownList from './DropdownList';
 const Faq = () => {
   return (
-    <div className="flex flex-col bg-[#F1E6FF] mb-20 rounded-3xl pb-10">
+    <div className="flex flex-col bg-white pb-40 ">
       <div className="py-5 lg:py-8">
-        <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans">
+        <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans px-4">
           Frequently Asked Questions
         </div>
       </div>
