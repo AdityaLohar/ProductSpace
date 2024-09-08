@@ -55,15 +55,17 @@ body {
 
 .scroll-wrapper {
   display: flex;
-  width: 200%; /* Double the width of the container */
+  width: 200%;
   animation: scrollHorizontal linear infinite;
-  animation-duration: 20s; /* Adjust for scrolling speed */
+  animation-duration: 400s; 
 }
 
 .scroll-item {
-  flex: 0 0 auto; /* Prevent items from shrinking */
-  margin-right: 1.5rem; /* Adjust spacing between cards */
+  flex: 0 0 auto;
+  margin-right: 1.5rem;
 }
+
+
 
 .circle-container {
   perspective: 1000px;

@@ -6,6 +6,9 @@ import '@fontsource/montserrat';
 import '@fontsource/hind-madurai';
 import PmFellowship from './pages/PmFellowship';
 import CircleAnimation from './pages/CircleAnimation';
+import ModalForm from './components/ModalForm';
+import DemoCase from './pages/DemoCase';
+import FaqPage from './pages/FaqPage';
 
 function App() {
   return (
@@ -14,8 +17,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/pm' element={<PmFellowship />} /> */}
-          {/* <Route path='/circle' element={<CircleAnimation />} /> */}
+          <Route path='/faq' element={<FaqPage />} />
+          <Route path='/pm' element={<PmFellowship />} />
         </Routes>
       </Router>
     </div>

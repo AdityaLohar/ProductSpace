@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const DropdownItem = ({ question, content, isOpen, onClick }) => {
     return (
@@ -36,42 +37,91 @@ const DropdownItem = ({ question, content, isOpen, onClick }) => {
     );
 };
 
-const DropdownList = () => {
+const DropdownList = ({ len, flag }) => {
+    const [visibleCount, setVisibleCount] = useState(len);
     const [openIndex, setOpenIndex] = useState(null);
 
     const questions = [
-        "Who is eligible to apply for the product fellowship cohort?",
-        "What is the price for the product fellowship cohort?",
-        "When does the next cohort begin?",
-        "Do I get a certificate post the completion of the cohort?",
-        "Can I connect with the past alumni? certificate post the completion of the cohort?"
-    ];
+        "What is Product Space?",
+        "Who is Product Space for?",
+        "What programs does Product Space offer?",
+        "How do I enroll in a cohort?",
+        "What is included in a Product Space cohort?",
+        "How long is each cohort program?",
+        "What kind of support can I expect during the cohort?",
+        "Do I need prior experience in product management to join?",
+        "What happens after I complete the cohort?",
+        "How can I access the resources and interview guides?",
+        "Is there a payment plan available?",
+        "Can I get a refund if I am unable to complete the program?",
+        "How can I contact support?",
+      ];
+      
+      const contents = [
+        "Product Space is an ed-tech platform offering comprehensive programs, resources, and mentorship to help individuals transition into or advance their careers in product management.",
+        
+        "Product Space is designed for aspiring product managers, current product professionals looking to upskill, and individuals transitioning from other fields like operations, finance, or marketing into product management.",
+        
+        "We offer various cohorts, including Product Management Fellowships and hands-on mentorship from industry leaders.",
+        
+        "To enroll, simply visit our Cohort Page and follow the steps to sign up. You will be guided through the process to select the cohort that best fits your career goals.",
+        
+        "Each cohort includes live sessions with product experts, hands-on case studies, real-world projects, interview preparation, and ongoing mentorship to help you become a successful product manager.",
+        
+        "Our cohorts typically last 8-12 weeks, depending on the program. Specific timelines can be found on the respective cohort pages.",
+        
+        "You will receive continuous guidance from mentors, access to a community of peers, personalized feedback on assignments, and exclusive resources designed to help you succeed.",
+        
+        "No prior experience is necessary. Our programs are designed for beginners as well as professionals looking to enhance their product management skills.",
+        
+        "Upon completing the cohort, you will receive a certificate, continued access to our alumni network, and the opportunity to participate in job placement support.",
+        
+        "Resources and interview guides will be available after your cohort completion or as part of our stand-alone product offerings. Stay tuned for updates!",
+        
+        "Yes, we offer flexible payment plans to make our programs accessible to everyone. Details can be found on the payment section of the cohort page.",
+        
+        "We offer refunds within a certain time frame before the cohort begins. Please refer to our refund policy for more details.",
+        
+        "You can reach out to our support team via email at support@productspace.com or through our contact form on the website.",
+      ];
+      
 
-    const contents = [
-        "A seemingly elegant design can quickly begin to bloat with unexpected content or break under the weight of actual activity. Fake data can ensure a nice looking layout but it doesn&apos;t reflect what a living, breathing application must endure. Real data does.",
-        "Content for price...",
-        "Content for next cohort...",
-        "Content for certificate...",
-        "Content for alumni..."
-    ];
-
-    const handleToggle = (index) => {
+      const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
-    };
+      };
+    
+      const showMoreQuestions = () => {
 
-    return (
+        setVisibleCount(questions.length);
+      };
+      const showLessQuestions = () => {
+        setVisibleCount(len);
+      };
+    
+      return (
         <div className='flex flex-col gap-2'>
-            {questions.map((question, index) => (
-                <DropdownItem
-                    key={index}
-                    question={question}
-                    content={contents[index]}
-                    isOpen={openIndex === index}
-                    onClick={() => handleToggle(index)}
-                />
-            ))}
+          {questions.slice(0, visibleCount).map((question, index) => (
+            <DropdownItem
+              key={index}
+              question={question}
+              content={contents[index]}
+              isOpen={openIndex === index}
+              onClick={() => handleToggle(index)}
+            />
+          ))}
+    
+          {flag && visibleCount < questions.length ? (
+            <Link to={"/faq"}
+              onClick={showMoreQuestions}
+              className='mt-4 text-blue-500 hover:underline text-center'
+            >
+              Show More Questions
+            </Link>
+          ) : (
+            <div></div>
+          )}
         </div>
-    );
+      );
 };
 
 export default DropdownList;

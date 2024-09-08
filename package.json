@@ -12,9 +12,11 @@
   "dependencies": {
     "@fontsource/hind-madurai": "^5.0.14",
     "@fontsource/montserrat": "^5.0.19",
+    "isotope-layout": "^3.0.6",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
     "react-router-dom": "^6.26.1",
     "react-toastify": "^10.0.5",
     "zod": "^3.23.8"

@@ -1,6 +1,6 @@
+import DropdownList from "../components/DropdownList";
 
-import DropdownList from './DropdownList';
-const Faq = () => {
+const FaqPage = () => {
   return (
     <div className="flex flex-col bg-white pb-40 ">
       <div className="py-5 lg:py-8">
@@ -10,10 +10,10 @@ const Faq = () => {
       </div>
 
       <div className="flex justify-between px-4 lg:px-20 gap-4">
-        <DropdownList len={5} flag={1} />
+        <DropdownList len={13} flag={0} />
       </div>
     </div>
   );
 };
 
-export default Faq;
+export default FaqPage;

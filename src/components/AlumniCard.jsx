@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import chevron from "../assets/chevron-double.svg";
 
 const AlumniCard = ({
@@ -7,11 +8,13 @@ const AlumniCard = ({
   prevPost,
   curCompany,
   curPost,
+  testimonial,
 }) => {
+
   return (
-    <div className="w-[320px] rounded-2xl bg-white p-2">
+    <div className="w-[320px] h-[540px] rounded-2xl bg-white p-2">
       <div className="relative">
-        <img src={profile} alt="" className="rounded-lg" />
+        <img src={profile} alt="" className="rounded-lg w-full h-66 object-fit" />
         <div className="absolute bottom-1.5 left-2.5">
           <p className="text-lg font-bold text-white">{name}</p>
         </div>
@@ -27,7 +30,7 @@ const AlumniCard = ({
           <img src={chevron} alt="" />
         </div>
 
-        <div className="after w-[44%] flex justify-end">
+        <div className="after w-[44%] flex">
           <div>
             <div className="text-[16px] font-semibold">{curCompany}</div>
             <div className="text-xs">{curPost}</div>
@@ -35,11 +38,9 @@ const AlumniCard = ({
         </div>
       </div>
 
-      <div className="text-[14px] flex items-center text-center pt-4">
-        Dolores in enim cumque et. Voluptatem voluptas accusamus qui tempore vel
-        incidunt repellat. Molestiae quia ea. Voluptatem voluptas accusamus qui
-        tempore vel incidunt repellat. Molestiae quia ea.
-      </div>
+      <div className="text-[14px] flex flex-col items-center text-center pt-4">
+      {testimonial}
+    </div>
     </div>
   );
 };

@@ -77,6 +77,10 @@ const CaseStudies1 = () => {
         ))}
       </div>
 
+      <div className="hidden lg:flex justify-center text-[16px] text-[#FF559E] underline my-3">
+        <button>Check out more Case Studies</button>
+      </div>
+
       <div className="lg:hidden">
         {/* Display the Selected Box */}
         {selectedBox !== null && (
@@ -118,7 +122,7 @@ const CaseStudies1 = () => {
               onClick={() => setSelectedBox(index)}
               className={`flex-shrink-0 transition-all duration-500 ease-in-out h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-white rounded-xl flex items-end justify-start ${
                 index === selectedBox
-                  ? "border-2 border-white h-[110px] w-[110px] scale-110 shadow-[0_6px_1px_rgba(0,0,0,0.6)]"
+                  ? "border-2 border-white h-[110px] w-[110px] scale-110 shadow-[0_6px_1px_rgba(151,71,255,0.5)]"
                   : ""
               }`}
               style={{
@@ -134,6 +138,10 @@ const CaseStudies1 = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="lg:hidden flex justify-center text-[16px] text-[#FF559E] underline my-6">
+        <button>Check out more Case Studies</button>
       </div>
     </div>
   );

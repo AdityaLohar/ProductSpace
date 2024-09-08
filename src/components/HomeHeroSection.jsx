@@ -1,8 +1,31 @@
 import CircleFlipGrid from "./CircleFlipGrid";
 import bgImage from "../assets/title-bg.png";
 import fromBg from "../assets/from-bg.png";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaTimes } from "react-icons/fa";
 
 const HomeHeroSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleModal = () => {
+    if (!isOpen) {
+      setIsOpen(true);
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      setIsVisible(false);
+      setTimeout(() => setIsOpen(false), 300);
+    }
+  };
+  
+  const handleSubmit = () => {
+    toast.success("Enrolled sucessfully!");
+    setIsVisible(false);
+    setTimeout(() => setIsOpen(false), 300); 
+  };
+
   return (
     <div className="mx-0 lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-24 lg:gap-4">
       <div className="w-full lg:w-1/2 px-6 lg:px-0">
@@ -53,7 +76,10 @@ const HomeHeroSection = () => {
         </div>
 
         <div className="mt-8 font-semibold text-sm lg:text-lg">
-          <button className="text-[18px] w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 lg:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
+          <button
+            onClick={toggleModal}
+            className="text-[18px] w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 lg:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
+          >
             Enroll Now!
           </button>
         </div>
@@ -62,6 +88,91 @@ const HomeHeroSection = () => {
       <div className="hidden lg:flex w-full md:w-3/4 lg:w-1/2 flex justify-center">
         <CircleFlipGrid />
       </div>
+
+      {/* Modal Form */}
+      <div className="relative">
+        {/* Modal */}
+        {isOpen && (
+          <>
+            {/* Modal overlay */}
+            <div
+              className="fixed inset-0 bg-black bg-opacity-50 z-50"
+              onClick={toggleModal}
+            ></div>
+
+            {/* Modal container */}
+            <div
+              className={`fixed inset-0 z-50 flex justify-center items-center transition-all duration-300 ease-out ${
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
+              }`}
+            >
+              {/* Form content */}
+              <div className="bg-white p-12 rounded-3xl shadow-lg relative w-[300px]  custom-3:w-[400px] lg:w-[500px] transform transition-transform duration-300 ease-out">
+                {/* Close button */}
+                <button
+                  onClick={toggleModal}
+                  className="absolute top-4 right-5 text-gray-500 hover:text-gray-700"
+                >
+                  <FaTimes size={20} />
+                </button>
+
+                {/* Form */}
+                <form>
+                  <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">PM Fellowship Enrolment</h2>
+                  <h3 className="text-[14px] md:text-[16px] mb-4 text-center">Product Portfolio | 1-1 Mentorship | Interview Prep | Placement Assistance - <span className="font-bold">All at one place</span></h3>
+
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
+                      placeholder="Enter your name*"
+                      required
+                    />
+                  </div>
+
+                  <div className="mb-4">
+                    <input
+                      type="tel"
+                      className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
+                      placeholder="Your Mobile Number*"
+                      required
+                    />
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <button
+                      type="submit"
+                      onClick={handleSubmit}
+                      className="text-[14px] lg:text-[20px] bg-blue-700 text-white p-2 md:p-4 rounded-lg hover:bg-blue-600"
+                    >
+                      Enroll Now
+                    </button>
+                  <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
+                    <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
+                  </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+        
+
+      <ToastContainer
+                className="w-60 text-sm md:w-80"
+                position="top-center"
+                autoClose={3000}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
+
     </div>
   );
 };
