@@ -2,7 +2,7 @@ import CircleFlipGrid from "./CircleFlipGrid";
 import bgImage from "../assets/title-bg.png";
 import fromBg from "../assets/from-bg.png";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaTimes } from "react-icons/fa";
 
@@ -19,11 +19,11 @@ const HomeHeroSection = () => {
       setTimeout(() => setIsOpen(false), 300);
     }
   };
-  
+
   const handleSubmit = () => {
     toast.success("Enrolled sucessfully!");
     setIsVisible(false);
-    setTimeout(() => setIsOpen(false), 300); 
+    setTimeout(() => setIsOpen(false), 300);
   };
 
   return (
@@ -118,8 +118,14 @@ const HomeHeroSection = () => {
 
                 {/* Form */}
                 <form>
-                  <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">PM Fellowship Enrolment</h2>
-                  <h3 className="text-[14px] md:text-[16px] mb-4 text-center">Product Portfolio | 1-1 Mentorship | Interview Prep | Placement Assistance - <span className="font-bold">All at one place</span></h3>
+                  <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
+                    PM Fellowship Enrolment
+                  </h2>
+                  <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
+                    Product Portfolio | 1-1 Mentorship | Interview Prep |
+                    Placement Assistance -{" "}
+                    <span className="font-bold">All at one place</span>
+                  </h3>
 
                   <div className="mb-4">
                     <input
@@ -147,32 +153,16 @@ const HomeHeroSection = () => {
                     >
                       Enroll Now
                     </button>
-                  <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
-                    <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
+                    <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
+                      <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
+                    </div>
                   </div>
-                  </div>
-
                 </form>
               </div>
             </div>
           </>
         )}
       </div>
-        
-
-      <ToastContainer
-                className="w-60 text-sm md:w-80"
-                position="top-center"
-                autoClose={3000}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-              />
-
     </div>
   );
 };
