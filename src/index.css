@@ -57,7 +57,7 @@ body {
   display: flex;
   width: 200%;
   animation: scrollHorizontal linear infinite;
-  animation-duration: 400s; 
+  animation-duration: 40s; 
 }
 
 .scroll-item {
