@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg ">
-      <div className="flex justify-between items-center px-[10px] md:px-[80px] lg:px-[120px] py-[15px] xl:mx-auto max-w-screen-2xl font-hind">
+      <div className="flex justify-between w-full items-center px-[10px] md:px-[80px] lg:px-[120px] py-[15px] custom-12:px-[0px] xl:mx-auto max-w-screen-2xl font-hind">
         <div className="hidden lg:block font-semibold text-[23px] pb-1 font-serif">
           Product <span className="text-[#21C1F3]">Space</span>
         </div>
@@ -141,9 +141,6 @@ const Navbar = () => {
           <a href="#" className="hover:underline text-[18px]">
             Resources
           </a>
-          <div className="rounded-full bg-gray-100 p-3">
-            <img src={profilePic} alt="profile" className="h-5 w-5" />
-          </div>
         </div>
       {/* )} */}
     </div>

@@ -4,11 +4,11 @@ import fromBg from "../assets/from-bg.png";
 
 const HomeHeroSection = () => {
   return (
-    <div className=" mx-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-24 lg:gap-4">
+    <div className="mx-0 lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-24 lg:gap-4">
       <div className="w-full lg:w-1/2 px-6 lg:px-0">
         <p
           className="font-sans text-[17px] text-transparent font-semibold ml-0 sm:ml-1 md:text-[24px] pt-8 
-    custom-0:bg-[position:top_50%_left_29%] custom-1:bg-[position:top_50%_left_10%] custom-2:bg-[position:top_50%_left_17%] md:bg-[position:top_50%_left_0%]"
+    custom-0:bg-[position:top_50%_left_3%] custom-1:bg-[position:top_50%_left_14%] custom-2:bg-[position:top_50%_left_21%] md:bg-[position:top_50%_left_0%]"
           style={{
             backgroundImage: `url(${fromBg})`,
             backgroundSize: "110px 50px", // Adjust the background to fit the text
@@ -53,7 +53,7 @@ const HomeHeroSection = () => {
         </div>
 
         <div className="mt-8 font-semibold text-sm lg:text-lg">
-          <button className="w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 lg:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
+          <button className="text-[18px] w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 lg:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
             Enroll Now!
           </button>
         </div>

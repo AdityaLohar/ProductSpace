@@ -22,12 +22,16 @@ const AlumniCard = ({
           <div className="text-[16px] font-semibold">{prevCompany}</div>
           <div className="text-xs">{prevPost}</div>
         </div>
+
         <div className="flex flex-col items-center w-[12%] ">
           <img src={chevron} alt="" />
         </div>
-        <div className="after w-[44%] ">
-          <div className="text-[16px] font-semibold">{curCompany}</div>
-          <div className="text-xs">{curPost}</div>
+
+        <div className="after w-[44%] flex justify-end">
+          <div>
+            <div className="text-[16px] font-semibold">{curCompany}</div>
+            <div className="text-xs">{curPost}</div>
+          </div>
         </div>
       </div>
 

@@ -23,15 +23,15 @@ const CaseStudies1 = () => {
   return (
     <div className="flex flex-col bg-[#F1E6FF] md:py-8 px-4 md:px-10 xl:px-20">
       <div className="py-8">
-        <div className="text-[28px] lg:text-[44px] font-bold text-center">
+        <div className="text-[28px] lg:text-[44px] font-bold text-center font-sans">
           Product Tear-down & Case Studies
         </div>
-        <div className="text-[14px] lg:text-sm text-center text-gray-700 font-medium">
+        <div className="text-[14px] lg:text-sm text-center text-gray-700 font-medium py-1">
           Dive into Case Studies that Drive Product Innovation
         </div>
       </div>
 
-      <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-3 xl:gap-4 2xl:gap-5 w-full p-4 relative overflow-hidden">
+      <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-4 lg:gap-7 w-full p-4 relative overflow-hidden">
         {boxes.map((box, index) => (
           <div
             key={index}
@@ -57,7 +57,7 @@ const CaseStudies1 = () => {
 
             {selectedBox === index && (
               <div className="absolute top-[12%] lg:top-[25%] xl:top-[23%] 2xl:top-[30%] lg:left-0 w-full h-full flex items-center justify-center">
-                <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind">
+                <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-4">
                   <div className="text-[24px] md:text-[18px] xl:text-[24px] pr-4">
                     Improving {box.title} Viewing Experience
                   </div>
@@ -81,7 +81,7 @@ const CaseStudies1 = () => {
         {/* Display the Selected Box */}
         {selectedBox !== null && (
           <div
-            className="mx-auto w-full h-[250px] custom-1:h-[300px] custom-2:h-[400px] custom-3:h-[510px] custom-3:w-[520px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between overflow-hidden transition-all duration-500 ease-in-out"
+            className="mx-auto w-full h-[300px] custom-1:h-[300px] custom-2:h-[450px] custom-3:h-[510px] custom-3:w-[520px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between overflow-hidden transition-all duration-500 ease-in-out"
             style={{
               backgroundImage: `url(${boxes[selectedBox].image})`,
               backgroundSize: "cover",
@@ -94,8 +94,8 @@ const CaseStudies1 = () => {
                 {boxes[selectedBox].title}
               </div>
             </div>
-            <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind">
-              <div className="text-[20px] md:text-[24px] pr-4">
+            <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-2">
+              <div className="text-[20px] md:text-[24px] font-semibold pr-4">
                 Improving {boxes[selectedBox].title} Viewing Experience
               </div>
               <div className="text-[14px] md:text-[16px] font-normal pr-4">
@@ -118,7 +118,7 @@ const CaseStudies1 = () => {
               onClick={() => setSelectedBox(index)}
               className={`flex-shrink-0 transition-all duration-500 ease-in-out h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-white rounded-xl flex items-end justify-start ${
                 index === selectedBox
-                  ? "border-2 border-white h-[110px] w-[110px] scale-110"
+                  ? "border-2 border-white h-[110px] w-[110px] scale-110 shadow-[0_6px_1px_rgba(0,0,0,0.6)]"
                   : ""
               }`}
               style={{

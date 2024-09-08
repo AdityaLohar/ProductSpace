@@ -63,14 +63,14 @@ const mentors = [
   },
 ];
 
-const MeetMentors = () => {
+const MeetMentors = ({ bgColor }) => {
   return (
-    <div className="flex flex-col bg-[#AEECFF] pb-10 ">
+    <div className={`flex flex-col pb-10 `} style={{ backgroundColor: bgColor }} >
       <div className="py-5 lg:py-10">
         <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans">
           Meet our Mentors
         </div>
-        <div className="text-[14px] lg:text-[17px] text-center text-gray-700 font-medium px-4 xl:px-60">
+        <div className="text-[14px] lg:text-[17px] text-center text-gray-700 font-medium px-4 xl:px-60 py-1">
           <p className="lg:hidden">
             A sneak peak into what you will learn in our 10-week curriculum. You
             will have to commit to investing 6 to 8 hours of dedicated time to

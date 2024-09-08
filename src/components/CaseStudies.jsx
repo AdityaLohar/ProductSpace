@@ -31,7 +31,7 @@ const CaseStudies = () => {
         </div>
       </div>
 
-      <div className="hidden lg:grid grid-cols-5 gap-2 w-full h-full p-4 relative">
+      <div className="hidden lg:grid grid-cols-5 gap-3 w-full h-full p-4 relative">
         {boxes.map((box, index) => (
           <div
             key={index}
