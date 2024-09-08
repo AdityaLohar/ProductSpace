@@ -3,12 +3,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { z } from "zod";
 
-const schema = z
-  .object({
-    email: z.string().email("Invalid email address"),
-  })
+const schema = z.object({
+  email: z.string().email("Invalid email address"),
+});
 
-const NewsLetter = () => {  
+const NewsLetter = () => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = () => {
@@ -19,15 +18,14 @@ const NewsLetter = () => {
       if (!result.success) {
         toast.error("Invalid Email");
         return;
-      } 
-      else {
+      } else {
         toast.success("Subscribed sucessfully!");
         console.log("Valid Data", result.data);
       }
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <div className="flex flex-col bg-white pb-5 lg:pb-10">
@@ -36,14 +34,23 @@ const NewsLetter = () => {
           Subscribe to our Newsletter
         </div>
         <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium px-2 md:px-20 lg:px-60 py-1">
-          <p>Subscribe to our Newsletter to stay up-to-date on last courses, news and discounts from us.</p>
+          <p>
+            Subscribe to our Newsletter to stay up-to-date on last courses, news
+            and discounts from us.
+          </p>
         </div>
       </div>
 
       <div className="flex justify-center items-center mt-0 lg:mt-10 px-4">
         <div className="flex justify-between items-center bg-[#D7F5FF] rounded-full p-1 lg:p-2 mx-2 lg:mx-0 w-full lg:w-3/5">
-          <input type="text" placeholder="Enter your Email Id" className="px-3 rounded-full text-gray-800 w-1/2 lg:w-2/3 placeholder-black bg-[#D7F5FF] focus:outline-none" onChange={(e) => setEmail(e.target.value)} />
-          <button className="bg-[#21C1F3] text-white py-2 px-3 lg:px-3 rounded-full text-[16px] lg:text-base"
+          <input
+            type="text"
+            placeholder="Enter your Email Id"
+            className="px-3 rounded-full text-gray-800 w-1/2 lg:w-2/3 placeholder-black bg-[#D7F5FF] focus:outline-none"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button
+            className="bg-[#21C1F3] text-white py-2 px-3 lg:px-3 rounded-full text-[16px] lg:text-base"
             onClick={handleSubmit}
           >
             Subscribe Now
@@ -52,17 +59,17 @@ const NewsLetter = () => {
       </div>
 
       <ToastContainer
-                className="w-60 text-sm md:w-80"
-                position="top-center"
-                autoClose={3000}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-              />
+        className="fixed top-4 left-1/2 transform -translate-x-1/2 w-11/12 md:w-full max-w-[350px]"
+        position="top-center"
+        autoClose={3000}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };
