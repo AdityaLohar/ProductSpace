@@ -122,7 +122,7 @@ const CaseStudies1 = () => {
               onClick={() => setSelectedBox(index)}
               className={`flex-shrink-0 transition-all duration-500 ease-in-out h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-white rounded-xl flex items-end justify-start ${
                 index === selectedBox
-                  ? "border-2 border-white h-[110px] w-[110px] scale-110 shadow-[0_6px_1px_rgba(151,71,255,0.5)]"
+                  ? "border-2 border-white h-[110px] w-[110px] scale-110 shadow-[0_6px_1px_rgba(0,0,0,0.7)]"
                   : ""
               }`}
               style={{

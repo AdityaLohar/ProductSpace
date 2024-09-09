@@ -5,10 +5,8 @@ import Navbar from './components/Navbar'
 import '@fontsource/montserrat';
 import '@fontsource/hind-madurai';
 import PmFellowship from './pages/PmFellowship';
-import CircleAnimation from './pages/CircleAnimation';
-import ModalForm from './components/ModalForm';
-import DemoCase from './pages/DemoCase';
 import FaqPage from './pages/FaqPage';
+import CircleAnimation from './pages/CircleAnimation';
 
 function App() {
   return (
@@ -19,6 +17,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/faq' element={<FaqPage />} />
           <Route path='/pm' element={<PmFellowship />} />
+          {/* <Route path='/circle' element={<CircleAnimation />} /> */}
         </Routes>
       </Router>
     </div>
