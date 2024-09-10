@@ -15,6 +15,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@vitejs/plugin-react": "^4.3.1",
     "isotope-layout": "^3.0.6",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",
