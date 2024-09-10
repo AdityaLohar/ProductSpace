@@ -1,9 +1,9 @@
-import figma0 from "../assets/figma0.svg";
-import figma from "../assets/figma.svg";
-import figma1 from "../assets/figma1.svg";
-import figma2 from "../assets/figma2.svg";
-import figma3 from "../assets/figma3.svg";
-import figma4 from "../assets/figma4.svg";
+import figma from "../assets/figma-logo.svg";
+import miro from "../assets/miro-logo.svg";
+import moengage from "../assets/moengage-logo.svg";
+import notion from "../assets/notion-logo.svg";
+import jira from "../assets/jira-logo.svg";
+import postman from "../assets/postman-logo.svg";
 
 const ToolCard = ({logo, title}) => {
   return (
@@ -23,12 +23,12 @@ const HandsOnTools = () => {
         </div>
 
         <div className="grid gric-cols-3 lg:grid-cols-6">
-          <ToolCard logo={figma0} title={"Figma"} />
-          <ToolCard logo={figma} title={"Miro"} />
-          <ToolCard logo={figma1} title={"Moengage"} />
-          <ToolCard logo={figma2} title={"Notion"} />
-          <ToolCard logo={figma3} title={"JIRA"} />
-          <ToolCard logo={figma4} title={"Postman"} />
+          <ToolCard logo={figma} title={"Figma"} />
+          <ToolCard logo={miro} title={"Miro"} />
+          <ToolCard logo={moengage} title={"Moengage"} />
+          <ToolCard logo={notion} title={"Notion"} />
+          <ToolCard logo={jira} title={"JIRA"} />
+          <ToolCard logo={postman} title={"Postman"} />
         </div>
       </div>
     </div>
