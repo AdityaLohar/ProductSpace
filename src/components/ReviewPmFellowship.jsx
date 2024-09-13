@@ -228,13 +228,10 @@ const ReviewPmFellowship = () => {
         </div>
 
 
-          <div className="flex flex-col gap-2 justify-center items-center">
+          <div className="hidden :flex flex-col gap-2 justify-center items-center">
             <div className="flex justify-center text-[16px] font-semibold text-[#FF559E] underline my-3 w-fit">
               <button>Load More Success Stories</button>
-          </div>
-            <div className="flex justify-center text-[18px] font-semibold text-black bg-[#FEC923] w-fit px-12 py-3 rounded-full">
-              <button>Submit Your Review</button>
-          </div>
+            </div>
           </div>
       </div>
     </div>

@@ -148,7 +148,7 @@ const Navbar = () => {
           ref={navigationRef}
           className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
         >
-          <a href="#" className="hover:underline text-[18px]">
+          <a href="/" className="hover:underline text-[18px]">
             PM Fellowship
           </a>
           <a href="#" className="hover:underline text-[18px]">
