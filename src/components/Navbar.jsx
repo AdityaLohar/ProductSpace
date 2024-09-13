@@ -81,8 +81,8 @@ const Navbar = () => {
 
         <div className="hidden lg:flex space-x-8 items-center">
           <div className="hidden lg:flex space-x-6 xl:space-x-7 font-medium text-[18px]">
-            <a href="#" className="hover:underline flex items-center gap-1">
-              Courses
+            <a href="/pm" className="hover:underline flex items-center gap-1">
+              PM Fellowship
               <svg
                 className={`h-6 w-6 transition-transform duration-200 rounded-full ease-in-out`}
                 viewBox="0 0 20 20"
@@ -149,7 +149,7 @@ const Navbar = () => {
           className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
         >
           <a href="#" className="hover:underline text-[18px]">
-            Courses
+            PM Fellowship
           </a>
           <a href="#" className="hover:underline text-[18px]">
             Events

@@ -55,43 +55,91 @@ const LearningWithPace = () => {
   const [currentWeekIndex, setCurrentWeekIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWeekIndex(
-        (prevIndex) => (prevIndex + 1) % courseContent.length
-      );
-      setActiveIndex((prevIndex) => prevIndex + 1);
-    }, 3000); // Update every 3 seconds
+  const handleWeekChange = (weekIndex) => {
+    setCurrentWeekIndex(weekIndex);
+    setActiveIndex(weekIndex);
+  };
 
-    return () => clearInterval(interval);
-  }, []);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)"); // lg screen size is 1024px in TailwindCSS
+
+    const startInterval = () => {
+      const interval = setInterval(() => {
+        setCurrentWeekIndex(
+          (prevIndex) => (prevIndex + 1) % courseContent.length
+        );
+        setActiveIndex((prevIndex) => prevIndex + 1);
+      }, 3000); // Update every 3 seconds
+
+      return interval;
+    };
+
+    let interval;
+    if (mediaQuery.matches) {
+      interval = startInterval();
+    }
+
+    const handleResize = () => {
+      if (mediaQuery.matches && !interval) {
+        interval = startInterval();
+      } else if (!mediaQuery.matches && interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => {
+      clearInterval(interval);
+      mediaQuery.removeEventListener("change", handleResize);
+    };
+  }, [courseContent]);
 
   const { title, desc, imgs, week } = courseContent[currentWeekIndex];
 
   return (
-    <div className="bg-[#FFF1D4] pb-16 px-1 md:px-10 xl:px-32 pt-16 font-hind">
-      <div className="flex flex-col lg:flex-row py-5 px-20 lg:py-12 justify-between gap-2 bg-white rounded-3xl">
+    <div className="bg-[#FFF1D4] pb-16 px-4 md:px-10 xl:px-32 pt-8 md:pt-12 lg:pt-16 font-hind">
+      <div className="flex flex-col lg:flex-row py-4 px-4 md:px-8 lg:px-20 lg:py-12 justify-between gap-2 bg-white rounded-3xl">
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-3 w-full">
-            <div className="text-[28px] lg:text-[40px] font-bold text-start font-sans">
+            <div className="text-[28px] lg:text-[40px] font-bold text-center lg:text-start font-sans">
               Learning with a pace
             </div>
-            <div className="text-[14px] text-start">
+            <div className="text-[16px] text-center lg:text-start">
               A sneak peak into what you will learn in our 10-week curriculum.
               You will have to commit to investing 6 to 8 hours of dedicated
               time to this program every week.
             </div>
           </div>
 
+          <div className="flex gap-2 justify-start overflow-x-scroll invisible-scrollbar p-1 bg-[#F6F6F6] rounded-lg lg:hidden mt-4">
+            {courseContent.map((content, index) => (
+              <button
+                key={index}
+                onClick={() => handleWeekChange(index)}
+                className={`px-4 py-2 whitespace-nowrap font-medium rounded-lg ${
+                  activeIndex === index
+                    ? "bg-[#FFA600] text-white text-[16px]"
+                    : "text-black"
+                }`}
+              >
+                Week {content.week}
+              </button>
+            ))}
+          </div>
+
           <div className="space-y-7 my-8 text-[18px]">
             <div>
-              <h2 className="font-sans text-[24px] font-semibold ">{title}</h2>
+              <h2 className="font-sans text-[24px] font-semibold text-center">
+                {title}
+              </h2>
             </div>
             <div className="space-y-4">
               {desc.map((point, index) => (
                 <div
                   key={index}
-                  className="text-[15px] flex gap-2 items-center"
+                  className="text-[15px] flex gap-2 items-start lg:items-center"
                 >
                   <img src={tick} alt="tick" />
                   {point}
@@ -103,16 +151,16 @@ const LearningWithPace = () => {
           <div className="space-y-3 border border-2 rounded-2xl p-6 max-w-max">
             <div className="font-medium">Case Studies</div>
             <div className="flex gap-4">
-            {imgs.map((logo, index) => (
-              <div key={index}>
-                <img src={logo} alt="" className="w-24 h-16 rounded-md" />
-              </div>
+              {imgs.map((logo, index) => (
+                <div key={index}>
+                  <img src={logo} alt="" className="w-24 h-16 rounded-md" />
+                </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="flex items-center w-2/5 gap-6 px-16">
+        <div className="hidden lg:flex items-center w-2/5 gap-6 px-16">
           <div className="w-full h-auto">
             <div className="ml-16">
               <div className="relative w-[25vw] h-[25vw] rounded-full">

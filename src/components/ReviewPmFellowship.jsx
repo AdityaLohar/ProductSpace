@@ -2,6 +2,7 @@ import comma from "../assets/inverted-comma.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
+import { useState } from "react";
 
 const StarRating = ({ rating }) => {
   // Ensure rating is a number and clamp it between 0 and 5
@@ -40,12 +41,12 @@ const ReviewCard = ({ rating, title, desc, username, img, company, post }) => {
         <div className="font-bold">{title}</div>
         <div className="">{desc}</div>
         
-        <div className="absolute bottom-[-15px] left-[45%]">
-          <img src={img} alt="" className="w-8 h-8 rounded-full" />
+        <div className="absolute bottom-[-18px] left-[45%]">
+          <img src={img} alt="" className="w-10 h-10 rounded-full border border-[3px] border-white" />
         </div>
       </div>
 
-      <div className="flex flex-col items-center pt-4 pb-8">
+      <div className="flex flex-col items-center pt-6 pb-8">
         <div className="text-center">
           <p className="text-[14px]">
             {post} at {company}
@@ -56,6 +57,48 @@ const ReviewCard = ({ rating, title, desc, username, img, company, post }) => {
     </div>
   );
 };
+
+const ReviewCardSmall = ({ rating, title, desc, username, img, company, post }) => {
+  const [expand, setExpand] = useState(desc.length <= 340);
+
+  return (
+    <div className="text-[16px] w-[80vw] md:w-[50vw]"> {/* Set width to 100vw */}
+      <div className="flex flex-col relative gap-2 bg-white shadow-lg rounded-lg p-4 py-6 border border-1 border-[rgba(0,0,0,0)] hover:border-[#00B5CE]">
+        <div>
+          <img src={comma} alt="" />
+        </div>
+        <div className="text-yellow-500">
+          <StarRating rating={rating} />
+        </div>
+        <div className="font-bold">{title}</div>
+        <div>
+          <p>
+            {expand ? (desc) : (desc.slice(0, 340))}
+          </p>
+          <button 
+            onClick={() => setExpand(!expand)} 
+            className="text-blue-600 bg-none border-none cursor-pointer py-4"
+          >
+            {desc.length > 340 && (expand ? "Read less" : "Read more")}
+          </button>
+        </div>
+        <div className="absolute bottom-[-18px] left-[45%]">
+          <img src={img} alt="" className="w-10 h-10 rounded-full border border-[3px] border-white" />
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center pt-6 pb-6">
+        <div className="text-center">
+          <p className="text-[14px]">
+            {post} at {company}
+          </p>
+          <p className="font-bold">{username}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 const reviews = [
   {
@@ -144,16 +187,16 @@ const reviews = [
 
 const ReviewPmFellowship = () => {
   return (
-    <div className="flex flex-col bg-[#D7F5FF] pb-10 px-1 md:px-10 xl:px-32">
+    <div className="flex flex-col bg-[#D7F5FF] pb-10 pt-4 lg:pt-0 px-4 md:px-10 xl:px-32">
       <div className="py-5 lg:py-12">
-        <div className="text-[16px] text-start text-[#00B5CE] font-medium px-4">
+        <div className="text-[16px] text-[#00B5CE] text-center md:text-start  font-medium px-4">
           <p>Product Space Reviews </p>
         </div>
-        <div className="text-[28px] lg:text-[40px] font-bold px-2 text-start font-sans px-4">
+        <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center md:text-start font-sans px-4">
           We have placed 300+ students like you
         </div>
         
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 pt-8">
+        <div className="hidden lg:block lg:columns-3 gap-6 space-y-6 pt-8">
           {reviews.map((review, index) => (
             <ReviewCard
               key={index}
@@ -167,6 +210,32 @@ const ReviewPmFellowship = () => {
             />
           ))}
         </div>
+
+        <div className="pm-reviews-scrollbar flex overflow-x-scroll lg:hidden gap-6 pt-8">
+          {reviews.map((review, index) => (
+            <div className="min-w-[80vw] md:min-w-[50vw]" key={index}>
+              <ReviewCardSmall
+                rating={review.rating}
+                title={review.title}
+                desc={review.desc}
+                username={review.username}
+                img={review.img}
+                company={review.company}
+                post={review.post}
+              />
+            </div>
+          ))}
+        </div>
+
+
+          <div className="flex flex-col gap-2 justify-center items-center">
+            <div className="flex justify-center text-[16px] font-semibold text-[#FF559E] underline my-3 w-fit">
+              <button>Load More Success Stories</button>
+          </div>
+            <div className="flex justify-center text-[18px] font-semibold text-black bg-[#FEC923] w-fit px-12 py-3 rounded-full">
+              <button>Submit Your Review</button>
+          </div>
+          </div>
       </div>
     </div>
   );

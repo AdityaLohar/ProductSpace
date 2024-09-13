@@ -46,6 +46,12 @@ body {
 .mentor-scrollbar::-webkit-scrollbar {
   height: 0px; /* Height of the horizontal scrollbar */
 }
+.pm-reviews-scrollbar::-webkit-scrollbar {
+  height: 0px; /* Height of the horizontal scrollbar */
+}
+.invisible-scrollbar::-webkit-scrollbar {
+  height: 0px; /* Height of the horizontal scrollbar */
+}
 
 .scroll-container {
   overflow: hidden;

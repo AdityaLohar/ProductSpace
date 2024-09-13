@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Alumini from "../components/Alumni";
 import Benefits from "../components/Benefits";
 import MeetMentors from "../components/MeetMentors";
@@ -10,8 +11,29 @@ import CaseStudies1 from "../components/CaseStudies1";
 import BottomBar from './../components/BottomBar';
 
 const Home = () => {
+  const [showBottomBar, setShowBottomBar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const screenHeight = window.innerHeight;
+
+      if (scrollPosition > (4*screenHeight/5)) {
+        setShowBottomBar(true);
+      } else {
+        setShowBottomBar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className=" font-hind xl:flex xl:flex-col items-center">
+    <div className="font-hind xl:flex xl:flex-col items-center">
       <div className="bg-transparent py-5 max-w-screen-xl lg:py-16">
         <HomeHeroSection />
       </div>
@@ -32,12 +54,9 @@ const Home = () => {
         <Faq />
       </div>
 
-      <BottomBar />
+      {showBottomBar && <BottomBar />}
     </div>
   );
 };
 
 export default Home;
-
-
-
