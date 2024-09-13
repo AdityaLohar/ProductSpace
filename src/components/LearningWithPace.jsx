@@ -131,7 +131,7 @@ const LearningWithPace = () => {
 
           <div className="space-y-7 my-8 text-[18px]">
             <div>
-              <h2 className="font-sans text-[24px] font-semibold text-center">
+              <h2 className="font-sans text-[24px] font-semibold text-center lg:text-start">
                 {title}
               </h2>
             </div>
