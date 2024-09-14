@@ -51,11 +51,11 @@ const Home = () => {
         <CaseStudies1 />
         <Alumini />
         <Benefits bgColor={"#F1E6FF"} />
-        <NewsLetter />
+        {/* <NewsLetter /> */}
         <Faq />
       </div>
 
-      <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
+      <div className="w-full max-w-screen-2xl">
         <Footer />
       </div>
 
