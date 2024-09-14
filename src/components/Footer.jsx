@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className="font-semibold pb-2 text-[16px]">
                     <p>PRODUCT SPACE</p>
                 </div>
-                <div className="text-gray-400 text-[16px] pb-2 md:pb-2">
+                <div className="text-gray-400 pb-2 md:pb-2">
                     <p>A Great Place to Upskill</p>
                 </div>
             </div>
