@@ -55,7 +55,7 @@ const Home = () => {
         <Faq />
       </div>
 
-      <div className="w-full max-w-screen-2xl">
+      <div className="w-full bg-black lg:pb-16 max-w-screen-2xl">
         <Footer />
       </div>
 
