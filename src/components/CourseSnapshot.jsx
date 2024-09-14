@@ -1,11 +1,12 @@
 import tick from "../assets/tick-green.svg";
+import courseSnapshotVideo from "../assets/course-snapshot-video.mp4";
 
 const VideoContent = () => {
   return (
     <div>
-      <div className="w-full aspect-square rounded-[10%] overflow-hidden bg-black">
-        <video className="w-full h-full object-cover">
-          <source src="video-source.mp4" type="video/mp4" />
+      <div className="w-full aspect-square rounded-[10%] overflow-hidden">
+        <video className="w-full h-full object-cover" controls>
+          <source src={courseSnapshotVideo} type="video/mp4"/>
           Your browser does not support the video tag.
         </video>
       </div>

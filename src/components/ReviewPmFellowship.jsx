@@ -39,16 +39,16 @@ const ReviewCard = ({ rating, title, desc, username, img, company, post }) => {
           <StarRating rating={rating} />
         </div>
         <div className="font-bold">{title}</div>
-        <div className="">{desc}</div>
+        <div className="pb-6">{desc}</div>
         
-        <div className="absolute bottom-[-18px] left-[45%]">
-          <img src={img} alt="" className="w-10 h-10 rounded-full border border-[3px] border-white" />
+        <div className="absolute bottom-[-36px] left-[40%]">
+          <img src={img} alt="" className="w-[72px] h-[72px] rounded-full border border-[3px] border-white" />
         </div>
       </div>
 
-      <div className="flex flex-col items-center pt-6 pb-8">
+      <div className="flex flex-col items-center pt-10 pb-8">
         <div className="text-center">
-          <p className="text-[14px]">
+          <p className="text-[16px]">
             {post} at {company}
           </p>
           <p className="font-bold">{username}</p>
@@ -103,97 +103,106 @@ const ReviewCardSmall = ({ rating, title, desc, username, img, company, post }) 
 const reviews = [
   {
     rating: 5,
-    title: "Excellent Service",
-    desc: "I had an amazing experience with this service. The support team was incredibly helpful and responsive. Highly recommend to anyone looking for top-notch service.",
-    username: "John Doe",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+    title: "You HAVE to do this. The insights are 🔥",
+    desc: "Product Space completely shifted my perspective about my career. The conversations with my coach constantly inspired new ways of thinking & gave me the confidence to dream BIG.",
+    username: "Harkrishan Singh",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQFuaisZpsSTjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705161505684?e=1731542400&v=beta&t=aThtTNNdBqxkVgYOfBP394wH95SeA8T1ZANwJZ1s_18",
     company: "Tech Corp",
-    post: "Software Engineer",
+    post: "Senior Product Manager",
   },
   {
     rating: 4,
     title: "Great Quality",
-    desc: "Product Space completely shifted my perspective about my career. The conversations with my coach inspired new ways of thinking and gave me the confidence to dream big.",
-    username: "Jane Smith",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
-    company: "Creative Labs",
-    post: "Product Designer",
+    desc: "Grateful to Product Space for the in-depth knowledge and skills in product management. The practical experience and 1:1 support were exceptional",
+    username: "Aditya Mandothia",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGGLNTiBlHcrw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710504658899?e=1731542400&v=beta&t=Bc1TFPzuuo0uEN4fuf-1tdXKDwYl3OF2yW31-PwAQIo",
+    company: "Cinestox",
+    post: "Product Management Intern",
   },
   {
     rating: 3.5,
     title: "Amazing Experience",
-    desc: "A couple of years into my first job, I knew product management was the right fit for me. This program helped solidify that decision and gave me the tools I needed to succeed.",
-    username: "Bob Brown",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
-    company: "FinTech",
-    post: "Analyst",
+    desc: "The mentors at Product Space went above and beyond to help me achieve my goals. Their guidance was crucial to my success.",
+    username: "Nishant Sinja",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQFuaisZpsSTjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705161505684?e=1731542400&v=beta&t=aThtTNNdBqxkVgYOfBP394wH95SeA8T1ZANwJZ1s_18",
+    company: "CreditAccess Grameen Limited",
+    post: "Product Manager",
   },
   {
-    rating: 3,
+    rating: 4,
     title: "Good Support",
-    desc: "Decent service, but there’s room for improvement. The support was helpful, but I had some issues with response times.",
-    username: "Alice Johnson",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    company: "XYZ Corp",
-    post: "Consultant",
+    desc: "The mentorship at Product Space has been key to my growth as a Product Manager. The sessions, feedback, and mock interviews greatly enhanced my skills and confidence. I'm truly grateful for the unwavering support and belief in my potential. Special thanks to Akhil Yash Tiwari for his consistent guidance throughout our journey. Here's to ongoing growth and success! I highly recommend Product Space for anyone looking to refine their skills as a Product Manager.",
+    username: "Mrigaj Nirvan Goradia",
+    img: "https://media.licdn.com/dms/image/v2/D4D03AQGk2o03hDHZJg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700811766381?e=1731542400&v=beta&t=Tzw0dFdaveqGVCDC0J59IkxdCtpAntGombGD0so5dxA",
+    company: "Kaam",
+    post: "Product Manager",
   },
   {
     rating: 5,
     title: "Highly Recommend",
-    desc: "Would definitely recommend to friends! The experience was exceptional and provided great value for the money. Product Space completely shifted my perspective about my career. The conversations with my coach inspired new ways of thinking and gave me the confidence to dream big. Product Space completely shifted my perspective about my career. The conversations with my coach inspired new ways of thinking and gave me the confidence to dream big. Product Space completely shifted my perspective about my career. The conversations with my coach inspired new ways of thinking and gave me the confidence to dream big.",
-    username: "Charlie Lee",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
-    company: "Media House",
-    post: "Content Writer",
+    desc: "Grateful to Product Space and their mentors for upskilling me in Product Management and interview strategies. Highly recommend it for anyone looking to elevate their skills!",
+    username: "Anshul Agarwal",
+    img: "https://media.licdn.com/dms/image/v2/D4D03AQFb1RR6l5Nufg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1694013700834?e=1731542400&v=beta&t=X4wG_7rX198PAeNMDMT8Gjrgb-GvWMf8NkzosVLVbZw",
+    company: "My Sivi",
+    post: "Product Manager",
   },
   {
     rating: 4,
     title: "Very Satisfied",
-    desc: "I'm happy with the service provided. The program was comprehensive and offered great insights into the industry.",
-    username: "David Green",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
-    company: "StartUp",
-    post: "Founder",
+    desc: "I'm incredibly grateful to Product Space for their 1:1 mentorship. The personalized guidance and support I received truly transformed my career journey. The mentors at Product Space provided me with the skills and confidence I needed to succeed. I couldn’t have achieved this transition without their invaluable assistance!",
+    username: "Aryan Jaiswal",
+    img: "https://media.licdn.com/dms/image/v2/C4E03AQG_j9Ls8iygIA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1626771255085?e=1731542400&v=beta&t=jMNNAPrrttnDHspafglJ2JHJMA1g0RG4B2qRK9mp5Oc",
+    company: "Ind Money",
+    post: "Product Management Trainee",
   },
   {
     rating: 5,
     title: "Transformative Experience",
-    desc: "This program was a game-changer for me. It not only improved my skills but also boosted my confidence in my career path. Product Space completely shifted my perspective about my career. The conversations with my coach inspired new ways of thinking and gave me the confidence to dream big. Product Space completely shifted my perspective about my career. The conversations with my coach inspired new ways of thinking and gave me the confidence to dream big.",
-    username: "Emma White",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
-    company: "Innovate Inc.",
-    post: "Marketing Manager",
+    desc: "Product Space made learning truly worthwhile, starting from basics and building up to Tech for PM with hands-on tools and peer engagement. The live projects were a great experience, and the 1-on-1 mentorship was invaluable. Special thanks to Akhil Yash Tiwari for being the go-to person for all my doubts!",
+    username: "Jaydeep Prajapati",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQFDFdylPDq9Cw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719207899519?e=1731542400&v=beta&t=lDyr4Or3LiSEBLtIuI9ptYt6PvOZ7tMViqLs4gkTLIU",
+    company: "WiJungle",
+    post: "Product Manager Internship",
   },
   {
-    rating: 2,
-    title: "Needs Improvement",
-    desc: "The program did not meet my expectations. While some aspects were useful, overall it felt lacking in depth and support.",
-    username: "Oliver Black",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg",
-    company: "Business Solutions",
-    post: "Sales Executive",
+    rating: 5,
+    title: "Amazing ",
+    desc: "I would like to express my heartfelt gratitude to Akhil Yash Tiwari and the entire Product Space team. The exceptional learning resources and guidance I received were truly transformative. Your mentorship played a crucial role in upskilling me and helping me grow both personally and professionally. Thank you for the unwavering support and dedication.",
+    username: "Medhya Budhwar",
+    img: "https://media.licdn.com/dms/image/v2/D4D03AQH_pXGG_9D_kw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1693849888611?e=1731542400&v=beta&t=B710fpF3oSVoLYtGPBG3C6NeEgwneupn60Sa75vphMo",
+    company: "Swiggy",
+    post: "Product Management Consultant",
   },
   {
     rating: 5,
     title: "Fantastic Journey",
-    desc: "The journey through this program was fantastic. It provided me with valuable skills and insights that have been beneficial in my career.",
-    username: "Sophia Green",
-    img: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg",
-    company: "Tech Innovations",
-    post: "Product Manager",
+    desc: "Reflecting on my journey, it feels like just yesterday I started with uncertainty and doubt. I'm deeply grateful to my mentor, Akhil Yash Tiwari, and Product Space for their support and guidance, which were key to my growth and success.",
+    username: "Prashant Kumar",
+    img: "https://media.licdn.com/dms/image/v2/D4D03AQEFgVh9-d586A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1693849733017?e=1731542400&v=beta&t=KebkYAScNXHaDiKUEW0-EOQ8P7P9XmeXK9Pxz2wCRvA",
+    company: "Bento Labs",
+    post: "Product Management Intern",
   }
 ];
 
+// Dark Lavender: #E0C6FF
+// Medium Purple: #D3A4FF
+// Royal Purple: #B48DFF
+// Deep Violet: #9A6DFF
+// Dark Violet: #7C4DFF
+// Indigo: #5C2CFF
+
+// #7F4BFF (Darker)
+// #6A3BFF (Even Darker)
+// #5531CC (Deep Dark)
+// #4A28A8 (Very Deep Dark)
 
 const ReviewPmFellowship = () => {
   return (
-    <div className="flex flex-col bg-[#D7F5FF] pb-10 pt-4 lg:pt-0 px-4 md:px-10 xl:px-32">
+    <div className="flex flex-col bg-[#F7F0FF] pb-10 pt-4 lg:pt-0 px-4 md:px-10 xl:px-32">
+    {/* // <div className="flex flex-col bg-[#D7F5FF] pb-10 pt-4 lg:pt-0 px-4 md:px-10 xl:px-32"> */}
       <div className="py-5 lg:py-12">
-        <div className="text-[16px] text-[#00B5CE] text-center md:text-start  font-medium px-4">
-          <p>Product Space Reviews </p>
-        </div>
         <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center md:text-start font-sans px-4">
-          We have placed 300+ students like you
+          We have placed 300+ cohort members
         </div>
         
         <div className="hidden lg:block lg:columns-3 gap-6 space-y-6 pt-8">

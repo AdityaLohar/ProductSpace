@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg ">
+    <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg ">
       <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
             <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
                 <div className="text-black">
@@ -37,9 +37,9 @@ const Navbar = () => {
             </div>
         </div>
       <div className="flex justify-between w-full items-center px-[10px] md:px-[80px] lg:px-[120px] py-[15px] custom-12:px-[0px] xl:mx-auto max-w-screen-2xl font-hind">
-        <div className="hidden lg:block font-semibold text-[23px] pb-1 font-serif">
+        <a href="/" className="hidden lg:block font-semibold text-[23px] pb-1 font-serif">
           Product <span className="text-[#21C1F3]">Space</span>
-        </div>
+        </a>
 
         <div className="flex gap-4 items-center">
           <div className="lg:hidden">
@@ -83,18 +83,6 @@ const Navbar = () => {
           <div className="hidden lg:flex space-x-6 xl:space-x-7 font-medium text-[18px]">
             <a href="/pm" className="hover:underline flex items-center gap-1">
               PM Fellowship
-              <svg
-                className={`h-6 w-6 transition-transform duration-200 rounded-full ease-in-out`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
             </a>
             <a href="#" className="hover:underline flex items-center gap-1">
               Events
@@ -136,9 +124,9 @@ const Navbar = () => {
               Book a 1:1 Mentor Call
             </a>
           </button>
-          <button className="rounded-full bg-gray-100 p-3 ml-1">
+          {/* <button className="rounded-full bg-gray-100 p-3 ml-1">
             <img src={profilePic} alt="profile" className="h-5 w-5" />
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -148,7 +136,7 @@ const Navbar = () => {
           ref={navigationRef}
           className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
         >
-          <a href="/" className="hover:underline text-[18px]">
+          <a href="/pm" className="hover:underline text-[18px]">
             PM Fellowship
           </a>
           <a href="#" className="hover:underline text-[18px]">

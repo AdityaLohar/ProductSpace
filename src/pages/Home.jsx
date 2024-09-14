@@ -9,6 +9,7 @@ import Companies from "../components/Companies";
 import HomeHeroSection from "./../components/HomeHeroSection";
 import CaseStudies1 from "../components/CaseStudies1";
 import BottomBar from './../components/BottomBar';
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -49,9 +50,13 @@ const Home = () => {
         <Results />
         <CaseStudies1 />
         <Alumini />
-        <Benefits />
+        <Benefits bgColor={"#F1E6FF"} />
         <NewsLetter />
         <Faq />
+      </div>
+
+      <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
+        <Footer />
       </div>
 
       {showBottomBar && <BottomBar />}

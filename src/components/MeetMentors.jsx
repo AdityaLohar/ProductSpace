@@ -1,65 +1,66 @@
-import mentor1 from "../assets/pamit-mentor.jpg";
-import img1 from "../assets/magicbricks-logo.png";
+import magicbricks from "../assets/magicbricks-logo.png";
+import narayana from "../assets/narayana-health.svg";
+import microsoft from "../assets/microsoft.svg";
+import fedex from "../assets/fedex.svg";
+import reliance from "../assets/reliance.svg";
+import inmobi from "../assets/inmobi.svg";
 
-import mentor2 from "../assets/arun-mentor.png";
-import img2 from "../assets/microsoft-logo.png";
-
-import MentorCard from "./MentorCard";
+import MentorCard1 from "./MentorCard1";
 
 const mentors = [
   {
     id: 1,
-    profile: mentor1,
-    name: "Pamit Anand",
-    company: "Magicbricks",
-    post: "VP of Product",
-    linkedIn: "#",
-    img: img1,
+    profile: "https://media.licdn.com/dms/image/v2/C5603AQGZh1nhPJbd9A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1586993297319?e=1731542400&v=beta&t=cF6UVCHOY84ehfuuNzCb2qABr6lTtJH82qrQ753MaK4",
+    name: "Sonia Vora",
+    company: "Narayana Health",
+    post: "Head of Product",
+    linkedIn: "https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in",
+    img: narayana,
   },
   {
     id: 2,
-    profile: mentor2,
+    profile: "https://media.licdn.com/dms/image/v2/C4E03AQHjZ3JB90t_nA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1587323348124?e=1731542400&v=beta&t=P6-MxMiuaUnfGnqcdcVi_QOxkDjIbGG3Nmz_J3nlJC4",
     name: "Arun Nandewal",
     company: "Microsoft",
     post: "Sr. Product Manager",
-    linkedIn: "#",
-    img: img2,
+    linkedIn: "https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in",
+    img: microsoft,
   },
   {
     id: 3,
-    profile: mentor1,
-    name: "Pamit Anand",
-    company: "Magicbricks",
+    profile: "https://media.licdn.com/dms/image/v2/C4E03AQFnGwyNhCQADg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1637825840329?e=1731542400&v=beta&t=FL_hXMi556xTvEyyg34P0prdiAADiTB9HOmII1Ff26A",
+    name: "Lalith Kumar",
+    company: "FedEx",
     post: "VP of Product",
-    linkedIn: "#",
-    img: img1,
+    linkedIn: "https://www.linkedin.com/in/lalithkumarvemali/?originalSubdomain=in",
+    img: fedex,
   },
   {
     id: 4,
-    profile: mentor2,
-    name: "Arun Nandewal",
-    company: "Microsoft",
+    profile: "https://media.licdn.com/dms/image/v2/C5103AQFvYT_gMa_31Q/profile-displayphoto-shrink_400_400-alternative/profile-displayphoto-shrink_400_400-alternative/0/1528975669833?e=1731542400&v=beta&t=EZcfogH9xxfygIpn0yOfYVCouJTvOD3x5hlAF8ebLh4",
+    name: "Shilpi",
+    company: "Reliance",
     post: "Sr. Product Manager",
-    linkedIn: "#",
-    img: img2,
+    linkedIn: "https://www.linkedin.com/in/shilpi-swati/?originalSubdomain=in",
+    img: reliance,
   },
   {
     id: 5,
-    profile: mentor1,
-    name: "Pamit Anand",
-    company: "Magicbricks",
-    post: "VP of Product",
-    linkedIn: "#",
-    img: img1,
+    profile: "https://media.licdn.com/dms/image/v2/D5603AQGzVCf2qubRGA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721931911839?e=1731542400&v=beta&t=Jwj6bqoXiush9EsZrL5CqZwzbVoHQPhV8O2DNrKJa7w",
+    name: "Kanishk Mehta",
+    company: "InMobi",
+    post: "Director of Product",
+    linkedIn: "https://www.linkedin.com/in/kanishkm/",
+    img: inmobi,
   },
   {
     id: 6,
-    profile: mentor2,
-    name: "Arun Nandewal",
-    company: "Microsoft",
-    post: "Sr. Product Manager",
-    linkedIn: "#",
-    img: img2,
+    profile: "https://www.productleadership.com/wp-content/uploads/elementor/thumbs/PamitAnand-qmxkokvkzv0bog8m181ixmu3wadbnidfy2jnbc5xc0.png",
+    name: "Pamit Anand",
+    company: "Magicbricks",
+    post: "VP of Product",
+    linkedIn: "https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in",
+    img: magicbricks,
   },
 ];
 
@@ -70,7 +71,7 @@ const MeetMentors = ({ bgColor }) => {
         <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans">
           Meet our Mentors
         </div>
-        <div className="text-[14px] lg:text-[17px] text-center text-gray-700 font-medium px-4 xl:px-60 py-1">
+        <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium px-4 xl:px-60 pt-2 pb-1">
           <p className="lg:hidden">
             A sneak peak into what you will learn in our 10-week curriculum. You
             will have to commit to investing 6 to 8 hours of dedicated time to
@@ -89,13 +90,14 @@ const MeetMentors = ({ bgColor }) => {
       </div>
 
       <div className="overflow-x-scroll md:overflow-x-hidden mentor-scrollbar md:scroll-container">
-        <div className="flex scroll-wrapper animate">
-          {[...mentors, ...mentors].map((mentor, index) => (
+      <div className="flex scroll-wrapper animate">
+        {[...Array(5)].map((_, i) => (
+          mentors.map((mentor, index) => (
             <div
-              key={`${mentor.id}-${index}`}
-              className="scroll-item pl-4 md:pl-4"
+              key={`${mentor.id}-${index}-${i}`}
+              className="scroll-item"
             >
-              <MentorCard
+              <MentorCard1
                 id={mentor.id}
                 profile={mentor.profile}
                 name={mentor.name}
@@ -105,9 +107,11 @@ const MeetMentors = ({ bgColor }) => {
                 img={mentor.img}
               />
             </div>
-          ))}
-        </div>
+          ))
+        ))}
       </div>
+    </div>
+
     </div>
   );
 };

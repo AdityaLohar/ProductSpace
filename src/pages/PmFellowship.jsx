@@ -1,5 +1,6 @@
 import Companies from "../components/Companies";
 import CourseSnapshot from "../components/CourseSnapshot";
+import Footer from "../components/Footer";
 import HandsOnTools from "../components/HandsOnTools";
 import LearningWithPace from "../components/LearningWithPace";
 import MeetMentors from "../components/MeetMentors";
@@ -19,8 +20,9 @@ const PmFellowship = () => {
             <WhyPmFellowship />
             <Companies />
             <ResultsPmFellowship />
-            <MeetMentors bgColor={"#F7F0FF"} />
+            <MeetMentors bgColor={"#fff"} />
             <ReviewPmFellowship />
+            <Footer />
           </div>
     
           <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">

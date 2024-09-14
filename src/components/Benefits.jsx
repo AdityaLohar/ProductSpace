@@ -7,9 +7,7 @@ const BenefitCard = ({ vector, title, desc, size }) => {
   return (
     <div>
       <div
-        className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_10px_rgba(151,71,255,0.5)] `}
-
-        
+        className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_10px_rgba(151,71,255,0.5)] border border-2`}
       >
         <div className={`flex ${size == 16 ? "mb-4" : "mb-6"} justify-center sm:justify-start`}>
           <img src={vector} alt="" className={`w-${size} h-${size-1}`} />
@@ -25,14 +23,14 @@ const BenefitCard = ({ vector, title, desc, size }) => {
   );
 };
 
-const Benefits = () => {
+const Benefits = ({bgColor}) => {
   return (
-    <div className="flex flex-col bg-[#F1E6FF] pb-10">
+    <div className={`flex flex-col bg-white bg-${bgColor} pb-10`}>
       <div className="py-5 lg:py-12">
         <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center font-sans px-4">
           Benefits of Joining Product Space
         </div>
-        <div className="text-[14px] text-center text-gray-800 font-medium px-4 xl:px-60 py-1">
+        <div className="text-[14px] lg:text-[16px] text-center text-gray-800 font-medium px-4 xl:px-60 py-1">
           <p>Connect with Mentors and Alums to get career counselling </p>
         </div>
       </div>

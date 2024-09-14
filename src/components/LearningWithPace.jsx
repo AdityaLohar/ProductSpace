@@ -2,6 +2,7 @@ import tick from "../assets/tick-green.svg";
 import { useEffect, useState } from "react";
 import courseContent from "../data/CourseContent";
 import rotatingArc from "../assets/pink-rotating.svg";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 const CircleSegment = ({ index, activeIndex }) => {
   // Determine if the segment should be active (colored)
@@ -104,35 +105,61 @@ const LearningWithPace = () => {
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-3 w-full">
             <div className="text-[28px] lg:text-[40px] font-bold text-center lg:text-start font-sans">
-              Learning with a pace
+              Your 10-Week Learning Journey
             </div>
             <div className="text-[16px] text-center lg:text-start">
-              A sneak peak into what you will learn in our 10-week curriculum.
-              You will have to commit to investing 6 to 8 hours of dedicated
-              time to this program every week.
+            Progress through weekly segments that build your product management skills, from strategy to hands-on projects, preparing you for real-world challenges.
             </div>
           </div>
 
-          <div className="flex gap-2 justify-start overflow-x-scroll invisible-scrollbar p-1 bg-[#F6F6F6] rounded-lg lg:hidden mt-4">
-            {courseContent.map((content, index) => (
+          <div className="lg:hidden">
+            <div className="flex justify-between">
+              {/* Left Scroll Button */}
               <button
-                key={index}
-                onClick={() => handleWeekChange(index)}
-                className={`px-4 py-2 whitespace-nowrap font-medium rounded-lg ${
-                  activeIndex === index
-                    ? "bg-[#FFA600] text-white text-[16px]"
-                    : "text-black"
-                }`}
+                onClick={() => document.getElementById('scrollableDiv').scrollBy({ left: -200, behavior: 'smooth' })}
+                className="text-black font-bold py-2 px-3 rounded-lg z-10"
               >
-                Week {content.week}
+                <FaArrowCircleLeft className="text-black" />
+                {/* <FaArrowCircleLeft className="text-[#FFA600]" /> */}
               </button>
-            ))}
+
+              {/* Right Scroll Button */}
+              <button
+                onClick={() => document.getElementById('scrollableDiv').scrollBy({ left: 200, behavior: 'smooth' })}
+                className="text-black font-bold py-2 px-3 rounded-lg z-10"
+              >
+                <FaArrowCircleRight className="text-black" />
+                {/* <FaArrowCircleRight className="text-[#FFA600]" /> */}
+              </button>
+            </div>
+
+            {/* Scrollable Content */}
+            <div
+              id="scrollableDiv"
+              className="flex gap-2 justify-start overflow-x-scroll invisible-scrollbar p-1 bg-[#F6F6F6] rounded-lg"
+            >
+              {courseContent.map((content, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleWeekChange(index)}
+                  className={`px-4 py-2 whitespace-nowrap font-medium rounded-lg ${
+                    activeIndex === index
+                      ? "bg-[#FFA600] text-white text-[16px]"
+                      : "text-black"
+                  }`}
+                >
+                  Week {content.week}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-7 my-8 text-[18px]">
+
+          <div className="space-y-7 my-4 text-[18px]">
             <div>
-              <h2 className="font-sans text-[24px] font-semibold text-center lg:text-start">
-                {title}
+              <h2 className="font-sans text-[24px] font-semibold  text-center lg:text-start">
+                <span className="text-[24px] lg:text-[40px]"> {title[0] === '0' ? `0${ + title[1]}` : `${title[0] + title[1] + title[2]}`} </span> 
+                {title[0] === '0' ? title.slice(2) : title.slice(3)}
               </h2>
             </div>
             <div className="space-y-4">
@@ -177,7 +204,7 @@ const LearningWithPace = () => {
                 <RotatingArc activeIndex={activeIndex} />
 
                 {/* Inner text or content */}
-                <div className="absolute bg-white w-[82%] h-[82%] rounded-full border border-1 border-[#21C1F3] flex items-center justify-center top-[9%] -left-[16%] text-[37px] font-sans">
+                <div className="absolute bg-white w-[82%] h-[82%] rounded-full border border-1 border-[#21C1F3] flex items-center justify-center top-[9%] -left-[16%] text-[37px] font-sans font-semibold">
                   <p>Week {week}</p>
                 </div>
               </div>

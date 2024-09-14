@@ -61,14 +61,29 @@ body {
 
 .scroll-wrapper {
   display: flex;
-  width: 200%;
+  width: calc(100% * 5); /* Adjust width based on the number of repetitions */
   animation: scrollHorizontal linear infinite;
-  animation-duration: 40s; 
+  animation-duration: 70s; /* Adjust based on content length */
+}
+
+@media (max-width: 768px) {
+  .scroll-wrapper {
+    animation-duration: 20s; /* Faster for mobile view */
+  }
 }
 
 .scroll-item {
   flex: 0 0 auto;
   margin-right: 1.5rem;
+}
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .circle-container {

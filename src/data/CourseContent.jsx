@@ -25,9 +25,9 @@ const courseContent = [
       week: "2",
       title: "02 Product Discovery and Problem Solving",
       desc: [
-        "Understanding market research",
-        "Analyzing customer needs and trends",
-        "Competitor analysis"
+        "User Segmentation and Persona",
+        "Problem Identification and Prioritization",
+        "Framework to identify new products and features"
       ],
       imgs: [
         uber,
@@ -39,9 +39,9 @@ const courseContent = [
       week: "3",
       title: "03 Product Planning and Documentation",
       desc: [
-        "Developing product strategy",
-        "Creating product roadmaps",
-        "Setting goals and KPIs"
+        "Product Backlog, Product Roadmap",
+        "Prioritization Frameworks",
+        "Writing Effective User Stories & PRDs to Define Product Features"
       ],
       imgs: [
         netflix,
@@ -53,9 +53,9 @@ const courseContent = [
       week: "4",
       title: "04 Product Analysis and Growth Lifecycle",
       desc: [
-        "Principles of user experience (UX)",
-        "Design thinking and methodologies",
-        "Prototyping and user testing"
+        "Setup your product on tools like MoEngage/Celevertap/Amplitude",
+        "Hands-on to Create Events, Funnels, User Cohorts",
+        "Product Led Growth to drive Acquisition, Onboarding, Engagement, Retention, Monetisation stratergies with practical case studies"
       ],
       imgs: [
         uber,
@@ -67,9 +67,9 @@ const courseContent = [
       week: "5",
       title: "05 Tech for PM",
       desc: [
-        "Product development lifecycle",
-        "Introduction to Agile methodologies",
-        "Scrum and Kanban practices"
+        "What is internet and how it works",
+        "Web 2.0: Frontend, Backend, APIs, Databases and Server",
+        "Popular Tools, Frameworks and Languages"
       ],
       imgs: [
         netflix,
@@ -81,9 +81,9 @@ const courseContent = [
       week: "6",
       title: "06 Product Interview Prep",
       desc: [
-        "Planning a product launch",
-        "Marketing strategies and channels",
-        "Measuring launch success"
+        "Product Improvement",
+        "Product Design",
+        "Root Cause Analysis"
       ],
       imgs: [
         uber,
@@ -109,9 +109,9 @@ const courseContent = [
       week: "10",
       title: "10 Graduate Desk | Work on Live Projects",
       desc: [
-        "Emerging trends in product management",
-        "Skills for career advancement",
-        "Networking and professional growth"
+        "Capstone Project",
+        "Mentor's Guided Assistance",
+        "Graduation Day"
       ],
       imgs: [
         uber,
