@@ -35,10 +35,10 @@ const Footer = () => {
 
                     <div className="flex gap-1 justify-between mt-4">
                         <div>
-                            <input type="email" placeholder="Enter your email Address" className="p-4 w-[210px] lg:w-[300px] text-black outline-none rounded-lg" />
+                            <input type="email" placeholder="Enter your email Address" className="p-3 lg:p-4 w-[210px] lg:w-[300px] text-black outline-none rounded-lg" />
                         </div>
                         <div>
-                            <button className="p-4 lg:px-12 bg-[#FFC303] text-black font-semibold rounded-lg">Subscribe</button>
+                            <button className="p-3 lg:p-4 lg:px-12 bg-[#FFC303] text-black font-semibold rounded-lg">Subscribe</button>
                         </div>
                     </div>
                 </div>
