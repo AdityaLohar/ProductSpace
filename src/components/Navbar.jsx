@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import profilePic from "../assets/Person.svg";
-import logo from "../assets/ps-logo.svg";
+import logo from "../assets/ps-logo-dark.svg";
 import { RiArrowRightSFill } from "react-icons/ri";
 
 const Navbar = () => {

@@ -6,6 +6,19 @@ import uber from "../assets/uber-logo.svg";
 import slack from "../assets/slack-logo.svg";
 import zomato from "../assets/zomato-logo.svg";
 
+import cricket from "../assets/cricket-logo.svg";
+import cred from "../assets/cred-logo1.png";
+import youtube from "../assets/youtube-logo.jpg";
+
+import google from "../assets/google-logo.png";
+import paytm from "../assets/paytm-logo.jpg";
+import lazypay from "../assets/lazypay-logo.png";
+
+import moengage from "../assets/moengage-logo.png";
+import tinder from "../assets/tinder-logo.png";
+import canva from "../assets/canva.svg";
+
+
 const courseContent = [
     {
       week: "1",
@@ -16,9 +29,9 @@ const courseContent = [
         "Roles and responsibilities of a Product Manager"
       ],
       imgs: [
-        netflix,
-        jira,
-        notion
+        uber,
+        zomato,
+        slack
       ]
     },
     {
@@ -30,9 +43,9 @@ const courseContent = [
         "Framework to identify new products and features"
       ],
       imgs: [
-        uber,
-        zomato,
-        slack
+        cricket,
+        cred,
+        youtube
       ]
     },
     {
@@ -44,9 +57,9 @@ const courseContent = [
         "Writing Effective User Stories & PRDs to Define Product Features"
       ],
       imgs: [
-        netflix,
-        jira,
-        notion
+        google,
+        paytm,
+        lazypay
       ]
     },
     {
@@ -58,9 +71,9 @@ const courseContent = [
         "Product Led Growth to drive Acquisition, Onboarding, Engagement, Retention, Monetisation stratergies with practical case studies"
       ],
       imgs: [
-        uber,
-        zomato,
-        slack
+        moengage,
+        tinder,
+        canva
       ]
     },
     {
@@ -86,8 +99,8 @@ const courseContent = [
         "Root Cause Analysis"
       ],
       imgs: [
-        uber,
         zomato,
+        uber,
         slack
       ]
     },
@@ -100,9 +113,9 @@ const courseContent = [
         "Using analytics tools"
       ],
       imgs: [
-        netflix,
-        jira,
-        notion
+        zomato,
+        uber,
+        slack
       ]
     },
     {
@@ -114,9 +127,9 @@ const courseContent = [
         "Graduation Day"
       ],
       imgs: [
-        uber,
-        zomato,
-        slack
+        google,
+        paytm,
+        lazypay
       ]
     }
   ];

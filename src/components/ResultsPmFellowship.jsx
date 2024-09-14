@@ -10,21 +10,21 @@ const ResultsPmFellowship = () => {
 
             <div className='flex gap-4 justify-between w-full lg:w-auto lg:justify-around xl:gap-0 text-[#00B5CE] text-center'>
               <div className='flex flex-col md:flex-row gap-4 w-full lg:w-auto'>
-                <div className='border-r-2 border-[#00B5CE] px-4 lg:px-12'>
+                <div className='border-r-2 border-[#00B5CE] px-4 xl:px-12'>
                     <div>₹ <span className='text-[28px] md:text-[40px] font-semibold'>48</span> LPA</div>
                     <div className='text-[14px] font-medium text-black'>Highest Salary</div>
                 </div>
-                <div className='border-r-2 border-[#00B5CE] px-4 lg:px-12'>
+                <div className='border-r-2 border-[#00B5CE] px-4 xl:px-12'>
                     <div><span className='text-[28px] md:text-[40px] font-semibold'>174</span></div>
                     <div className='text-[14px] font-medium text-black'>Placed Last 60 Days</div>
                 </div>
               </div>
               <div className='flex flex-col md:flex-row gap-4 w-full lg:w-auto'>
-                <div className='md:border-r-2 md:border-[#00B5CE] px-4 lg:px-12'>
+                <div className='md:border-r-2 md:border-[#00B5CE] px-4 xl:px-12'>
                     <div>₹ <span className='text-[28px] md:text-[40px] font-semibold'>19.6</span> LPA</div>
                     <div className='text-[14px] font-medium text-black'>Average Salary</div>
                 </div>
-                <div className='px-4 lg:px-12'>
+                <div className='px-4 xl:px-12'>
                     <div>Rs <span className='text-[28px] md:text-[40px] font-semibold'>51.2</span> %</div>
                     <div className='text-[14px] font-medium text-black'>Average Hike</div>
                 </div>

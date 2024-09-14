@@ -120,7 +120,6 @@ const LearningWithPace = () => {
                 className="text-black font-bold py-2 px-3 rounded-lg z-10"
               >
                 <FaArrowCircleLeft className="text-black" />
-                {/* <FaArrowCircleLeft className="text-[#FFA600]" /> */}
               </button>
 
               {/* Right Scroll Button */}
@@ -129,7 +128,6 @@ const LearningWithPace = () => {
                 className="text-black font-bold py-2 px-3 rounded-lg z-10"
               >
                 <FaArrowCircleRight className="text-black" />
-                {/* <FaArrowCircleRight className="text-[#FFA600]" /> */}
               </button>
             </div>
 
@@ -180,7 +178,7 @@ const LearningWithPace = () => {
             <div className="flex gap-4">
               {imgs.map((logo, index) => (
                 <div key={index}>
-                  <img src={logo} alt="" className="w-24 h-16 rounded-md" />
+                  <img src={logo} alt="" className="object-contain w-24 h-16 rounded-md" />
                 </div>
               ))}
             </div>

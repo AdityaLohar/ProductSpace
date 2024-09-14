@@ -82,12 +82,12 @@ const ReviewCardSmall = ({ rating, title, desc, username, img, company, post }) 
             {desc.length > 340 && (expand ? "Read less" : "Read more")}
           </button>
         </div>
-        <div className="absolute bottom-[-18px] left-[45%]">
-          <img src={img} alt="" className="w-10 h-10 rounded-full border border-[3px] border-white" />
+        <div className="absolute bottom-[-25px] left-[43%]">
+          <img src={img} alt="" className="w-14 h-14 rounded-full border border-[3px] border-white" />
         </div>
       </div>
 
-      <div className="flex flex-col items-center pt-6 pb-6">
+      <div className="flex flex-col items-center pt-8 pb-6">
         <div className="text-center">
           <p className="text-[14px]">
             {post} at {company}
@@ -104,11 +104,11 @@ const reviews = [
   {
     rating: 5,
     title: "You HAVE to do this. The insights are 🔥",
-    desc: "Product Space completely shifted my perspective about my career. The conversations with my coach constantly inspired new ways of thinking & gave me the confidence to dream BIG.",
-    username: "Harkrishan Singh",
-    img: "https://media.licdn.com/dms/image/v2/D5603AQFuaisZpsSTjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705161505684?e=1731542400&v=beta&t=aThtTNNdBqxkVgYOfBP394wH95SeA8T1ZANwJZ1s_18",
-    company: "Tech Corp",
-    post: "Senior Product Manager",
+    desc: "Thank you, Product Space and mentor Akhil Yash Tiwari, for the incredible support and upskilling. From day one, the hands-on approach and focus on fundamentals helped me apply my knowledge to real-life scenarios. The dedication and encouragement from Akhil were truly inspiring, pushing us to continuously improve!",
+    username: "Aditya Pant",
+    img: "https://media.licdn.com/dms/image/v2/D4D03AQGYmAzuGoncIg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718714447992?e=1731542400&v=beta&t=7INAN9eGo7UEPiQj3HOmCAfrD9CySxe8113oD-AZL3Y",
+    company: "Samaro",
+    post: "Product Management Intern",
   },
   {
     rating: 4,
