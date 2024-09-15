@@ -97,19 +97,25 @@ const Alumni = () => {
         <div
           className={`scroll-wrapper ml-6 animate`}
         >
-          {[...alumni, ...alumni].map((alums, index) => (
-            <div key={`${alums.id}-${index}`} className="scroll-item">
-              <AlumniCard
-                profile={alums.profile}
-                name={alums.name}
-                prevCompany={alums.prevCompany}
-                prevPost={alums.prevPost}
-                curCompany={alums.curCompany}
-                curPost={alums.curPost}
-                testimonial={alums.testimonial}
-              />
-            </div>
+          {[...Array(5)].map((_, i) => (
+            alumni.map((alums, index) => (
+              <div
+                key={`${alums.id}-${index}-${i}`}
+                className="scroll-item"
+              >
+                <AlumniCard
+                  profile={alums.profile}
+                  name={alums.name}
+                  prevCompany={alums.prevCompany}
+                  prevPost={alums.prevPost}
+                  curCompany={alums.curCompany}
+                  curPost={alums.curPost}
+                  testimonial={alums.testimonial}
+                />
+              </div>
+            ))
           ))}
+
         </div>
       </div>
     </div>

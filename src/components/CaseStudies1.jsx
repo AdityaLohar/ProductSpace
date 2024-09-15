@@ -3,25 +3,62 @@ import netflix from "../assets/netflix-logo.jpg";
 import primeVideo from "../assets/prime-video.svg";
 import miro from "../assets/miro-logo.png";
 import magicBricks from "../assets/magic-bricks.svg";
-import amazon from "../assets/amazon.svg";
-import google from "../assets/google.svg";
 import canva from "../assets/canva.svg";
 
 const CaseStudies1 = () => {
   const [selectedBox, setSelectedBox] = useState(0); // Change to null initially
 
   const boxes = [
-    { id: 1, title: "Amazon Prime", image: primeVideo },
-    { id: 2, title: "MagicBricks", image: magicBricks },
-    { id: 3, title: "Miro", image: miro },
-    { id: 4, title: "Amazon.com", image: amazon },
-    { id: 5, title: "Netflix", image: netflix },
-    { id: 6, title: "Canva", image: canva },
-    { id: 7, title: "Google", image: google },
+    {
+      id: 1,
+      title: "Amazon Prime",
+      image: primeVideo,
+      desc: "Improving Amazon Prime Viewing Experience" ,
+      url: "https://pitch.com/public/ccb8b2d8-642c-4563-9abd-f8a48285b25b/143ca6f4-1750-4744-b325-57d899174ad5 ",
+    },
+    {
+      id: 2,
+      title: "MagicBricks",
+      image: magicBricks,
+      desc: "" ,
+      url: "https://pitch.com/v/magicbricks-gigy4i",
+    },
+    {
+      id: 3,
+      title: "Miro",
+      image: miro,
+      desc: "Improving Miro Viewing Experience" ,
+      url: "https://www.canva.com/design/DAF2UQKOlDM/swJsZRgnzolKZKLpe0ehFQ/edit#20",
+    },
+    {
+      id: 4,
+      title: "Choice Connect",
+      image: "https://content.jdmagicbox.com/v2/comp/mumbai/b3/022pxx22.xx22.190312091956.y7b3/catalogue/choice-connect-andheri-east-mumbai-swnlzhd4zt.jpg",
+      desc: "Improving post registration sign-in-rate of Choice Connect App" ,
+      url: "https://www.canva.com/design/DAFwZ6hl2l8/3GWwC_zwMWc4vpUHICYsVA/edit",
+    },
+    { id: 5, 
+      title: "Netflix", 
+      image: netflix ,
+      desc: "Improving Netflix Viewing Experience",
+      url: "",
+    },
+    { id: 6,
+      title: "Canva", 
+      image: canva,
+      desc: "Improving Canva Viewing Experience",
+      url: "",
+    },
+    {
+      id: 7,
+      title: "Meesho",
+      image: "https://images.moneycontrol.com/static-mcnews/2023/06/Meesho-682x435.jpg?impolicy=website&width=1600&height=900",
+      desc: "Improve user experience on Meesho to increase the order volume by 15% in 2 months" ,
+      url: "https://www.canva.com/design/DAF87cmuzWk/SSCUOthx5U4Ja4lMu23-jQ/view?utm_content=DAF87cmuzWk&utm_campaign=designshare&utm_medium=link&utm_source=editor#1",
+    },
   ];
 
   return (
-    // <div className="flex flex-col bg-[#F1E6FF] md:py-8 px-4 md:px-10 xl:px-20">
     <div className="flex flex-col bg-white md:py-8 px-4 md:px-10 xl:px-20">
       <div className="py-8">
         <div className="text-[28px] lg:text-[44px] font-bold text-center font-sans">
@@ -33,49 +70,88 @@ const CaseStudies1 = () => {
       </div>
 
       <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-4 lg:gap-7 w-full p-4 relative overflow-hidden">
-        {boxes.map((box, index) => (
+        {/* First Box: Always shows the selected one */}
+        <div
+          key="selected"
+          className="col-span-2 row-span-2 h-full w-full rounded-2xl flex flex-col font-semibold bg-white overflow-hidden items-start"
+          style={{
+            backgroundImage: `url(${boxes[selectedBox]?.image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            position: "relative",
+            flexShrink: 0,
+            boxSizing: "border-box",
+            transition:
+              "background-image 0.4s ease-in-out, opacity 0.4s ease-in-out",
+          }}
+        >
+          <div className="m-2 p-1 px-2 bg-white rounded-2xl text-[12px] xl:text-sm w-contain">
+            {boxes[selectedBox]?.title}
+          </div>
+
+          {/* Display additional content for the selected box */}
           <div
-            key={index}
-            onClick={() => setSelectedBox(index === selectedBox ? null : index)} // Toggle selection
-            className={`flex flex-col font-semibold transition-all duration-500 ease-in-out bg-white overflow-hidden ${
-              selectedBox === index
-                ? "col-span-2 row-span-2 h-full w-full rounded-2xl items-start" // Big box when selected
-                : "col-span-1 row-span-1 custom-5:h-[170px] custom-5:w-[170px] custom-6:h-[180px] custom-6:w-[180px] custom-8:h-[200px] custom-8:w-[200px] 2xl:h-[245px] 2xl:w-[245px] rounded-lg items-start justify-end"
-            }`}
+            className="absolute top-[12%] lg:top-[25%] xl:top-[23%] 2xl:top-[30%] lg:left-0 w-full h-full flex items-center justify-center"
             style={{
-              backgroundImage: `url(${box.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-              flexShrink: 0, // Prevent shrinking of the boxes
-              boxSizing: "border-box", // Ensure padding and border are included in element's total width and height
+              opacity: 1, // Ensure opacity starts from 1
+              transition:
+                "opacity 0.5s ease-in-out, transform 0.5s ease-in-out", // Add transition for opacity and transform
             }}
           >
-            <div className="m-2 p-1 px-2 bg-white rounded-2xl text-[12px] xl:text-sm w-contain">
-              {box.title}
-            </div>
-
-            {selectedBox === index && (
-              <div className="absolute top-[12%] lg:top-[25%] xl:top-[23%] 2xl:top-[30%] lg:left-0 w-full h-full flex items-center justify-center">
-                <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-4">
-                  <div className="text-[24px] md:text-[18px] xl:text-[24px] pr-4">
-                    Improving {box.title} Viewing Experience
-                  </div>
-                  <div className="text-[16px] md:text-[14px] xl:text-[16px] font-normal pr-4">
-                    A sneak peek into what you will learn in our 10-week
-                    curriculum.
-                  </div>
-                  <div className="flex justify-end">
-                    <div className="text-[12px] md:text-[10px] xl:text-[12px] font-normal">
-                      Published on: 25th May 24
-                    </div>
+            <a href={boxes[selectedBox]?.url} target="_blank">
+              <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-4">
+                <div className="text-[24px] md:text-[18px] xl:text-[24px] pr-4">
+                  {boxes[selectedBox]?.desc}
+                </div>
+                <div className="text-[16px] md:text-[14px] xl:text-[16px] font-normal pr-4">
+                  A sneak peek into what you will learn in our 10-week curriculum.
+                </div>
+                <div className="flex justify-end">
+                  <div className="text-[12px] md:text-[10px] xl:text-[12px] font-normal">
+                    Published on: 25th May 24
                   </div>
                 </div>
               </div>
-            )}
+            </a>
           </div>
-        ))}
+        </div>
+
+        {/* Other boxes */}
+        {boxes.map((box, index) => {
+          // Skip rendering for the selected one (handled above)
+          if (index === selectedBox) return null;
+
+          return (
+            <div
+              key={index}
+              onClick={() => {
+                // Swap the content of the selected box with the clicked one
+                const newBoxes = [...boxes];
+                [newBoxes[selectedBox], newBoxes[index]] = [
+                  newBoxes[index],
+                  newBoxes[selectedBox],
+                ];
+                setSelectedBox(index);
+              }}
+              className="col-span-1 row-span-1 custom-5:h-[170px] custom-5:w-[170px] custom-6:h-[180px] custom-6:w-[180px] custom-8:h-[200px] custom-8:w-[200px] 2xl:h-[245px] 2xl:w-[245px] rounded-lg flex flex-col font-semibold bg-white overflow-hidden items-start justify-end"
+              style={{
+                backgroundImage: `url(${box.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                flexShrink: 0,
+                boxSizing: "border-box",
+                transition:
+                  "background-image 0.5s ease-in-out, opacity 0.5s ease-in-out",
+              }}
+            >
+              <div className="m-2 p-1 px-2 bg-white rounded-2xl text-[12px] xl:text-sm w-contain">
+                {box.title}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div className="hidden lg:flex justify-center text-[16px] text-[#FF559E] underline my-3">
@@ -149,4 +225,3 @@ const CaseStudies1 = () => {
 };
 
 export default CaseStudies1;
-
