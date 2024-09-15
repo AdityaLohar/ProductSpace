@@ -22,22 +22,24 @@ const Navbar = () => {
   return (
     <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg ">
       <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
-            <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
-                <div className="text-black">
-                    NEXT COHORT STARTS: 22ND JUNE
-                </div>
-                <div className="flex items-center">
-                    <div className='bg-[#130D00] px-2 py-1 rounded-md'>
-                        25 DAYS TO GO
-                    </div>
-                    <div className="text-black">
-                        <RiArrowRightSFill />
-                    </div>
-                </div>
+        <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
+          <div className="text-black">NEXT COHORT STARTS: 22ND JUNE</div>
+          <div className="flex items-center">
+            <div className="bg-[#130D00] px-2 py-1 rounded-md">
+              25 DAYS TO GO
             </div>
+            <div className="text-black">
+              <RiArrowRightSFill />
+            </div>
+          </div>
         </div>
+      </div>
+
       <div className="flex justify-between w-full items-center px-[10px] md:px-[80px] lg:px-[120px] py-[15px] custom-12:px-[0px] xl:mx-auto max-w-screen-2xl font-hind">
-        <a href="/" className="hidden lg:block font-semibold text-[23px] pb-1 font-serif">
+        <a
+          href="/"
+          className="hidden lg:block font-semibold text-[23px] pb-1 font-serif"
+        >
           Product <span className="text-[#21C1F3]">Space</span>
         </a>
 
@@ -65,7 +67,11 @@ const Navbar = () => {
           </div>
 
           <div className="lg:hidden font-semibold text-[23px] pb-1 font-serif">
-            <img src={logo} alt="" />
+            <a href="/">
+              <button>
+                <img src={logo} alt="" />
+              </button>
+            </a>
           </div>
         </div>
 
@@ -132,20 +138,20 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {/* {isOpen && ( */}
-        <div
-          ref={navigationRef}
-          className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
-        >
-          <a href="/pm" className="hover:underline text-[18px]">
-            PM Fellowship
-          </a>
-          <a href="#" className="hover:underline text-[18px]">
-            Events
-          </a>
-          <a href="#" className="hover:underline text-[18px]">
-            Resources
-          </a>
-        </div>
+      <div
+        ref={navigationRef}
+        className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
+      >
+        <a href="/pm" className="hover:underline text-[18px]">
+          PM Fellowship
+        </a>
+        <a href="#" className="hover:underline text-[18px]">
+          Events
+        </a>
+        <a href="#" className="hover:underline text-[18px]">
+          Resources
+        </a>
+      </div>
       {/* )} */}
     </div>
   );

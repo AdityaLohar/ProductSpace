@@ -24,9 +24,9 @@ const courseContent = [
       week: "1",
       title: "01 Fundamentals of Product Management",
       desc: [
-        "Introduction to Product Management",
-        "Key concepts and terminology",
-        "Roles and responsibilities of a Product Manager"
+        "Fundamentals of Product Management",
+        "Essential Skills Required to be a PM",
+        "Learn Product & Software Lifecycle"
       ],
       imgs: [
         uber,
@@ -53,7 +53,7 @@ const courseContent = [
       title: "03 Product Planning and Documentation",
       desc: [
         "Product Backlog, Product Roadmap",
-        "Prioritization Frameworks",
+        "Prioritisation Frameworks",
         "Writing Effective User Stories & PRDs to Define Product Features"
       ],
       imgs: [

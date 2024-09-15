@@ -119,17 +119,18 @@ const PmFellowshipHeroSection = () => {
 
             <div className="ml-2 text-xl">→</div>
           </button>
-
-          <button className="w-full bg-white border border-black text-black font-medium py-3 rounded-full mt-4 flex justify-center gap-2">
-            <div>
-              <img src={download} alt="download" className="w-[20px] h-[20px]" />
-            </div>
-            <div>
-              <p>
-                Download Curriculum
-              </p>
-            </div>
-          </button>
+          <a href="https://drive.google.com/file/d/1P8zYLnS2A2ysqXJ_wpOYJlQWctU0ZDx8/view" target="_blank">
+            <button className="w-full bg-white border border-black text-black font-medium py-3 rounded-full mt-4 flex justify-center gap-2">
+              <div>
+                <img src={download} alt="download" className="w-[20px] h-[20px]" />
+              </div>
+              <div>
+                <p>
+                  Download Curriculum
+                </p>
+              </div>
+            </button>
+          </a>
         </div>
       </div>
     </div>

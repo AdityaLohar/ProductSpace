@@ -10,6 +10,9 @@ const HomeHeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState();
+
   const toggleModal = () => {
     if (!isOpen) {
       setIsOpen(true);
@@ -21,6 +24,11 @@ const HomeHeroSection = () => {
   };
 
   const handleSubmit = () => {
+    if(name === "" || !number) {
+      toast.error("Fill all the fields");
+      return;
+    }
+
     toast.success("Enrolled sucessfully!");
     setIsVisible(false);
     setTimeout(() => setIsOpen(false), 300);
@@ -117,7 +125,7 @@ const HomeHeroSection = () => {
                 </button>
 
                 {/* Form */}
-                <form>
+                <div>
                   <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
                     PM Fellowship Enrolment
                   </h2>
@@ -133,7 +141,8 @@ const HomeHeroSection = () => {
                       className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
                       placeholder="Enter your name*"
                       required
-                    />
+                      onChange={(e) => setName(e.target.value)}
+                      />
                   </div>
 
                   <div className="mb-4">
@@ -142,12 +151,12 @@ const HomeHeroSection = () => {
                       className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
                       placeholder="Your Mobile Number*"
                       required
+                      onChange={(e) => setNumber(e.target.value)}
                     />
                   </div>
 
                   <div className="flex flex-col items-center">
                     <button
-                      type="submit"
                       onClick={handleSubmit}
                       className="text-[14px] lg:text-[20px] bg-blue-700 text-white p-2 md:p-4 rounded-lg hover:bg-blue-600"
                     >
@@ -157,7 +166,7 @@ const HomeHeroSection = () => {
                       <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </>

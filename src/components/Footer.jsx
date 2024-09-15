@@ -1,7 +1,32 @@
 import { FaDiscord, FaLinkedinIn } from "react-icons/fa";
 import logo from "../assets/ps-logo.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { z } from "zod";
+import { useState } from "react";
+
+const schema = z.object({
+  email: z.string().email("Invalid email address"),
+});
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = () => {
+    try {
+      const result = schema.safeParse({ email });
+
+      if (!result.success) {
+        toast.error("Invalid Email");
+        return;
+      } else {
+        toast.success("Subscribed sucessfully for the Newsletter!");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className=" pb-12 pt-16 bg-black">
       <div className="flex flex-col gap-12 md:flex-row justify-between text-white bg-black px-4 md:px-32 pb-12">
@@ -61,10 +86,11 @@ const Footer = () => {
                   type="email"
                   placeholder="Enter your email Address"
                   className="p-3 lg:p-4 w-[210px] lg:w-[300px] text-black outline-none rounded-lg"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
-                <button className="p-3 lg:p-4 lg:px-12 bg-[#FFC303] text-black font-semibold rounded-lg">
+                <button onClick={handleSubmit} className="p-3 lg:p-4 lg:px-12 bg-[#FFC303] text-black font-semibold rounded-lg">
                   Subscribe
                 </button>
               </div>
@@ -72,6 +98,19 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer
+        className="fixed top-4 left-1/2 transform -translate-x-1/2 w-11/12 md:w-full max-w-[350px]"
+        position="top-center"
+        autoClose={3000}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
       <div className="flex gap-2 lg:gap-12 justify-between text-gray-400 bg-black px-4 md:px-32">
             <div>
