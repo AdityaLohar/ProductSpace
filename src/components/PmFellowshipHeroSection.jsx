@@ -108,17 +108,20 @@ const PmFellowshipHeroSection = () => {
             </div>
             <p className="">EMI from INR ₹1,455/month available at checkout</p>
           </div>
-
-          <button className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex items-center justify-between shadow-[5px_5px_0_rgba(0,0,0)] ">
-            <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
-              <div className="text-[20px]">Enroll Now</div>
-              <div className="font-medium text-[13px]">
-                Last <span className="text-red-500">43 seats left</span>
+          
+          <a href="https://pages.razorpay.com/getintoPM" target="_blank">
+            <button className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex items-center justify-between shadow-[5px_5px_0_rgba(0,0,0)] ">
+              <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
+                <div className="text-[20px]">Enroll Now</div>
+                <div className="font-medium text-[13px]">
+                  Last <span className="text-red-500">43 seats left</span>
+                </div>
               </div>
-            </div>
 
-            <div className="ml-2 text-xl">→</div>
-          </button>
+              <div className="ml-2 text-xl">→</div>
+            </button>
+          </a>
+
           <a href="https://drive.google.com/file/d/1P8zYLnS2A2ysqXJ_wpOYJlQWctU0ZDx8/view" target="_blank">
             <button className="w-full bg-white border border-black text-black font-medium py-3 rounded-full mt-4 flex justify-center gap-2">
               <div>

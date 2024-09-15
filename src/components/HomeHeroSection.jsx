@@ -32,6 +32,11 @@ const HomeHeroSection = () => {
     toast.success("Enrolled sucessfully!");
     setIsVisible(false);
     setTimeout(() => setIsOpen(false), 300);
+
+    setTimeout(() => {
+      setIsOpen(false);
+      window.location.href = "https://pages.razorpay.com/getintoPM"; // Replace with your desired external URL
+    }, 600);
   };
 
   return (

@@ -7,6 +7,9 @@ const BottomBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState();
+
   const toggleModal = () => {
     if (!isOpen) {
       setIsOpen(true);
@@ -18,9 +21,19 @@ const BottomBar = () => {
   };
 
   const handleSubmit = () => {
+    if(name === "" || !number) {
+      toast.error("Fill all the fields");
+      return;
+    }
+
     toast.success("Enrolled sucessfully!");
     setIsVisible(false);
     setTimeout(() => setIsOpen(false), 300);
+
+    setTimeout(() => {
+      setIsOpen(false);
+      window.location.href = "https://pages.razorpay.com/getintoPM"; // Replace with your desired external URL
+    }, 600);
   };
 
   return (
@@ -121,7 +134,8 @@ const BottomBar = () => {
                         className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
                         placeholder="Enter your name*"
                         required
-                      />
+                        onChange={(e) => setName(e.target.value)}
+                        />
                     </div>
 
                     <div className="mb-4">
@@ -130,6 +144,7 @@ const BottomBar = () => {
                         className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
                         placeholder="Your Mobile Number*"
                         required
+                        onChange={(e) => setNumber(e.target.value)}
                       />
                     </div>
 
