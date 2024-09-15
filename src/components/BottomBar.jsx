@@ -118,7 +118,7 @@ const BottomBar = () => {
                   </button>
 
                   {/* Form */}
-                  <form>
+                  <div>
                     <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
                       PM Fellowship Enrolment
                     </h2>
@@ -150,7 +150,6 @@ const BottomBar = () => {
 
                     <div className="flex flex-col items-center">
                       <button
-                        type="submit"
                         onClick={handleSubmit}
                         className="text-[14px] lg:text-[20px] bg-blue-700 text-white p-2 md:p-4 rounded-lg hover:bg-blue-600"
                       >
@@ -160,7 +159,7 @@ const BottomBar = () => {
                         <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
                       </div>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </>

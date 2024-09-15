@@ -29,7 +29,8 @@ const Footer = () => {
 
   return (
     <div className=" pb-12 pt-16 bg-black">
-      <div className="flex flex-col gap-12 md:flex-row justify-between text-white bg-black px-4 md:px-32 pb-12">
+      <div className="flex flex-col gap-12 md:flex-row justify-between text-white bg-black px-4 md:pl-32 pb-12">
+          
         <div>
           <div className="text-2xl font-bold pb-2">
             <img src={logo} alt="ps-logo" />

@@ -15,9 +15,12 @@ import paytm from "../assets/paytm-logo.jpg";
 import lazypay from "../assets/lazypay-logo.png";
 
 import moengage from "../assets/moengage-logo.png";
-import tinder from "../assets/tinder-logo.png";
 import canva from "../assets/canva.svg";
 
+const tinder = "https://logodownload.org/wp-content/uploads/2020/09/tinder-logo.png";
+const github = "https://pngimg.com/uploads/github/github_PNG23.png";
+const postman = "https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png";
+const sql = "https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png";
 
 const courseContent = [
     {
@@ -85,9 +88,9 @@ const courseContent = [
         "Popular Tools, Frameworks and Languages"
       ],
       imgs: [
-        netflix,
-        jira,
-        notion
+        github,
+        postman,
+        sql
       ]
     },
     {
@@ -113,9 +116,9 @@ const courseContent = [
         "Using analytics tools"
       ],
       imgs: [
-        zomato,
-        uber,
-        slack
+        moengage,
+        github,
+        canva
       ]
     },
     {

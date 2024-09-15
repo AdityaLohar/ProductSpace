@@ -12,7 +12,7 @@ const CaseStudies1 = () => {
     {
       id: 1,
       title: "Amazon Prime",
-      image: primeVideo,
+      image: "https://seeklogo.com/images/A/amazon-prime-video-logo-1B919AB668-seeklogo.com.png",
       desc: "Improving Amazon Prime Viewing Experience" ,
       url: "https://pitch.com/public/ccb8b2d8-642c-4563-9abd-f8a48285b25b/143ca6f4-1750-4744-b325-57d899174ad5 ",
     },
@@ -45,7 +45,7 @@ const CaseStudies1 = () => {
     },
     { id: 6,
       title: "Canva", 
-      image: canva,
+      image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Canva_logo..png",
       desc: "Improving Canva Viewing Experience",
       url: "",
     },
