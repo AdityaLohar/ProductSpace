@@ -2,8 +2,9 @@ import { useState } from "react";
 import netflix from "../assets/netflix-logo.jpg";
 import primeVideo from "../assets/prime-video.svg";
 import miro from "../assets/miro-logo.png";
-import magicBricks from "../assets/magic-bricks.svg";
 import canva from "../assets/canva.svg";
+
+const magicBricks = "https://apps.odoo.com/web/image/loempia.module/143981/icon_image?unique=d4b6f04";
 
 const CaseStudies1 = () => {
   const [selectedBox, setSelectedBox] = useState(0); // Change to null initially
@@ -20,7 +21,7 @@ const CaseStudies1 = () => {
       id: 2,
       title: "MagicBricks",
       image: magicBricks,
-      desc: "" ,
+      desc: "Improving MagicBricks Viewing Experience" ,
       url: "https://pitch.com/v/magicbricks-gigy4i",
     },
     {
