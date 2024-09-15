@@ -56,31 +56,28 @@ const CourseSnapshot = () => {
           <div className="space-y-3 my-8 text-[16px] md:text-[18px]">
             <div className="flex gap-2 items-start lg:items-center">
               {" "}
-              <img src={tick} alt="" /> Up-to-date Syllabus with Generative AI
+              <img src={tick} alt="" /> PM Foundations
               Modules
             </div>
             <div className="flex gap-2 items-start lg:items-center">
               {" "}
-              <img src={tick} alt="" /> Complimentary Python Programming
-              Bootcamp
+              <img src={tick} alt="" /> Discovery & Problem Solving
             </div>
             <div className="flex gap-2 items-start lg:items-center">
               {" "}
-              <img src={tick} alt="" /> 60+ Case studies & 14+ Industry Projects
+              <img src={tick} alt="" /> Product Planning & Documentation
             </div>
             <div className="flex gap-2 items-start lg:items-center">
               {" "}
-              <img src={tick} alt="" /> IIIT Bangalore Alumni Status
+              <img src={tick} alt="" /> Product Analytics & Growth Lifecycle
             </div>
             <div className="flex gap-2 items-start lg:items-center">
               {" "}
-              <img src={tick} alt="" /> Outcomes of these programs have been
-              audited by Deloitte
+              <img src={tick} alt="" /> Product Interview Mastery
             </div>
             <div className="flex gap-2 items-start lg:items-center">
               {" "}
-              <img src={tick} alt="" /> About 30 weeks of specialized content as
-              per track of choice
+              <img src={tick} alt="" /> Work on Live Projects for real-world product development
             </div>
           </div>
         </div>
