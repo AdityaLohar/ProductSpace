@@ -38,7 +38,7 @@ const ResultsCard = ({ iconImg, number, title, subTitle }) => {
       ref={cardRef}
       className="flex items-center text-start gap-1 border border-1 border-[#21C1F3] bg-transparent rounded-2xl p-4"
       style={{
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: `url("data:image/svg+xml;utf8,<svg width='126' height='36' viewBox='0 0 126 36' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M105.869 -36.7249C130.903 -40.2568 126.757 -69.7697 121.556 -84.0846L-10.1093 -11.8853C-12.1951 -9.40857 -15.5431 -0.854497 -12.249 13.5482C-8.13122 31.5517 28.0266 47.5555 38.4088 23.5098C48.7909 -0.535959 55.1086 13.5446 76.6007 10.6472C98.0929 7.7497 74.5761 -32.31 105.869 -36.7249Z' fill='%23FFE3EF'/></svg>")`,
         backgroundSize: "120px",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top left",
