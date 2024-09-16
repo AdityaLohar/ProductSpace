@@ -2,7 +2,7 @@ import tick from "../assets/tick-green.svg";
 import { useEffect, useState } from "react";
 import courseContent from "../data/CourseContent";
 import rotatingArc from "../assets/pink-rotating.svg";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+// import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 const CircleSegment = ({ index, activeIndex }) => {
   // Determine if the segment should be active (colored)
@@ -113,24 +113,6 @@ const LearningWithPace = () => {
           </div>
 
           <div className="lg:hidden">
-            <div className="flex justify-between">
-              {/* Left Scroll Button */}
-              <button
-                onClick={() => document.getElementById('scrollableDiv').scrollBy({ left: -200, behavior: 'smooth' })}
-                className="text-black font-bold py-2 px-3 rounded-lg z-10"
-              >
-                <FaArrowCircleLeft className="text-black" />
-              </button>
-
-              {/* Right Scroll Button */}
-              <button
-                onClick={() => document.getElementById('scrollableDiv').scrollBy({ left: 200, behavior: 'smooth' })}
-                className="text-black font-bold py-2 px-3 rounded-lg z-10"
-              >
-                <FaArrowCircleRight className="text-black" />
-              </button>
-            </div>
-
             {/* Scrollable Content */}
             <div
               id="scrollableDiv"
