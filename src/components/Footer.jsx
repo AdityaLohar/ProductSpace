@@ -1,9 +1,12 @@
 import { FaDiscord, FaLinkedinIn } from "react-icons/fa";
 import logo from "../assets/ps-logo.svg";
+import discord from "../assets/discord-circle.svg";
+import linkedin from "../assets/linkedin-circle.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { z } from "zod";
 import { useState } from "react";
+import footerBg from "../assets/footer bg.png";
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
@@ -28,8 +31,13 @@ const Footer = () => {
   };
 
   return (
-    <div className=" pb-12 pt-16 bg-black">
-      <div className="flex flex-col gap-12 md:flex-row justify-between text-white bg-black px-4 md:pl-32 pb-12">
+    <div
+  className="pb-12 pt-16 bg-black bg-no-repeat lg:bg-right lg:bg-contain"
+  style={{
+    backgroundImage: window.innerWidth >= 1024 ? `url(${footerBg})` : 'none',
+  }}
+>
+      <div className="flex flex-col gap-12 md:flex-row justify-between text-white bg-transparent px-4 md:px-32 pb-12">
           
         <div>
           <div className="text-2xl font-bold pb-2">
@@ -38,7 +46,7 @@ const Footer = () => {
           <div className="font-semibold pb-2 text-[16px]">
             <p>PRODUCT SPACE</p>
           </div>
-          <div className="text-gray-400 pb-2 md:pb-2">
+          <div className="text-white pb-2 md:pb-2">
             <p>A Great Place to Upskill</p>
           </div>
         </div>
@@ -46,7 +54,7 @@ const Footer = () => {
         <div className="flex flex-col gap-12 lg:flex-row justify-between md:gap-20">
           <div>
             <p className="mb-3 font-semibold">Resources</p>
-            <div className="flex flex-col gap-4 text-gray-400">
+            <div className="flex flex-col gap-4 text-white">
               <a
                 href="https://theproductspace.notion.site/Terms-and-Conditions-3a424120bc6a4b51a681e48b471da06c"
                 target="_blank"
@@ -76,7 +84,7 @@ const Footer = () => {
 
           <div className="w-2/3">
             <p className="mb-3 font-semibold">Subscribe</p>
-            <div className="flex flex-col gap-4 text-gray-400">
+            <div className="flex flex-col gap-4 text-white">
               Subscribe to stay tuned for new web-design and latest updates.
               Let&apos;s do it!
             </div>
@@ -113,18 +121,20 @@ const Footer = () => {
         theme="light"
       />
 
-      <div className="flex gap-2 lg:gap-12 justify-between text-gray-400 bg-black px-4 md:px-32">
+      <div className="flex gap-2 lg:gap-12 justify-between text-gray-400 bg-transparent px-4 md:px-32">
             <div>
                 © Propel Learnings
             </div>
             <div className="flex gap-4 text-gray-400">
                 <div>
                     <a href="https://www.linkedin.com/company/theproductspace/" target="_blank" className="">
-                        <FaLinkedinIn className="h-6 w-6"/>
+                      <img src={linkedin} alt="" className="h-8 w-8" />
                     </a>
                 </div>
                 <div>
-                    <a href="https://discord.com/invite/2ytvQhDBS8" target="_blank" className="flex items-center gap-2"><FaDiscord className="h-6 w-6" /></a>
+                    <a href="https://discord.com/invite/2ytvQhDBS8" target="_blank" className="flex items-center gap-2">
+                      <img src={discord} alt="" className="h-8 w-8" />
+                    </a>
                 </div>
             </div>
       </div>

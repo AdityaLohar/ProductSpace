@@ -87,7 +87,7 @@ const CaseStudies1 = () => {
               "background-image 0.4s ease-in-out, opacity 0.4s ease-in-out",
           }}
         >
-          <div className="m-2 p-1 px-2 bg-white rounded-2xl text-[12px] xl:text-sm w-contain">
+          <div className="m-2 p-1 px-2 bg-[#FFF1D4] rounded-2xl text-[12px] xl:text-sm w-contain">
             {boxes[selectedBox]?.title}
           </div>
 
@@ -147,7 +147,7 @@ const CaseStudies1 = () => {
                   "background-image 0.5s ease-in-out, opacity 0.5s ease-in-out",
               }}
             >
-              <div className="m-2 p-1 px-2 bg-white rounded-2xl text-[12px] xl:text-sm w-contain">
+              <div className="m-2 p-1 px-2 bg-[#FFF1D4] rounded-2xl text-[12px] xl:text-sm w-contain">
                 {box.title}
               </div>
             </div>
@@ -155,7 +155,7 @@ const CaseStudies1 = () => {
         })}
       </div>
 
-      <div className="hidden lg:flex justify-center text-[16px] text-[#FF559E] underline my-3">
+      <div className="hidden lg:flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-6">
         <button>Check out more Case Studies</button>
       </div>
 
@@ -172,7 +172,7 @@ const CaseStudies1 = () => {
             }}
           >
             <div>
-              <div className="bg-white rounded-2xl text-[10px] md:text-sm px-2 py-1 m-2">
+              <div className="bg-[#FFF1D4] rounded-2xl text-[10px] md:text-sm px-2 py-1 m-2">
                 {boxes[selectedBox].title}
               </div>
             </div>
@@ -193,7 +193,7 @@ const CaseStudies1 = () => {
         )}
 
         {/* Non-Selected Boxes */}
-        <div className="flex overflow-x-auto space-x-3 py-2 pb-4 pl-2 items-center h-[150px]">
+        <div className="flex overflow-x-auto space-x-3 py-2 pb-8 pl-2 items-center h-[150px]">
           {boxes.map((box, index) => (
             <div
               key={index}
@@ -210,7 +210,7 @@ const CaseStudies1 = () => {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="bg-white rounded-2xl text-[10px] md:text-[12px] px-2 py-1 m-2">
+              <div className="bg-[#FFF1D4] rounded-2xl text-[10px] md:text-[12px] px-2 py-1 m-2">
                 {box.title}
               </div>
             </div>
@@ -218,7 +218,7 @@ const CaseStudies1 = () => {
         </div>
       </div>
 
-      <div className="lg:hidden flex justify-center text-[16px] text-[#FF559E] underline my-6">
+      <div className="lg:hidden flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-12">
         <button>Check out more Case Studies</button>
       </div>
     </div>

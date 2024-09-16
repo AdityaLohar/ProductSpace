@@ -1,8 +1,7 @@
-import discountBg from "../assets/discount-bg.svg";
-import disco3 from "../assets/disco-lights-1.svg";
-import disco2 from "../assets/disco-lights-2.svg";
-import disco1 from "../assets/disco-lights-3.svg";
-import discoBg from "../assets/disco-bg-1.png";
+import discountBg from "../assets/discountBg.svg";
+import disco3 from "../assets/disco-lights1.svg";
+import disco2 from "../assets/disco-lights2.svg";
+import disco1 from "../assets/disco-lights3.svg";
 import clock from "../assets/clock.svg";
 import download from "../assets/download.svg";
 import offer from "../assets/offer-valid.svg";
@@ -68,8 +67,7 @@ const PmFellowshipHeroSection = () => {
           </div>
         </div>
 
-        <div className="relative bg-white rounded-[24px] md:rounded-[32px] lg:w-[37%] shadow-lg p-4 md:p-12 lg:absolute border border-1 border-[#00B5CE] 
-         lg:right-10 lg:top-1/2 lg:transform lg:-translate-y-1/2"
+        <div className="relative bg-white rounded-[24px] md:rounded-[32px] lg:w-[37%] shadow-lg p-4 md:p-12 lg:absolute border border-1 border-[#00B5CE] lg:right-10 lg:top-1/2 lg:transform lg:-translate-y-1/2"
             style={{
                 background: "linear-gradient(to bottom, white 62%, #D7F5FF 62%)", // 2/3 white, 1/3 blue
               }}

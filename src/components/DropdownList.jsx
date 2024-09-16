@@ -114,7 +114,7 @@ const DropdownList = ({ len, flag }) => {
           {flag && visibleCount < questions.length ? (
             <Link to={"/faq"}
               onClick={showMoreQuestions}
-              className='mt-4 text-blue-500 hover:underline text-center'
+              className='mt-8 text-[16px] text-[#FF559E] font-semibold underline text-center'
             >
               Show More Questions
             </Link>

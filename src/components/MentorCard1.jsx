@@ -12,7 +12,7 @@ const MentorCard1 = ({
 }) => {
   return (
     <div className="w-[280px] h-[308px] flex flex-col gap-3 items-center p-4 my-3 border rounded-lg bg-white shadow 
-    shadow-[2px_3px_10px_rgba(1,1,1,0.4)] border-1 border-[#00B5CE]">
+    shadow-[2px_3px_10px_rgba(1,1,1,0.2)] border-1 border-[#00B5CE]">
     {/* <div className="w-[280px] h-[308px] flex flex-col gap-3 items-center p-4 border rounded-lg shadow-md bg-[#D7F5FF] border-1 border-[#00B5CE]"> */}
         <div>
             <div className="flex items-center justify-center overflow-hidden mb-4 mt-2">
@@ -39,10 +39,10 @@ const MentorCard1 = ({
     <img
         src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
         alt="LinkedIn Logo"
-        className="w-3 h-3"
+        className="w-4 h-4"
     />
 
-    <div>
+    <div className="font-medium">
         LinkedIn Profile
     </div>
     </a>

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import "../index.css";
 import meet1 from "../assets/placement-support.png";
-import meet5 from "../assets/product-teardown.png";
+import meet5 from "../assets/teardowns.png";
 import meet8 from "../assets/interview-prep.png";
 
 import meet2 from "../assets/expert-guidance.png";
 import meet6 from "../assets/jobs-internships.png";
 import meet7 from "../assets/industry-tested-content.png";
 
-import meet3 from "../assets/networking-events.png";
+import meet3 from "../assets/networking events.png";
 import meet4 from "../assets/personalized-assesment.png";
 import meet9 from "../assets/live-classroom.png";
 

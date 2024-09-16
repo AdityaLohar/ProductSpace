@@ -40,7 +40,7 @@ const HomeHeroSection = () => {
   };
 
   return (
-    <div className="mx-0 lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-24 lg:gap-4">
+    <div className="mx-0 lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-8 lg:gap-24 lg:gap-4">
       <div className="w-full lg:w-1/2 px-6 lg:px-0">
         <p
           className="font-sans text-[17px] text-transparent font-semibold ml-0 sm:ml-1 md:text-[24px] pt-8 

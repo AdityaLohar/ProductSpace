@@ -7,7 +7,7 @@ const BenefitCard = ({ vector, title, desc, size }) => {
   return (
     <div>
       <div
-        className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_10px_rgba(151,71,255,0.5)] border border-2`}
+        className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_10px_rgba(151,71,255,0.2)] border border-2`}
       >
         <div className={`flex ${size == 16 ? "mb-4" : "mb-6"} justify-center sm:justify-start`}>
           <img src={vector} alt="" className={`w-${size} h-${size-1}`} />
