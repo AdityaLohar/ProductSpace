@@ -160,7 +160,7 @@ const LearningWithPace = () => {
                 {title[0] === '0' ? title.slice(2) : title.slice(3)}
               </h2>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-2 lg:space-y-4">
               {desc.map((point, index) => (
                 <div
                   key={index}

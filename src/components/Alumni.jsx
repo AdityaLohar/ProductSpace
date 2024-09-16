@@ -6,19 +6,19 @@ const alumni = [
     id: 1,
     profile: "https://media.licdn.com/dms/image/v2/D5603AQGGLNTiBlHcrw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710504658899?e=1731542400&v=beta&t=Bc1TFPzuuo0uEN4fuf-1tdXKDwYl3OF2yW31-PwAQIo",
     name: "Aditya Mandothia",
-    prevCompany: "Bharti AXA Life Insurance",
-    prevPost: "Digital Product Management Intern",
+    prevCompany: "Bharti AXA",
+    prevPost: "Digital PM Intern",
     curCompany: "Cinestox",
-    curPost: "Product Management Intern",
+    curPost: "PM Intern",
     testimonial: "Grateful to Product Space for the in-depth knowledge and skills in product management. The practical experience and 1:1 support were exceptional",
   },
   {
     id: 2,
     profile: "https://media.licdn.com/dms/image/v2/D5603AQFuaisZpsSTjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705161505684?e=1731542400&v=beta&t=aThtTNNdBqxkVgYOfBP394wH95SeA8T1ZANwJZ1s_18",
     name: "Nishant Sinja",
-    prevCompany: "Thermax Limited",
+    prevCompany: "Thermax",
     prevPost: "Marketing Research Intern",
-    curCompany: "CreditAccess Grameen Limited",
+    curCompany: "CreditAccess Grameen",
     curPost: "Product Manager",
     testimonial: "The mentors at Product Space went above and beyond to help me achieve my goals. Their guidance was crucial to my success.",
   },
@@ -56,8 +56,8 @@ const alumni = [
     id: 6,
     profile: "https://media.licdn.com/dms/image/v2/D4D03AQG_XhVWVr-pqA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725585006683?e=1731542400&v=beta&t=2Fjqbbyh9lINGj4rhKcdLpe2srt6lYuM_uInTnpTQco",
     name: "Amara Venkata Sai Srujan",
-    prevCompany: "Company A",
-    prevPost: "Role A",
+    prevCompany: "ISM Dhanbad",
+    prevPost: "Student",
     curCompany: "Nabe Eats",
     curPost: "Product Manager",
     testimonial: "Grateful to Product Space for kickstarting my Product Management journey. Made great friends, found study partners, and had amazing mentors to rely on. A fantastic 2.5 months! Thanks, Akhil Yash Tiwari, for the experience! Proud to be have been part of 'PS_C7'."
@@ -95,7 +95,7 @@ const Alumni = () => {
 
       <div className="h-[600px] overflow-x-scroll md:overflow-x-hidden mentor-scrollbar md:scroll-container">
         <div
-          className={`scroll-wrapper ml-6 animate`}
+          className={`scroll-wrapper space-x-16 lg:space-x-20 ml-6 animate`}
         >
           {[...Array(5)].map((_, i) => (
             alumni.map((alums, index) => (

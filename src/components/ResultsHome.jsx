@@ -36,7 +36,7 @@ const ResultsCard = ({ iconImg, number, title, subTitle }) => {
   return (
     <div
       ref={cardRef}
-      className="flex items-center text-start gap-1 border border-1 border-[#21C1F3] bg-white rounded-2xl p-4"
+      className="flex items-center text-start gap-1 border border-1 border-[#21C1F3] bg-transparent rounded-2xl p-4"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "120px",

@@ -1,4 +1,43 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import CountUp from 'react-countup';
+
+const ResultCard = ({id, flag, number, title, desc}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Stop observing after it becomes visible
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when at least 10% of the element is visible
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div ref={cardRef} className={`${!flag ? "md:border-r-2 md:border-[#00B5CE]" : "border-r-2 border-[#00B5CE]"} px-4 xl:px-12`}>
+        <div>{id == 2 ? "" : "₹"} <span className='text-[28px] md:text-[40px] font-semibold'>
+          {isVisible && <CountUp start={0} end={number} duration={3} />}
+          </span> {title}</div>
+        <div className='text-[14px] font-medium text-black'>{desc}</div>
+    </div>
+  )
+}
 
 const ResultsPmFellowship = () => {
     return (
@@ -11,25 +50,13 @@ const ResultsPmFellowship = () => {
             <div className='flex gap-4 justify-between w-full md:w-auto md:justify-around items-center xl:gap-0 text-[#00B5CE] text-center'>
               
               <div className='flex flex-col md:flex-row gap-4 w-full lg:w-auto'>
-                <div className='border-r-2 border-[#00B5CE] px-4 xl:px-12'>
-                    <div>₹ <span className='text-[28px] md:text-[40px] font-semibold'>48</span> LPA</div>
-                    <div className='text-[14px] font-medium text-black'>Highest Salary</div>
-                </div>
-                <div className='border-r-2 border-[#00B5CE] px-4 xl:px-12'>
-                    <div><span className='text-[28px] md:text-[40px] font-semibold'>174</span></div>
-                    <div className='text-[14px] font-medium text-black'>Placed Last 60 Days</div>
-                </div>
+                <ResultCard id={1} flag={1} number={48} title={"LPA"} desc={"Highest Salary"} />
+                <ResultCard id={2} flag={1} number={174} title={""} desc={"Placed Last 60 Days"} />
               </div>
 
               <div className='flex flex-col md:flex-row gap-4 w-full lg:w-auto'>
-                <div className='md:border-r-2 md:border-[#00B5CE] px-4 xl:px-12'>
-                    <div>₹ <span className='text-[28px] md:text-[40px] font-semibold'>19.6</span> LPA</div>
-                    <div className='text-[14px] font-medium text-black'>Average Salary</div>
-                </div>
-                <div className='px-4 xl:px-12'>
-                    <div>Rs <span className='text-[28px] md:text-[40px] font-semibold'>51.2</span> %</div>
-                    <div className='text-[14px] font-medium text-black'>Average Hike</div>
-                </div>
+                <ResultCard id={3} flag={0} number={19} title={".6 LPA"} desc={"Average Salary"} />
+                <ResultCard id={4} flag={0} number={51} title={".2 %"} desc={"Average Hike"} />
               </div>
 
             </div>

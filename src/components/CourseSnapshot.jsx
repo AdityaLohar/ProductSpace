@@ -1,14 +1,63 @@
 import tick from "../assets/tick-green.svg";
 import courseSnapshotVideo from "../assets/course-snapshot-video.mp4";
+import { useRef, useState } from "react";
 
 const VideoContent = () => {
+  const videoRef = useRef(null); // Reference to the video element
+  const [isPlaying, setIsPlaying] = useState(false); // Track if the video is playing
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause(); // Pause the video
+      } else {
+        videoRef.current.play(); // Play the video
+      }
+      setIsPlaying(!isPlaying); // Toggle play/pause state
+    }
+  };
+
+  // Pause the video if clicked outside of the play button
+  const handleVideoClick = () => {
+    if (isPlaying) {
+      videoRef.current.pause(); // Pause the video
+      setIsPlaying(false); // Update state
+    }
+  };
+
   return (
-    <div>
+    <div className="relative w-full">
       <div className="w-full aspect-square rounded-[10%] overflow-hidden">
-        <video className="w-full h-full object-cover" controls>
-          <source src={courseSnapshotVideo} type="video/mp4"/>
+        <video
+          ref={videoRef} // Attach the ref to the video element
+          className="w-full h-full object-cover"
+          controls={false} // Disable default controls
+          onClick={handleVideoClick} // Pause video when clicked
+        >
+          <source src={courseSnapshotVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        {/* Play Button */}
+        {!isPlaying && (
+          <div
+            className="absolute inset-0 flex items-center justify-center cursor-pointer"
+            onClick={togglePlayPause} // Toggle play/pause
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 24 24"
+              className="w-16 h-16 bg-black bg-opacity-50 rounded-full p-4"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M5 3.553v16.894c0 1.15 1.238 1.87 2.22 1.253l12.447-8.447c.936-.635.936-1.972 0-2.607L7.22 3.553C6.238 2.936 5 3.656 5 4.806z"
+              />
+            </svg>
+          </div>
+        )}
       </div>
 
       <div className="text-center mt-4 text-[20px] font-semibold">
