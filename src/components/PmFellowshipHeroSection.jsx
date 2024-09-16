@@ -75,7 +75,7 @@ const PmFellowshipHeroSection = () => {
           <div
             className="absolute top-0 right-5 sm:right-10 h-1/2 text-white py-1 px-3 text-[14px] pt-3"
             style={{
-              backgroundImage: `url(${discountBg})`,
+              backgroundImage: `url("data:image/svg+xml;utf8,<svg width='55' height='75' xmlns='http://www.w3.org/2000/svg'><g filter='url(%23filter0_d_754_40479)'><path d='M1.44779 1.08393e-05L52.001 1.52588e-05L52.001 72L26.7244 64.2384L1.44778 72L1.44779 1.08393e-05Z' fill='%23D73939'/></g><defs><filter id='filter0_d_754_40479' x='0.665635' y='-0.782607' width='53.6832' height='75.1304' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/><feOffset dx='0.782607' dy='0.782607'/><feGaussianBlur stdDeviation='0.782607'/><feColorMatrix type='matrix' values='0 0 0 0 0.00392157 0 0 0 0 0.00392157 0 0 0 0 0.00392157 0 0 0 0.4 0'/><feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_754_40479'/><feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_754_40479' result='shape'/></filter></defs></svg>")`,
               backgroundSize: "contain",
               backgroundPosition: "top",
               backgroundRepeat: "no-repeat",
