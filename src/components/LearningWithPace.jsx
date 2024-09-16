@@ -2,7 +2,6 @@ import tick from "../assets/tick-green.svg";
 import { useEffect, useState } from "react";
 import courseContent from "../data/CourseContent";
 import rotatingArc from "../assets/pink-rotating.svg";
-// import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 const CircleSegment = ({ index, activeIndex }) => {
   // Determine if the segment should be active (colored)

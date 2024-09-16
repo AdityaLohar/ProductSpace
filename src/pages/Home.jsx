@@ -10,6 +10,7 @@ import HomeHeroSection from "./../components/HomeHeroSection";
 import CaseStudies1 from "../components/CaseStudies1";
 import BottomBar from './../components/BottomBar';
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -35,6 +36,11 @@ const Home = () => {
 
   return (
     <div className="font-hind xl:flex xl:flex-col items-center">
+      <Helmet>
+        <title>Home Page - Product Space</title>
+        <meta name="description" content="Welcome to the Home page of Product Space." />
+      </Helmet>
+      
       <div className="bg-transparent py-5 max-w-screen-xl lg:py-16">
         <HomeHeroSection />
       </div>

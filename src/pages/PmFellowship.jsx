@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Companies from "../components/Companies";
 import CourseSnapshot from "../components/CourseSnapshot";
 import Footer from "../components/Footer";
@@ -12,6 +13,11 @@ import WhyPmFellowship from "../components/WhyPmFellowship";
 const PmFellowship = () => {
     return (
         <div className="bg-white font-hind xl:flex xl:flex-col items-center">
+          <Helmet>
+            <title>PM Fellowship Page - Product Space</title>
+            <meta name="description" content="Welcome to the PM Fellowship page of Product Space." />
+          </Helmet>
+
           <div className="w-full max-w-screen-2xl">
             <PmFellowshipHeroSection />
             <CourseSnapshot />

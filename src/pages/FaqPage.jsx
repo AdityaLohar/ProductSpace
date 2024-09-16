@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import DropdownList from "../components/DropdownList";
+import { Helmet } from 'react-helmet';
 
 const FaqPage = () => {
   return (
     <div className="flex flex-col pb-40 bg-white">
+      <Helmet>
+        <title>Frequently Asked Questions - Product Space</title>
+        <meta name="description" content="Welcome to the faq page of Product Space. Look at all questions you may have." />
+      </Helmet>
+      
       <div className="">
         <div className="flex px-4 md:px-[120px] items-center justify-start text-gray-700 max-w-screen-2xl mx-auto">
           <Link to="/" className="text-gray-500 hover:underline">
