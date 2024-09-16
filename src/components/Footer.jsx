@@ -37,7 +37,7 @@ const Footer = () => {
     backgroundImage: window.innerWidth >= 1024 ? `url(${footerBg})` : 'none',
   }}
 >
-      <div className="flex flex-col gap-12 md:flex-row justify-between text-white bg-transparent px-4 md:px-32 pb-12">
+      <div className="flex flex-col gap-12 lg:flex-row justify-between text-white bg-transparent px-4 md:px-32 pb-12">
           
         <div>
           <div className="text-2xl font-bold pb-2">
