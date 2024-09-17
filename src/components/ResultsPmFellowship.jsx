@@ -32,7 +32,7 @@ const ResultCard = ({id, flag, number, title, desc}) => {
   return (
     <div ref={cardRef} className={`${!flag ? "md:border-r-2 md:border-[#00B5CE]" : "border-r-2 border-[#00B5CE]"} px-4 xl:px-12`}>
         <div>{id == 2 ? "" : "₹"} <span className='text-[28px] md:text-[40px] font-semibold'>
-          {isVisible && <CountUp start={0} end={number} duration={3} />}
+          {isVisible && <CountUp start={0} end={number} duration={5} />}
           </span> {title}</div>
         <div className='text-[14px] font-medium text-black'>{desc}</div>
     </div>

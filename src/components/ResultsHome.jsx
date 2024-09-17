@@ -49,7 +49,7 @@ const ResultsCard = ({ iconImg, number, title, subTitle }) => {
       </div>
       <div>
         <div className="text-[#21C1F3] font-semibold text-[24px] md:text-[28px] xl:text-[32px] font-sans">
-          {isVisible && <CountUp start={0} end={number} duration={3} />}
+          {isVisible && <CountUp start={0} end={number} duration={5} />}
           {title}
         </div>
         <div className="text-[18px] lg:text[22px] font-medium">{subTitle}</div>

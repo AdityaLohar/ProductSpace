@@ -31,7 +31,7 @@ const VideoContent = () => {
         <video
           ref={videoRef} // Attach the ref to the video element
           className="w-full h-full object-cover"
-          controls={false} // Disable default controls
+          controls={isPlaying ? true : false} // Disable default controls
           onClick={handleVideoClick} // Pause video when clicked
         >
           <source src={courseSnapshotVideo} type="video/mp4" />

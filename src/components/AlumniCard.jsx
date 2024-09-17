@@ -11,7 +11,7 @@ const AlumniCard = ({
   testimonial,
 }) => {
   return (
-    <div className="w-[320px] h-[590px] rounded-2xl bg-white p-2">
+    <div className="w-[320px] h-[585px] rounded-2xl bg-white p-2">
     <div className="relative">
       <div className="relative w-full h-66 rounded-lg overflow-hidden">
           <img src={profile} alt="" className="w-full h-full object-cover" />

@@ -10,7 +10,7 @@ import HomeHeroSection from "./../components/HomeHeroSection";
 import CaseStudies1 from "../components/CaseStudies1";
 import BottomBar from './../components/BottomBar';
 import Footer from "../components/Footer";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -35,38 +35,40 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="font-hind xl:flex xl:flex-col items-center">
-      <Helmet>
-        <title>Home Page - Product Space</title>
-        <meta name="description" content="Welcome to the Home page of Product Space." />
-      </Helmet>
-      
-      <div className="bg-transparent py-5 max-w-screen-xl lg:py-16">
-        <HomeHeroSection />
+    <HelmetProvider>
+      <div className="font-hind xl:flex xl:flex-col items-center">
+        <Helmet>
+          <title>Home Page - Product Space</title>
+          <meta name="description" content="Welcome to the Home page of Product Space." />
+        </Helmet>
+        
+        <div className="bg-transparent py-5 max-w-screen-xl lg:py-16">
+          <HomeHeroSection />
+        </div>
+
+        <div className="w-full max-w-screen-2xl">
+          <MeetMentors bgColor={"#D7F5FF"} />
+          <Companies />
+        </div>
+
+        <hr className="w-full max-w-screen-xl border-t-2" />
+
+        <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
+          <Results />
+          <CaseStudies1 />
+          <Alumini />
+          <Benefits bgColor={"#F1E6FF"} />
+          <NewsLetter />
+          <Faq />
+        </div>
+
+        <div className="w-full bg-black lg:pb-16 max-w-screen-2xl">
+          <Footer />
+        </div>
+
+        {showBottomBar && <BottomBar />}
       </div>
-
-      <div className="w-full max-w-screen-2xl">
-        <MeetMentors bgColor={"#D7F5FF"} />
-        <Companies />
-      </div>
-
-      <hr className="w-full max-w-screen-xl border-t-2" />
-
-      <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
-        <Results />
-        <CaseStudies1 />
-        <Alumini />
-        <Benefits bgColor={"#F1E6FF"} />
-        {/* <NewsLetter /> */}
-        <Faq />
-      </div>
-
-      <div className="w-full bg-black lg:pb-16 max-w-screen-2xl">
-        <Footer />
-      </div>
-
-      {showBottomBar && <BottomBar />}
-    </div>
+    </HelmetProvider>
   );
 };
 

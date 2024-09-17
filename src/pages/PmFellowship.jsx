@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import Companies from "../components/Companies";
 import CourseSnapshot from "../components/CourseSnapshot";
 import Footer from "../components/Footer";
@@ -9,9 +8,11 @@ import PmFellowshipHeroSection from "../components/PmFellowshipHeroSection";
 import ResultsPmFellowship from "../components/ResultsPmFellowship";
 import ReviewPmFellowship from "../components/ReviewPmFellowship";
 import WhyPmFellowship from "../components/WhyPmFellowship";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const PmFellowship = () => {
     return (
+      <HelmetProvider>
         <div className="bg-white font-hind xl:flex xl:flex-col items-center">
           <Helmet>
             <title>PM Fellowship Page - Product Space</title>
@@ -35,6 +36,7 @@ const PmFellowship = () => {
             
           </div>
         </div>
+      </HelmetProvider>
       );
 }
 

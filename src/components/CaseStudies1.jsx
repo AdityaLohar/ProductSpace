@@ -70,7 +70,7 @@ const CaseStudies1 = () => {
         </div>
       </div>
 
-      <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-4 lg:gap-7 w-full p-4 relative overflow-hidden">
+      <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-4 lg:gap-7 w-full p-4 relative hover:cursor-pointer overflow-hidden">
         {/* First Box: Always shows the selected one */}
         <div
           key="selected"
@@ -155,9 +155,9 @@ const CaseStudies1 = () => {
         })}
       </div>
 
-      <div className="hidden lg:flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-6">
+      {/* <div className="hidden lg:flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-6">
         <button>Check out more Case Studies</button>
-      </div>
+      </div> */}
 
       <div className="lg:hidden">
         {/* Display the Selected Box */}
