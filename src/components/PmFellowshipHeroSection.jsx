@@ -30,7 +30,7 @@ const PmFellowshipHeroSection = () => {
       style={{
         backgroundImage: `url(${bgImages[0]}), url(${bgImages[1]}), url(${bgImages[2]})`,
         backgroundPosition: "bottom center, bottom right -10%, bottom left -5%",
-        backgroundSize: "contain, contain, contain", // Adjust size for each image
+        backgroundSize: "cover, contain, contain", // Adjust size for each image
         backgroundRepeat: "no-repeat, no-repeat, no-repeat", // Prevent repeating
       }}
     >
