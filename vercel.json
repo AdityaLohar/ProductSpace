@@ -1,5 +1,9 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
+      { "source": "/(.*)", "destination": "/" },
+      {
+        "source": "/wp-json/:path*",
+        "destination": "https://theproductspace.wordpress.com/wp-json/:path*"
+      }
     ]
   }
