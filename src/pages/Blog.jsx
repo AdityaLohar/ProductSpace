@@ -18,7 +18,6 @@ const Blog = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(data);
 
         setPost(data);
         setLoading(false);
@@ -44,15 +43,15 @@ const Blog = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="px-60 bg-white">
+    <div className="px-4 sm:px-20 lg:px-60 bg-white">
       {post && (
         <div className="max-w-3xl mx-auto py-6">
         {/* Render the post title */}
-        <h1 className="text-3xl font-bold mb-4">{post.title.rendered}</h1>
+        <h1 className="text-[24px] lg:text-[36px] font-bold mb-4">{post.title.rendered}</h1>
   
         {/* Render the post content (headings, paragraphs, etc.) */}
         <div
-          className="prose prose-lg"
+          className="prose prose-lg text-[16px] lg:text-[18px] font-sans"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}  // This renders the HTML content including subheadings
         />
       </div>
