@@ -32,7 +32,7 @@ const Footer = () => {
 
   return (
     <div
-  className="pb-12 pt-16 bg-black bg-no-repeat lg:bg-right lg:bg-contain"
+  className="pb-12 pt-16 bg-black bg-no-repeat sm:bg-right sm:bg-contain"
   style={{
     backgroundImage: window.innerWidth >= 1024 ? `url(${footerBg})` : 'none',
   }}

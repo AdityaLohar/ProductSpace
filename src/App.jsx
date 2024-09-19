@@ -7,6 +7,9 @@ import '@fontsource/hind-madurai';
 import PmFellowship from './pages/PmFellowship';
 import FaqPage from './pages/FaqPage';
 import { useEffect } from 'react';
+import BlogPage from './pages/BlogPage';
+import Blog from './pages/Blog';
+import Footer from './components/Footer';
 
 function App() {
   const location = useLocation();
@@ -23,6 +26,8 @@ function App() {
       {/* <Router> */}
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/blogs' element={<BlogPage />} />
+          <Route path="/blogs/:id" element={<Blog />} />
           <Route path='/faq' element={<FaqPage />} />
           <Route path='/pm' element={<PmFellowship />} />
         </Routes>

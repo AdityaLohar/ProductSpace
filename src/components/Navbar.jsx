@@ -14,9 +14,11 @@ const Navbar = () => {
       const scrollPosition = window.scrollY;
       const screenHeight = window.innerHeight;
 
-      if (scrollPosition < (screenHeight)) {
+      const buffer = 20; // Adjust the buffer size if needed
+
+      if (scrollPosition < (screenHeight - buffer)) {
         setShowTomBar(true);
-      } else {
+      } else if (scrollPosition > (screenHeight + buffer)) {
         setShowTomBar(false);
       }
     };
@@ -118,8 +120,8 @@ const Navbar = () => {
             <a href="#" className="hover:underline flex items-center gap-1">
               Events
             </a>
-            <a href="#" className="hover:underline flex items-center gap-1">
-              Resources
+            <a href="/blogs" className="hover:underline flex items-center gap-1">
+              Blogs
             </a>
           </div>
           <button className="bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-4 xl:px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">

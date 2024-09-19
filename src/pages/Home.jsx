@@ -38,8 +38,8 @@ const Home = () => {
     <HelmetProvider>
       <div className="font-hind xl:flex xl:flex-col items-center">
         <Helmet>
-          <title>Home Page - Product Space</title>
-          <meta name="description" content="Welcome to the Home page of Product Space." />
+          <title>Product Space</title>
+          <meta name="description" content="Product Space is the premier platform to transition into Product Management. Our 10-week PM fellowship will help you upskill and ace interviews." />
         </Helmet>
         
         <div className="bg-transparent py-5 max-w-screen-xl lg:py-16">
@@ -61,7 +61,7 @@ const Home = () => {
           <NewsLetter />
           <Faq />
         </div>
-
+        
         <div className="w-full bg-black lg:pb-16 max-w-screen-2xl">
           <Footer />
         </div>

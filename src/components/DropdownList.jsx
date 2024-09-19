@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const DropdownItem = ({ question, content, isOpen, onClick }) => {
     return (
-        <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#9747FF]" : "border border-2 border-transparent"}`}>
-        {/* <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#21C1F3]" : "border border-2 border-transparent"}`}> */}
+        // <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#9747FF]" : "border border-2 border-transparent"}`}>
+        <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#21C1F3]" : "border border-2 border-transparent"}`}>
             <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
                 <div className='text-[16px] font-semibold text-gray-700'>
                     <p>{question}</p>
                 </div>
                 <div className=''>
                     <svg
-                        className={`h-6 w-6 transition-transform duration-200 rounded-full ease-in-out ${isOpen ? 'rotate-[0deg] bg-[#9747FF] text-white' : 'text-gray-400 rotate-[-90deg]'}`}
+                        className={`h-6 w-6 transition-transform duration-200 rounded-full ease-in-out ${isOpen ? 'rotate-[0deg] bg-[#21C1F3] text-white' : 'text-gray-400 rotate-[-90deg]'}`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"

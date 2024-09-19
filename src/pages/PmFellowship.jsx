@@ -29,11 +29,6 @@ const PmFellowship = () => {
             <ResultsPmFellowship />
             <MeetMentors bgColor={"#fff"} />
             <ReviewPmFellowship />
-            <Footer />
-          </div>
-    
-          <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
-            
           </div>
         </div>
       </HelmetProvider>

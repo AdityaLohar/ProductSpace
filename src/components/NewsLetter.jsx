@@ -50,7 +50,7 @@ const NewsLetter = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
-            className="bg-[#21C1F3] text-white py-2 px-3 lg:px-3 rounded-full text-[16px] lg:text-base"
+            className="bg-[#9747FF] text-white py-2 px-3 lg:px-3 rounded-full text-[16px] lg:text-base"
             onClick={handleSubmit}
           >
             Subscribe Now

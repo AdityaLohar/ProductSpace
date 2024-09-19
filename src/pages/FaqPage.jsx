@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import DropdownList from "../components/DropdownList";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useEffect } from "react";
 
 const FaqPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     <HelmetProvider>
       <div className="flex flex-col pb-40 bg-white">
