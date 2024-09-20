@@ -123,11 +123,11 @@ const Navbar = () => {
           href="https://topmate.io/propel/62841"
           target="_blank"
           rel="noopener noreferrer"
+          className="lg:hidden bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out block text-center"
         >
-          <button className="lg:hidden bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
-            Book a 1:1 Mentor Call
-          </button>
+          Book a 1:1 Mentor Call
         </a>
+
 
         <div className="hidden lg:flex space-x-8 items-center">
           <div className="hidden lg:flex space-x-6 xl:space-x-7 font-medium text-[18px]">
@@ -141,15 +141,16 @@ const Navbar = () => {
               Blogs
             </a>
           </div>
-          <button className="bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-4 xl:px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
+
             <a
               href="https://topmate.io/propel/62841"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Book a 1:1 Mentor Call
+            <button className="bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-4 xl:px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
+                Book a 1:1 Mentor Call
+            </button>
             </a>
-          </button>
         </div>
       </div>
 
