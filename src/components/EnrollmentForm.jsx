@@ -30,7 +30,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
         <>
           {/* Modal overlay */}
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-50"
+            className="fixed inset-0 bg-black bg-opacity-70 z-50"
             onClick={toggleModal}
           ></div>
 
@@ -84,7 +84,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                 <div className="flex flex-col items-center">
                   <button
                     onClick={handleSubmit}
-                    className="text-[14px] lg:text-[20px] bg-[#FEC923] text-black font-semibold p-2 md:px-6 md:py-4 rounded-lg hover:bg-yellow-500"
+                    className="text-[14px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold p-2 md:px-6 md:py-4 rounded-full hover:bg-yellow-500"
                   >
                     Enroll Now
                   </button>
