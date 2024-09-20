@@ -1,11 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import logo from "../assets/ps-logo-dark.svg";
 import { RiArrowRightSFill } from "react-icons/ri";
+import EnrollmentForm from "./EnrollmentForm";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigationRef = useRef(null);
   const [showTopBar, setShowTomBar] = useState(false);
+
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleModal = () => {
+    if (!isFormOpen) {
+      setIsFormOpen(true);
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      setIsVisible(false);
+      setTimeout(() => setIsFormOpen(false), 300);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,9 +62,9 @@ const Navbar = () => {
             <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
               <div className="text-black">NEXT COHORT STARTS: 12th October</div>
               <div className="flex items-center">
-                <div className="bg-[#130D00] px-2 py-1 rounded-md">
+                <button onClick={toggleModal} className="bg-[#130D00] px-2 py-1 rounded-md">
                   25 DAYS TO GO
-                </div>
+                </button>
                 <div className="text-black">
                   <RiArrowRightSFill />
                 </div>

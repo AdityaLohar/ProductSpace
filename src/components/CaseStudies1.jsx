@@ -45,10 +45,10 @@ const CaseStudies1 = () => {
       url: "https://pitch.com/v/welcome-to-pitch-asepfu",
     },
     { id: 6,
-      title: "Canva", 
-      image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Canva_logo..png",
-      desc: "Improving Canva Viewing Experience",
-      url: "",
+      title: "Zomato", 
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zomato_logo.png/768px-Zomato_logo.png",
+      desc: "Improve food ordering experience on Zomato",
+      url: "https://media.licdn.com/dms/document/media/D4D1FAQEKVraYw38fQw/feedshare-document-pdf-analyzed/0/1690208208511?e=1720656000&v=beta&t=fMS6DypFq5v8l7TP423jil2-bn5K8WjoHgO3h752IVQ",
     },
     {
       id: 7,
@@ -218,9 +218,9 @@ const CaseStudies1 = () => {
         </div>
       </div>
 
-      <div className="lg:hidden flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-12">
+      {/* <div className="lg:hidden flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-12">
         <button>Check out more Case Studies</button>
-      </div>
+      </div> */}
     </div>
   );
 };
