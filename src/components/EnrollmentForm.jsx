@@ -56,15 +56,14 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                   PM Fellowship Enrolment
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
-                  Product Portfolio | 1-1 Mentorship | Interview Prep | Placement
-                  Assistance -{" "}
+                Personalized Guidance | Interview Preparation | Industry Focus Content | Job Placements Support -{" "}
                   <span className="font-bold">All at one place</span>
                 </h3>
 
                 <div className="mb-4">
                   <input
                     type="text"
-                    className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
+                    className="w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
                     placeholder="Enter your name*"
                     required
                     onChange={(e) => setName(e.target.value)}
@@ -74,7 +73,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                 <div className="mb-4">
                   <input
                     type="tel"
-                    className="w-full p-3 md:p-5 border border-gray-300 rounded-lg outline-none"
+                    className="w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
                     placeholder="Your Mobile Number*"
                     required
                     onChange={(e) => setNumber(e.target.value)}
