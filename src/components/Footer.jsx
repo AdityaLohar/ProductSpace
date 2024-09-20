@@ -32,12 +32,12 @@ const Footer = () => {
 
   return (
     <div
-  className="pb-12 pt-16 bg-black bg-no-repeat sm:bg-right sm:bg-contain"
+  className="pb-12 pt-16 bg-black bg-no-repeat sm:bg-right sm:bg-contain mx-auto xl:mx-auto max-w-screen-2xl"
   style={{
     backgroundImage: window.innerWidth >= 1024 ? `url(${footerBg})` : 'none',
   }}
 >
-      <div className="flex flex-col gap-12 lg:flex-row justify-between text-white bg-transparent px-4 md:px-32 pb-12">
+      <div className="flex flex-col gap-12 lg:flex-row justify-between text-white bg-transparent px-4 md:px-32 custom-12:px-[0px] pb-12">
           
         <div>
           <div className="text-2xl font-bold pb-2">
@@ -94,12 +94,12 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Enter your email Address"
-                  className="p-3 lg:p-4 w-[210px] lg:w-[300px] text-black outline-none rounded-lg"
+                  className="p-3 lg:p-4 w-[210px] lg:w-[300px] text-black text-[14px] font-semibold outline-none rounded-lg"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
-                <button onClick={handleSubmit} className="p-3 lg:p-4 lg:px-12 bg-[#FFC303] text-black font-semibold rounded-lg">
+                <button onClick={handleSubmit} className="p-3 lg:p-4 lg:px-12 bg-[#FFC303] text-[14px] lg:text-[16px] text-black font-bold rounded-lg">
                   Subscribe
                 </button>
               </div>
@@ -121,7 +121,7 @@ const Footer = () => {
         theme="light"
       />
 
-      <div className="flex gap-2 lg:gap-12 justify-between text-gray-400 bg-transparent px-4 md:px-32">
+      <div className="flex gap-2 lg:gap-12 justify-between text-gray-400 bg-transparent px-4 md:px-32 custom-12:px-[0px]">
             <div>
                 © Propel Learnings
             </div>
@@ -138,6 +138,7 @@ const Footer = () => {
                 </div>
             </div>
       </div>
+
     </div>
   );
 };

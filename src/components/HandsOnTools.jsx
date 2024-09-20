@@ -8,7 +8,7 @@ import postman from "../assets/postman-logo.svg";
 const ToolCard = ({logo, title}) => {
   return (
     <div className="flex flex-col items-center justify-end gap-3 lg:gap-8">
-      <img src={logo} alt="" className="w-16 h-16 md:w-20 md:h-20 " />
+      <img src={logo} alt="" className="w-16 h-16 md:w-20 md:h-20" />
       <p>{title}</p>
     </div>
   );
@@ -23,12 +23,20 @@ const HandsOnTools = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 space-y-8">
-          <ToolCard logo={figma} title={"Figma"} />
+          <div className="flex flex-col items-center justify-end gap-3 lg:gap-8">
+            <img src={figma} alt="" className="w-16 h-16 pb-1 pt-2 md:w-[60px] md:h-[68px] md:pb-2" />
+            <p>Figma</p>
+          </div>
+
           <ToolCard logo={miro} title={"Miro"} />
           <ToolCard logo={moengage} title={"Moengage"} />
           <ToolCard logo={notion} title={"Notion"} />
           <ToolCard logo={jira} title={"JIRA"} />
-          <ToolCard logo={postman} title={"Postman"} />
+
+          <div className="flex flex-col items-center justify-end gap-3 lg:gap-8">
+            <img src={postman} alt="" className="w-16 h-16 pb-1 pt-2   md:w-[60px] md:h-[68px] md:pb-2" />
+            <p>Postman</p>
+          </div>
         </div>
       </div>
     </div>

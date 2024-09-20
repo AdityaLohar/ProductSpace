@@ -87,17 +87,17 @@ const CourseSnapshot = () => {
             <div className="flex justify-around md:gap-4 xl:gap-8">
               <div className="lg:max-w-[120px] text-center">
                 <span className="text-[32px] font-semibold text-yellow-400">
-                  15+
+                  2000+
                 </span>{" "}
                 <br />
-                Case Studies
+                Alumni
               </div>
               <div className="lg:max-w-[120px] text-center">
                 <span className="text-[32px] font-semibold text-yellow-400">
-                  14+
+                  600+
                 </span>{" "}
                 <br />
-                Live Projects
+                Transitions
               </div>
             </div>
           </div>

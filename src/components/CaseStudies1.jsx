@@ -39,10 +39,10 @@ const CaseStudies1 = () => {
       url: "https://www.canva.com/design/DAFwZ6hl2l8/3GWwC_zwMWc4vpUHICYsVA/edit",
     },
     { id: 5, 
-      title: "Netflix", 
-      image: netflix ,
-      desc: "Improving Netflix Viewing Experience",
-      url: "",
+      title: "Spring Money", 
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8CPJaorfvXDYCYzcDnWFbI65Chmwcbx5gQg&s" ,
+      desc: "Design loan assist tool for SpringMoney",
+      url: "https://pitch.com/v/welcome-to-pitch-asepfu",
     },
     { id: 6,
       title: "Canva", 
@@ -62,7 +62,7 @@ const CaseStudies1 = () => {
   return (
     <div className="flex flex-col bg-white md:py-8 px-4 md:px-10 xl:px-20">
       <div className="py-8">
-        <div className="text-[28px] lg:text-[44px] font-bold text-center font-sans">
+        <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans">
           Product Tear-down & Case Studies
         </div>
         <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium py-1">
@@ -74,7 +74,7 @@ const CaseStudies1 = () => {
         {/* First Box: Always shows the selected one */}
         <div
           key="selected"
-          className="col-span-2 row-span-2 h-full w-full rounded-2xl flex flex-col font-semibold bg-white overflow-hidden items-start"
+          className="col-span-2 row-span-2 h-full w-full rounded-2xl shadow-[0px_4px_17px_rgba(0,0,0,0.4)] flex flex-col font-semibold bg-white overflow-hidden items-start"
           style={{
             backgroundImage: `url(${boxes[selectedBox]?.image})`,
             backgroundSize: "cover",
@@ -135,7 +135,7 @@ const CaseStudies1 = () => {
                 ];
                 setSelectedBox(index);
               }}
-              className="col-span-1 row-span-1 custom-5:h-[170px] custom-5:w-[170px] custom-6:h-[180px] custom-6:w-[180px] custom-8:h-[200px] custom-8:w-[200px] 2xl:h-[245px] 2xl:w-[245px] rounded-lg flex flex-col font-semibold bg-white overflow-hidden items-start justify-end"
+              className="col-span-1 row-span-1 hover:shadow-[1px_5px_10px_rgba(0,0,0,0.4)] custom-5:h-[170px] custom-5:w-[170px] custom-6:h-[180px] custom-6:w-[180px] custom-8:h-[200px] custom-8:w-[200px] 2xl:h-[245px] 2xl:w-[245px] rounded-lg flex flex-col font-semibold bg-white overflow-hidden items-start justify-end"
               style={{
                 backgroundImage: `url(${box.image})`,
                 backgroundSize: "cover",

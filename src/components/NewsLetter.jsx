@@ -46,11 +46,11 @@ const NewsLetter = () => {
           <input
             type="text"
             placeholder="Enter your Email Id"
-            className="px-3 rounded-full text-gray-800 w-1/2 lg:w-2/3 placeholder-black bg-white focus:outline-none"
+            className="px-3 rounded-full text-gray-800 font-semibold w-1/2 lg:w-2/3 placeholder-gray-500 bg-white focus:outline-none"
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
-            className="bg-[#9747FF] text-white py-2 px-3 lg:px-3 rounded-full text-[16px] lg:text-base"
+            className="bg-[#9747FF] text-white py-2 px-3 lg:px-3 rounded-full font-semibold text-[16px] lg:text-base"
             onClick={handleSubmit}
           >
             Subscribe Now

@@ -5,7 +5,7 @@ import packageImage from "../assets/Rupees-symbol.svg";
 import increment from "../assets/arrow.svg";
 import bgImage from "../assets/results-pink-bg.svg";
 
-const ResultsCard = ({ iconImg, number, title, subTitle }) => {
+const ResultsCard = ({ iconImg, number, title, subTitle, duration }) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef(null);
 
@@ -49,7 +49,7 @@ const ResultsCard = ({ iconImg, number, title, subTitle }) => {
       </div>
       <div>
         <div className="text-[#21C1F3] font-semibold text-[24px] md:text-[28px] xl:text-[32px] font-sans">
-          {isVisible && <CountUp start={0} end={number} duration={5} />}
+          {isVisible && <CountUp start={0} end={number} duration={duration} />}
           {title}
         </div>
         <div className="text-[18px] lg:text[22px] font-medium">{subTitle}</div>
@@ -62,9 +62,9 @@ const Results = () => {
   return (
     <div className="flex flex-col bg-white pb-5 md:pb-10 bg-red-200">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-around px-2 md:px-22 xl:px-28 pt-10">
-        <ResultsCard iconImg={placed} number={2000} title={"+ Members"} subTitle={"Already Placed"} />
-        <ResultsCard iconImg={packageImage} number={46} title={".7 LPA"} subTitle={"Highest Package"} />
-        <ResultsCard iconImg={increment} number={4} title={".5x Increment"} subTitle={"Average CTC"} />
+        <ResultsCard iconImg={placed} number={2000} title={"+ Members"} subTitle={"Already Placed"} duration={5} />
+        <ResultsCard iconImg={packageImage} number={46} title={".7 LPA"} subTitle={"Highest Package"} duration={10} />
+        <ResultsCard iconImg={increment} number={4} title={".5x Increment"} subTitle={"Average CTC"} duration={15} />
       </div>
     </div>
   );

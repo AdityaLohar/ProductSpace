@@ -20,6 +20,8 @@ function App() {
     });
   }, [location]);
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <div>
       <Navbar />
@@ -32,6 +34,9 @@ function App() {
           <Route path='/pm' element={<PmFellowship />} />
         </Routes>
       {/* </Router> */}
+      <div className={`w-full bg-black ${isHomePage ? 'lg:pb-16' : ''}`}>
+        <Footer />
+      </div>
     </div>
   )
 }

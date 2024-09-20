@@ -16,10 +16,10 @@ const StarRating = ({ rating }) => {
   return (
     <div className="flex items-center">
       {[...Array(filledStars)].map((_, i) => (
-        <FontAwesomeIcon key={`filled-${i}`} icon={faStarSolid} className="text-yellow-500" />
+        <FontAwesomeIcon key={`filled-${i}`} icon={faStarSolid} className="text-[#FFA600]" />
       ))}
       {halfStar && (
-        <FontAwesomeIcon icon={faStarSolid} className="text-yellow-500" />
+        <FontAwesomeIcon icon={faStarSolid} className="text-[#FFA600]" />
       )}
       {[...Array(emptyStars)].map((_, i) => (
         <FontAwesomeIcon key={`empty-${i}`} icon={faStarRegular} className="text-gray-300" />
@@ -31,7 +31,7 @@ const StarRating = ({ rating }) => {
 const ReviewCard = ({ rating, title, desc, username, img, company, post }) => {
   return (
     <div className="break-inside-avoid text-[16px]">
-      <div className="flex flex-col relative gap-2 bg-white shadow shadow-lg rounded-lg p-4">
+      <div className="flex flex-col relative gap-2 bg-white hover:cursor-default border border-1 border-transparent hover:border-[#9A6DFF] shadow shadow-lg rounded-lg p-4">
         <div>
           <img src={comma} alt="" />
         </div>
@@ -63,7 +63,7 @@ const ReviewCardSmall = ({ rating, title, desc, username, img, company, post }) 
 
   return (
     <div className="text-[16px] w-[80vw] md:w-[50vw]"> {/* Set width to 100vw */}
-      <div className="flex flex-col relative gap-2 bg-white shadow-lg rounded-lg p-4 py-6 border border-1 border-[rgba(0,0,0,0)] hover:border-[#00B5CE]">
+      <div className="flex flex-col relative gap-2 bg-white border border-1 border-transparent hover:border-[#9A6DFF] shadow-lg rounded-lg p-4 py-6">
         <div>
           <img src={comma} alt="" />
         </div>

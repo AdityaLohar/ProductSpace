@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import profilePic from "../assets/Person.svg";
 import logo from "../assets/ps-logo-dark.svg";
 import { RiArrowRightSFill } from "react-icons/ri";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigationRef = useRef(null);
-
   const [showTopBar, setShowTomBar] = useState(false);
 
   useEffect(() => {
@@ -137,7 +135,6 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {/* {isOpen && ( */}
       <div
         ref={navigationRef}
         className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
@@ -152,7 +149,6 @@ const Navbar = () => {
           Blogs
         </a>
       </div>
-      {/* )} */}
     </div>
   );
 };

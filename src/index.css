@@ -19,11 +19,11 @@
 
 body {
   background-color: transparent !important;
-  background-image: url('./assets/bg-curve1.svg'), url('./assets/bg-curve2.svg'), url('./assets/bg-curve3.svg'), url('./assets/bg-curve4.svg');
-  background-position: top 0% left 0%, top 25% right 0%, bottom 25% left 0%, bottom -20% right 0%;
-  background-size: auto, auto, auto, auto;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-attachment:scroll, scroll, scroll, scroll;
+  background-image: url('./assets/bg-curve1.svg');
+  background-position: top 0% left 0%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment:scroll;
 }
 
 @media (max-width: 768px) {
@@ -119,4 +119,16 @@ body {
 
 .flip {
   transform: rotateY(180deg);
+}
+
+.shimmer {
+  -webkit-mask: linear-gradient(-60deg, #000 40%, rgba(0, 0, 0, 0.688) 45%, #000 60%) right/250% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.5s infinite linear; /* Adjusted duration and added 'linear' for smooth, continuous motion */
+}
+
+@keyframes shimmer {
+  100% {
+    -webkit-mask-position: left;
+  }
 }
