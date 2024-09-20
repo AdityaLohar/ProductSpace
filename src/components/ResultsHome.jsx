@@ -48,7 +48,7 @@ const ResultsCard = ({ iconImg, number, title, subTitle, duration }) => {
         <img src={iconImg} alt="" className="w-8 h-8 lg:w-10 lg:h-8" />
       </div>
       <div>
-        <div className="text-[#21C1F3] font-semibold text-[24px] md:text-[28px] xl:text-[32px] font-sans">
+        <div className="text-[#21C1F3] font-semibold text-[24px] md:text-[28px] xl:text-[30px] font-sans">
           {isVisible && <CountUp start={0} end={number} duration={duration} />}
           {title}
         </div>
