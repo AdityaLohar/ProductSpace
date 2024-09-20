@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const FaqPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   return (
     <HelmetProvider>
@@ -15,37 +15,36 @@ const FaqPage = () => {
           <title>Frequently Asked Questions - Product Space</title>
           <meta name="description" content="Welcome to the faq page of Product Space. Look at all questions you may have." />
         </Helmet>
-        
-        <div className="">
-          <div className="flex px-4 md:px-[120px] items-center justify-start text-gray-700 max-w-screen-2xl mx-auto">
-            <Link to="/" className="text-gray-500 hover:underline">
-              Home
-            </Link>
 
-            <svg
-              className={`h-6 w-6 transition-transform duration-200 rounded-full ease-in-out rotate-[-90deg] text-gray-500`}
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+        {/* Back Arrow at the top */}
+        <div className="px-4 md:px-[120px] pt-6 max-w-screen-2xl">
+          <Link to="/" className="flex items-center text-gray-500 hover:text-gray-700 transition-colors">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6 mr-2" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              <path
-                fillRule="evenodd"
-                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                clipRule="evenodd"
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                d="M15 19l-7-7 7-7" 
               />
             </svg>
-
-            <Link to="/faq" className="text-gray-500 hover:underline">
-              Faq
-            </Link>
-          </div>
+            Back to Home
+          </Link>
         </div>
+
+        {/* FAQ Header */}
         <div className="py-5 lg:py-8 max-w-screen-2xl mx-auto">
           <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans px-4">
             Frequently Asked Questions
           </div>
         </div>
 
+        {/* FAQ Content */}
         <div className="flex justify-between px-0 md:px-12 lg:px-[95px] gap-4 max-w-screen-2xl mx-auto">
           <DropdownList len={13} flag={0} />
         </div>

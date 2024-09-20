@@ -194,7 +194,9 @@ const Alumni = () => {
 
       <div className="h-[600px] overflow-x-scroll md:overflow-x-hidden mentor-scrollbar md:scroll-container">
         <div
-          className={`scroll-wrapper space-x-16 lg:space-x-20 ml-6 animate`}
+          className={`scroll-wrapper space-x-16 lg:space-x-20 ml-6 animate hover:cursor-default`}
+          onMouseEnter={() => document.documentElement.style.setProperty('--scroll-animation-play-state', 'paused')}
+          onMouseLeave={() => document.documentElement.style.setProperty('--scroll-animation-play-state', 'running')}
         >
           {[...Array(5)].map((_, i) => (
             alumni.map((alums, index) => (

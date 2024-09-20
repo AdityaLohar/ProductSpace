@@ -81,18 +81,17 @@ const CourseSnapshot = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row bg-[#9747FF] p-4 lg:p-10 text-[18px] text-white gap-4 xl:gap-8 rounded-2xl flex-wrap">
-            <div className="flex items-center w-full lg:max-w-[150px] justify-center lg:justify-start">
-              Analytics India Magazine, 2023
-            </div>
-            <div className="flex justify-around md:gap-4 xl:gap-8">
-              <div className="lg:max-w-[120px] text-center">
+            <div className="flex justify-around w-full md:gap-4 xl:gap-8">
+              
+              <div className="text-center">
                 <span className="text-[32px] font-semibold text-yellow-400">
                   2000+
                 </span>{" "}
                 <br />
                 Alumni
               </div>
-              <div className="lg:max-w-[120px] text-center">
+
+              <div className="text-center">
                 <span className="text-[32px] font-semibold text-yellow-400">
                   600+
                 </span>{" "}
@@ -100,6 +99,7 @@ const CourseSnapshot = () => {
                 Transitions
               </div>
             </div>
+
           </div>
 
           <div className="space-y-3 my-8 text-[16px] md:text-[18px]">
