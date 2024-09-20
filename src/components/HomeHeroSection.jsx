@@ -21,11 +21,11 @@ const HomeHeroSection = () => {
   };
 
   return (
-    <div className="mx-0 lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-8 lg:gap-24 lg:gap-4">
-      <div className="w-full lg:w-1/2 px-6 lg:px-0">
+    <div className="mx-0 lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-8 custom-13:gap-24">
+      <div className="w-full lg:w-1/2 px-6 xl:px-24 custom-13:px-0">
         <p
           className="font-sans text-[17px] text-transparent font-semibold ml-0 sm:ml-1 md:text-[24px] pt-8 
-    custom-0:bg-[position:top_50%_left_3%] custom-1:bg-[position:top_50%_left_14%] custom-2:bg-[position:top_50%_left_21%] md:bg-[position:top_50%_left_0%]"
+          custom-0:bg-[position:top_50%_left_3%] custom-1:bg-[position:top_50%_left_14%] custom-2:bg-[position:top_50%_left_21%] md:bg-[position:top_50%_left_0%]"
           style={{
             backgroundImage: `url(${fromBg})`,
             backgroundSize: "110px 50px", // Adjust the background to fit the text

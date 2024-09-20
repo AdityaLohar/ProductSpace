@@ -19,7 +19,7 @@ const BottomBar = () => {
   return (
     <div className="hidden lg:flex fixed bottom-0 left-0 right-0 z-40 bg-white px-[120px] py-4 shadow-[0_-15px_28px_-10px_rgba(0,0,0,0.2)]">
       <div className="flex gap-0 2xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
-        <div className="flex gap-1 xl:gap-12">
+        <div className="flex gap-1 xl:gap-8">
           <div>
             <div className="text-gray-500 font-light border-l border-l-2 border-gray-300 px-2">
               Course Duration
