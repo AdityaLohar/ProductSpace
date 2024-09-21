@@ -102,9 +102,9 @@ const PmFellowshipHeroSection = () => {
             <p className="text-[14px]">👉🏻 Early Bird Price</p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
-                ₹21,249
+                ₹20,999
               </p>
-              <p className="text-[14px] line-through pb-1">₹24,999</p>
+              <p className="text-[14px] line-through pb-1">₹29,999</p>
             </div>
           </div>
 
