@@ -31,7 +31,7 @@ const StarRating = ({ rating }) => {
 const ReviewCard = ({ rating, title, desc, username, img, company, post }) => {
   return (
     <div className="break-inside-avoid text-[16px]">
-      <div className="flex flex-col relative gap-2 bg-white hover:cursor-default border border-1 border-transparent hover:border-[#9A6DFF] shadow shadow-lg rounded-lg p-4">
+      <div className="flex flex-col relative gap-2 bg-white hover:cursor-default border border-2 border-transparent hover:border-[#9A6DFF] shadow shadow-lg rounded-lg p-4">
         <div>
           <img src={comma} alt="" />
         </div>

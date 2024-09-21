@@ -43,6 +43,10 @@ body {
   }
 }
 
+.input::placeholder {
+  font-weight: normal; /* Set placeholder font weight to normal */
+}
+
 .mentor-scrollbar::-webkit-scrollbar {
   height: 0px; /* Height of the horizontal scrollbar */
 }

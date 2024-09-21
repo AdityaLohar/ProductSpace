@@ -35,16 +35,6 @@ const BlogPage = () => {
             </div>
         </div>
 
-        <div className='relative bg-gray-200' style={{backgroundImage: "url('https://static.vecteezy.com/system/resources/thumbnails/042/105/222/small_2x/inclusive-office-with-wheelchair-in-blurry-background-and-notebook-in-foreground-showing-marketing-report-workspace-offering-accessibility-for-workers-and-laptop-with-business-analytics-panning-shot-video.jpg')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
-          <div className="absolute inset-0 bg-black opacity-70"></div> {/* Black overlay with opacity */}
-          
-          <div className='relative text-center text-white space-y-8 py-16 px-4 md:px-40 xl:px-80'>
-                <h1 className='text-[28px] lg:text-[40px] font-sans font-bold'>PM Hackathon</h1>
-                <p className='text-[17px]'>Tired of theoretical concepts? Get hands-on with our live product management projects and experience firsthand what it&apos;s like to work as a PM in real-world scenarios.</p>
-                <button className='bg-[#FEC923] text-[18px] text-black font-bold rounded-xl p-3 px-4 md:p-5 md:px-8'>Sign up now!</button>
-            </div>
-        </div>
-
         <div className='px-4 md:px-20 lg:px-32 xl:px-40 2xl:px-60 py-16 font-hind'>
   <div className='text-[24px] lg:text-[28px] font-bold font-sans'>
     <h1>Trending Posts</h1>

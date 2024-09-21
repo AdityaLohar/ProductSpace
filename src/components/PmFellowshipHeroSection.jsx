@@ -73,7 +73,7 @@ const PmFellowshipHeroSection = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-1 text-[12px] mt-3 lg:mt-6">
+          <div className="flex items-center gap-1 text-[16px] mt-3 lg:mt-6">
             <img src={clock} alt="" className="pb-1"/>
             <div>
               Hurry! <span className="font-bold">668 people</span> have already
@@ -120,7 +120,7 @@ const PmFellowshipHeroSection = () => {
               </div>
             </div>
 
-            <p className=""> <span className="font-bold">EMI from INR ₹1,455/month</span> available at checkout</p>
+            <p className=""> Pay 50% now to enrol and remaining in next 2 weeks.</p>
             
             <div className="font-medium text-[13px]">
               Last <span className="text-red-500">43 seats left</span>

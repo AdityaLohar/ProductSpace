@@ -16,7 +16,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const result = schema.safeParse({ email });
 
     if (!result.success) {
@@ -43,6 +43,18 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
       }, 5000);
       return;
     }
+    else if(!/^\d{10}$/.test(number)) {
+      setNotification({
+        type: "error",
+        title: "Error",
+        description: "Enter Valid Number",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
+    }
     else {
       setNotification({
         type: "success",
@@ -52,15 +64,39 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
       setShowNotification(true);
     }
 
+    // Prepare data to send to the backend
+  const formData = { name, number, email };
+
+  try {
+    const response = await fetch('https://product-space-bxik.vercel.app/api/formdata', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });    
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log('Success:', data);
+    
+  } catch (error) {
+    setNotification({
+      type: "error",
+      title: "Submission Failed",
+      description: "There was an error submitting your details. Please try again.",
+    });
+    setShowNotification(true);
+    console.error('Error:', error);
+  }
+
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
       setShowNotification(false);
     }, 5000);
-
-    setTimeout(() => {
-      setIsOpen(false);
-      window.location.href = "https://pages.razorpay.com/getintoPM"; // Replace with your desired external URL
-    }, 2000);
   };
 
   return (

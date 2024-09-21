@@ -38,12 +38,12 @@ const NewsLetter = () => {
 
   return (
     // <div className="flex flex-col bg-[#F1E6FF] pb-5 lg:pb-10">
-    <div className="flex flex-col bg-white pb-5 lg:pb-10">
-      <div className="py-5 lg:py-8">
+    <div className="flex flex-col bg-white pb-5 lg:pb-20 lg:pt-16">
+      <div className="py-5 lg:pb-8">
         <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans px-4">
           Subscribe to our Newsletter
         </div>
-        <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium px-2 md:px-20 lg:px-60 py-1">
+        <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium px-2 md:px-20 lg:px-60 py-2">
           <p>
             Subscribe to our Newsletter to stay up-to-date on the latest
             courses, news, and discounts from us.
@@ -56,7 +56,7 @@ const NewsLetter = () => {
           <input
             type="text"
             placeholder="Enter your Email Id"
-            className="px-3 rounded-full text-gray-800 font-semibold w-1/2 lg:w-2/3 placeholder-gray-500 bg-transparent focus:outline-none"
+            className="px-3 rounded-full text-gray-800 input font-semibold w-1/2 lg:w-2/3 placeholder-gray-500 bg-transparent focus:outline-none"
             onChange={(e) => setEmail(e.target.value)}
           />
           <button

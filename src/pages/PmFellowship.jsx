@@ -26,7 +26,7 @@ const PmFellowship = () => {
             {/* <Curriculum /> */}
             <LearningWithPace />
             <HandsOnTools />
-            <WhyPmFellowship />
+            <WhyPmFellowship bgColor={"#F7F0FF"} />
             <Companies />
             <ResultsPmFellowship />
             <MeetMentors bgColor={"#fff"} />

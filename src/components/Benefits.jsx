@@ -7,7 +7,7 @@ const BenefitCard = ({ vector, title, desc, size }) => {
   return (
     <div>
       <div
-        className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_18px_rgba(151,71,255,0.3)] border border-2 hover:border-transparent`}
+        className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_18px_rgba(151,71,255,0.3)]`}
       >
         <div
           className={`flex ${
@@ -42,7 +42,7 @@ const Benefits = ({ bgColor }) => {
       <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 lg:gap-5 px-2 lg:px-16 py-4 lg:py-8">
         <div>
           <div
-            className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_18px_rgba(151,71,255,0.3)] border border-2 hover:border-transparent`}
+            className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_18px_rgba(151,71,255,0.3)]`}
           >
             <div className={`flex mb-4 justify-center sm:justify-start`}>
               <img src={vector1} alt="" className="w-14 h-14" />
@@ -74,7 +74,7 @@ const Benefits = ({ bgColor }) => {
 
         <div>
           <div
-            className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_18px_rgba(151,71,255,0.3)] border border-2 hover:border-transparent`}
+            className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_18px_rgba(151,71,255,0.3)]`}
           >
             <div className={`flex mb-4 justify-center sm:justify-start`}>
               <img src={vector4} alt="" className="h-16 w-14 md:h-14" />

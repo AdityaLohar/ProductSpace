@@ -60,9 +60,9 @@ const VideoContent = () => {
         )}
       </div>
 
-      <div className="text-center mt-4 text-[20px] font-semibold">
+      {/* <div className="text-center mt-4 text-[20px] font-semibold">
         Message from Program Director - PM Fellowship
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -84,7 +84,7 @@ const CourseSnapshot = () => {
             <div className="flex justify-around w-full md:gap-4 xl:gap-8">
               
               <div className="text-center">
-                <span className="text-[32px] lg:text-[40px] font-sans font-semibold text-yellow-400">
+                <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold text-yellow-400">
                   2000+
                 </span>{" "}
                 <br />
@@ -92,7 +92,7 @@ const CourseSnapshot = () => {
               </div>
 
               <div className="text-center">
-                <span className="text-[32px] lg:text-[40px] font-sans font-semibold text-yellow-400">
+                <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold text-yellow-400">
                   600+
                 </span>{" "}
                 <br />
