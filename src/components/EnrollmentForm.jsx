@@ -78,10 +78,6 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
 
     const response = await fetch('https://product-space-be.vercel.app/api/submit-enquiry', {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
     });
      
 
