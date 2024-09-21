@@ -10,6 +10,7 @@ import ResultsPmFellowship from "../components/ResultsPmFellowship";
 import ReviewPmFellowship from "../components/ReviewPmFellowship";
 import WhyPmFellowship from "../components/WhyPmFellowship";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import Curriculum from '../components/Curriculum';
 
 const PmFellowship = () => {
     return (
@@ -22,6 +23,7 @@ const PmFellowship = () => {
 
           <div className="w-full max-w-screen-2xl">
             <PmFellowshipHeroSection />
+            {/* <Curriculum /> */}
             <LearningWithPace />
             <HandsOnTools />
             <WhyPmFellowship />

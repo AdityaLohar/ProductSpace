@@ -34,7 +34,7 @@ const Benefits = ({ bgColor }) => {
         <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center font-sans px-4">
           Benefits of Joining Product Space
         </div>
-        <div className="text-[14px] lg:text-[16px] text-center text-gray-800 font-medium px-4 xl:px-60 py-1">
+        <div className="text-[14px] lg:text-[16px] text-center text-gray-800 font-medium px-4 xl:px-60 py-2">
           <p>Connect with Mentors and Alums to get career counselling </p>
         </div>
       </div>

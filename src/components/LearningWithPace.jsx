@@ -107,7 +107,9 @@ const LearningWithPace = () => {
               Your 10-Week Learning Journey
             </div>
             <div className="text-[16px] text-center lg:text-start">
-            Progress through weekly segments that build your product management skills, from strategy to hands-on projects, preparing you for real-world challenges.
+              Progress through weekly segments that build your product
+              management skills, from strategy to hands-on projects, preparing
+              you for real-world challenges.
             </div>
           </div>
 
@@ -133,12 +135,16 @@ const LearningWithPace = () => {
             </div>
           </div>
 
-
           <div className="space-y-7 my-4 text-[18px]">
             <div>
               <h2 className="font-sans text-[24px] font-semibold  text-center lg:text-start">
-                <span className="text-[24px] lg:text-[40px]"> {title[0] === '0' ? `0${ + title[1]}` : `${title[0] + title[1] + title[2]}`} </span> 
-                {title[0] === '0' ? title.slice(2) : title.slice(3)}
+                <span className="text-[24px] lg:text-[40px]">
+                  {" "}
+                  {title[0] === "0"
+                    ? `0${+title[1]}`
+                    : `${title[0] + title[1] + title[2]}`}{" "}
+                </span>
+                {title[0] === "0" ? title.slice(2) : title.slice(3)}
               </h2>
             </div>
             <div className="space-y-2 lg:space-y-4">
@@ -159,7 +165,11 @@ const LearningWithPace = () => {
             <div className="flex gap-4">
               {imgs.map((logo, index) => (
                 <div key={index}>
-                  <img src={logo} alt="" className="object-contain w-24 h-16 rounded-md" />
+                  <img
+                    src={logo}
+                    alt=""
+                    className="object-contain w-24 h-16 rounded-md"
+                  />
                 </div>
               ))}
             </div>

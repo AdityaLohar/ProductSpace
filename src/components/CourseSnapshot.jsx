@@ -69,7 +69,7 @@ const VideoContent = () => {
 
 const CourseSnapshot = () => {
   return (
-    <div className="bg-[#F7F0FF] pb-0 px-4 md:px-10 xl:px-32 pt-10 font-hind">
+    <div className="bg-white pb-0 px-4 md:px-10 xl:px-32 pt-10 font-hind">
       <div className="flex flex-col lg:flex-row py-4 lg:py-12 items-center justify-between gap-12">
         <div className="flex flex-col gap-2 lg:gap-6">
           <div className="text-[28px] lg:text-[40px] font-bold px-2 mb-4 lg:mb-8 text-center lg:text-start font-sans">
@@ -84,7 +84,7 @@ const CourseSnapshot = () => {
             <div className="flex justify-around w-full md:gap-4 xl:gap-8">
               
               <div className="text-center">
-                <span className="text-[36px] lg:text-[56px] font-sans font-semibold text-yellow-400">
+                <span className="text-[32px] lg:text-[40px] font-sans font-semibold text-yellow-400">
                   2000+
                 </span>{" "}
                 <br />
@@ -92,7 +92,7 @@ const CourseSnapshot = () => {
               </div>
 
               <div className="text-center">
-                <span className="text-[36px] lg:text-[56px] font-sans font-semibold text-yellow-400">
+                <span className="text-[32px] lg:text-[40px] font-sans font-semibold text-yellow-400">
                   600+
                 </span>{" "}
                 <br />
