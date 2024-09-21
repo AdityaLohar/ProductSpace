@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .active {
+    height: 130px !important;
+  }
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  line-height: 1.2;
+}
+
+body {
+  background-color: transparent !important;
+  background-image: url('./assets/bg-curve1.svg');
+  background-position: top 0% left 0%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-image: url('./assets/bg-curve1.svg'); /* Only show the first background */
+    background-position: top 1% left;
+    background-size: 106% auto; /* Adjust as needed */
+  }
+}
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.input::placeholder {
+  font-weight: normal; /* Set placeholder font weight to normal */
+}
+
+.mentor-scrollbar::-webkit-scrollbar {
+  height: 0px; /* Height of the horizontal scrollbar */
+}
+.pm-reviews-scrollbar::-webkit-scrollbar {
+  height: 0px; /* Height of the horizontal scrollbar */
+}
+.invisible-scrollbar::-webkit-scrollbar {
+  height: 0px; /* Height of the horizontal scrollbar */
+}
+
+.scroll-container {
+  overflow-x: hidden; /* Hidden by default, but we enable scrolling manually on smaller screens */
+  white-space: nowrap;
+  width: 100%;
+}
+
+.scroll-wrapper {
+  display: flex;
+  width: calc(100% * 5); /* Adjust width based on the number of repetitions */
+  animation: scrollHorizontal linear infinite;
+  animation-duration: 70s; /* Adjust based on content length */
+  animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
+}
+
+@media (max-width: 768px) {
+  .scroll-wrapper {
+    animation-duration: 20s; /* Faster for mobile view */
+  }
+}
+
+.scroll-item {
+  flex: 0 0 auto;
+  margin-right: 1.5rem;
+}
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+}
+}
+
+/* Pause animation but keep manual scroll enabled */
+.overflow-x-auto {
+  scroll-behavior: smooth; /* Optional: smooth scrolling */
+}
+
+.circle-container {
+  perspective: 1000px;
+}
+
+.circle {
+  /* width: 100px;
+  height: 100px;
+  position: relative; */
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.circle-front,
+.circle-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.circle-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.circle-back {
+  transform: rotateY(180deg);
+  background-size: cover;
+  background-position: center;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.shimmer {
+  -webkit-mask: linear-gradient(-60deg, #000 40%, rgba(0, 0, 0, 0.688) 45%, #000 60%) right/250% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.5s infinite linear; /* Adjusted duration and added 'linear' for smooth, continuous motion */
+}
+
+@keyframes shimmer {
+  100% {
+    -webkit-mask-position: left;
+  }
+}
