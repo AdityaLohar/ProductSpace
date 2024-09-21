@@ -84,7 +84,7 @@ const PmFellowshipHeroSection = () => {
 
         <div className="relative bg-white rounded-[24px] md:rounded-[32px] lg:w-[37%] shadow-lg p-4 md:p-12 lg:absolute border border-1 border-[#00B5CE] lg:right-10 lg:top-1/2 lg:transform lg:-translate-y-1/2"
             style={{
-                background: "linear-gradient(to bottom, white 62%, #D7F5FF 62%)", // 2/3 white, 1/3 blue
+                background: "linear-gradient(to bottom, white 67%, #D7F5FF 60%)", // 2/3 white, 1/3 blue
               }}
         >
           <div
