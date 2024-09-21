@@ -68,7 +68,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
   const formData = { name, phone: number, email };
 
   try {
-    const response = await fetch('https://product-space-backend.vercel.app/api/submit-enquiry', {
+    const response = await fetch('/api/submit-enquiry', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

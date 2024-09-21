@@ -6,7 +6,7 @@ const submitEnquiry = async (req, res) => {
         const user = await User.findOne({ email }); // Check for existing user
 
         if (user) {
-            return res.status(400).json({ error: "User already exists" });
+            return res.status(401).json({ error: "User already exists" });
         }
 
         const newUser = new User({
@@ -25,7 +25,7 @@ const submitEnquiry = async (req, res) => {
                 phone: newUser.phone,
             });
         } else {
-            res.status(400).json({ error: "Invalid user data" });
+            res.status(401).json({ error: "Invalid user data" });
         }
 
     } catch (err) {
