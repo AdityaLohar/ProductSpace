@@ -65,10 +65,10 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
     }
 
     // Prepare data to send to the backend
-  const formData = { name, number, email };
+  const formData = { name, phone: number, email };
 
   try {
-    const response = await fetch('/api/', {
+    const response = await fetch('http://localhost:5000/api/submit-enquiry', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
