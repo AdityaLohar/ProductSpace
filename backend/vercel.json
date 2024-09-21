@@ -1,5 +1,9 @@
-{ 
-    "version": 2, 
-    "builds": [{ "src": "./api/server.js", "use": "@vercel/node" }], 
-    "routes": [{ "src": "/(.*)", "dest": "/api" }] 
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://product-space-backend.vercel.app/api/$1"
+    }
+  ]
 }
