@@ -22,7 +22,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
     if (!result.success) {
       setNotification({
         type: "error",
-        title: "Enrollment Failed",
+        title: "Failed",
         description: "Invalid email address. Please try again.",
       });
       setShowNotification(true);
@@ -46,7 +46,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
     else {
       setNotification({
         type: "success",
-        title: "Enrolled!",
+        title: "Details Submitted!",
         description: "We will reach out to you soon.",
       });
       setShowNotification(true);
@@ -92,7 +92,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
               {/* Form */}
               <div>
                 <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
-                  PM Fellowship Enrolment
+                  PM Enquiry Form
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
                 Personalized Guidance | Interview Preparation | Industry Focus Content | Job Placements Support -{" "}
@@ -134,7 +134,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                     onClick={handleSubmit}
                     className="text-[14px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold p-2 md:px-6 md:py-4 rounded-full hover:bg-yellow-500"
                   >
-                    Enroll Now
+                    Submit
                   </button>
                   <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
                     <p>Get 1-1 mentorship via our PM Fellowship cohort</p>

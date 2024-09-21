@@ -77,7 +77,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-4 text-gray-400">
                 <div>
-                    <a href="https://discord.com/invite/2ytvQhDBS8" target="_blank" className="flex items-center gap-2">
+                    <a href="https://theproductspace.substack.com" target="_blank" className="flex items-center gap-2">
                       <img src={footerLogo} alt="" className="h-8 w-8" />
                     </a>
                 </div>

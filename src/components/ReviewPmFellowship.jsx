@@ -202,7 +202,7 @@ const ReviewPmFellowship = () => {
     {/* // <div className="flex flex-col bg-[#D7F5FF] pb-10 pt-4 lg:pt-0 px-4 md:px-10 xl:px-32"> */}
       <div className="py-5 lg:py-12">
         <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center md:text-start font-sans px-4">
-          We have placed 300+ cohort members
+          We have placed 2000+ cohort members
         </div>
         
         <div className="hidden lg:block lg:columns-3 gap-6 space-y-6 pt-8">

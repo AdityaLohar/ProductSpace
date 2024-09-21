@@ -84,18 +84,11 @@ const MeetMentors = ({ bgColor }) => {
         </div>
         <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium px-4 xl:px-60 pt-2 pb-1">
           <p className="lg:hidden">
-            A sneak peak into what you will learn in our 10-week curriculum. You
-            will have to commit to investing 6 to 8 hours of dedicated time to
-            this program every week.
+            Meet Expert Mentors Ready to Guide On Your Product Journey
           </p>
 
           <p className="hidden lg:block">
-            A sneak peak into what you will learn in our 10-week curriculum.{" "}
-          </p>
-          <p className="hidden lg:block">
-            {" "}
-            You will have to commit to investing 6 to 8 hours of dedicated time
-            to this program every week.{" "}
+            Meet Expert Mentors Ready to Guide On Your Product Journey
           </p>
         </div>
       </div>

@@ -16,12 +16,12 @@ const MeetAlums = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-2 items-center justify-center lg:justify-start font-semibold">
-        <a href="https://topmate.io/propel/62841" target="_blank" className="w-full md:w-1/2">
+        <a href="https://topmate.io/propel/62841" target="_blank" className="w-3/4 md:w-1/2">
             <button className="w-full text-[20px] bg-[#FFC303] hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-12 rounded-full mt-6">
                 Meet 1:1 with Mentors
             </button>
           </a>
-        <a href="https://zcal.co/i/P85U8vG0" target="_blank" className="w-full md:w-1/2">
+        <a href="https://zcal.co/i/P85U8vG0" target="_blank" className="w-3/4 md:w-1/2">
             <button className="w-full text-[20px] text-center bg-white border border-1 border-black hover:bg-white text-black p-2 px-6 md:p-3 md:px-12 rounded-full md:mt-6">
                 Meet with Alums
             </button>

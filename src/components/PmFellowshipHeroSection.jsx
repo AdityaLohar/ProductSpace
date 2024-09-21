@@ -54,22 +54,22 @@ const PmFellowshipHeroSection = () => {
           <div className="flex flex-col gap-1">
             <div>
               <h1 className="text-[24px] md:text-[28px] lg:text-[36px] font-bold font-sans">
-                Product Management Fellowship Programme
+                Product Management Fellowship Program
               </h1>
             </div>
             <div className="text-[16px] lg:text-[18px]">
-              Want to build a successful-product career?
+              A launchpad to your Career journey.
             </div>
           </div>
 
           <div className="flex justify-around lg:justify-start gap-10 text-[18px]">
             <div>
               <div className="text-[16px]">Start Date</div>
-              <div className="font-semibold text-[#00B5CE]">Sep 14, 2024</div>
+              <div className="font-semibold text-[#00B5CE]">Oct 19, 2024</div>
             </div>
             <div>
               <div className="text-[16px]">Duration</div>
-              <div className="font-semibold text-[#00B5CE]">30 Days</div>
+              <div className="font-semibold text-[#00B5CE]">10 Weeks</div>
             </div>
           </div>
 
@@ -96,7 +96,7 @@ const PmFellowshipHeroSection = () => {
               backgroundRepeat: "no-repeat",
             }}
           >
-           <span className="font-bold">15%</span> <br /> OFF
+           <span className="font-bold">30%</span> <br /> OFF
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px]">👉🏻 Early Bird Price</p>
@@ -115,12 +115,12 @@ const PmFellowshipHeroSection = () => {
               </div>
               <div>
                 <p>
-                  Offer valid till 21st Aug 2024
+                  Offer valid till 26th Sep 2024
                 </p>
               </div>
             </div>
 
-            <p className="">EMI from INR ₹1,455/month available at checkout</p>
+            <p className=""> <span className="font-bold">EMI from INR ₹1,455/month</span> available at checkout</p>
             
             <div className="font-medium text-[13px]">
               Last <span className="text-red-500">43 seats left</span>

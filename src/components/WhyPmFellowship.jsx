@@ -28,7 +28,7 @@ const WhyPmFellowship = () => {
     <div className="flex flex-col bg-[#F1E6FF] pt-4 mb:pt-0 pb-10 px-1 md:px-10 xl:px-32">
       <div className="py-5 lg:py-12">
         <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center font-sans">
-          Why should you choose our <span className="text-[#9747FF]">PM Fellowship programme</span>
+          Why should you choose our <span className="text-[#9747FF]">PM Fellowship Program</span>
         </div>
         <div className="text-[16px] text-center text-gray-800 font-medium mt-2 px-4 xl:px-60">
           <p>Connect with Mentors and Alums to get career counselling </p>
@@ -58,13 +58,22 @@ const WhyPmFellowship = () => {
           desc={`Actionable insights tailored to specific domains & real product use-cases.`}
           size={16}
           />
-        
-        <WhyPmFellowshipCard
-          vector={vector4}
-          title={" Job Placements Support"}
-          desc={`Access to the latest jobs from 350+ product companies`}
-          size={14}
-        />
+    
+        <div>
+          <div
+            className={`bg-white rounded-2xl p-4 items-center justify-center text-center sm:text-start min-h-full hover:cursor-arrow transition-shadow duration-100 hover:shadow-[0_0px_18px_rgba(151,71,255,0.3)] border border-2 hover:border-transparent`}
+          >
+            <div className={`flex mb-4 justify-center sm:justify-start`}>
+              <img src={vector4} alt="" className="h-16 w-14 md:h-14" />
+            </div>
+            <div className="text-[20px] lg:text-[28px] font-semibold mb-4 lg:mb-10 font-sans">
+            Job Placements Support
+            </div>
+            <div className="text-[14px] lg:text-[18px] text-gray-500 font-medium md:leading-7">
+            Access to the latest jobs from 350+ product companies
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
