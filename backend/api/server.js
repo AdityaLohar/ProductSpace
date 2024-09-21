@@ -2,24 +2,31 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDb = require("../db/connectDb.js");
 const cors = require("cors");
-const {submitEnquiry} = require("../controllers/userController.js")
+const { submitEnquiry } = require("../controllers/userController.js");
 
-dotenv.config()
+dotenv.config();
 
 connectDb();
-const app = express()
+const app = express();
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json({ limit: "50mb" }))
-app.use(express.urlencoded({ extended: true }))
+// CORS configuration: allow only your frontend to access the backend
+app.use(cors({
+  origin: 'https://theproductspace.co.in', // Replace with your frontend domain
+  methods: ['GET', 'POST'], // Specify allowed methods
+  allowedHeaders: ['Content-Type'], // Specify allowed headers
+}));
+
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/api", (req, res) => {
-  res.json({msg: "Hello"})
-})
+  res.json({ msg: "Hello" });
+});
+
 app.post("/api/submit-enquiry", submitEnquiry);
 
 app.listen(PORT, () => {
-    console.log("server running")
-})
+  console.log(`Server running on port ${PORT}`);
+});
