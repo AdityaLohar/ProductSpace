@@ -68,13 +68,14 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
   const formData = { name, phone: number, email };
 
   try {
-    const response = await fetch('http://localhost:5000/api/submit-enquiry', {
+    const response = await fetch('https://product-space-backend.vercel.app/api/submit-enquiry', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
-    });    
+    });
+     
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
