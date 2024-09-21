@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import chevron from "../assets/chevron-double.svg";
 
 const AlumniCard = ({
@@ -11,42 +10,62 @@ const AlumniCard = ({
   testimonial,
 }) => {
   return (
-    <div className="w-[320px] h-[585px] rounded-2xl bg-white p-2">
-    <div className="relative">
-      <div className="relative w-full h-66 rounded-lg overflow-hidden">
-          <img src={profile} alt="" className="w-full h-full object-cover" />
-          <div
-            className="absolute inset-0 rounded-lg"
-            style={{
-              boxShadow: "inset 0 -20px 40px rgba(0, 0, 0, 0.8)", // Adjust the strength and color here
-            }}
-          ></div>
-        </div>
-        
-        <div className="absolute bottom-1.5 left-2.5">
-        <p className="text-lg font-bold text-white">{name}</p>
-        </div>
-        </div>
-
-
-      <div className="flex items-center h-[90px] justify-between pt-3 pb-4 border-b-2">
-        <div className="prev w-[44%] space-y-2">
-          <div className="text-[16px] font-semibold">{prevCompany}</div>
-          <div className="text-xs">{prevPost}</div>
+    <div
+      className="w-[330px] h-[340px] rounded-3xl bg-white p-4 flex flex-col items-center gap-2 border border-1 border-white"
+      style={{
+        background:
+          "linear-gradient(to bottom, #AEECFF 10%, white 50%, white 100%)", // Smooth gradient transition
+      }}
+    >
+      <div className="flex flex-col items-center">
+        {/* Circular image */}
+        <div className="w-[40px] h-[40px] rounded-full overflow-hidden border border-1 border-white">
+          <img
+            src={profile}
+            alt="profile-picture"
+            className="w-full h-full object-cover"
+          />
         </div>
 
-        <div className="flex flex-col items-center w-[12%] ">
-          <img src={chevron} alt="" />
+        {/* Name below the image */}
+        <p className="text-[14px] font-sans font-bold text-center mt-3">
+          {name}
+        </p>
+      </div>
+
+      <div className="flex items-start h-[90px] justify-between w-full">
+        <div className="prev w-[44%] space-y-2 flex flex-col items-center">
+          <div className="text-[16px] font-semibold text-center">
+            <img
+              src={prevCompany}
+              className="h-10 w-auto"
+              alt="previous-company"
+            />
+          </div>
+          <div className="text-xs text-center">{prevPost}</div>
         </div>
 
-        <div className="after w-[44%] space-y-2">
-          <div className="text-[16px] font-semibold">{curCompany}</div>
-          <div className="text-xs">{curPost}</div>
+        <div className="flex flex-col items-center h-full justify-center w-[12%]">
+          <img src={chevron} alt="Chevron Icon" />
+        </div>
+
+        <div className="w-[44%] space-y-2 flex flex-col items-center">
+          <div className="text-[16px] font-semibold text-center">
+            <img
+              src={curCompany}
+              className="h-10 w-auto"
+              alt="previous-company"
+            />
+          </div>
+          <div className="text-xs text-center">{curPost}</div>
         </div>
       </div>
 
-      <div className="text-[14px] flex flex-col items-center text-center pt-4">
+      <div className="text-[14px] flex flex-col items-start justify-between text-left pt-4 w-full">
         {testimonial}
+        <div className="text-white">
+          {"."}
+        </div>
       </div>
     </div>
   );

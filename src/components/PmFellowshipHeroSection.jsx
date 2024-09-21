@@ -6,9 +6,23 @@ import clock from "../assets/clock.svg";
 import download from "../assets/download.svg";
 import offer from "../assets/offer-valid.svg";
 import { useEffect, useState } from "react";
+import EnrollmentForm from "./EnrollmentForm";
 
 const PmFellowshipHeroSection = () => {
   const [bgImages, setBgImages] = useState([disco1, disco2, disco3]);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleModal = () => {
+    if (!isOpen) {
+      setIsOpen(true);
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      setIsVisible(false);
+      setTimeout(() => setIsOpen(false), 300);
+    }
+  };
 
   const rotateBackgrounds = () => {
     setBgImages((prev) => {
@@ -23,6 +37,7 @@ const PmFellowshipHeroSection = () => {
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
+  
 
   return (
     <div
@@ -50,11 +65,11 @@ const PmFellowshipHeroSection = () => {
           <div className="flex justify-around lg:justify-start gap-10 text-[18px]">
             <div>
               <div className="text-[16px]">Start Date</div>
-              <div className="font-semibold text-blue-400">Sep 14, 2024</div>
+              <div className="font-semibold text-[#00B5CE]">Sep 14, 2024</div>
             </div>
             <div>
               <div className="text-[16px]">Duration</div>
-              <div className="font-semibold text-blue-400">30 Days</div>
+              <div className="font-semibold text-[#00B5CE]">30 Days</div>
             </div>
           </div>
 
@@ -93,7 +108,7 @@ const PmFellowshipHeroSection = () => {
             </div>
           </div>
 
-          <div className="space-y-2 mt-4 text-[14px]">
+          <div className="space-y-3 mt-4 text-[14px]">
             <div className="flex items-end gap-1">
               <div>
                 <img src={offer} alt="offer-valid" className="h-[20px] w-[20px]" /> 
@@ -104,35 +119,32 @@ const PmFellowshipHeroSection = () => {
                 </p>
               </div>
             </div>
+
             <p className="">EMI from INR ₹1,455/month available at checkout</p>
+            
+            <div className="font-medium text-[13px]">
+              Last <span className="text-red-500">43 seats left</span>
+            </div>
           </div>
           
           <a href="https://pages.razorpay.com/getintoPM" target="_blank">
-            <button className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex items-center justify-between shadow-[5px_5px_0_rgba(0,0,0)] ">
+            <button className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex  items-center justify-center text-[20px] shadow-[5px_5px_0_rgba(0,0,0)] ">
               <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
-                <div className="text-[20px]">Enroll Now</div>
-                <div className="font-medium text-[13px]">
-                  Last <span className="text-red-500">43 seats left</span>
-                </div>
+                Enroll Now
               </div>
-
               <div className="ml-2 text-xl">→</div>
             </button>
           </a>
 
-          <a href="https://drive.google.com/file/d/1P8zYLnS2A2ysqXJ_wpOYJlQWctU0ZDx8/view" target="_blank">
-            <button className="w-full bg-white border border-black text-black font-medium py-3 rounded-full mt-4 flex justify-center gap-2">
-              <div>
-                <img src={download} alt="download" className="w-[20px] h-[20px]" />
-              </div>
-              <div>
-                <p>
-                  Download Curriculum
-                </p>
-              </div>
-            </button>
-          </a>
+          <button onClick={toggleModal} className="w-full bg-white border border-black text-[20px] text-black font-semibold py-3 rounded-full mt-4 flex justify-center gap-2">
+              Enquire Now
+          </button>
         </div>
+
+        <div className="relative">
+        {/* Modal */}
+        <EnrollmentForm setIsOpen={setIsOpen} isVisible={isVisible} setIsVisible={setIsVisible} isOpen={isOpen} toggleModal={toggleModal} />
+      </div>
       </div>
     </div>
   );

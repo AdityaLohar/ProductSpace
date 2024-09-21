@@ -1,35 +1,11 @@
 import { FaDiscord, FaLinkedinIn } from "react-icons/fa";
 import logo from "../assets/ps-logo.svg";
-import discord from "../assets/discord-circle.svg";
+import footerLogo from "../assets/footer-logo.svg";
 import linkedin from "../assets/linkedin-circle.svg";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { z } from "zod";
-import { useState } from "react";
 import footerBg from "../assets/footer bg.png";
 
-const schema = z.object({
-  email: z.string().email("Invalid email address"),
-});
-
 const Footer = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = () => {
-    try {
-      const result = schema.safeParse({ email });
-
-      if (!result.success) {
-        toast.error("Invalid Email");
-        return;
-      } else {
-        toast.success("Subscribed sucessfully for the Newsletter!");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <div
   className="pb-12 pt-16 bg-black bg-no-repeat sm:bg-right sm:bg-contain mx-auto xl:mx-auto max-w-screen-2xl"
@@ -38,7 +14,6 @@ const Footer = () => {
   }}
 >
       <div className="flex flex-col gap-12 lg:flex-row justify-between text-white bg-transparent px-4 md:px-32 custom-12:px-[0px] pb-12">
-          
         <div>
           <div className="text-2xl font-bold pb-2">
             <img src={logo} alt="ps-logo" />
@@ -81,45 +56,20 @@ const Footer = () => {
               </a>
             </div>
           </div>
+        </div>
 
-          <div className="w-2/3">
-            <p className="mb-3 font-semibold">Subscribe</p>
-            <div className="flex flex-col gap-4 text-white">
-              Subscribe to stay tuned for new web-design and latest updates.
-              Let&apos;s do it!
-            </div>
-
-            <div className="flex gap-1 justify-between mt-4">
-              <div>
-                <input
-                  type="email"
-                  placeholder="Enter your email Address"
-                  className="p-3 lg:p-4 w-[210px] lg:w-[300px] text-black text-[14px] font-semibold outline-none rounded-lg"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div>
-                <button onClick={handleSubmit} className="p-3 lg:p-4 lg:px-12 bg-[#FFC303] text-[14px] lg:text-[16px] text-black font-bold rounded-lg">
-                  Subscribe
-                </button>
-              </div>
+        <div className="hidden lg:flex text-transparent flex-col gap-12 lg:flex-row justify-between md:gap-20">
+          <div>
+            <p className="mb-3 font-semibold">Resources</p>
+            <div className="flex flex-col gap-4">
+              <p
+              >
+                Terms and Conditions
+              </p>
             </div>
           </div>
         </div>
       </div>
-
-      <ToastContainer
-        className="fixed top-4 left-1/2 transform -translate-x-1/2 w-11/12 md:w-full max-w-[350px]"
-        position="top-center"
-        autoClose={3000}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
 
       <div className="flex gap-2 lg:gap-12 justify-between text-gray-400 bg-transparent px-4 md:px-32 custom-12:px-[0px]">
             <div>
@@ -127,13 +77,13 @@ const Footer = () => {
             </div>
             <div className="flex gap-4 text-gray-400">
                 <div>
-                    <a href="https://www.linkedin.com/company/theproductspace/" target="_blank" className="">
-                      <img src={linkedin} alt="" className="h-8 w-8" />
+                    <a href="https://discord.com/invite/2ytvQhDBS8" target="_blank" className="flex items-center gap-2">
+                      <img src={footerLogo} alt="" className="h-8 w-8" />
                     </a>
                 </div>
                 <div>
-                    <a href="https://discord.com/invite/2ytvQhDBS8" target="_blank" className="flex items-center gap-2">
-                      <img src={discord} alt="" className="h-8 w-8" />
+                    <a href="https://www.linkedin.com/company/theproductspace/" target="_blank" className="">
+                      <img src={linkedin} alt="" className="h-8 w-8" />
                     </a>
                 </div>
             </div>

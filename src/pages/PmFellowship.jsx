@@ -3,6 +3,7 @@ import CourseSnapshot from "../components/CourseSnapshot";
 import Footer from "../components/Footer";
 import HandsOnTools from "../components/HandsOnTools";
 import LearningWithPace from "../components/LearningWithPace";
+import MeetAlums from "../components/MeetAlums";
 import MeetMentors from "../components/MeetMentors";
 import PmFellowshipHeroSection from "../components/PmFellowshipHeroSection";
 import ResultsPmFellowship from "../components/ResultsPmFellowship";
@@ -21,7 +22,6 @@ const PmFellowship = () => {
 
           <div className="w-full max-w-screen-2xl">
             <PmFellowshipHeroSection />
-            <CourseSnapshot />
             <LearningWithPace />
             <HandsOnTools />
             <WhyPmFellowship />
@@ -29,6 +29,7 @@ const PmFellowship = () => {
             <ResultsPmFellowship />
             <MeetMentors bgColor={"#fff"} />
             <ReviewPmFellowship />
+            <MeetAlums />
           </div>
         </div>
       </HelmetProvider>

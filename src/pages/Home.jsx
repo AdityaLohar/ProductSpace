@@ -11,6 +11,7 @@ import CaseStudies1 from "../components/CaseStudies1";
 import BottomBar from './../components/BottomBar';
 import Footer from "../components/Footer";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import CourseSnapshot from "../components/CourseSnapshot";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -47,7 +48,8 @@ const Home = () => {
         </div>
 
         <div className="w-full max-w-screen-2xl">
-          <MeetMentors bgColor={"#D7F5FF"} />
+          <Benefits bgColor={"#F7F0FF"} />
+          <CourseSnapshot />
           <Companies />
         </div>
 
@@ -55,9 +57,8 @@ const Home = () => {
 
         <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
           <Results />
-          <CaseStudies1 />
           <Alumini />
-          <Benefits bgColor={"#F1E6FF"} />
+          <CaseStudies1 />
           <NewsLetter />
           <Faq />
         </div>

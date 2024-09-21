@@ -2,26 +2,65 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaTimes } from "react-icons/fa";
+import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
+import { z } from "zod";
+
+const schema = z.object({
+  email: z.string().email("Invalid email address"),
+});
 
 const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
+  const [notification, setNotification] = useState(null);
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleSubmit = () => {
-    if (name === "" || !number) {
-      toast.error("Fill all the fields");
+    const result = schema.safeParse({ email });
+
+    if (!result.success) {
+      setNotification({
+        type: "error",
+        title: "Subscription Failed",
+        description: "Invalid email address. Please try again.",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
       return;
     }
+    else if (name === "" || !number) {
+      setNotification({
+        type: "error",
+        title: "Error",
+        description: "Fill in all details",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
+    }
+    else {
+      setNotification({
+        type: "success",
+        title: "Enrolled!",
+        description: "We will reach out to you soon.",
+      });
+      setShowNotification(true);
+    }
 
-    toast.success("Enrolled successfully!");
-    setIsVisible(false);
-    setTimeout(() => setIsOpen(false), 300);
+    // Automatically hide notification after 10 seconds
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 5000);
 
     setTimeout(() => {
       setIsOpen(false);
       window.location.href = "https://pages.razorpay.com/getintoPM"; // Replace with your desired external URL
-    }, 600);
+    }, 2000);
   };
 
   return (
@@ -72,6 +111,16 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
 
                 <div className="mb-4">
                   <input
+                    type="email"
+                    className="w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
+                    placeholder="Enter your email*"
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <input
                     type="tel"
                     className="w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
                     placeholder="Your Mobile Number*"
@@ -93,6 +142,48 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                 </div>
               </div>
             </div>
+
+            {/* Notification Section */}
+            {notification && (
+              <div
+                className={`fixed left-1/2 transform -translate-x-1/2 ${
+                  showNotification
+                    ? "bottom-4 opacity-100"
+                    : "-bottom-20 opacity-0"
+                } transition-all duration-500 ease-in-out z-50 max-w-[340px] md:max-w-[400px] w-full`}
+              >
+                <div
+                  className={`flex items-center justify-between gap-3 p-4 rounded-lg shadow-lg ${
+                    notification.type === "success"
+                      ? "bg-gradient-to-r from-green-400 to-green-600"
+                      : "bg-gradient-to-r from-red-400 to-red-600"
+                  } text-white`}
+                >
+                  {/* Icon */}
+                  <div className="text-2xl">
+                    {notification.type === "success" ? (
+                      <FaCheckCircle />
+                    ) : (
+                      <FaExclamationCircle />
+                    )}
+                  </div>
+
+                  {/* Notification Content */}
+                  <div className="flex flex-col">
+                    <span className="font-bold text-lg">{notification.title}</span>
+                    <span className="text-sm">{notification.description}</span>
+                  </div>
+
+                  {/* Close button */}
+                  <button
+                    onClick={() => setShowNotification(false)}
+                    className="text-xl font-bold"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </>
       )}

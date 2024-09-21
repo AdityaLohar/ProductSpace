@@ -1,7 +1,7 @@
 import CircleFlipGrid from "./CircleFlipGrid";
 import bgImage from "../assets/title-bg.png";
-import fromBg from "../assets/from.svg";
-// import fromBg from "../assets/from-bg.png";
+// import fromBg from "../assets/from.svg";
+import fromBg from "../assets/from-bg.png";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import EnrollmentForm from "./EnrollmentForm";
