@@ -26,6 +26,7 @@ app.get("/api", (req, res) => {
 });
 
 app.post("/api/submit-enquiry", submitEnquiry);
+app.post("/api/formdata", submitEnquiry);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
