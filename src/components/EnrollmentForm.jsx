@@ -22,7 +22,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
     if (!result.success) {
       setNotification({
         type: "error",
-        title: "Subscription Failed",
+        title: "Enrollment Failed",
         description: "Invalid email address. Please try again.",
       });
       setShowNotification(true);
