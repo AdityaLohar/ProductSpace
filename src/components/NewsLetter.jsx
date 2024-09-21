@@ -76,7 +76,7 @@ const NewsLetter = () => {
             showNotification
               ? "bottom-8 opacity-100"
               : "-bottom-20 opacity-0"
-          } transition-all duration-500 ease-in-out z-50 max-w-[340px] md:max-w-[400px] w-full border border-2 border-white`}
+          } transition-all duration-500 ease-in-out z-50 max-w-[340px] md:max-w-[400px] w-full`}
         >
           <div
             className={`flex items-center justify-between gap-3 p-4 rounded-lg shadow-lg ${
