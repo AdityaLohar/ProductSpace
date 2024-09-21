@@ -13,7 +13,7 @@ const CaseStudies1 = () => {
     {
       id: 1,
       title: "Amazon Prime",
-      image: "https://seeklogo.com/images/A/amazon-prime-video-logo-1B919AB668-seeklogo.com.png",
+      image: "https://i.pinimg.com/736x/c5/77/34/c577341955150f3ec00e999d69f21851.jpg",
       desc: "Improving Amazon Prime Viewing Experience" ,
       url: "https://pitch.com/public/ccb8b2d8-642c-4563-9abd-f8a48285b25b/143ca6f4-1750-4744-b325-57d899174ad5 ",
     },
