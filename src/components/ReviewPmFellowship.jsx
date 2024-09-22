@@ -63,7 +63,7 @@ const ReviewCardSmall = ({ rating, title, desc, username, img, company, post }) 
 
   return (
     <div className="text-[16px] w-[80vw] md:w-[50vw]"> {/* Set width to 100vw */}
-      <div className="flex flex-col relative gap-2 bg-white border border-1 border-transparent hover:border-[#9A6DFF] shadow-lg rounded-lg p-4 py-6">
+      <div className="flex flex-col relative gap-2 bg-white border border-2 border-transparent hover:border-[#9A6DFF] shadow-lg rounded-lg p-4 py-6">
         <div>
           <img src={comma} alt="" />
         </div>

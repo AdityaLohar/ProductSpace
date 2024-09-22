@@ -134,9 +134,6 @@ const Navbar = () => {
             <a href="/pm" className="hover:underline flex items-center gap-1">
               PM Fellowship
             </a>
-            <a href="#" className="hover:underline flex items-center gap-1">
-              Events
-            </a>
             <a href="/blogs" className="hover:underline flex items-center gap-1">
               Blogs
             </a>
@@ -161,9 +158,6 @@ const Navbar = () => {
       >
         <a href="/pm" className="hover:underline text-[18px]">
           PM Fellowship
-        </a>
-        <a href="#" className="hover:underline text-[18px]">
-          Events
         </a>
         <a href="/blogs" className="hover:underline text-[18px]">
           Blogs
