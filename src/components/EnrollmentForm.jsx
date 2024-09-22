@@ -44,7 +44,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
       setNotification({
         type: "success",
         title: "Details Submitted!",
-        description: "We will reach out to you soon.",
+        description: "Our Expert Consultant will Call you back.",
       });
       setShowNotification(true);
     } 
