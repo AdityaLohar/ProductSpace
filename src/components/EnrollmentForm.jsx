@@ -1,13 +1,17 @@
 // EnrollmentForm.js
 import { useState } from "react";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
 import { z } from "zod";
+import axios from 'axios';
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
 });
+
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_URL;
+const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
+
 
 const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
   const [name, setName] = useState("");
@@ -15,23 +19,57 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
   const [number, setNumber] = useState("");
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
-    const result = schema.safeParse({ email });
+  const saveUserData = async (name, email, phoneNumber) => {
+    try {
+      const response = await axios.post(
+        airtableBaseUrl,
+        {
+          fields: {
+            Name: name,
+            'Mobile Number': phoneNumber, // Make sure this matches exactly
+            'Email Id': email,           // Make sure this matches exactly
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      console.log('Data saved successfully:', response.data);
 
-    if (!result.success) {
+      setNotification({
+        type: "success",
+        title: "Details Submitted!",
+        description: "We will reach out to you soon.",
+      });
+      setShowNotification(true);
+    } 
+    catch (error) {
       setNotification({
         type: "error",
-        title: "Failed",
-        description: "Invalid email address. Please try again.",
+        title: "Error",
+        description: "Error in saving you data in air table",
       });
+
       setShowNotification(true);
       setTimeout(() => {
         setShowNotification(false);
       }, 5000);
+      
+      console.error('Error saving data:', error);
+      
       return;
     }
-    else if (name === "" || !number) {
+  };
+
+  const handleSubmit = async () => {
+    const result = schema.safeParse({ email });
+
+    if (name === "" || !number) {
       setNotification({
         type: "error",
         title: "Error",
@@ -55,48 +93,22 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
       }, 5000);
       return;
     }
-    else {
+    else if (!result.success) {
       setNotification({
-        type: "success",
-        title: "Details Submitted!",
-        description: "We will reach out to you soon.",
+        type: "error",
+        title: "Failed",
+        description: "Invalid email address. Please try again.",
       });
       setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
     }
-
-    // Prepare data to send to the backend
-  const formData = { name, phone: number, email };
-
-  try {
-    // const response = await fetch('https://product-space-be.vercel.app/api/submit-enquiry', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(formData),
-    // });
-
-    const response = await fetch('https://product-space-be.vercel.app/api/submit-enquiry', {
-      method: 'GET',
-    });
-     
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    const data = await response.json();
-    console.log('Success:', data);
     
-  } catch (error) {
-    setNotification({
-      type: "error",
-      title: "Submission Failed",
-      description: "There was an error submitting your details. Please try again.",
-    });
-    setShowNotification(true);
-    console.error('Error:', error);
-  }
+    setLoading(true);
+    const res = await saveUserData(name, email, number);
+    setLoading(false);
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -143,7 +155,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                 <div className="mb-4">
                   <input
                     type="text"
-                    className="w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
+                    className="input w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
                     placeholder="Enter your name*"
                     required
                     onChange={(e) => setName(e.target.value)}
@@ -153,7 +165,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                 <div className="mb-4">
                   <input
                     type="email"
-                    className="w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
+                    className="input w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
                     placeholder="Enter your email*"
                     required
                     onChange={(e) => setEmail(e.target.value)}
@@ -163,7 +175,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                 <div className="mb-4">
                   <input
                     type="tel"
-                    className="w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
+                    className="input w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
                     placeholder="Your Mobile Number*"
                     required
                     onChange={(e) => setNumber(e.target.value)}
@@ -175,7 +187,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                     onClick={handleSubmit}
                     className="text-[14px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold p-2 md:px-6 md:py-4 rounded-full hover:bg-yellow-500"
                   >
-                    Submit
+                    {loading ? "Loading..." : "Submit"}
                   </button>
                   <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
                     <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
