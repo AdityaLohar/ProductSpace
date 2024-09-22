@@ -2,7 +2,7 @@ import React from "react";
 
 const MeetAlums = () => {
   return (
-    <div className="flex flex-col lg:flex-row bg-[#F1F7FA] pt-4 mb:pt-0 pb-10 px-1 md:px-10 xl:px-32 text-[#111111]">
+    <div className="flex flex-col lg:flex-row bg-white pt-4 mb:pt-0 pb-10 px-1 md:px-10 xl:px-32 text-[#111111]">
 
       <div className="flex flex-col gap-4 lg:gap-10 py-5 lg:py-12 text-start w-full lg:w-1/2">
         <div className="text-[20px] text-gray-800 font-medium mt-2 px-2">
