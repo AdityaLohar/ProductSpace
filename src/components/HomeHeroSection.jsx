@@ -76,7 +76,7 @@ const HomeHeroSection = () => {
               // onClick={toggleModal}
               className="text-[18px] w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 xl:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
               >
-              Enquire Now!
+              Get Started!
             </button>
           </Link>
         </div>
