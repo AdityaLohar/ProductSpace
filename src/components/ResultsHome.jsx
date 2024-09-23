@@ -62,9 +62,9 @@ const Results = () => {
   return (
     <div className="flex flex-col bg-white pb-5 md:pb-20 bg-red-200">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-around px-2 md:px-22 xl:px-28 pt-10">
-        <ResultsCard iconImg={placed} number={2000} title={"+ Members"} subTitle={"Already Placed"} duration={5} />
-        <ResultsCard iconImg={packageImage} number={46} title={".7 LPA"} subTitle={"Highest Package"} duration={10} />
-        <ResultsCard iconImg={increment} number={4} title={".5x Increment"} subTitle={"Average CTC"} duration={15} />
+        <ResultsCard iconImg={placed} number={310} title={"+ Members"} subTitle={"Already Placed"} duration={5} />
+        <ResultsCard iconImg={packageImage} number={57} title={" LPA"} subTitle={"Highest Package"} duration={7} />
+        <ResultsCard iconImg={increment} number={1} title={".6x Increment"} subTitle={"Average Hike"} duration={15} />
       </div>
     </div>
   );
