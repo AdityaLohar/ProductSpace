@@ -4,7 +4,8 @@ import primeVideo from "../assets/prime-video.svg";
 import miro from "../assets/miro-logo.png";
 import canva from "../assets/canva.svg";
 
-const magicBricks = "https://apps.odoo.com/web/image/loempia.module/143981/icon_image?unique=d4b6f04";
+const magicBricks =
+  "https://apps.odoo.com/web/image/loempia.module/143981/icon_image?unique=d4b6f04";
 
 const CaseStudies1 = () => {
   const [selectedBox, setSelectedBox] = useState(0); // Change to null initially
@@ -13,39 +14,44 @@ const CaseStudies1 = () => {
     {
       id: 1,
       title: "Amazon Prime",
-      image: "https://i.pinimg.com/736x/c5/77/34/c577341955150f3ec00e999d69f21851.jpg",
-      desc: "Improving Amazon Prime Viewing Experience" ,
+      image:
+        "https://i.pinimg.com/736x/c5/77/34/c577341955150f3ec00e999d69f21851.jpg",
+      desc: "Improving Amazon Prime Viewing Experience",
       url: "https://pitch.com/public/ccb8b2d8-642c-4563-9abd-f8a48285b25b/143ca6f4-1750-4744-b325-57d899174ad5 ",
     },
     {
       id: 2,
       title: "MagicBricks",
       image: magicBricks,
-      desc: "Improving MagicBricks Viewing Experience" ,
+      desc: "Improving MagicBricks Viewing Experience",
       url: "https://pitch.com/v/magicbricks-gigy4i",
     },
     {
       id: 3,
       title: "Miro",
       image: miro,
-      desc: "Improving Miro Viewing Experience" ,
+      desc: "Improving Miro Viewing Experience",
       url: "https://www.canva.com/design/DAF2UQKOlDM/swJsZRgnzolKZKLpe0ehFQ/edit#20",
     },
     {
       id: 4,
       title: "Choice Connect",
-      image: "https://content.jdmagicbox.com/v2/comp/mumbai/b3/022pxx22.xx22.190312091956.y7b3/catalogue/choice-connect-andheri-east-mumbai-swnlzhd4zt.jpg",
-      desc: "Improving post registration sign-in-rate of Choice Connect App" ,
+      image:
+        "https://content.jdmagicbox.com/v2/comp/mumbai/b3/022pxx22.xx22.190312091956.y7b3/catalogue/choice-connect-andheri-east-mumbai-swnlzhd4zt.jpg",
+      desc: "Improving post registration sign-in-rate of Choice Connect App",
       url: "https://www.canva.com/design/DAFwZ6hl2l8/3GWwC_zwMWc4vpUHICYsVA/edit",
     },
-    { id: 5, 
-      title: "Spring Money", 
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8CPJaorfvXDYCYzcDnWFbI65Chmwcbx5gQg&s" ,
+    {
+      id: 5,
+      title: "Spring Money",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8CPJaorfvXDYCYzcDnWFbI65Chmwcbx5gQg&s",
       desc: "Design loan assist tool for SpringMoney",
       url: "https://pitch.com/v/welcome-to-pitch-asepfu",
     },
-    { id: 6,
-      title: "Zerodha", 
+    {
+      id: 6,
+      title: "Zerodha",
       image: "https://logowik.com/content/uploads/images/zerodha6662.jpg",
       desc: "How can Zerodha attract new user segments, such as first-time investors or those with smaller investment portfolios?",
       url: "https://road-frown-76d.notion.site/Zerodha-d69c79aefe6142f686391b65a6855f3c",
@@ -53,8 +59,9 @@ const CaseStudies1 = () => {
     {
       id: 7,
       title: "Meesho",
-      image: "https://images.moneycontrol.com/static-mcnews/2023/06/Meesho-682x435.jpg?impolicy=website&width=1600&height=900",
-      desc: "Improve user experience on Meesho to increase the order volume by 15% in 2 months" ,
+      image:
+        "https://images.moneycontrol.com/static-mcnews/2023/06/Meesho-682x435.jpg?impolicy=website&width=1600&height=900",
+      desc: "Improve user experience on Meesho to increase the order volume by 15% in 2 months",
       url: "https://www.canva.com/design/DAF87cmuzWk/SSCUOthx5U4Ja4lMu23-jQ/view?utm_content=DAF87cmuzWk&utm_campaign=designshare&utm_medium=link&utm_source=editor#1",
     },
   ];
@@ -74,7 +81,7 @@ const CaseStudies1 = () => {
         {/* First Box: Always shows the selected one */}
         <div
           key="selected"
-          className="col-span-2 row-span-2 h-full w-full rounded-2xl shadow-[0px_4px_17px_rgba(0,0,0,0.4)] flex flex-col font-semibold bg-white overflow-hidden items-start"
+          className="col-span-2 row-span-2 h-full w-full rounded-2xl shadow-[0px_4px_17px_rgba(0,0,0,0.4)] flex flex-col justify-between font-semibold bg-white overflow-hidden items-start"
           style={{
             backgroundImage: `url(${boxes[selectedBox]?.image})`,
             backgroundSize: "cover",
@@ -93,11 +100,11 @@ const CaseStudies1 = () => {
 
           {/* Display additional content for the selected box */}
           <div
-            className="absolute top-[12%] lg:top-[25%] xl:top-[23%] 2xl:top-[30%] lg:left-0 w-full h-full flex items-center justify-center"
+            className="w-full h-1/2 flex items-end justify-center"
             style={{
-              opacity: 1, // Ensure opacity starts from 1
+              opacity: 1,
               transition:
-                "opacity 0.5s ease-in-out, transform 0.5s ease-in-out", // Add transition for opacity and transform
+                "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
             }}
           >
             <a href={boxes[selectedBox]?.url} target="_blank">
@@ -106,7 +113,8 @@ const CaseStudies1 = () => {
                   {boxes[selectedBox]?.desc}
                 </div>
                 <div className="text-[16px] md:text-[14px] xl:text-[16px] font-normal pr-4">
-                  A sneak peek into what you will learn in our 10-week curriculum.
+                  A sneak peek into what you will learn in our 10-week
+                  curriculum.
                 </div>
                 <div className="flex justify-end">
                   <div className="text-[12px] md:text-[10px] xl:text-[12px] font-normal">
@@ -120,14 +128,12 @@ const CaseStudies1 = () => {
 
         {/* Other boxes */}
         {boxes.map((box, index) => {
-          // Skip rendering for the selected one (handled above)
           if (index === selectedBox) return null;
 
           return (
             <div
               key={index}
               onClick={() => {
-                // Swap the content of the selected box with the clicked one
                 const newBoxes = [...boxes];
                 [newBoxes[selectedBox], newBoxes[index]] = [
                   newBoxes[index],
@@ -135,7 +141,15 @@ const CaseStudies1 = () => {
                 ];
                 setSelectedBox(index);
               }}
-              className="col-span-1 row-span-1 hover:shadow-[1px_5px_10px_rgba(0,0,0,0.4)] custom-5:h-[170px] custom-5:w-[170px] custom-6:h-[180px] custom-6:w-[180px] custom-8:h-[200px] custom-8:w-[200px] 2xl:h-[245px] 2xl:w-[245px] rounded-lg flex flex-col font-semibold bg-white overflow-hidden items-start justify-end"
+              className="col-span-1 row-span-1 hover:shadow-[1px_5px_10px_rgba(0,0,0,0.4)] 
+                custom-5:h-[170px] custom-5:w-[170px] 
+                custom-6:h-[180px] custom-6:w-[180px] 
+                custom-8:h-[200px] custom-8:w-[200px] 
+                2xl:h-[245px] 2xl:w-[245px] 
+                rounded-lg flex flex-col font-semibold bg-white 
+                overflow-hidden items-start justify-end 
+                transition-transform duration-300 ease-in-out 
+                transform hover:scale-105"
               style={{
                 backgroundImage: `url(${box.image})`,
                 backgroundSize: "cover",
@@ -144,7 +158,7 @@ const CaseStudies1 = () => {
                 flexShrink: 0,
                 boxSizing: "border-box",
                 transition:
-                  "background-image 0.5s ease-in-out, opacity 0.5s ease-in-out",
+                  "transform 0.3s ease-in-out, background-image 0.5s ease-in-out, opacity 0.5s ease-in-out",
               }}
             >
               <div className="m-2 p-1 px-2 bg-[#FFF1D4] rounded-2xl text-[12px] xl:text-sm w-contain">
