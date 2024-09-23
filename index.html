@@ -10,28 +10,7 @@
     <!-- public/index.html -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Hind+Madurai:wght@200;300;400;500;600;700&display=swap"
-      rel="stylesheet">
-
-      <!-- Theme based top icon -->
-      <script>
-        function updateFavicon() {
-            const favicon = document.getElementById('favicon');
-            const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-            if (isDarkMode) {
-                favicon.href = '/public/ps-logo-light.svg';
-            } else {
-                favicon.href = '/public/ps-logo-dark.svg';
-            }
-        }
-    
-        // Call the function to set the favicon on page load
-        updateFavicon();
-    
-        // Listen for changes in the user's color scheme preference
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
-    </script>
-    
+      rel="stylesheet">    
 
     
     <!-- Google Analytics -->
