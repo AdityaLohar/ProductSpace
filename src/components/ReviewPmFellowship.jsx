@@ -184,18 +184,6 @@ const reviews = [
   }
 ];
 
-// Dark Lavender: #E0C6FF
-// Medium Purple: #D3A4FF
-// Royal Purple: #B48DFF
-// Deep Violet: #9A6DFF
-// Dark Violet: #7C4DFF
-// Indigo: #5C2CFF
-
-// #7F4BFF (Darker)
-// #6A3BFF (Even Darker)
-// #5531CC (Deep Dark)
-// #4A28A8 (Very Deep Dark)
-
 const ReviewPmFellowship = () => {
   return (
     <div className="flex flex-col bg-[#F7F0FF] pb-10 pt-4 lg:pt-0 px-4 md:px-10 xl:px-32">
