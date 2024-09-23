@@ -5,6 +5,7 @@ import fromBg from "../assets/from-bg.png";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import EnrollmentForm from "./EnrollmentForm";
+import { Link } from "react-router-dom";
 
 const HomeHeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,12 +71,14 @@ const HomeHeroSection = () => {
         </div>
 
         <div className="mt-8 font-semibold text-sm lg:text-lg">
-          <button
-            onClick={toggleModal}
-            className="text-[18px] w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 xl:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
-          >
-            Enquire Now!
-          </button>
+          <Link to={"/pm"}>
+            <button
+              // onClick={toggleModal}
+              className="text-[18px] w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 xl:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
+              >
+              Enquire Now!
+            </button>
+          </Link>
         </div>
       </div>
 

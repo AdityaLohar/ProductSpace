@@ -25,7 +25,7 @@ const Navbar = () => {
 
     const calculateDaysLeft = () => {
       // Set the cohort start date
-      const cohortDate = new Date('2024-10-12'); // Adjust the year if needed
+      const cohortDate = new Date('2024-10-19'); // Adjust the year if needed
       const today = new Date();
       
       // Calculate the difference in time (in milliseconds)
@@ -65,15 +65,17 @@ const Navbar = () => {
         showTopBar && (
           <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
             <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
-              <div className="text-black">NEXT COHORT STARTS: 12th October</div>
-              <div className="flex items-center">
-                <Link to={"/pm"} className="bg-[#130D00] px-2 py-1 rounded-md">
+              <div className="text-black">NEXT COHORT STARTS: 19th October</div>
+              <Link to={"/pm"} className="flex items-center">
+                
+                <button className="bg-[#130D00] px-2 py-1 rounded-md">
                   {daysToGo} DAYS TO GO
-                </Link>
+                </button>
                 <div className="text-black">
                   <RiArrowRightSFill />
                 </div>
-              </div>
+                
+              </Link>
             </div>
           </div>
         )
