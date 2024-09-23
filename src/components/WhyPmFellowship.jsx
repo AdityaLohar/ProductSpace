@@ -2,7 +2,7 @@ import vector1 from "../assets/benifits-1-1 1.svg";
 import vector3 from "../assets/benifits-2-1 1.svg";
 import vector2 from "../assets/Vector (3).svg";
 import vector4 from "../assets/Vector (4).svg";
-import underline from "../assets/yellow-underline.svg";
+import underline from "../assets/yellow-underline.png";
 
 const BenefitCard = ({ vector, title, desc, size }) => {
   return (
