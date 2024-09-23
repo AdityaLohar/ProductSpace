@@ -9,11 +9,11 @@ const schema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_URL;
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_DOWNLOAD_CURRICULUM_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 
-const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
+const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -109,8 +109,8 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
     setLoading(true);
     const res = await saveUserData(name, email, number);
     setLoading(false);
-
-    window.location.href = "https://rzp.io/l/getintoPM";
+ 
+    window.location.href = "https://drive.google.com/file/d/1hnTMLSTvedhPv5FYqV2hRLdqq1SguutG/view?usp=drive_link";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -147,7 +147,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
               {/* Form */}
               <div>
                 <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
-                  Request a Callback
+                  Download Detailed Curriculum
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
                 Personalized Guidance | Interview Preparation | Industry Focus Content | Job Placements Support -{" "}
@@ -246,4 +246,4 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
   );
 };
 
-export default EnrollmentForm;
+export default DownloadCurriculumForm;

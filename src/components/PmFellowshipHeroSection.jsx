@@ -7,12 +7,26 @@ import download from "../assets/download.svg";
 import offer from "../assets/offer-valid.svg";
 import { useEffect, useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
+import DownloadCurriculumForm from "./DownloadCurriculumForm";
 
 const PmFellowshipHeroSection = () => {
   const [bgImages, setBgImages] = useState([disco1, disco2, disco3]);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+  const [isOpenEnquire, setIsOpenEnquire] = useState(false);
+  const [isVisibleEnquire, setIsVisibleEnquire] = useState(false);
+
+  const toggleModalEnquire = () => {
+    if (!isOpenEnquire) {
+      setIsOpenEnquire(true);
+      setTimeout(() => setIsVisibleEnquire(true), 10);
+    } else {
+      setIsVisibleEnquire(false);
+      setTimeout(() => setIsOpenEnquire(false), 300);
+    }
+  }
 
   const toggleModal = () => {
     if (!isOpen) {
@@ -58,7 +72,7 @@ const PmFellowshipHeroSection = () => {
               </h1>
             </div>
             <div className="text-[16px] lg:text-[18px]">
-              A launchpad to your Career journey.
+              Excel in Your Product Career
             </div>
           </div>
 
@@ -127,23 +141,24 @@ const PmFellowshipHeroSection = () => {
             </div>
           </div>
           
-          <a href="https://pages.razorpay.com/getintoPM" target="_blank">
-            <button className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex  items-center justify-center text-[20px] shadow-[5px_5px_0_rgba(0,0,0)] ">
+            <button onClick={toggleModalEnquire} className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex  items-center justify-center text-[20px] shadow-[5px_5px_0_rgba(0,0,0)] ">
               <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
-                Enroll Now
+                Enquire Now
               </div>
               <div className="ml-2 text-xl">→</div>
             </button>
-          </a>
+          {/* <a href="https://pages.razorpay.com/getintoPM" target="_blank">
+          </a> */}
 
           <button onClick={toggleModal} className="w-full bg-white border border-black text-[20px] text-black font-semibold py-3 rounded-full mt-4 flex justify-center gap-2">
-              Enquire Now
+              Download Curriculum
           </button>
         </div>
 
         <div className="relative">
         {/* Modal */}
-        <EnrollmentForm setIsOpen={setIsOpen} isVisible={isVisible} setIsVisible={setIsVisible} isOpen={isOpen} toggleModal={toggleModal} />
+        <EnrollmentForm setIsOpen={setIsOpenEnquire} isVisible={isVisibleEnquire} setIsVisible={setIsVisibleEnquire} isOpen={isOpenEnquire} toggleModal={toggleModalEnquire} />
+        <DownloadCurriculumForm setIsOpen={setIsOpen} isVisible={isVisible} setIsVisible={setIsVisible} isOpen={isOpen} toggleModal={toggleModal} />
       </div>
       </div>
     </div>
