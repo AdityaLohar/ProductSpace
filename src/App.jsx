@@ -31,7 +31,7 @@ function App() {
           <Route path='/blogs' element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path='/faq' element={<FaqPage />} />
-          <Route path='/pm-fellowship' element={<PmFellowship />} />
+          <Route path='/pm' element={<PmFellowship />} />
         </Routes>
       {/* </Router> */}
       <div className={`w-full bg-black ${isHomePage ? 'lg:pb-16' : ''}`}>
