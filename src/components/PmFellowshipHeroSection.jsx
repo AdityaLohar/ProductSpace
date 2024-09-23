@@ -113,7 +113,7 @@ const PmFellowshipHeroSection = () => {
            <span className="font-bold">30%</span> <br /> OFF
           </div>
           <div className="text-start pt-2">
-            <p className="text-[14px]">👉🏻 Early Bird Price</p>
+            <p className="text-[14px]">👉🏻 Early Bird Offer for first 8 seats</p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
                 ₹20,999
