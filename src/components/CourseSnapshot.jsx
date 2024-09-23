@@ -85,7 +85,7 @@ const CourseSnapshot = () => {
               
               <div className="text-center">
                 <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold text-yellow-400">
-                  2000+
+                  450+
                 </span>{" "}
                 <br />
                 Alumni
@@ -93,7 +93,7 @@ const CourseSnapshot = () => {
 
               <div className="text-center">
                 <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold text-yellow-400">
-                  600+
+                  310+
                 </span>{" "}
                 <br />
                 Transitions
