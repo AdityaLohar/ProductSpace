@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigationRef = useRef(null);
-  const [showTopBar, setShowTomBar] = useState(false);
+  const [showTopBar, setShowTomBar] = useState(true);
   const [daysToGo, setDaysToGo] = useState(0);
 
   useEffect(() => {
