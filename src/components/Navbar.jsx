@@ -66,7 +66,7 @@ const Navbar = () => {
           <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
             <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
               <div className="text-black">NEXT COHORT STARTS: 19th October</div>
-              <Link to={"/pm"} className="flex items-center">
+              <Link to={"/pm-fellowship"} className="flex items-center">
                 
                 <button className="bg-[#130D00] px-2 py-1 rounded-md">
                   {daysToGo} DAYS TO GO
@@ -133,7 +133,7 @@ const Navbar = () => {
 
         <div className="hidden lg:flex space-x-8 items-center">
           <div className="hidden lg:flex space-x-6 xl:space-x-7 font-medium text-[18px]">
-            <a href="/pm" className="hover:underline flex items-center gap-1">
+            <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
               PM Fellowship
             </a>
             <a href="/blogs" className="hover:underline flex items-center gap-1">
@@ -158,7 +158,7 @@ const Navbar = () => {
         ref={navigationRef}
         className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
       >
-        <a href="/pm" className="hover:underline text-[18px]">
+        <a href="/pm-fellowship" className="hover:underline text-[18px]">
           PM Fellowship
         </a>
         <a href="/blogs" className="hover:underline text-[18px]">
