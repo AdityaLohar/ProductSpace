@@ -76,7 +76,7 @@ const PmFellowshipHeroSection = () => {
           <div className="flex items-center gap-1 text-[16px] mt-3 lg:mt-6">
             <img src={clock} alt="" className="pb-1"/>
             <div>
-              Hurry! <span className="font-bold">668 people</span> have already
+              Hurry! <span className="font-bold">50 people</span> have already
               enrolled in the past 1 month
             </div>
           </div>
