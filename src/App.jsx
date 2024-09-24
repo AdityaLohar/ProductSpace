@@ -38,6 +38,7 @@ function App() {
         <Footer />
       </div>
     </div>
+    // strata scratch
   )
 }
 

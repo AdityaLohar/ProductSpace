@@ -9,6 +9,75 @@
 }
 
 /* Disco lights animation */
+/* 
+img {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+}
+
+section {
+  min-height: 100vh;
+  margin: 100px auto;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.top-section h1 {
+  font-size: 60px;
+}
+
+.scroll-container {
+  max-width: 1200px;
+  margin: 100px auto;
+  overflow: hidden;
+}
+
+.img-container {
+  position: relative;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-content {
+  position: absolute;
+  bottom: 0; 
+  width: 100%;
+}
+
+
+.copy {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  font-size: 24px;
+  margin-left: 5%;
+  text-align: left;
+}
+
+.copy h2 {
+  font-size: 50px;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1000px) {
+  .copy h2 {
+    font-size: 70px;
+  }
+} */
 
 :root {
   font-synthesis: none;

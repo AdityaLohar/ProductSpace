@@ -1,5 +1,6 @@
 import tick from "../assets/tick-green.svg";
 import courseSnapshotVideo from "../assets/course-snapshot-video.mp4";
+import courseSnapshot from "../assets/course-snapshot.jpg";
 import { useRef, useState } from "react";
 
 const VideoContent = () => {
@@ -70,14 +71,15 @@ const VideoContent = () => {
 const CourseSnapshot = () => {
   return (
     <div className="bg-white pb-0 px-4 md:px-10 xl:px-32 pt-10 font-hind">
-      <div className="flex flex-col lg:flex-row py-4 lg:py-12 items-center justify-between gap-12">
+      <div className="flex flex-col lg:flex-row py-4 lg:py-12 items-between justify-between gap-12">
         <div className="flex flex-col gap-2 lg:gap-6">
           <div className="text-[28px] lg:text-[40px] font-bold px-2 mb-4 lg:mb-8 text-center lg:text-start font-sans">
             Course Snapshot
           </div>
 
           <div className="flex flex-col lg:hidden w-full items-start gap-6 items-center mb-6 lg:mb-0">
-            <VideoContent />
+            {/* <VideoContent /> */}
+            <img src={courseSnapshot} alt="" />
           </div>
 
           <div className="flex flex-col lg:flex-row bg-[#9747FF] p-4 lg:p-10 text-[18px] text-white gap-4 xl:gap-8 rounded-2xl flex-wrap">
@@ -131,8 +133,9 @@ const CourseSnapshot = () => {
           </div>
         </div>
 
-        <div className="hidden lg:flex flex-col w-1/2 items-start gap-6 px-16 items-center">
-          <VideoContent />
+        <div className="hidden lg:flex w-1/2 items-center gap-6 px-16">
+          {/* <VideoContent /> */}
+          <img src={courseSnapshot} alt="" />
         </div>
       </div>
     </div>
