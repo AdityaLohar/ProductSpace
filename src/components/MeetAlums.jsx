@@ -6,7 +6,7 @@ const MeetAlums = () => {
 
       <div className="flex flex-col gap-4 lg:gap-10 py-5 lg:py-12 text-start w-full lg:w-1/2">
         <div className="text-[20px] text-gray-800 font-medium mt-2 px-2">
-            Meet the <span className="font-bold">Mentors & Alums</span> and clarify all your queries.
+            Meet the <span className="font-bold">Mentors</span> and clarify all your queries.
         </div>
         <div className="text-[28px] lg:text-[40px] font-bold px-2 font-sans">
             Want to know if PM is the right fit for you?
