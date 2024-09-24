@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import BlogPage from './pages/BlogPage';
 import Blog from './pages/Blog';
 import Footer from './components/Footer';
+import CaseStudy from './pages/CaseStudy';
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
       {/* <Router> */}
         <Routes>
           <Route path='/' element={<Home />} />
+          {/* <Route path='/case' element={<CaseStudy />} /> */}
           <Route path='/blogs' element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path='/faq' element={<FaqPage />} />

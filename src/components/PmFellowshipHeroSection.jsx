@@ -143,7 +143,7 @@ const PmFellowshipHeroSection = () => {
           
             <button onClick={toggleModalEnquire} className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex  items-center justify-center text-[20px] shadow-[5px_5px_0_rgba(0,0,0)] ">
               <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
-                Enquire Now
+                Enroll Now
               </div>
               <div className="ml-2 text-xl">→</div>
             </button>

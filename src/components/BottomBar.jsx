@@ -65,7 +65,7 @@ const BottomBar = () => {
 
         <div className="flex items-center">
           <button className="shimmer bg-[#FF559E] text-white py-2 px-4 2xl:px-8 rounded-full" onClick={toggleModal}>
-            Enquire Now
+            Enroll Now
           </button>
         </div>
       </div>
