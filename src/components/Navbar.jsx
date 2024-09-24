@@ -132,10 +132,13 @@ const Navbar = () => {
 
 
         <div className="hidden lg:flex space-x-8 items-center">
-          <div className="hidden lg:flex space-x-6 xl:space-x-7 font-medium text-[18px]">
+          <div className="hidden lg:flex space-x-10 xl:space-x-16 font-medium text-[18px]">
             <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
               PM Fellowship
             </a>
+            {/* <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
+              Alumni
+            </a> */}
             <a href="/blogs" className="hover:underline flex items-center gap-1">
               Blogs
             </a>

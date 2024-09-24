@@ -190,7 +190,7 @@ const ReviewPmFellowship = () => {
     {/* // <div className="flex flex-col bg-[#D7F5FF] pb-10 pt-4 lg:pt-0 px-4 md:px-10 xl:px-32"> */}
       <div className="py-5 lg:py-12">
         <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center md:text-start font-sans px-4">
-          We have placed 310 cohort members
+          We have placed 350+ cohort members
         </div>
         
         <div className="hidden lg:block lg:columns-3 gap-6 space-y-6 pt-8">
@@ -224,12 +224,20 @@ const ReviewPmFellowship = () => {
           ))}
         </div>
 
+        <div className="flex justify-center font-semibold">
+          <a href="https://topmate.io/propel/1232054 " target="_blank" className="w-3/4 md:w-2/5 lg:w-1/3">
+            <button className="w-full text-[20px] bg-[#FFC303] hover:bg-yellow-500 text-black p-2 py-3 px-6 md:p-3 rounded-full mt-6">
+                Meet with Alums
+            </button>
+          </a>
+        </div>
 
-          <div className="hidden :flex flex-col gap-2 justify-center items-center">
+
+          {/* <div className="hidden lg:flex flex-col gap-2 justify-center items-center">
             <div className="flex justify-center text-[16px] font-semibold text-[#FF559E] underline my-3 w-fit">
               <button>Load More Success Stories</button>
             </div>
-          </div>
+          </div> */}
       </div>
     </div>
   );
