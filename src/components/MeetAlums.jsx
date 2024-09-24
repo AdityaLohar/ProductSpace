@@ -21,7 +21,7 @@ const MeetAlums = () => {
                 Meet 1:1 with Mentors
             </button>
           </a>
-        <a href="https://zcal.co/i/P85U8vG0" target="_blank" className="w-3/4 md:w-1/2">
+        <a href="https://topmate.io/propel/1232054 " target="_blank" className="w-3/4 md:w-1/2">
             <button className="w-full text-[20px] text-center bg-white border border-1 border-black hover:bg-white text-black p-2 py-3 px-6 md:p-3 rounded-full md:mt-6">
                 Meet with Alums
             </button>
