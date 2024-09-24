@@ -1,13 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 import logo from "../assets/ps-logo-dark.svg";
 import { RiArrowRightSFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigationRef = useRef(null);
   const [showTopBar, setShowTomBar] = useState(true);
   const [daysToGo, setDaysToGo] = useState(0);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScrollOrNavigate = () => {
+    if (location.pathname === "/pm-fellowship") {
+      // Same page, scroll to section
+      document.getElementById("reviews").scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to /pm and scroll to the section after page load
+      navigate("/pm-fellowship#reviews");
+    }
+
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,9 +150,9 @@ const Navbar = () => {
             <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
               PM Fellowship
             </a>
-            {/* <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
+            <a onClick={handleScrollOrNavigate} className="hover:cursor-pointer hover:underline flex items-center gap-1">
               Alumni
-            </a> */}
+            </a>
             <a href="/blogs" className="hover:underline flex items-center gap-1">
               Blogs
             </a>
@@ -163,6 +177,9 @@ const Navbar = () => {
       >
         <a href="/pm-fellowship" className="hover:underline text-[18px]">
           PM Fellowship
+        </a>
+        <a onClick={handleScrollOrNavigate} className="hover:underline text-[18px]">
+          Alumni
         </a>
         <a href="/blogs" className="hover:underline text-[18px]">
           Blogs
