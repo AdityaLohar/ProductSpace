@@ -136,8 +136,8 @@ const PmFellowshipHeroSection = () => {
 
             <p className=""> Pay 50% now to enrol and remaining in next 2 weeks.</p>
             
-            <div className="font-medium text-[13px]">
-              Last <span className="text-red-500">43 seats left</span>
+            <div className="font-semibold text-[14px]">
+              Cohort seats: 60
             </div>
           </div>
           
