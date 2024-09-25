@@ -11,6 +11,7 @@ import DownloadCurriculumForm from "./DownloadCurriculumForm";
 
 const PmFellowshipHeroSection = () => {
   const [bgImages, setBgImages] = useState([disco1, disco2, disco3]);
+  const [opacity, setOpacity] = useState([1, 0, 0]);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -46,8 +47,13 @@ const PmFellowshipHeroSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      rotateBackgrounds();
-    }, 2000); // Rotate every 2 seconds
+      setOpacity([0, 0, 0]); // Start fading out
+      setTimeout(() => {
+        rotateBackgrounds();
+        setOpacity([1, 0, 0]); // Fade in after rotating
+      }, 600); // Match this duration with your fade-out duration
+
+    }, 3000);
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
@@ -61,6 +67,7 @@ const PmFellowshipHeroSection = () => {
         backgroundPosition: "bottom center, bottom right -10%, bottom left -5%",
         backgroundSize: "cover, contain, contain", // Adjust size for each image
         backgroundRepeat: "no-repeat, no-repeat, no-repeat", // Prevent repeating
+        transition: "background-image 0.3s ease-in-out"
       }}
     >
       <div className="bg-white relative flex flex-col lg:flex-row py-4 lg:py-12 items-center justify-between gap-6 md:gap-8 lg:gap-12 border border-1 border-[#00B5CE] rounded-[24px] md:rounded-[32px] px-4 md:px-12 lg:px-20">
