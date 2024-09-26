@@ -4,6 +4,9 @@ import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { useState } from "react";
 import linkedinLogo from "../assets/linkedin-circle.svg";
+import fullStar from "../assets/star.svg";
+import halfStar from "../assets/star-half.svg";
+
 
 const StarRating = ({ rating }) => {
   // Ensure rating is a number and clamp it between 0 and 5
@@ -11,17 +14,20 @@ const StarRating = ({ rating }) => {
 
   // Calculate the number of filled and empty stars
   const filledStars = Math.floor(clampedRating);
-  const halfStar = clampedRating - filledStars > 0;
-  const emptyStars = 5 - filledStars - (halfStar ? 1 : 0);
+  const half = clampedRating - filledStars > 0;
+  const emptyStars = 5 - filledStars - (half ? 1 : 0);
 
   return (
     <div className="flex items-center">
+      {/* Render filled stars */}
       {[...Array(filledStars)].map((_, i) => (
-        <FontAwesomeIcon key={`filled-${i}`} icon={faStarSolid} className="text-[#FFA600]" />
+        <img key={i} src={fullStar} className="h-5 w-5" />
       ))}
-      {halfStar && (
-        <FontAwesomeIcon icon={faStarSolid} className="text-[#FFA600]" />
+      {/* Render half star if applicable */}
+      {half && (
+        <img key="half" src={halfStar} className="h-5 w-5" />
       )}
+      {/* Render empty stars */}
       {[...Array(emptyStars)].map((_, i) => (
         <FontAwesomeIcon key={`empty-${i}`} icon={faStarRegular} className="text-gray-300" />
       ))}
@@ -132,7 +138,7 @@ const reviews = [
     linkedin: "https://www.linkedin.com/in/adityapant--",
   },
   {
-    rating: 4,
+    rating: 4.5,
     title: "Great Quality",
     desc: "Grateful to Product Space for the in-depth knowledge and skills in product management. The practical experience and 1:1 support were exceptional",
     username: "Aditya Mandothia",
@@ -142,7 +148,7 @@ const reviews = [
     linkedin: "https://www.linkedin.com/in/aditya-mandothia-84882520a/",
   },
   {
-    rating: 3.5,
+    rating: 4.5,
     title: "Amazing Experience",
     desc: "The mentors at Product Space went above and beyond to help me achieve my goals. Their guidance was crucial to my success.",
     username: "Nishant Sinja",
@@ -152,7 +158,7 @@ const reviews = [
     linkedin: "https://www.linkedin.com/in/nishant-sinha-134701134",
   },
   {
-    rating: 4,
+    rating: 4.5,
     title: "Good Support",
     desc: "The mentorship at Product Space has been key to my growth as a Product Manager. The sessions, feedback, and mock interviews greatly enhanced my skills and confidence. I'm truly grateful for the unwavering support and belief in my potential. Special thanks to Akhil Yash Tiwari for his consistent guidance throughout our journey. Here's to ongoing growth and success! I highly recommend Product Space for anyone looking to refine their skills as a Product Manager.",
     username: "Mrigaj Nirvan Goradia",
@@ -172,7 +178,7 @@ const reviews = [
     linkedin: "https://www.linkedin.com/in/a4sh",
   },
   {
-    rating: 4,
+    rating: 4.5,
     title: "Very Satisfied",
     desc: "I'm incredibly grateful to Product Space for their 1:1 mentorship. The personalized guidance and support I received truly transformed my career journey. The mentors at Product Space provided me with the skills and confidence I needed to succeed. I couldn’t have achieved this transition without their invaluable assistance!",
     username: "Aryan Jaiswal",
