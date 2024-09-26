@@ -7,7 +7,7 @@ const AlumniCard = ({
   prevPost,
   curCompany,
   curPost,
-  testimonial,
+  testimonial
 }) => {
   return (
     <div

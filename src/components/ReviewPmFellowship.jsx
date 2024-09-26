@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { useState } from "react";
+import linkedinLogo from "../assets/linkedin-circle.svg";
 
 const StarRating = ({ rating }) => {
   // Ensure rating is a number and clamp it between 0 and 5
@@ -28,16 +29,26 @@ const StarRating = ({ rating }) => {
   );
 };
 
-const ReviewCard = ({ rating, title, desc, username, img, company, post }) => {
+const ReviewCard = ({ rating, title, desc, username, img, company, post, linkedin }) => {
   return (
     <div className="break-inside-avoid text-[16px]">
       <div className="flex flex-col relative gap-2 bg-white hover:cursor-default border border-2 border-transparent hover:border-[#9A6DFF] shadow shadow-lg rounded-lg p-4">
-        <div>
-          <img src={comma} alt="" />
+        
+        <div className="flex items-center justify-between">
+          <div>
+            <div>
+              <img src={comma} alt="" />
+            </div>
+            <div className="text-yellow-500">
+              <StarRating rating={rating} />
+            </div>
+          </div>
+
+          <a href={linkedin} target="_blank">
+            <img src={linkedinLogo} alt="linkedin-profile" className="h-6 w-6 hover:cursor-pointer" />
+          </a>
         </div>
-        <div className="text-yellow-500">
-          <StarRating rating={rating} />
-        </div>
+
         <div className="font-bold">{title}</div>
         <div className="pb-6">{desc}</div>
         
@@ -58,18 +69,27 @@ const ReviewCard = ({ rating, title, desc, username, img, company, post }) => {
   );
 };
 
-const ReviewCardSmall = ({ rating, title, desc, username, img, company, post }) => {
+const ReviewCardSmall = ({ rating, title, desc, username, img, company, post, linkedin }) => {
   const [expand, setExpand] = useState(desc.length <= 340);
 
   return (
     <div className="text-[16px] w-[80vw] md:w-[50vw]"> {/* Set width to 100vw */}
       <div className="flex flex-col relative gap-2 bg-white border border-2 border-transparent hover:border-[#9A6DFF] shadow-lg rounded-lg p-4 py-6">
-        <div>
-          <img src={comma} alt="" />
+      <div className="flex items-center justify-between">
+          <div>
+            <div>
+              <img src={comma} alt="" />
+            </div>
+            <div className="text-yellow-500">
+              <StarRating rating={rating} />
+            </div>
+          </div>
+
+          <a href={linkedin} target="_blank">
+            <img src={linkedinLogo} alt="linkedin-profile" className="h-6 w-6 hover:cursor-pointer" />
+          </a>
         </div>
-        <div className="text-yellow-500">
-          <StarRating rating={rating} />
-        </div>
+
         <div className="font-bold">{title}</div>
         <div>
           <p>
@@ -109,6 +129,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D4D03AQGYmAzuGoncIg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718714447992?e=1731542400&v=beta&t=7INAN9eGo7UEPiQj3HOmCAfrD9CySxe8113oD-AZL3Y",
     company: "Samaro",
     post: "Product Management Intern",
+    linkedin: "https://www.linkedin.com/in/adityapant--",
   },
   {
     rating: 4,
@@ -118,6 +139,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D5603AQGGLNTiBlHcrw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710504658899?e=1731542400&v=beta&t=Bc1TFPzuuo0uEN4fuf-1tdXKDwYl3OF2yW31-PwAQIo",
     company: "Cinestox",
     post: "Product Management Intern",
+    linkedin: "https://www.linkedin.com/in/aditya-mandothia-84882520a/",
   },
   {
     rating: 3.5,
@@ -127,6 +149,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D5603AQFuaisZpsSTjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705161505684?e=1731542400&v=beta&t=aThtTNNdBqxkVgYOfBP394wH95SeA8T1ZANwJZ1s_18",
     company: "CreditAccess Grameen Limited",
     post: "Product Manager",
+    linkedin: "https://www.linkedin.com/in/nishant-sinha-134701134",
   },
   {
     rating: 4,
@@ -136,6 +159,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D4D03AQGk2o03hDHZJg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700811766381?e=1731542400&v=beta&t=Tzw0dFdaveqGVCDC0J59IkxdCtpAntGombGD0so5dxA",
     company: "Kaam",
     post: "Product Manager",
+    linkedin: "https://www.linkedin.com/in/mrigaj-goradia-b93408107",
   },
   {
     rating: 5,
@@ -145,6 +169,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D4D03AQFb1RR6l5Nufg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1694013700834?e=1731542400&v=beta&t=X4wG_7rX198PAeNMDMT8Gjrgb-GvWMf8NkzosVLVbZw",
     company: "My Sivi",
     post: "Product Manager",
+    linkedin: "www.linkedin.com/in/a4sh",
   },
   {
     rating: 4,
@@ -154,6 +179,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/C4E03AQG_j9Ls8iygIA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1626771255085?e=1731542400&v=beta&t=jMNNAPrrttnDHspafglJ2JHJMA1g0RG4B2qRK9mp5Oc",
     company: "Ind Money",
     post: "Product Management Trainee",
+    linkedin: "https://www.linkedin.com/in/aryanjaiswal2401/",
   },
   {
     rating: 5,
@@ -163,6 +189,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D5603AQFDFdylPDq9Cw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719207899519?e=1731542400&v=beta&t=lDyr4Or3LiSEBLtIuI9ptYt6PvOZ7tMViqLs4gkTLIU",
     company: "WiJungle",
     post: "Product Manager Internship",
+    linkedin: "https://www.linkedin.com/in/jaydeep-prajapati-26ab3a210/",
   },
   {
     rating: 5,
@@ -172,6 +199,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D4D03AQH_pXGG_9D_kw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1693849888611?e=1731542400&v=beta&t=B710fpF3oSVoLYtGPBG3C6NeEgwneupn60Sa75vphMo",
     company: "Swiggy",
     post: "Product Management Consultant",
+    linkedin: "https://www.linkedin.com/in/medhya-budhwar-27715420a",
   },
   {
     rating: 5,
@@ -181,6 +209,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D4D03AQEFgVh9-d586A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1693849733017?e=1731542400&v=beta&t=KebkYAScNXHaDiKUEW0-EOQ8P7P9XmeXK9Pxz2wCRvA",
     company: "Bento Labs",
     post: "Product Management Intern",
+    linkedin: "https://www.linkedin.com/in/prashant-kumar-5440b421b/",
   }
 ];
 
@@ -204,8 +233,9 @@ const ReviewPmFellowship = () => {
               img={review.img}
               company={review.company}
               post={review.post}
-            />
-          ))}
+              linkedin={review.linkedin}
+              />
+            ))}
         </div>
 
         <div className="pm-reviews-scrollbar flex overflow-x-scroll lg:hidden gap-6 pt-8">
@@ -219,6 +249,7 @@ const ReviewPmFellowship = () => {
                 img={review.img}
                 company={review.company}
                 post={review.post}
+                linkedin={review.linkedin}
               />
             </div>
           ))}

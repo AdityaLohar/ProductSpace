@@ -184,9 +184,11 @@ const Alumni = () => {
         >
           {[...Array(5)].map((_, i) => (
             alumni.map((alums, index) => (
-              <div
+              <a
+                href={alums.linkedin}
+                target="_blank"
                 key={`${alums.id}-${index}-${i}`}
-                className="scroll-item"
+                className="scroll-item hover:cursor-pointer"
               >
                 <AlumniCard
                   profile={alums.profile}
@@ -197,7 +199,7 @@ const Alumni = () => {
                   curPost={alums.curPost}
                   testimonial={alums.testimonial}
                 />
-              </div>
+              </a>
             ))
           ))}
 

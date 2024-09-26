@@ -81,18 +81,6 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
       }, 5000);
       return;
     }
-    else if(!/^\d{10}$/.test(number)) {
-      setNotification({
-        type: "error",
-        title: "Error",
-        description: "Enter Valid Number",
-      });
-      setShowNotification(true);
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 5000);
-      return;
-    }
     else if (!result.success) {
       setNotification({
         type: "error",
