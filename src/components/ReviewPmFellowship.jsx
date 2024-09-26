@@ -169,7 +169,7 @@ const reviews = [
     img: "https://media.licdn.com/dms/image/v2/D4D03AQFb1RR6l5Nufg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1694013700834?e=1731542400&v=beta&t=X4wG_7rX198PAeNMDMT8Gjrgb-GvWMf8NkzosVLVbZw",
     company: "My Sivi",
     post: "Product Manager",
-    linkedin: "www.linkedin.com/in/a4sh",
+    linkedin: "https://www.linkedin.com/in/a4sh",
   },
   {
     rating: 4,

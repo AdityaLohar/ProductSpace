@@ -63,7 +63,7 @@ const alumni = [
     curPost: "Product Manager",
     testimonial:
       "I'm deeply thankful to Product Space for the invaluable mentorship and support I received. Their program was instrumental in improving my product management skills and interview preparation. I highly recommend it to anyone looking to enhance their career.",
-    linkedin: "www.linkedin.com/in/a4sh",
+    linkedin: "https://www.linkedin.com/in/a4sh",
   },
   {
     id: 5,
