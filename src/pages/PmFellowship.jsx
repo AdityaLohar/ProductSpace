@@ -1,6 +1,4 @@
 import Companies from "../components/Companies";
-import CourseSnapshot from "../components/CourseSnapshot";
-import Footer from "../components/Footer";
 import HandsOnTools from "../components/HandsOnTools";
 import LearningWithPace from "../components/LearningWithPace";
 import MeetAlums from "../components/MeetAlums";
@@ -10,11 +8,8 @@ import ResultsPmFellowship from "../components/ResultsPmFellowship";
 import ReviewPmFellowship from "../components/ReviewPmFellowship";
 import WhyPmFellowship from "../components/WhyPmFellowship";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import Curriculum from "../components/Curriculum";
-import ScrollLaptopComponent from "../components/ScrollLaptopComponent";
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import Curriculum1 from "../components/Curriculum1";
 
 const PmFellowship = () => {
   const sectionRef = useRef(null);
@@ -40,8 +35,6 @@ const PmFellowship = () => {
 
         <div className="w-full max-w-screen-2xl">
           <PmFellowshipHeroSection />
-          {/* <ScrollLaptopComponent /> */}
-          {/* <Curriculum1 /> */}
           <LearningWithPace />
           <HandsOnTools />
           <WhyPmFellowship bgColor={"#F7F0FF"} />

@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
         hind: ["Hind Madurai", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
         serif: ["sans-serif"],
       },
       animation: {
