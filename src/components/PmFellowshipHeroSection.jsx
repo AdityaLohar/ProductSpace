@@ -120,7 +120,7 @@ const PmFellowshipHeroSection = () => {
            <span className="font-bold">25%</span> <br /> OFF
           </div>
           <div className="text-start pt-2">
-            <p className="text-[14px]">👉🏻 Best prices for next 5 seats</p>
+            <p className="text-[14px]">👉🏻 Best price for next 5 seats</p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
                 ₹22,499
