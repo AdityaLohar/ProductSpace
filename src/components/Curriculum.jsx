@@ -104,7 +104,7 @@ const courseContent = [
   },
 ];
 
-const Curriculum1 = () => {
+const Curriculum = () => {
   const [currentWeek, setCurrentWeek] = useState(0);
   const curriculumRef = useRef(null);
   const horizontalScrollContainerRef = useRef(null);
@@ -282,4 +282,4 @@ const Curriculum1 = () => {
   );
 };
 
-export default Curriculum1;
+export default Curriculum;

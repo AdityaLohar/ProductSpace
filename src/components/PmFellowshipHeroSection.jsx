@@ -117,13 +117,13 @@ const PmFellowshipHeroSection = () => {
               backgroundRepeat: "no-repeat",
             }}
           >
-           <span className="font-bold">30%</span> <br /> OFF
+           <span className="font-bold">25%</span> <br /> OFF
           </div>
           <div className="text-start pt-2">
-            <p className="text-[14px]">👉🏻 Early Bird Offer for first 8 seats</p>
+            <p className="text-[14px]">👉🏻 Best prices for next 5 seats</p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
-                ₹20,999
+                ₹22,499
               </p>
               <p className="text-[18px] line-through pb-1">₹29,999</p>
             </div>
@@ -136,7 +136,7 @@ const PmFellowshipHeroSection = () => {
               </div>
               <div>
                 <p>
-                  Offer valid till 26th Sep 2024
+                  Offer valid till 5th Oct 2024
                 </p>
               </div>
             </div>
