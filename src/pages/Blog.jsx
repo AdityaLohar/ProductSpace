@@ -47,7 +47,7 @@ const Blog = () => {
       {post && (
         <div className="max-w-3xl mx-auto py-6">
         {/* Render the post title */}
-        <h1 className="text-[24px] lg:text-[36px] font-bold mb-4">{post.title.rendered}</h1>
+        <h1 className="text-[24px] lg:text-[36px] font-bold mb-4" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h1>
   
         {/* Render the post content (headings, paragraphs, etc.) */}
         <div

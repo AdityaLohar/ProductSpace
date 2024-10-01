@@ -76,7 +76,7 @@ const BlogPage = () => {
                 />
             </div>
             <div className="p-4">
-              <h2 className="text-[18px] lg:text-[22px] font-bold mb-2">{post.title.rendered}</h2>
+              <h2 className="text-[18px] lg:text-[22px] font-bold mb-2" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h2>
               <p className="text-[12px] lg:text-[17px] text-gray-600">{post.excerpt.rendered.replace(/<[^>]*>/g, '')}</p>
             </div>
           </Link>
