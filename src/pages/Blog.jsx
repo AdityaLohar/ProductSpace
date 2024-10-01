@@ -12,7 +12,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`https://productspaceorgin.wpcomstaging.com/wp-json/wp/v2/posts/${id}?_embed`);
+        const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts/${id}`);
         
         if (!response.ok) {
           throw new Error('Network response was not ok');

@@ -10,13 +10,20 @@ const BlogPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://productspaceorgin.wpcomstaging.com/wp-json/wp/v2/posts?_embed');
+        const response = await fetch('https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts');
+
+        console.log(response)
+        
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setPosts(data);
+        setPosts(data); 
         setLoading(false);
+
+        console.log();
+        console.log(posts[0]._embedded);
+
       } catch (error) {
         setError(error);
         setLoading(false);
@@ -62,7 +69,11 @@ const BlogPage = () => {
         <div key={post.id} className="w-full rounded-xl shadow shadow-lg overflow-hidden">
           <Link to={`/blogs/${post.id}`}>
             <div className="">
-              <img src={post._embedded['wp:featuredmedia'][0].source_url} alt={post.title.rendered} className="w-full lg:h-[250px] object-cover rounded-t-xl" />
+            <img 
+                src={post.jetpack_featured_media_url} 
+                alt={post.title.rendered} 
+                className="w-full lg:h-[250px] object-cover rounded-t-xl" 
+                />
             </div>
             <div className="p-4">
               <h2 className="text-[18px] lg:text-[22px] font-bold mb-2">{post.title.rendered}</h2>
