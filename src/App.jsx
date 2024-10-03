@@ -11,6 +11,7 @@ import BlogPage from './pages/BlogPage';
 import Blog from './pages/Blog';
 import Footer from './components/Footer';
 import CaseStudy from './pages/CaseStudy';
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   const location = useLocation();
@@ -24,23 +25,21 @@ function App() {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div>
-      <Navbar />
-      {/* <Router> */}
-        <Routes>
-          <Route path='/' element={<Home />} />
-          {/* <Route path='/case' element={<CaseStudy />} /> */}
-          <Route path='/blogs' element={<BlogPage />} />
-          <Route path="/blogs/:id" element={<Blog />} />
-          <Route path='/faq' element={<FaqPage />} />
-          <Route path='/pm-fellowship' element={<PmFellowship />} />
-        </Routes>
-      {/* </Router> */}
-      <div className={`w-full bg-black ${isHomePage ? 'lg:pb-16' : ''}`}>
-        <Footer />
+    <HelmetProvider>
+      <div>
+        <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/blogs' element={<BlogPage />} />
+            <Route path="/blogs/:id" element={<Blog />} />
+            <Route path='/faq' element={<FaqPage />} />
+            <Route path='/pm-fellowship' element={<PmFellowship />} />
+          </Routes>
+        <div className={`w-full bg-black ${isHomePage ? 'lg:pb-16' : ''}`}>
+          <Footer />
+        </div>
       </div>
-    </div>
-    // strata scratch
+    </HelmetProvider>
   )
 }
 
