@@ -1,6 +1,7 @@
 // src/pages/BlogPostPage.js
 
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 
 const Blog = () => {
@@ -8,18 +9,21 @@ const Blog = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // const slug = useParams().slug;
 
   useEffect(() => {
+
     const fetchPost = async () => {
       try {
-        const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts/${id}`);
+        // const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts/${id}`);
+        const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts?slug=${id}`);
         
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-
-        setPost(data);
+        
+        setPost(data[0]);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -42,14 +46,19 @@ const Blog = () => {
   }
   if (error) return <p>Error: {error.message}</p>;
 
+  const canonicalUrl = `https://aspareo.dcms.site/blogs/${post.slug}`;
+
   return (
     <div className="px-4 sm:px-20 lg:px-60 bg-white">
+      <Helmet>
+        <title>{post.title.rendered}</title>
+        <meta name="description" content={post.excerpt.rendered} />
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
       {post && (
         <div className="max-w-3xl mx-auto py-6">
-        {/* Render the post title */}
         <h1 className="text-[24px] lg:text-[36px] font-bold mb-4" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h1>
   
-        {/* Render the post content (headings, paragraphs, etc.) */}
         <div
           className="prose prose-lg text-[16px] lg:text-[18px] font-sans"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}  // This renders the HTML content including subheadings

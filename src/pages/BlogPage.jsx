@@ -12,7 +12,6 @@ const BlogPage = () => {
       try {
         const response = await fetch('https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts');
 
-        console.log(response)
         
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -21,7 +20,7 @@ const BlogPage = () => {
         setPosts(data); 
         setLoading(false);
 
-        console.log();
+        console.log(data);
         console.log(posts[0]._embedded);
 
       } catch (error) {
@@ -67,7 +66,7 @@ const BlogPage = () => {
     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
       {posts.map(post => (
         <div key={post.id} className="w-full rounded-xl shadow shadow-lg overflow-hidden">
-          <Link to={`/blogs/${post.id}`}>
+          <Link to={`/blogs/${post.slug}`}>
             <div className="">
             <img 
                 src={post.jetpack_featured_media_url} 
