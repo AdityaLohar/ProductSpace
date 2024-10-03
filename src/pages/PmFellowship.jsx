@@ -24,13 +24,24 @@ const PmFellowship = () => {
 
   return (
     <div className="bg-white font-hind xl:flex xl:flex-col items-center">
-      <Helmet>
-        <title>PM Fellowship Page - Product Space</title>
-        <meta
-          name="description"
-          content="Welcome to the PM Fellowship page of Product Space."
-        />
-      </Helmet>
+     <Helmet>
+      <title>PM Fellowship | Product Space</title>
+      <meta
+        name="description"
+        content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job"
+      />
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "PM Fellowship Page - Product Space",
+            "description": "Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job"
+          }
+        `}
+      </script>
+    </Helmet>
+
 
       <div className="w-full max-w-screen-2xl">
         <PmFellowshipHeroSection />
