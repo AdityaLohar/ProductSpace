@@ -21,7 +21,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const saveUserData = async (name, email, phoneNumber) => {
+  const saveUserData = async (name, email, phoneNumber, currentTimestamp) => {
     try {
       const response = await axios.post(
         airtableBaseUrl,
@@ -30,6 +30,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
             Name: name,
             'Mobile Number': phoneNumber, // Make sure this matches exactly
             'Email Id': email,           // Make sure this matches exactly
+            "Timestamp": currentTimestamp,
           },
         },
         {
@@ -95,7 +96,8 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
     }
     
     setLoading(true);
-    const res = await saveUserData(name, email, number);
+    const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+    const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
 
     window.location.href = "https://rzp.io/l/getintoPM";

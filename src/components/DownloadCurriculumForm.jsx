@@ -21,8 +21,10 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const saveUserData = async (name, email, phoneNumber) => {
+  const saveUserData = async (name, email, phoneNumber, currentTimestamp) => {
     try {
+      alert(currentTimestamp);
+
       const response = await axios.post(
         airtableBaseUrl,
         {
@@ -30,6 +32,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
             Name: name,
             'Mobile Number': phoneNumber, // Make sure this matches exactly
             'Email Id': email,           // Make sure this matches exactly
+            "Timestamp": currentTimestamp,
           },
         },
         {
@@ -39,7 +42,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
           },
         }
       );
-      console.log('Data saved successfully:', response.data);
+      alert('Data saved successfully:', response.data);
 
       setNotification({
         type: "success",
@@ -95,10 +98,11 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
     }
     
     setLoading(true);
-    const res = await saveUserData(name, email, number);
+    const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+    const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
  
-    window.location.href = "https://drive.google.com/file/d/1hnTMLSTvedhPv5FYqV2hRLdqq1SguutG/view?usp=drive_link";
+    // window.location.href = "https://drive.google.com/file/d/1hnTMLSTvedhPv5FYqV2hRLdqq1SguutG/view?usp=drive_link";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
