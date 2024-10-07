@@ -2,12 +2,12 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
-import { z } from "zod";
+// import { z } from "zod";
 import axios from 'axios';
 
-const schema = z.object({
-  email: z.string().email("Invalid email address"),
-});
+// const schema = z.object({
+//   email: z.string().email("Invalid email address"),
+// });
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_DOWNLOAD_CURRICULUM_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
@@ -70,9 +70,9 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
   };
 
   const handleSubmit = async () => {
-    const result = schema.safeParse({ email });
+    // const result = schema.safeParse({ email });
 
-    if (name === "" || !number) {
+    if (name === "" || !number || email === "") {
       setNotification({
         type: "error",
         title: "Error",
@@ -84,18 +84,18 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
       }, 5000);
       return;
     }
-    else if (!result.success) {
-      setNotification({
-        type: "error",
-        title: "Failed",
-        description: "Invalid email address. Please try again.",
-      });
-      setShowNotification(true);
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 5000);
-      return;
-    }
+    // else if (!result.success) {
+    //   setNotification({
+    //     type: "error",
+    //     title: "Failed",
+    //     description: "Invalid email address. Please try again.",
+    //   });
+    //   setShowNotification(true);
+    //   setTimeout(() => {
+    //     setShowNotification(false);
+    //   }, 5000);
+    //   return;
+    // }
     
     setLoading(true);
     const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
