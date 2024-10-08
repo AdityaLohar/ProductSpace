@@ -91,8 +91,8 @@ const courseContent = [
     imgs: [github, postman, sql],
   },
   {
-    week: "6",
-    title: "06 Product Interview Prep",
+    week: "6-9",
+    title: "6-9 Product Interview Prep",
     desc: [
       "Product Improvement",
       "Product Design",
@@ -105,16 +105,6 @@ const courseContent = [
       "Interview questions from Meta, Apple, Amazon, Netflix, Google",
     ],
     imgs: [zomato, uber, slack],
-  },
-  {
-    week: "7-9",
-    title: "7-9 Product Development and Agile Methodologies",
-    desc: [
-      "Defining product metrics",
-      "Analyzing data and insights",
-      "Using analytics tools",
-    ],
-    imgs: [moengage, github, canva],
   },
   {
     week: "10",
