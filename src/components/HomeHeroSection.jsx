@@ -22,7 +22,7 @@ const HomeHeroSection = () => {
   };
 
   return (
-    <div className="mx-0 lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-8 custom-13:gap-24">
+    <div className="lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-8 custom-13:gap-24">
       <div className="w-full lg:w-1/2 px-6 xl:px-24 custom-13:px-0">
         <p
           className="font-sans text-[17px] text-transparent font-semibold ml-0 sm:ml-1 md:text-[24px] pt-8 
@@ -59,7 +59,7 @@ const HomeHeroSection = () => {
           <CircleFlipGrid />
         </div>
 
-        <p className="lg:w-4/5 text-[16px] lg:text-[18px] mb-4 font-medium">
+        <p className="lg:w-4/5 text-[18px] mb-4 font-medium">
           1:1 Mentorship with Product Leaders who really care
         </p>
 
@@ -74,7 +74,7 @@ const HomeHeroSection = () => {
           <Link to={"/pm-fellowship"}>
             <button
               // onClick={toggleModal}
-              className="text-[18px] w-full lg:w-3/5 bg-[#FEC923] text-black py-2.5 px-4 xl:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
+              className="text-[18px] w-[300px] bg-[#FEC923] text-black p-4 xl:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
               >
               Get Started!
             </button>

@@ -2,6 +2,7 @@ import tick from "../assets/tick-green.svg";
 import courseSnapshotVideo from "../assets/course-snapshot-video.mp4";
 import courseSnapshot from "../assets/course-snapshot.jpg";
 import { useRef, useState } from "react";
+import EnrollmentForm from "./EnrollmentForm";
 
 const VideoContent = () => {
   const videoRef = useRef(null); // Reference to the video element
@@ -69,11 +70,25 @@ const VideoContent = () => {
 };
 
 const CourseSnapshot = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const toggleModal = () => {
+    if (!isOpen) {
+      setIsOpen(true);
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      setIsVisible(false);
+      setTimeout(() => setIsOpen(false), 300);
+    }
+  };
+
   return (
-    <div className="bg-white pb-0 px-4 md:px-10 xl:px-32 pt-10 font-hind">
+    <div className="bg-[#F5F5F5] pb-4 lg:pb-0 px-4 md:px-10 xl:px-32 pt-2 lg:pt-0 font-hind">
       <div className="flex flex-col lg:flex-row py-4 lg:py-12 items-between justify-between gap-12">
         <div className="flex flex-col gap-2 lg:gap-6">
-          <div className="text-[28px] lg:text-[40px] font-bold px-2 mb-4 lg:mb-8 text-center lg:text-start font-sans">
+          <div className="text-[24px] lg:text-[40px] font-bold px-2 mb-4 lg:mb-8 text-center lg:text-start font-sans">
             Course Snapshot
           </div>
 
@@ -82,20 +97,20 @@ const CourseSnapshot = () => {
             <img src={courseSnapshot} alt="" />
           </div>
 
-          <div className="flex flex-col lg:flex-row bg-[#9747FF] p-4 lg:p-10 text-[18px] text-white gap-4 xl:gap-8 rounded-2xl flex-wrap">
-            <div className="flex justify-around w-full md:gap-4 xl:gap-8">
+          <div className="flex flex-col lg:flex-row bg-[#EBEBEB] border border-2 border-[#C3C3C3] p-4 lg:p-10 text-[18px] text-white gap-4 xl:gap-8 rounded-2xl flex-wrap">
+            <div className="flex justify-around w-full md:gap-4 xl:gap-8 text-black">
               
               <div className="text-center">
-                <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold text-yellow-400">
-                  450+
+                <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold">
+                  600+
                 </span>{" "}
                 <br />
                 Alumni
               </div>
 
               <div className="text-center">
-                <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold text-yellow-400">
-                  310+
+                <span className="text-[32px] lg:text-[40px] 2xl:text-[46px] font-sans font-semibold">
+                  400+
                 </span>{" "}
                 <br />
                 Transitions
@@ -131,12 +146,26 @@ const CourseSnapshot = () => {
               <img src={tick} alt="" /> Work on Live Projects for real-world product development
             </div>
           </div>
+
+          <div className="flex justify-center md:justify-start">
+            <button onClick={toggleModal} className="bg-[#FFC303] font-semibold p-4 rounded-full text-[18px] w-[300px]">Enroll Now</button>
+          </div>
         </div>
 
         <div className="hidden lg:flex w-1/2 items-center gap-6 px-16">
           {/* <VideoContent /> */}
           <img src={courseSnapshot} alt="" />
         </div>
+      </div>
+
+      <div>
+        <EnrollmentForm
+          setIsOpen={setIsOpen}
+          isVisible={isVisible}
+          setIsVisible={setIsVisible}
+          isOpen={isOpen}
+          toggleModal={toggleModal}
+        />
       </div>
     </div>
   );

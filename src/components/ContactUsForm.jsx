@@ -1,24 +1,34 @@
-// Download Curriculum.js
+// EnrollmentForm.js
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
 import axios from 'axios';
+import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
+import { useRecoilState } from "recoil";
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_DOWNLOAD_CURRICULUM_URL;
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_CONTACT_US_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 
-const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
+const ContactUsForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
+  const [query, setQuery] = useState("");
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const saveUserData = async (name, email, phoneNumber, currentTimestamp) => {
-    try {
+  const [isVisible, setIsVisible] = useRecoilState(isVisibleformState); // Recoil for visibility
+  const [isOpen, setIsOpen] = useRecoilState(isOpenFormState);
 
+  const toggleModal = () => {
+    setIsVisible(false);
+    setIsOpen(false);
+  }
+
+  const saveUserData = async (name, email, phoneNumber, query, currentTimestamp) => {
+    try {
       const response = await axios.post(
         airtableBaseUrl,
         {
@@ -26,7 +36,9 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
             Name: name,
             'Mobile Number': phoneNumber, // Make sure this matches exactly
             'Email Id': email,           // Make sure this matches exactly
+            'Query': query,
             "Timestamp": currentTimestamp,
+
           },
         },
         {
@@ -40,7 +52,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
       setNotification({
         type: "success",
         title: "Details Submitted!",
-        description: "Our Expert Consultant will Call you back.",
+        description: "Our Mentors will reach out to you soon.",
       });
       setShowNotification(true);
     } 
@@ -63,7 +75,6 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
   };
 
   const handleSubmit = async () => {
-    // const result = schema.safeParse({ email });
 
     if (name === "" || !number || email === "") {
       setNotification({
@@ -80,10 +91,8 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
     
     setLoading(true);
     const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
-    const res = await saveUserData(name, email, number, currentTimestamp);
+    const res = await saveUserData(name, email, number, query, currentTimestamp);
     setLoading(false);
- 
-    window.location.href = "https://drive.google.com/file/d/1hnTMLSTvedhPv5FYqV2hRLdqq1SguutG/view?usp=drive_link";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -108,7 +117,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
             }`}
           >
             {/* Form content */}
-            <div className="bg-white py-12 px-4 lg:px-12 rounded-3xl shadow-lg relative w-[320px] custom-3:w-[400px] lg:w-[500px] transform transition-transform duration-300 ease-out">
+            <div className="bg-white p-6 py-12 lg:p-12 rounded-3xl shadow-lg relative w-[300px] custom-3:w-[400px] lg:w-[500px] transform transition-transform duration-300 ease-out">
               {/* Close button */}
               <button
                 onClick={toggleModal}
@@ -119,13 +128,12 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
 
               {/* Form */}
               <div>
-                <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
-                  Download Detailed Curriculum
-                </h2>
-                <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
-                Personalized Guidance | Interview Preparation | Industry Focus Content | Job Placements Support -{" "}
-                  <span className="font-bold">All at one place</span>
-                </h3>
+                <div className="text-center space-y-3 pb-4">
+                  <h2 className="text-[25px] md:text-[34px] font-bold font-sans text-center">
+                    Contact Us
+                  </h2>
+                  <p>You will hear from us within 12 hours</p>
+                </div>
 
                 <div className="mb-4">
                   <input
@@ -156,16 +164,26 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
                     onChange={(e) => setNumber(e.target.value)}
                   />
                 </div>
+                
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    className="input w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
+                    placeholder="Query"
+                    required
+                    onChange={(e) => setQuery(e.target.value)}
+                  />
+                </div>
 
                 <div className="flex flex-col items-center">
                   <button
                     onClick={handleSubmit}
-                    className="text-[16px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold px-2 py-3 md:px-6 rounded-full hover:bg-yellow-500"
+                    className="text-[14px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold p-4 md:px-6 md:py-4 rounded-full hover:bg-yellow-500"
                   >
                     {loading ? "Loading..." : "Submit"}
                   </button>
                   <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
-                    <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
+                    <p>One of our mentors will reach out to you</p>
                   </div>
                 </div>
               </div>
@@ -207,7 +225,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
                     onClick={() => setShowNotification(false)}
                     className="text-xl font-bold"
                   >
-                    ×
+                    x
                   </button>
                 </div>
               </div>
@@ -219,4 +237,4 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
   );
 };
 
-export default DownloadCurriculumForm;
+export default ContactUsForm;

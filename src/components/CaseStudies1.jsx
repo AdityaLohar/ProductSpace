@@ -67,9 +67,9 @@ const CaseStudies1 = () => {
   ];
 
   return (
-    <div className="flex flex-col bg-[#F7F0FF] md:pt-8 md:pb-20 px-4 md:px-10 xl:px-20">
-      <div className="py-8">
-        <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans">
+    <div className="flex flex-col bg-white lg:pt-6 md:pb-16 px-4 md:px-10 xl:px-20">
+      <div className="pb-8 lg:py-8">
+        <div className="text-[24px] lg:text-[40px] font-bold text-center font-sans">
           Product Tear-down & Case Studies
         </div>
         <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium py-2">
@@ -140,6 +140,8 @@ const CaseStudies1 = () => {
                   newBoxes[selectedBox],
                 ];
                 setSelectedBox(index);
+                
+                window.open(boxes[index].url, '_blank', 'noopener, noreferrer');
               }}
               className="col-span-1 row-span-1 hover:shadow-[1px_5px_10px_rgba(0,0,0,0.4)] 
                 custom-5:h-[170px] custom-5:w-[170px] 
@@ -190,19 +192,21 @@ const CaseStudies1 = () => {
                 {boxes[selectedBox].title}
               </div>
             </div>
-            <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-2">
-              <div className="text-[20px] md:text-[24px] font-semibold pr-4">
-                Improving {boxes[selectedBox].title} Viewing Experience
-              </div>
-              <div className="text-[14px] md:text-[16px] font-normal pr-4">
-                A sneak peek into what you will learn in our 10-week curriculum.
-              </div>
-              <div className="flex justify-end">
-                <div className="text-[10px] md:text-[12px] font-normal">
-                  Published on: 25th May 24
+            <a href={boxes[selectedBox]?.url} target="_blank">
+              <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-2">
+                <div className="text-[20px] md:text-[24px] font-semibold pr-4">
+                  Improving {boxes[selectedBox].title} Viewing Experience
+                </div>
+                <div className="text-[14px] md:text-[16px] font-normal pr-4">
+                  A sneak peek into what you will learn in our 10-week curriculum.
+                </div>
+                <div className="flex justify-end">
+                  <div className="text-[10px] md:text-[12px] font-normal">
+                    Published on: 25th May 24
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         )}
 

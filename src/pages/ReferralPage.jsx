@@ -1,32 +1,33 @@
-// Download Curriculum.js
+// EnrollmentForm.js
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
+import { z } from "zod";
 import axios from 'axios';
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_DOWNLOAD_CURRICULUM_URL;
+const schema = z.object({
+  email: z.string().email("Invalid email address"),
+});
+
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 
-const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
+const ReferralPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const saveUserData = async (name, email, phoneNumber, currentTimestamp) => {
+  const saveUserData = async (name, email) => {
     try {
-
       const response = await axios.post(
         airtableBaseUrl,
         {
           fields: {
             Name: name,
-            'Mobile Number': phoneNumber, // Make sure this matches exactly
             'Email Id': email,           // Make sure this matches exactly
-            "Timestamp": currentTimestamp,
           },
         },
         {
@@ -36,6 +37,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
           },
         }
       );
+      console.log('Data saved successfully:', response.data);
 
       setNotification({
         type: "success",
@@ -62,10 +64,11 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
     }
   };
 
-  const handleSubmit = async () => {
-    // const result = schema.safeParse({ email });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = schema.safeParse({ email });
 
-    if (name === "" || !number || email === "") {
+    if (name === "") {
       setNotification({
         type: "error",
         title: "Error",
@@ -77,13 +80,22 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
       }, 5000);
       return;
     }
+    else if (!result.success) {
+      setNotification({
+        type: "error",
+        title: "Failed",
+        description: "Invalid email address. Please try again.",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
+    }
     
     setLoading(true);
-    const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
-    const res = await saveUserData(name, email, number, currentTimestamp);
+    const res = await saveUserData(name, email);
     setLoading(false);
- 
-    window.location.href = "https://drive.google.com/file/d/1hnTMLSTvedhPv5FYqV2hRLdqq1SguutG/view?usp=drive_link";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -93,25 +105,20 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
 
   return (
     <>
-      {isOpen && (
-        <>
+        <form>
           {/* Modal overlay */}
           <div
             className="fixed inset-0 bg-black bg-opacity-70 z-50"
-            onClick={toggleModal}
           ></div>
 
           {/* Modal container */}
           <div
-            className={`fixed inset-0 z-50 flex justify-center items-center transition-all duration-300 ease-out ${
-              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
-            }`}
+            className={`fixed inset-0 z-50 flex justify-center items-center transition-all duration-300 ease-out`}
           >
             {/* Form content */}
-            <div className="bg-white py-12 px-4 lg:px-12 rounded-3xl shadow-lg relative w-[320px] custom-3:w-[400px] lg:w-[500px] transform transition-transform duration-300 ease-out">
+            <div className="bg-white p-12 rounded-3xl shadow-lg relative w-[300px] custom-3:w-[400px] lg:w-[500px] transform transition-transform duration-300 ease-out">
               {/* Close button */}
               <button
-                onClick={toggleModal}
                 className="absolute top-4 right-5 text-gray-500 hover:text-gray-700"
               >
                 <FaTimes size={20} />
@@ -120,7 +127,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
               {/* Form */}
               <div>
                 <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
-                  Download Detailed Curriculum
+                  PM Fellowship Waitlist
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
                 Personalized Guidance | Interview Preparation | Industry Focus Content | Job Placements Support -{" "}
@@ -147,20 +154,10 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
                   />
                 </div>
 
-                <div className="mb-4">
-                  <input
-                    type="tel"
-                    className="input w-full p-3 md:p-5 border font-semibold placeholder:text-gray-400 border-gray-300 rounded-lg outline-none"
-                    placeholder="Your Mobile Number*"
-                    required
-                    onChange={(e) => setNumber(e.target.value)}
-                  />
-                </div>
-
                 <div className="flex flex-col items-center">
                   <button
-                    onClick={handleSubmit}
-                    className="text-[16px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold px-2 py-3 md:px-6 rounded-full hover:bg-yellow-500"
+                    onClick={(e) => handleSubmit(e)}
+                    className="text-[14px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold p-2 md:px-6 md:py-4 rounded-full hover:bg-yellow-500"
                   >
                     {loading ? "Loading..." : "Submit"}
                   </button>
@@ -207,16 +204,15 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
                     onClick={() => setShowNotification(false)}
                     className="text-xl font-bold"
                   >
-                    ×
+                    x
                   </button>
                 </div>
               </div>
             )}
           </div>
-        </>
-      )}
+        </form>
     </>
   );
 };
 
-export default DownloadCurriculumForm;
+export default ReferralPage;

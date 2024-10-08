@@ -37,10 +37,9 @@ const NewsLetter = () => {
   };
 
   return (
-    // <div className="flex flex-col bg-[#F1E6FF] pb-5 lg:pb-10">
-    <div className="flex flex-col bg-white pb-5 lg:pb-20 lg:pt-16">
-      <div className="py-5 lg:pb-8">
-        <div className="text-[28px] lg:text-[40px] font-bold text-center font-sans px-4">
+    <div className="flex flex-col bg-[#F5F5F5] pb-20 pt-16">
+      <div className="py-6 lg:pb-8">
+        <div className="text-[24px] lg:text-[40px] font-bold text-center font-sans px-4">
           Subscribe to our Newsletter
         </div>
         <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium px-2 md:px-20 lg:px-60 py-2">
@@ -52,7 +51,7 @@ const NewsLetter = () => {
       </div>
 
       <div className="flex justify-center items-center mt-0 lg:mt-10 px-4">
-        <div className="flex justify-between items-center bg-[#D7F5FF] rounded-full p-1 lg:p-2 mx-2 lg:mx-0 w-full lg:w-3/5">
+        <div className="flex justify-between items-center bg-white border border-2 border-[#c3c3c3] rounded-full p-1 lg:p-2 mx-2 lg:mx-0 w-full lg:w-3/5">
           <input
             type="text"
             placeholder="Enter your Email Id"
@@ -60,8 +59,7 @@ const NewsLetter = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
-            className="bg-[#21C1F3] text-white py-2 px-3 lg:px-3 rounded-full font-semibold text-[16px] lg:text-base"
-            // className="bg-[#21C1F3] text-[#21C1F3] py-2 px-3 lg:px-3 rounded-full font-semibold text-[16px] lg:text-base"
+            className="bg-[#F5F5F5] text-[#111] py-2 px-3 lg:px-3 rounded-full font-semibold text-[16px] lg:text-base"
             onClick={handleSubmit}
           >
             Subscribe Now

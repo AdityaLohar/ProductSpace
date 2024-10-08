@@ -4,7 +4,7 @@
 
 @layer components {
   .active {
-    height: 130px !important;
+    height: 145px !important;
   }
 }
 
@@ -43,6 +43,16 @@ body {
   }
 }
 
+.pm-hero-gradient-bg {
+  background: linear-gradient(to bottom, white 67%, #D7F5FF 60%);
+}
+
+@media (min-width: 1024px) {
+  .pm-hero-gradient-bg {
+    background: linear-gradient(to bottom, white 57%, #D7F5FF 50%); /* Adjust as needed */
+  }
+}
+
 .input::placeholder {
   font-weight: normal; /* Set placeholder font weight to normal */
 }
@@ -65,10 +75,20 @@ body {
 
 .scroll-wrapper {
   display: flex;
-  width: calc(100% * 5); /* Adjust width based on the number of repetitions */
+  width: calc(100% * 4); /* Adjust width based on the number of repetitions */
   animation: scrollHorizontal linear infinite;
   animation-duration: 70s; /* Adjust based on content length */
   animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
+}
+
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* Scroll until half since it's duplicated */
+  }
 }
 
 @media (max-width: 768px) {
@@ -82,13 +102,38 @@ body {
   margin-right: 1.5rem;
 }
 
-@keyframes scrollHorizontal {
+/* PM HERO CAROUSEL */
+.pm-hero-wrapper {
+  position: relative;
+  height: 110px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes scrollLeft {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-72%); /* Scroll half the width to create an infinite loop */
+  }
 }
+
+.carousel {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 25s linear infinite;
+}
+
+.item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 52px;
+  border-right: 2px solid rgb(198, 198, 198);
 }
 
 /* Pause animation but keep manual scroll enabled */

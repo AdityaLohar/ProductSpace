@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
-import CountUp from 'react-countup';
+import React, { useEffect, useState, useRef } from "react";
+import CountUp from "react-countup";
 import placed from "../assets/group.svg";
 import packageImage from "../assets/Rupees-symbol.svg";
 import increment from "../assets/arrow.svg";
 import bgImage from "../assets/results-pink-bg.svg";
+import { Link } from "react-router-dom";
 
 const ResultsCard = ({ iconImg, number, title, subTitle, duration }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -59,12 +60,42 @@ const ResultsCard = ({ iconImg, number, title, subTitle, duration }) => {
 };
 
 const Results = () => {
+
   return (
-    <div className="flex flex-col bg-white pb-5 md:pb-20 bg-red-200">
+    <div className="flex flex-col bg-white pb-0 md:pb-10 bg-red-200 gap-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-around px-2 md:px-22 xl:px-28 pt-10">
-        <ResultsCard iconImg={placed} number={310} title={"+ Members"} subTitle={"Already Placed"} duration={5} />
-        <ResultsCard iconImg={packageImage} number={57} title={" LPA"} subTitle={"Highest Package"} duration={7} />
-        <ResultsCard iconImg={increment} number={1} title={".6x Increment"} subTitle={"Average Hike"} duration={15} />
+        <ResultsCard
+          iconImg={placed}
+          number={310}
+          title={"+ Members"}
+          subTitle={"Already Placed"}
+          duration={5}
+        />
+        <ResultsCard
+          iconImg={packageImage}
+          number={57}
+          title={" LPA"}
+          subTitle={"Highest Package"}
+          duration={7}
+        />
+        <ResultsCard
+          iconImg={increment}
+          number={1}
+          title={".6x Increment"}
+          subTitle={"Average Hike"}
+          duration={15}
+        />
+      </div>
+
+      <div className="flex justify-center font-semibold">
+        <Link to={"/pm-fellowship"}>
+          <button
+            // onClick={toggleModal}
+            className="text-[18px] w-[300px] bg-[#FEC923] text-black p-4 xl:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
+          >
+            Get Started!
+          </button>
+        </Link>
       </div>
     </div>
   );

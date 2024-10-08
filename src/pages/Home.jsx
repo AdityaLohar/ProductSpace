@@ -45,12 +45,12 @@ const Home = () => {
         />
       </Helmet>
 
-      <div className="bg-transparent py-5 max-w-screen-xl lg:py-16">
+      <div className="bg-transparent py-2 max-w-screen-xl lg:py-16">
         <HomeHeroSection />
       </div>
 
       <div className="w-full max-w-screen-2xl">
-        <Benefits bgColor={"#F7F0FF"} />
+        <Benefits bgColor={"#F5F5F5"} />
         <Companies />
       </div>
 
@@ -59,9 +59,9 @@ const Home = () => {
       <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
         <Results />
         <Alumini />
+        <MeetMentors bgColor={"#F5F5F5"} />
         <CaseStudies1 />
         <NewsLetter />
-        <Faq />
       </div>
 
       {/* <div className="w-full bg-black lg:pb-16 max-w-screen-2xl">

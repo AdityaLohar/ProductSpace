@@ -29,9 +29,9 @@ const BenefitCard = ({ vector, title, desc, size }) => {
 
 const Benefits = ({ bgColor }) => {
   return (
-    <div className={`flex flex-col bg-[${bgColor}] pb-10`}>
+    <div className={`flex flex-col bg-[${bgColor}] pt-3 lg:pt-0 pb-7`}>
       <div className="py-5 lg:py-12">
-        <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center font-sans px-4">
+        <div className="text-[24px] lg:text-[40px] font-bold px-2 text-center font-sans px-4">
           Benefits of Joining Product Space
         </div>
         <div className="text-[14px] lg:text-[16px] text-center text-gray-800 font-medium px-4 xl:px-60 py-2">

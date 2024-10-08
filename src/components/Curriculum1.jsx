@@ -1,5 +1,7 @@
 import downloadLogo from "../assets/download.svg";
 import greenArrow from "../assets/green-arrow.svg";
+import greenBox from "../assets/green-box.svg";
+import greenArrowDown from "../assets/green-arrow-down.svg";
 import smallCommitment from "../assets/small-commitment.svg";
 import courseContent from "../data/CourseContent";
 import tick from "../assets/tick-green.svg";
@@ -12,25 +14,32 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
     <div
       className={`relative bg-white rounded-lg transition-all duration-500 ease-in-out ${
         isOpen
-          ? "border border-2 border-[#00B5CE]"
+          ? "border border-2 border-[#111]"
           : "border border-2 border-transparent"
       }`}
     >
       <div
         className={`flex justify-between items-center cursor-pointer transition-all duration-500 ease-in-out ${
           isOpen ? "rounded-t-md" : "rounded-md"
-        } bg-[#D7F5FF] p-5`}
+        } ${title[2] !== 'Y' ? "bg-[#E6E6E6]" : "bg-[#AEECFF]" } p-5`}
         onClick={onClick}
       >
         <div className="text-[18px] font-semibold text-black font-sans">
-          <h2 className="font-sans text-[18px] font-semibold  text-center lg:text-start">
-            <span className="text-[24px]">
-              {" "}
-              {title[0] === "0"
-                ? `0${+title[1]}`
-                : `${title[0] + title[1] + title[2]}`}{" "}
-            </span>
-            {title[0] === "0" ? title.slice(2) : title.slice(3)}
+          <h2 className="font-sans text-[14px] md:text-[18px] font-semibold  text-start">
+            {title[2] !== 'Y' ? (
+              <div>
+                <span className="text-[20px] md:text-[24px]">
+                  {" "}
+                  {title[0] === "0"
+                    ? `0${+title[1]}`
+                    : `${title[0] + title[1] + title[2]}`}{" "}
+                </span>
+    
+                {title[0] === "0" ? title.slice(2) : title.slice(3)}
+              </div>
+            ) : (
+              title
+            )}
           </h2>
         </div>
 
@@ -55,7 +64,7 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
       </div>
 
       <div
-        className={`overflow-hidden bg-white rounded-b-md transition-all duration-300 ease-in-out px-12 space-y-8 ${
+        className={`overflow-hidden bg-white rounded-b-md transition-all duration-300 ease-in-out px-6 lg:px-12 space-y-8 ${
           isOpen ? "max-h-screen opacity-100 py-6" : "py-0"
         }`}
         style={{ maxHeight: isOpen ? "1000px" : "0" }}
@@ -73,27 +82,32 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
           ))}
         </div>
 
-        <div className="space-y-3 rounded-2xl">
-          <div className="font-bold text-[16px]">Case Studies</div>
-          <div className="flex gap-4">
-            {imgs.map((logo, index) => (
-              <div key={index}>
-                <img
-                  src={logo}
-                  alt=""
-                  className="object-contain w-24 h-16 rounded-md"
-                />
-              </div>
-            ))}
+        {title[2] !== 'Y' ? (
+          <div className="space-y-3 rounded-2xl">
+            <div className="font-bold text-[16px]">Case Studies and Tools</div>
+            <div className="flex gap-4">
+              {imgs.map((logo, index) => (
+                <div key={index}>
+                  <img
+                    src={logo}
+                    alt=""
+                    className="object-contain w-24 h-16 rounded-md"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
+
       </div>
     </div>
   );
 };
 
 const Curriculum1 = () => {
-  const [openIndex, setOpenIndex] = useState([0]);
+  const [openIndex, setOpenIndex] = useState([0,8]);
 
   const [isOpenEnquire, setIsOpenEnquire] = useState(false);
   const [isVisibleEnquire, setIsVisibleEnquire] = useState(false);
@@ -133,66 +147,66 @@ const Curriculum1 = () => {
   };
 
   return (
-    <div className="flex flex-col px-4 xl:px-20">
-      <div className="py-5 lg:py-8 flex px-10 justify-between">
-        <div className="w-2/3 space-y-2">
-          <div className="text-[40px] font-bold font-sans">
-          How your curriculum will look like 
-          what you will learn
+    <div className="flex flex-col pt-2 pb-6 lg:pb-10 lg:pt-0 px-4 xl:px-20">
+      <div className="py-5 lg:py-14 flex flex-col md:flex-row md:px-10 justify-between">
+
+        <div className="w-full md:w-2/3 space-y-4 md:space-y-2">
+          <div className="text-[24px] lg:text-[40px] font-bold font-sans text-center lg:text-start">
+          What your curriculum will look like
           </div>
           <div className="text-[16px]">
             <p>
-              A sneak peak into what you will learn in our 10-week curriculum.
+              A sneak peak into what you will learn in our 10 week curriculum.
             </p>
             <p>
               You will have to commit to investing 6 to 8 hours of dedicated
               time to this program every week.
             </p>
-            {/* Progress through weekly segments that build your product
-              management skills, from strategy to hands-on projects, preparing
-              you for real-world challenges. */}
           </div>
         </div>
 
-        <div className="flex flex-col justify-between">
-          <div className="flex gap-4 xl:gap-12">
+        <div className="flex flex-col gap-6 justify-between pt-4">
+          <div className="flex md:hidden justify-end relative">
+              <img src={greenBox} alt="" className="h-1/2 w-1/2" />
+          </div>
+
+          <div className="flex justify-around gap-4 xl:gap-12">
             <div className="text-hind font-medium">
-              <p className="text-[40px] text-black font-semibold font-sans">
-                5
+              <p className="text-[28px] lg:text-[40px] text-black font-semibold font-sans">
+                10
               </p>
               <p>Weeks</p>
             </div>
             <div className="text-hind font-medium">
-              <p className="text-[40px] text-black font-semibold font-sans">
-                40+
+              <p className="text-[28px] lg:text-[40px] text-black font-semibold font-sans">
+                60+
               </p>
               <p>Hours</p>
             </div>
             <div className="text-hind font-medium">
-              <p className="text-[40px] text-black font-semibold font-sans">
-                100+
+              <p className="text-[28px] lg:text-[40px] text-black font-semibold font-sans">
+                10+
               </p>
-              <p>Classes</p>
+              <p>live projects</p>
             </div>
           </div>
-          <div>
+
+          <div className="flex justify-center">
             <button
-              onClick={toggleModalEnquire}
-              className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-2 md:px-8 rounded-full flex items-center justify-center text-[16px]"
-            >
-              <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
-                Enroll Now
-              </div>
-              <div className="ml-2 text-xl">→</div>
-            </button>
+            onClick={toggleModal}
+            className="w-[300px] bg-[#FFC303] text-[18px] text-black font-semibold p-4 rounded-full flex justify-center items-center gap-2"
+          >
+            <img src={downloadLogo} alt="" />
+            <p>Download Curriculum</p>
+          </button>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-around">
-        <div className="flex relative">
-          <img src={greenArrow} alt="" className="absolute -left-6" />
-          <img src={smallCommitment} alt="" />
+      <div className="hidden lg:flex justify-around relative pb-6">
+        <div className="flex absolute -top-12 left-[23%]">
+          <img src={greenArrow} alt="" className="absolute -top-6" />
+          <img src={smallCommitment} alt="" className="" />
         </div>
         <div className="text-transparent">A</div>
       </div>
@@ -212,8 +226,14 @@ const Curriculum1 = () => {
 
       <div className="flex flex-col items-center justify-center pt-14 gap-4">
         <button
+          onClick={toggleModalEnquire}
+          className="w-[300px] bg-[#FFC303] text-[18px] text-black font-semibold py-4 rounded-full"
+        >
+          <p>Enroll Now</p>
+        </button>
+        <button
           onClick={toggleModal}
-          className="w-1/5 bg-white text-[16px] text-black font-semibold border border-1 border-black py-3 rounded-full flex justify-center items-center gap-2"
+          className="w-[300px] bg-white text-[18px] text-black font-semibold p-3 rounded-full flex justify-center items-center gap-2"
         >
           <img src={downloadLogo} alt="" />
           <p>Download Curriculum</p>

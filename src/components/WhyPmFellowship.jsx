@@ -30,9 +30,9 @@ const BenefitCard = ({ vector, title, desc, size }) => {
 
 const WhyPmFellowship = ({ bgColor }) => {
   return (
-    <div className={`flex flex-col bg-[${bgColor}] pb-10`}>
+    <div className={`flex flex-col bg-[${bgColor}] pb-7 pt-3 lg:pt-0`}>
       <div className="py-5 lg:py-12">
-        <div className="text-[28px] lg:text-[40px] font-bold px-2 text-center font-sans">
+        <div className="text-[24px] lg:text-[40px] font-bold px-2 text-center font-sans">
           Why should you{" "}
           <span
             className="pb-1 bg-no-repeat bg-center"
@@ -44,7 +44,7 @@ const WhyPmFellowship = ({ bgColor }) => {
           >
             choose
           </span>{" "}
-          our <span className="text-[#9747FF]">PM Fellowship Program</span>
+          our <span className="text-black">PM Fellowship Program</span>
         </div>
         <div className="text-[16px] text-center text-gray-800 font-medium mt-2 px-4 xl:px-60">
           <p>Connect with Mentors and Alums to get career counselling </p>

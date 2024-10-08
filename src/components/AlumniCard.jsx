@@ -11,7 +11,7 @@ const AlumniCard = ({
 }) => {
   return (
     <div
-      className="w-[330px] h-[340px] rounded-3xl bg-white p-4 flex flex-col items-center gap-2 border border-1 border-white"
+      className="w-[330px] h-[340px] rounded-3xl bg-white p-4 flex flex-col items-center gap-2 border border-1 border-blue-400"
       style={{
         background:
           "linear-gradient(to bottom, #AEECFF 10%, white 50%, white 100%)", // Smooth gradient transition

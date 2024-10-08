@@ -1,5 +1,5 @@
-
 import DropdownList from './DropdownList';
+
 const Faq = () => {
   return (
     <div className="flex flex-col bg-white pb-20 ">

@@ -2,15 +2,32 @@ import { useEffect, useRef, useState } from "react";
 import logo from "../assets/ps-logo-dark.svg";
 import { RiArrowRightSFill } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import ContactUsForm from "./ContactUsForm";
+import { useRecoilState } from "recoil";
+import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   const navigationRef = useRef(null);
+
+  const [isOpen, setIsOpen] = useState(false);
   const [showTopBar, setShowTomBar] = useState(true);
   const [daysToGo, setDaysToGo] = useState(0);
 
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [isVisible, setIsVisible] = useRecoilState(isVisibleformState); // Recoil for visibility
+  const [isOpenForm, setIsOpenForm] = useRecoilState(isOpenFormState);
+
+  const toggleModal = () => {
+    if (!isOpenForm) {
+      setIsOpenForm(true);
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      console.log("enter")
+      setIsVisible(false);
+      setTimeout(() => setIsOpenForm(false), 300);
+    }
+  };
 
   const handleScrollOrNavigate = () => {
     if (location.pathname === "/pm-fellowship") {
@@ -135,16 +152,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        <a
-          href="https://topmate.io/propel/62841"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="lg:hidden bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out block text-center"
-        >
-          Book a 1:1 Mentor Call
-        </a>
-
-
         <div className="hidden lg:flex space-x-8 items-center">
           <div className="hidden lg:flex space-x-10 xl:space-x-16 font-medium text-[18px]">
             <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
@@ -156,17 +163,10 @@ const Navbar = () => {
             <a href="/blogs" className="hover:underline flex items-center gap-1">
               Blogs
             </a>
-          </div>
-
-            <a
-              href="https://topmate.io/propel/62841"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-            <button className="bg-[#FEC923] text-black text-sm xl:text-[18px] font-semibold rounded-full px-4 xl:px-8 py-2.5 hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out">
-                Book a 1:1 Mentor Call
+            <button onClick={toggleModal} className="hover:underline flex items-center gap-1">
+              Contact Us
             </button>
-            </a>
+          </div>
         </div>
       </div>
 
@@ -175,14 +175,17 @@ const Navbar = () => {
         ref={navigationRef}
         className="lg:hidden flex flex-col items-start h-[0px] px-[15px] md:px-[80px] space-y-4 py-0 transition-all duration-500 ease-in-out overflow-hidden"
       >
-        <a href="/pm-fellowship" className="hover:underline text-[18px]">
+        <a href="/pm-fellowship" className="hover:underline">
           PM Fellowship
         </a>
-        <a onClick={handleScrollOrNavigate} className="hover:underline text-[18px]">
+        <a onClick={handleScrollOrNavigate} className="hover:underline">
           Alumni
         </a>
-        <a href="/blogs" className="hover:underline text-[18px]">
+        <a href="/blogs" className="hover:underline">
           Blogs
+        </a>
+        <a onClick={toggleModal} className="hover:underline flex items-center gap-1">
+          Contact Us
         </a>
       </div>
     </div>

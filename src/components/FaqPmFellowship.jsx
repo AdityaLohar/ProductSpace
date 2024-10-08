@@ -89,8 +89,7 @@ const DropdownList = ({ len, flag }) => {
       "The sessions are held on Saturdays and Sundays, with 3-hour classes each day. Any additional sessions are held on Wednesdays from 9:00 PM to 10:30 PM.",
 
       "Yes, you can! You can book a call with one of our mentors or schedule a call with an alumni member to clarify any questions you have. Book a call with a mentor | Book a call with an alumni."
-    ];
-      
+    ];      
 
       const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -105,7 +104,7 @@ const DropdownList = ({ len, flag }) => {
       };
     
       return (
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 w-full'>
           {questions.slice(0, visibleCount).map((question, index) => (
             <DropdownItem
               key={index}
@@ -130,4 +129,20 @@ const DropdownList = ({ len, flag }) => {
       );
 };
 
-export default DropdownList;
+const FaqPmFellowship = () => {
+  return (
+    <div className="flex flex-col bg-[#F5F5F5] pt-3 lg:pt-0 pb-20">
+      <div className="py-5 lg:py-8">
+        <div className="text-[24px] lg:text-[40px] font-bold text-center font-sans px-4">
+          Frequently Asked Questions
+        </div>
+      </div>
+
+      <div className="flex justify-between px-4 lg:px-20 gap-4">
+        <DropdownList len={5} flag={1} />
+      </div>
+    </div>
+  );
+};
+
+export default FaqPmFellowship;
