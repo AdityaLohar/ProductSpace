@@ -92,7 +92,6 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg ">
-      <h3 className="text-center">Staging Environment 3.0</h3>
       {
         showTopBar && (
           <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">

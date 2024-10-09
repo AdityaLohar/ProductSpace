@@ -15,7 +15,6 @@ const Blog = () => {
 
     const fetchPost = async () => {
       try {
-        // const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts/${id}`);
         const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts?slug=${id}`);
         
         if (!response.ok) {

@@ -10,10 +10,10 @@ const MeetAlums = () => {
             Meet the <span className="font-bold">Mentors</span> and clarify all your queries.
         </div>
         <div className="text-[24px] lg:text-[40px] font-bold px-2 font-sans">
-            Want to know if PM is the right fit for you?
+            Want to know more about PM Fellowship?
         </div>
         <div className="text-[16px] text-gray-800 font-medium mt-2 px-2">
-            Join us every Tuesday and Thursday at 9 PM, and ask any questions you have on product management.
+          Connect with our expert mentors to get your queries resolved and ask anything related to Product Management
         </div>
 
         <div className="flex flex-col md:flex-row gap-3 items-center justify-center lg:justify-start font-semibold">

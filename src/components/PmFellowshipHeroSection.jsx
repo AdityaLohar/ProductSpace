@@ -248,7 +248,7 @@ const PmFellowshipHeroSection = () => {
             />
             <div className="font-semibold">Portfolio Preparation</div>
           </div>
-          <div className="text-gray-600">Linkedin & Medium</div>
+          <div className="text-gray-600">Notion</div>
         </div>
       </div>
 
@@ -314,7 +314,7 @@ const PmFellowshipHeroSection = () => {
               />
               <div className="font-semibold">Portfolio Preparation</div>
             </div>
-            <div className="text-gray-600">Linkedin & Medium</div>
+            <div className="text-gray-600">Notion</div>
           </div>
 
           {/* Duplicate */}
@@ -375,7 +375,7 @@ const PmFellowshipHeroSection = () => {
               />
               <div className="font-semibold">Portfolio Preparation</div>
             </div>
-            <div className="text-gray-600">Linkedin & Medium</div>
+            <div className="text-gray-600">Notion</div>
           </div>
           
         </div>
