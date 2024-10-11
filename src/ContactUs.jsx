@@ -11,7 +11,7 @@ const ContactUs = () => {
         <div className='text-[32px] lg:text-[40px] font-bold font-sans'>
           <h1>Contact Us</h1>
         </div>
-
+        
         <div className='text-[18px]'>
           <p>For any queries or guidance, please reach out to us on below coordinates for immediate assistance.</p>
         </div>
