@@ -18,6 +18,10 @@ import Footer from "./components/Footer";
 import ContactUsForm from "./components/ContactUsForm";
 import { RecoilRoot } from "recoil";
 import { HelmetProvider } from "react-helmet-async";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from './PrivacyPolicy';
+import RefundPolicy from './RefundPolicy';
+import ContactUs from './ContactUs';
 
 function App() {
   const location = useLocation();
@@ -43,6 +47,10 @@ function App() {
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
         {/* </Router> */}
         <div className={`w-full bg-black ${isHomePage ? "pb-6 lg:pb-16" : ""}`}>

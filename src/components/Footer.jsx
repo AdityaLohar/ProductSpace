@@ -4,6 +4,7 @@ import footerLogo from "../assets/footer-logo.svg";
 import linkedin from "../assets/linkedin-circle.svg";
 import "react-toastify/dist/ReactToastify.css";
 import footerBg from "../assets/footer bg.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -30,30 +31,27 @@ const Footer = () => {
           <div>
             <p className="mb-3 font-semibold">Resources</p>
             <div className="flex flex-col gap-4 text-white">
-              <a
-                href="https://theproductspace.notion.site/Terms-and-Conditions-3a424120bc6a4b51a681e48b471da06c"
-                target="_blank"
+              <Link
+                to="/terms-and-conditions"
               >
                 Terms and Conditions
-              </a>
-              <a
-                href="https://theproductspace.notion.site/Privacy-Policy-Terms-3aa9b55d3e1f4bafb12dd6d00ff60c68"
-                target="_blank"
+              </Link>
+              <Link
+                to="/privacy-policy"
               >
-                Privacy policy
-              </a>
-              <a
-                href="https://theproductspace.notion.site/Refund-Deferral-Discount-and-Cancellation-330088def6144266aa1e68d8a8c4b058"
-                target="_blank"
+                Privacy Policy
+              </Link>
+              <Link
+                to="/refund-policy"
               >
-                Refund policy
-              </a>
-              <a
-                href="https://theproductspace.notion.site/Contact-Us-9b3ba23c447a41bebc35e9a2b6b359e3"
-                target="_blank"
+                Refund Policy
+              </Link>
+              <Link
+                to="/contact-us"
               >
-                Contact us
-              </a>
+                Contact Us
+              </Link>
+              
             </div>
           </div>
         </div>
