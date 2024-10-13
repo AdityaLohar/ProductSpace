@@ -18,7 +18,7 @@ const CourseSnapshot = () => {
   };
 
   return (
-    <div className="bg-white px-4 md:px-10 xl:px-32 pt-2 lg:pt-0 font-hind">
+    <div className="bg-white px-4 md:px-10 xl:px-32 pb-4 lg:pb-16 font-hind">
       <div className="flex flex-col lg:flex-row pt-6 pb-16 lg:py-8 items-between justify-between gap-12">
         
         <div className="flex flex-col gap-6 w-full lg:w-1/2">
@@ -55,15 +55,6 @@ const CourseSnapshot = () => {
               <img src={tick} alt="" className="w-4 h-4" />
               <p>Work on Live Projects for real-world product development</p>
             </div>
-          </div>
-
-          <div className="flex justify-center md:justify-start">
-            <button
-              onClick={toggleModal}
-              className="text-[16px] w-full lg:w-[164px] bg-[#FFA000] text-white p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-            >
-              Enroll Now
-            </button>
           </div>
 
         </div>

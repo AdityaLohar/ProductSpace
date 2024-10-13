@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import arrow from "../assets/right-arrow.svg";
 import vectorIcon from "../assets/resultsIcon.svg";
+import { useEffect, useState } from "react";
 
 const benefits = [
   "Product strategy",
@@ -30,9 +31,19 @@ const BenefitCard = ({ title }) => {
 };
 
 const Benefits = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 3) % 15);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div
-      className={`flex flex-col gap-8 lg:gap-0 lg:flex-row pt-20 pb-10 lg:py-28 px-4 lg:px-28`}
+      className={`flex flex-col gap-8 lg:gap-0 lg:flex-row pt-20 pb-20 lg:py-28 px-4 lg:px-28`}
     >
       <div className="flex flex-col gap-6 w-full lg:w-1/2">
         <div className="text-[28px] lg:text-[40px] font-bold text-center lg:text-start font-sans">
@@ -65,10 +76,23 @@ const Benefits = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5 font-inter font-semibold">
+      <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5 font-inter font-semibold">
         {benefits.map((title, index) => (
           <BenefitCard key={index} title={title} />
         ))}
+      </div>
+
+      <div className="lg:hidden grid grid-cols-1 gap-4 lg:gap-5 font-inter font-semibold">
+        <div className="flex sm:gap-8 sm:w-auto w-full items-center">
+          <div className="w-full sm:w-auto">
+            <div className="carousel-container flex flex-col gap-3">
+              {/* Render the current carousel item */}
+              {benefits.slice(currentIndex, currentIndex + 3).map((title, index) => (
+                <BenefitCard key={index} title={title} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

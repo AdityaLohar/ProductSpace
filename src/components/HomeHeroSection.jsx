@@ -3,10 +3,72 @@ import heroImage from "../assets/home-hero-image.svg";
 import stars from "../assets/home-hero-star.svg";
 import arrow from "../assets/right-arrow.svg";
 import fromBg from "../assets/from-bg.png";
-import { useState } from "react";
-import "react-toastify/dist/ReactToastify.css";
+import { useRef, useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 import { Link } from "react-router-dom";
+import courseSnapshotVideo from "../assets/pamit-intro-video.mp4";
+import "react-toastify/dist/ReactToastify.css";
+
+const VideoContent = () => { 
+  const videoRef = useRef(null); // Reference to the video element
+  const [isPlaying, setIsPlaying] = useState(false); // Track if the video is playing
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause(); // Pause the video
+      } else {
+        videoRef.current.play(); // Play the video
+      }
+      setIsPlaying(!isPlaying); // Toggle play/pause state
+    }
+  };
+
+  // Pause the video if clicked outside of the play button
+  const handleVideoClick = () => {
+    if (isPlaying) {
+      videoRef.current.pause(); // Pause the video
+      setIsPlaying(false); // Update state
+    }
+  };
+
+  return (
+    <div className="relative w-full">
+      <div className="w-full aspect-square rounded-[10%] overflow-hidden">
+        <video
+          ref={videoRef} // Attach the ref to the video element
+          className="w-full h-full object-cover"
+          controls={isPlaying ? true : false} // Disable default controls
+          onClick={handleVideoClick} // Pause video when clicked
+        >
+          <source src={courseSnapshotVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Play Button */}
+        {!isPlaying && (
+          <div
+            className="absolute inset-0 flex items-center justify-center cursor-pointer"
+            onClick={togglePlayPause} // Toggle play/pause
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 24 24"
+              className="w-16 h-16 bg-black bg-opacity-50 rounded-full p-4"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M5 3.553v16.894c0 1.15 1.238 1.87 2.22 1.253l12.447-8.447c.936-.635.936-1.972 0-2.607L7.22 3.553C6.238 2.936 5 3.656 5 4.806z"
+              />
+            </svg>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const HomeHeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +85,7 @@ const HomeHeroSection = () => {
   };
 
   return (
-    <div className="lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-center justify-between text-center lg:text-start gap-8 custom-13:gap-24">
+    <div className="lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-center justify-between text-center lg:text-start gap-8 custom-13:gap-24 ">
       <div className="w-full lg:w-1/2 px-6 xl:px-24 custom-13:px-0">
         <p
           className="font-sans text-[17px] text-transparent font-semibold ml-0 sm:ml-1 md:text-[24px] pt-8 
@@ -56,7 +118,7 @@ const HomeHeroSection = () => {
         </h1>
 
         <div className="lg:hidden w-full lg:w-1/2 flex justify-center mb-10 items-center">
-          <img src={heroImage} alt="" />
+          <VideoContent />
         </div>
 
         <p className="lg:w-4/5 text-[16px] lg:text-[18px] mb-4 font-normal font-inter">
@@ -65,13 +127,12 @@ const HomeHeroSection = () => {
 
         <div className="flex justify-center lg:justify-start gap-2 items-start lg:w-4/5 text-[#334155] text-[12px] lg:text-[16px] font-inter">
           <img src={stars} alt="" className="w-16 h-3 lg:h-4 lg:w-20" />
-          <p>4900+ 5 Stars</p>
+          <p>490+ 5 Stars</p>
         </div>
 
         <div className="flex mt-8 gap-4 justify-center lg:justify-start">
           <Link to={"/pm-fellowship"}>
             <button
-              // onClick={toggleModal}
               className="flex items-center gap-2 justify-center text-[16px] w-[135px] lg:w-[164px] bg-[#FFA000] text-white p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
               >
                 <p>
@@ -93,8 +154,8 @@ const HomeHeroSection = () => {
         </div>
       </div>
 
-      <div className="hidden lg:flex w-1/2">
-        <img src={heroImage} alt="" />
+      <div className="hidden lg:flex w-1/3">
+        <VideoContent />
       </div>
           
       {/* Modal Form */}

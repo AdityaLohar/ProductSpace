@@ -3,6 +3,7 @@ import arrow from "../assets/right-arrow-dark.svg";
 import netLeft from "../assets/net-pattern-left.svg";
 import netRight from "../assets/net-pattern-right.svg";
 import EnrollmentForm from "./EnrollmentForm";
+import { Link } from "react-router-dom";
 
 const JoinNetwork = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,24 +42,25 @@ const JoinNetwork = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row justify-center gap-4">
-          <button
-            onClick={toggleModal}
-            className="flex items-center gap-2 justify-center text-[16px] w-full lg:w-[164px] font-medium bg-white text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          <Link
+            to={"/pm-fellowship"}
+            className="flex items-center gap-2 justify-center text-[16px] w-full lg:w-[204px] font-medium bg-white text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >
-            <p>Enroll Now</p>
+            <p>Get Started</p>
             <img src={arrow} alt="" />
-          </button>
+          </Link>
 
-          <button
-            onClick={toggleModal}
-            className="flex items-center gap-2 justify-center text-[16px] w-full lg:w-[164px] font-medium bg-[#DBF6FF1A] text-white border border-gray-200 p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          <a
+            href="https://topmate.io/propel/62841"
+            target="_blank"            
+            className="flex items-center gap-2 justify-center text-[16px] w-full lg:w-[204px] font-medium bg-[#DBF6FF1A] text-white border border-gray-200 p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >
-            Book a 1:1 Demo
-          </button>
+            Meet with 1:1 mentors
+          </a>
         </div>
       </div>
 
-      <div className="lg:hidden bg-black text-white flex flex-col py-24 px-4 rounded-2xl max-w-[1180px] mx-auto items-between justify-between text-center gap-6"
+      <div className="lg:hidden bg-black text-white flex flex-col py-24 px-4 rounded-2xl max-w-[1180px] mx-auto items-between justify-between text-center gap-8"
       >
         <div className="text-[24px] lg:text-[40px] font-bold px-2 font-sans">
           Join our Successful Alumni Network
@@ -73,20 +75,21 @@ const JoinNetwork = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
-          <button
-            onClick={toggleModal}
-            className="flex items-center gap-2 justify-center text-[16px] w-3/4 lg:w-[164px] font-medium bg-white text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-          >
-            <p>Enroll Now</p>
-            <img src={arrow} alt="" />
-          </button>
+          <Link
+              to={"/pm-fellowship"}
+              className="flex items-center gap-2 justify-center text-[16px] w-[80%] font-medium bg-white text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+            >
+              <p>Get Started</p>
+              <img src={arrow} alt="" />
+            </Link>
 
-          <button
-            onClick={toggleModal}
-            className="flex items-center gap-2 justify-center text-[16px] w-3/4 lg:w-[164px] font-medium bg-[#DBF6FF1A] text-white border border-gray-200 p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-          >
-            Book a 1:1 Demo
-          </button>
+            <a
+              href="https://topmate.io/propel/62841"
+              target="_blank"            
+              className="flex items-center gap-2 justify-center text-[16px] w-[80%] font-medium bg-[#DBF6FF1A] text-white border border-gray-200 p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+            >
+              Meet with 1:1 mentors
+            </a>
         </div>
       </div>
 

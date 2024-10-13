@@ -82,7 +82,7 @@ const PmChallenges = () => {
 
   return (
     <div
-      className={`flex flex-col gap-8 lg:gap-16 py-16 px-4 lg:px-28 font-inter`}
+      className={`flex flex-col gap-8 lg:gap-16 pt-16 pb-8 px-4 lg:px-28 font-inter`}
     >
       <div className="flex flex-col gap-4 w-full text-center">
         <div className="text-[28px] lg:text-[40px] font-bold font-sans">

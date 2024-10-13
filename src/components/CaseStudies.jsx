@@ -101,11 +101,11 @@ const CaseStudies = () => {
   };
 
   return (
-    <div className="relative w-full bg-white py-12 lg:py-24 font-inter px-4 lg:px-20">
+    <div className="relative w-full bg-white py-12 lg:py-24 font-inter px-0 lg:px-20">
       {/* Carousel Header */}
-      <div className="flex flex-col gap-3 mb-8 text-center">
+      <div className="flex flex-col gap-3 mb-8 text-center px-4">
         <h2 className="text-[28px] lg:text-[40px] font-bold font-sans">
-          Capstone Project Decks
+        Product Tear-down & Case Studies
         </h2>
         <p className="text-[16px] lg:text-[18px]">
           Dive into Case Studies that Drive Product Innovation

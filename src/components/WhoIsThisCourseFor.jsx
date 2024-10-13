@@ -2,9 +2,22 @@ import { Link } from "react-router-dom";
 import icon1 from "../assets/resultsIcon.svg";
 import arrow from "../assets/right-arrow.svg";
 
-const Card = () => {
+const titles = [
+  "Aspiring Product Managers",
+  "Early Career Professionals",
+  "Mid-Level Product Managers",
+  "Senior Product Managers & Leaders",
+]
+const descriptions = [
+  "Gain critical product management skills with personalized 1:1 mentorship from top industry leaders.",
+  "Transition into product roles with hands-on guidance and industry-proven frameworks tailored to your growth.",
+  "Master advanced product strategy and leadership techniques with mentorship from VPs and Directors.",
+  "Refine your leadership style and learn to manage cross-functional teams effectively, scaling products that matter.",
+]
+
+const Card = ({ title, desc }) => {
   return (
-    <div className="h-[250px] lg:h-[300px] bg-white flex flex-col rounded-xl p-6 gap-4 hover:shadow hover:shadow-2xl hover:pointer-default">
+    <div className="h-[250px] lg:h-[310px] bg-white flex flex-col rounded-xl p-6 gap-4 hover:shadow hover:shadow-2xl hover:pointer-default">
       <div>
         <img
           src={icon1}
@@ -13,11 +26,10 @@ const Card = () => {
         />
       </div>
 
-      <div className="text-[28px] font-semibold">Working Professional</div>
+      <div className="text-[28px] font-semibold">{title}</div>
 
       <div>
-        With dedicated 1:1 mentorship by seasoned product leaders like VPs,
-        Directors & Sr PMs
+        {desc}
       </div>
     </div>
   );
@@ -44,11 +56,10 @@ const WhoIsThisCourseFor = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {titles.map((title, index) => {
+          return <Card key={index} title={title} desc={descriptions[index]} />;
+        })}
       </div>
       
       <div className="flex flex-col lg:flex-row items-center justify-center gap-4">

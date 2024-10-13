@@ -160,7 +160,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
                 <div className="flex flex-col items-center">
                   <button
                     onClick={handleSubmit}
-                    className="text-[16px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold px-2 py-3 md:px-6 rounded-full hover:bg-yellow-500"
+                    className="text-[16px] lg:text-[20px] w-full bg-[#FFA000] text-black font-semibold px-2 py-3 md:px-6 rounded-lg hover:bg-[#FFAD1D]"
                   >
                     {loading ? "Loading..." : "Submit"}
                   </button>
