@@ -41,7 +41,7 @@ const Faq = () => {
         <div className="flex">
             <button
               onClick={toggleModal}
-              className="flex items-center font-semibold gap-2 justify-center text-[16px] w-full lg:w-[164px] bg-transparent text-black p-4 rounded-lg border border-[#60A5FA] transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+              className="flex items-center font-semibold gap-2 justify-center text-[16px] w-1/2 lg:w-[164px] bg-transparent text-black p-4 rounded-lg border border-[#60A5FA] transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
             >
               <p>Contact Us</p>
               <img src={arrow} alt="" />

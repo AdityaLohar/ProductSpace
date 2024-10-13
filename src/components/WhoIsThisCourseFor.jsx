@@ -26,7 +26,7 @@ const Card = ({ title, desc }) => {
         />
       </div>
 
-      <div className="text-[28px] font-semibold">{title}</div>
+      <div className="text-[20px] lg:text-[28px] font-semibold">{title}</div>
 
       <div>
         {desc}
