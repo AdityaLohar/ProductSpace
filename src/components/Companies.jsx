@@ -38,20 +38,12 @@ const Companies = () => {
   return (
     <div className="flex flex-col bg-white py-8 lg:py-12">
       <div className="">
-        <div className="text-[24px] lg:text-[40px] font-bold text-center font-sans px-3">
-          Placed across 310+ Product Companies in India
+        <div className="text-[18px] text-center font-inter px-4">
+          Alumni placed across 310+ Product Companies in India
         </div>
 
-        <div className="flex flex-col gap-12 w-full overflow-hidden pt-10 pb-6 lg:pb-0 lg:pt-20">
-          <div>
+        <div className="w-full overflow-hidden py-10">
             <Flowing img1={img1} />
-          </div>
-          <div>
-            <Flowing img1={img2} />
-          </div>
-          <div>
-            <Flowing img1={img3} />
-          </div>
         </div>
       </div>
     </div>

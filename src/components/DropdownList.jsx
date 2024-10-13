@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
   const DropdownItem = ({ question, content, isOpen, onClick }) => {
       return (
-          <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#C3C3C3]" : "border border-2 border-transparent"}`}>
+          <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#111]" : "border border-2 border-transparent"}`}>
               <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
-                  <div className='text-[16px] font-semibold text-gray-700'>
+                  <div className='text-[16px] font-semibold text-[#333333]'>
                       <p>{question}</p>
                   </div>
                   <div className=''>
@@ -105,7 +105,7 @@ const DropdownList = ({ len, flag }) => {
       };
     
       return (
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 lg:gap-4'>
           {questions.slice(0, visibleCount).map((question, index) => (
             <DropdownItem
               key={index}
@@ -116,7 +116,7 @@ const DropdownList = ({ len, flag }) => {
             />
           ))}
     
-          {flag && visibleCount < questions.length ? (
+          {/* {flag && visibleCount < questions.length ? (
             <Link to={"/faq"}
               onClick={showMoreQuestions}
               className='mt-8 text-[16px] text-[#FF559E] font-semibold underline text-center'
@@ -125,7 +125,7 @@ const DropdownList = ({ len, flag }) => {
             </Link>
           ) : (
             <div></div>
-          )}
+          )} */}
         </div>
       );
 };

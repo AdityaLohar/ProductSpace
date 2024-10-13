@@ -17,22 +17,6 @@
   line-height: 1.2;
 }
 
-body {
-  background-color: transparent !important;
-  background-image: url('./assets/bg-curve1.svg');
-  background-position: top 0% left 0%;
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-attachment:scroll;
-}
-
-@media (max-width: 768px) {
-  body {
-    background-image: url('./assets/bg-curve1.svg'); /* Only show the first background */
-    background-position: top 1% left;
-    background-size: 106% auto; /* Adjust as needed */
-  }
-}
 
 @keyframes scrollHorizontal {
   0% {

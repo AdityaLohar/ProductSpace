@@ -26,7 +26,7 @@ const alumni = [
     // curCompany: "Magicbricks",
     curCompany:
       "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
-    curPost: "Product Management Intern",
+    curPost: "PM Intern",
     testimonial:
       "Product Space played a pivotal role in my career transition. Their personalized mentorship provided me with the confidence and skills I needed to excel in my new role. The tailored guidance and support I received were invaluable, and I am grateful for the resources they provided. Product Space's support to my success was evident in every aspect of the program.",
     linkedin: "https://www.linkedin.com/in/likesh-kumar-tangudu-6819961b5",
@@ -39,11 +39,11 @@ const alumni = [
     // prevCompany: "ThinkLink",
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDF5ZX8zis1PxBlqNGSjb5XRwYQbW9EG-CzOSztnSPsq-15F2StzXldr8q9jlaZ6YLs_g&usqp=CAU",
-    prevPost: "Associate Product Manager",
+    prevPost: "Associate PM",
     // curCompany: "Swiggy",
     curCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH4MrpJVVh45uKulQVIefwzC2FycDx2Au7mg&s",
-    curPost: "Product Management Consultant",
+    curPost: "PM Consultant",
     testimonial:
       "I'm incredibly grateful to Akhil Yash Tiwari and the Product Space team for the exceptional learning resources and guidance I received. Your mentorship was instrumental in my growth and development. Thank you for your unwavering support and dedication.",
     linkedin: "https://www.linkedin.com/in/medhya-budhwar-27715420a",
@@ -59,7 +59,7 @@ const alumni = [
     // curCompany: "Ind Money",
     curCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2kajw7rctnsjz7bcS_DGh_ClS1xVKD3pXA&s",
-    curPost: "Product Management Trainee",
+    curPost: "PM Trainee",
     testimonial:
       "I'm incredibly grateful to Product Space for their personalized mentorship. The guidance and support I received were essential in my career transformation. The mentors equipped me with the skills and confidence I needed to succeed. I couldn't have done it without their invaluable assistance!",
     linkedin: "https://www.linkedin.com/in/aryanjaiswal2401/",
@@ -76,9 +76,9 @@ const alumni = [
     // curCompany: "Magicbricks",
     curCompany:
       "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
-    curPost: "Associate Product Manager",
+    curPost: "Associate PM",
     testimonial:
-      "Product Space is an excellent community for aspiring and current product managers. The program provides a supportive environment to learn, grow, and connect with like-minded professionals. The mentorship from Akhil Yash Tiwari was invaluable, and the resources were top-notch. I highly recommend Product Space for advancing your product management career.",
+      "Product Space is an excellent community for aspiring and current PMs. The program provides a supportive environment to learn, grow, and connect with like-minded professionals. The mentorship from Akhil Yash Tiwari was invaluable, and the resources were top-notch. I highly recommend Product Space for advancing your product management career.",
     linkedin:
       "https://www.linkedin.com/in/aditi1905?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
@@ -94,7 +94,7 @@ const alumni = [
     // curCompany: "CreditAccess Grameen",
     curCompany:
       "https://www.temenos.com/wp-content/uploads/2024/01/CreditAccess-Grameen-logo.jpg",
-    curPost: "Product Manager",
+    curPost: "PM",
     testimonial:
       "The Product Space program was a game-changer for my career. The mentors were incredibly knowledgeable and supportive, providing me with the guidance and tools I needed to succeed. I especially appreciated the opportunity to work on real-world projects and gain hands-on experience. ",
     linkedin: "https://www.linkedin.com/in/nishant-sinha-134701134",
@@ -124,11 +124,11 @@ const alumni = [
     // prevCompany: "ICICI Bank",
     prevCompany:
       "https://static.vecteezy.com/system/resources/previews/020/336/263/original/icici-logo-icici-icon-free-free-vector.jpg",
-    prevPost: "Product Manager",
+    prevPost: "PM",
     // curCompany: "My Sivi",
     curCompany:
       "https://framerusercontent.com/assets/4b43uKdIsaAy8VSR0OtLRxCAtTc.png",
-    curPost: "Product Manager",
+    curPost: "PM",
     testimonial:
       "I'm deeply thankful to Product Space for the invaluable mentorship and support I received. Their program was instrumental in improving my product management skills and interview preparation. I highly recommend it to anyone looking to enhance their career.",
     linkedin: "https://www.linkedin.com/in/a4sh",
@@ -147,7 +147,7 @@ const alumni = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjLtV29x13EmGY-yph7Uoxi_d-dNGPXC3cJw&s",
     curPost: "Product Ops Specialist",
     testimonial:
-      "Reflecting on my journey, I remember feeling a mix of uncertainty and confusion on the first day of the cohort. Thankfully, Akhil Yash Tiwari and Product Space provided the comfort and guidance I needed to excel. Today, I'm proud to call myself an engineer by chance, a business developer by knowledge, and a product manager by heart.",
+      "Reflecting on my journey, I remember feeling a mix of uncertainty and confusion on the first day of the cohort. Thankfully, Akhil Yash Tiwari and Product Space provided the comfort and guidance I needed to excel. Today, I'm proud to call myself an engineer by chance, a business developer by knowledge, and a PM by heart.",
     linkedin: "https://www.linkedin.com/in/alankrat-nigam-45b1b1192",
   },
   {
@@ -162,7 +162,7 @@ const alumni = [
     // curCompany: "Nabe Eats",
     curCompany:
       "https://play-lh.googleusercontent.com/-fc2nr9Zmm7uBa5mqQsxPfaMW4JRmf9SGYYGQV-6K5bzv-Paduq3Dq2kzVFPzqA0BA",
-    curPost: "Product Manager",
+    curPost: "PM",
     testimonial:
       "My 2.5 months at Product Space were a great way to start my product management journey. I made new friends, found study partners, and had an amazing mentor in Akhil Yash Tiwari. I'm thankful for the experience and glad to have been part of Cohort 7.",
     linkedin: "https://www.linkedin.com/in/astrosrujan/",
@@ -175,11 +175,11 @@ const alumni = [
     // prevCompany: "BSE Ebix InsurTech",
     prevCompany:
       "https://bsmedia.business-standard.com/_media/bs/img/article/2018-04/03/full/1522755576-0608.jpg",
-    prevPost: "Junior Product Manager",
+    prevPost: "Jr. PM",
     // curCompany: "Kaam",
     curCompany:
       "https://kaam.com/assets/home/ccf322f1205bc49408eac7cebf763b1d.png",
-    curPost: "Junior Product Manager",
+    curPost: "Jr. PM",
     testimonial:
       "I want to express my sincere gratitude to Product Space for the incredible mentorship and support I received. The sessions, feedback, and mock interviews were invaluable in my growth. I'm especially thankful to Akhil Yash Tiwari for his guidance and belief in me. I highly recommend Product Space to anyone looking to advance their career in product management.",
     linkedin: "https://www.linkedin.com/in/mrigaj-goradia-b93408107",
@@ -196,7 +196,7 @@ const alumni = [
     // curCompany: "WiJungle",
     curCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-GQdUd0OInAlijbxbc16Aepixj5CU4hFnHg&s",
-    curPost: "Product Manager Internship",
+    curPost: "PM Internship",
     testimonial:
       "The time I invested in Product Space was definitely worth it. The program starts from the basics and progresses to tech for PMs, with peer collaboration. We also had the opportunity to work on live projects. And the best part was the 1 on 1 support from the mentors, especially Akhil Yash Tiwari, who was always available to answer my questions.",
     linkedin: "https://www.linkedin.com/in/jaydeep-prajapati-26ab3a210/",
@@ -213,7 +213,7 @@ const alumni = [
     // curCompany: "Bento Labs",
     curCompany:
       "https://media.licdn.com/dms/image/v2/D560BAQGQaB2o7W-68g/company-logo_200_200/company-logo_200_200/0/1663139917134?e=2147483647&v=beta&t=E_Ha-P7-9mr4QhNUx7z7RV_hSQQbnK81kDUHxxjcj-s",
-    curPost: "Product Management Intern",
+    curPost: "PM Intern",
     testimonial:
       "Transitioning to a product role is a challenge, but with the right support, it's possible. I'm grateful for the mentors at Product Space who helped me succeed. I couldn't have done it without the incredible community of mentors, peers, and colleagues.",
     linkedin: "https://www.linkedin.com/in/vihal-j-r-5a9b46205",
@@ -226,11 +226,11 @@ const alumni = [
     // prevCompany: "HealMeRight",
     prevCompany:
       "https://media.licdn.com/dms/image/v2/D560BAQFbjLGkoC0QjA/company-logo_200_200/company-logo_200_200/0/1701242524397/healmeright_logo?e=2147483647&v=beta&t=5UpqEAFiLq0B8qp7RPA5f4Ogi8EeLkjsJxvUFZZXJRI",
-    prevPost: "Product Management Intern",
+    prevPost: "PM Intern",
     // curCompany: "TrulyMadly",
     curCompany:
       "https://media.licdn.com/dms/image/v2/C4E0BAQF7ALI3p7iTzQ/company-logo_200_200/company-logo_200_200/0/1630617609198?e=2147483647&v=beta&t=8C5Zw08eUwXiXA2FQMGDSzkh4dyNILaO9JY76MMSPCU",
-    curPost: "Associate Product Manager",
+    curPost: "Associate PM",
     testimonial:
       "Product Space was a valuable program that provided me with a comprehensive understanding of product management. The curriculum was well-designed, the mentors were experienced, and the projects were practical. I highly recommend it to anyone looking to advance their career in this field.",
     linkedin: "https://www.linkedin.com/in/pranaygaddam/",
@@ -247,7 +247,7 @@ const alumni = [
     // curCompany: "Optiblack",
     curCompany:
       "https://media.licdn.com/dms/image/v2/D4D0BAQH0fHdHdbMMSQ/company-logo_200_200/company-logo_200_200/0/1709279882066/optiblack_logo?e=2147483647&v=beta&t=TSViU15uxSpEsUE28XCODqw3oF0m6PCam_J-XijyI70",
-    curPost: "Product Manager",
+    curPost: "PM",
     testimonial:
       "I'm deeply thankful to Product Space for their personalized program and mentorship. Their guidance and support were essential in my successful career transition. The tailored approach and resources they provided made all the difference. Thank you, Product Space!",
     linkedin: "https://www.linkedin.com/in/kriti-goel-267676179",

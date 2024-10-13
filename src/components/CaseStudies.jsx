@@ -1,137 +1,168 @@
-import { useState } from "react";
-import netflix from "../assets/netflix-logo.jpg";
-import primeVideo from "../assets/prime-video.svg";
-import miro from "../assets/miro-logo.png";
-import magicBricks from "../assets/magic-bricks.svg";
-import amazon from "../assets/amazon.svg";
-import google from "../assets/google.svg";
-import canva from "../assets/canva.svg";
+import { useEffect, useState } from "react";
+import caseStudies from "../data/CaseStudiesData";
+import arrowLight from "../assets/right-arrow.svg";
+import arrowDark from "../assets/right-arrow-dark.svg";
 
-const CaseStudies = () => {
-  const [selectedBox, setSelectedBox] = useState(0); // Change to null initially
+const CaseStudyCard = ({ logo, title, desc, url, flag }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  const boxes = [
-    { id: 1, title: "Amazon Prime", image: primeVideo },
-    { id: 2, title: "MagicBricks", image: magicBricks },
-    { id: 3, title: "Miro", image: miro },
-    { id: 4, title: "Amazon.com", image: amazon },
-    { id: 5, title: "Netflix", image: netflix },
-    { id: 6, title: "Canva", image: canva },
-    { id: 7, title: "Google", image: google },
-  ];
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
-    <div className="flex flex-col bg-[#F1E6FF] mb-10 lg:mb-20 rounded-3xl pb-10 px-4 md:px-10 lg:px-20">
-      <div className="py-8">
-        <div className="text-[28px] lg:text-[44px] font-bold text-center">
-          Unlock Real-World Insights
-        </div>
-        <div className="text-[14px] lg:text-sm text-center text-gray-700 font-medium">
-          Dive into Case Studies that Drive Product Innovation
-        </div>
+    <div
+      className={`flex-shrink-0 w-[380px] lg:w-[395px] lg:h-[500px] p-4 m-2 rounded-xl space-y-2 ${
+        flag ? "text-white select-none" : "text-black border"
+      }`}
+    >
+      <div className={`${flag ? "" : "border"} rounded-xl`}>
+        {flag ? (
+          <p className="h-[312px] w-full rounded-xl" />
+        ) : (
+          <img
+            src={logo}
+            alt="brand-logo"
+            className="h-[312px] w-full rounded-xl"
+          />
+        )}
       </div>
 
-      <div className="hidden lg:grid grid-cols-5 gap-3 w-full h-full p-4 relative">
-        {boxes.map((box, index) => (
-          <div
-            key={index}
-            onClick={() => setSelectedBox(index === selectedBox ? null : index)} // Toggle selection
-            className={`flex justify-between font-semibold transition-all duration-100 ease-in-out bg-white ${
-              selectedBox === index
-                ? "col-span-2 row-span-2 rounded-2xl items-start justify-start"
-                : "col-span-1 row-span-1 h-[115px] w-[115px] xl:h-[200px] xl:w-[200px] rounded-lg items-end justify-start"
-            }`}
-            style={{
-              backgroundImage: `url(${box.image})`,
-              backgroundSize: "100% 115%",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-            }}
-          >
-            <div className="m-2 p-1 px-2 bg-white rounded-2xl text-[12px] xl:text-sm">
-              {box.title}
-            </div>
+      <div className="flex flex-col justify-between h-[145px]">
+        <div className="p-2">
+          <p className="font-bold">{title}</p>
+          <p>{desc}</p>
+        </div>
 
-            {selectedBox === index && (
-              <div className="absolute top-[12%] xl:top-[30%] lg:left-0 w-full h-full flex items-center justify-center">
-                <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind">
-                  <div className="text-[24px] md:text-[18px] xl:text-[24px] pr-4">
-                    Improving {box.title} Viewing Experience
-                  </div>
-                  <div className="text-[16px] md:text-[14px] xl:text-[16px] font-normal pr-4">
-                    A sneak peek into what you will learn in our 10-week
-                    curriculum.
-                  </div>
-                  <div className="flex justify-end">
-                    <div className="text-[12px] md:text-[10px] xl:text-[12px] font-normal">
-                      Published on: 25th May 24
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div className="lg:hidden">
-        {/* Display the Selected Box */}
-        {selectedBox !== null && (
+        {flag ? (
           <div
-            className="w-full h-[400px] md:h-[400px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between"
-            style={{
-              backgroundImage: `url(${boxes[selectedBox].image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
+            className={`py-3 text-center rounded-lg font-medium hover:font-normal`}
+            onMouseEnter={() => setIsHovered(true)} // Set hover state to true
+            onMouseLeave={() => setIsHovered(false)} // Set hover state to false
           >
-            <div>
-              <div className="bg-white rounded-2xl text-[10px] md:text-sm px-2 py-1 m-2">
-                {boxes[selectedBox].title}
-              </div>
-            </div>
-            <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind">
-              <div className="text-[20px] md:text-[24px] pr-4">
-                Improving {boxes[selectedBox].title} Viewing Experience
-              </div>
-              <div className="text-[14px] md:text-[16px] font-normal pr-4">
-                A sneak peek into what you will learn in our 10-week curriculum.
-              </div>
-              <div className="flex justify-end">
-                <div className="text-[10px] md:text-[12px] font-normal">
-                  Published on: 25th May 24
-                </div>
-              </div>
-            </div>
+            <p className="flex items-center gap-2 justify-center w-full">
+              <p>Read Now</p>
+            </p>
           </div>
+        ) : (
+        <a
+          href={url}
+          target="_blank"
+          className={`py-3 hover:cursor-pointer text-center hover:text-white bg-[#FFA000] text-white lg:text-black lg:bg-white hover:bg-[#FFA000] border border-[#D4D4D4] rounded-lg font-normal lg:font-medium hover:font-normal`}
+          onMouseEnter={() => setIsHovered(true)} // Set hover state to true
+          onMouseLeave={() => setIsHovered(false)} // Set hover state to false
+        >
+          <button className="flex items-center gap-2 justify-center w-full">
+            <p>Read Now</p>
+            <img 
+          src={
+            isSmallScreen 
+              ? arrowLight  // Lighter arrow for smaller screens
+              : isHovered 
+                ? arrowLight // Lighter arrow on hover
+                : arrowDark // Dark arrow for non-hovered state
+          } 
+          alt="Arrow"
+        />
+          </button>
+        </a>
         )}
 
-        {/* Non-Selected Boxes */}
-        <div className="flex overflow-x-auto space-x-2 py-2 pb-4 items-center h-[150px]">
-          {boxes.map((box, index) => (
-            <div
-              key={index}
-              onClick={() => setSelectedBox(index)}
-              className={`flex-shrink-0 h-[100px] w-[100px] md:h-[140px] md:w-[140px] bg-white rounded-xl flex items-end justify-start transition-all duration-500 ease-in-out ${
-                index === selectedBox
-                  ? "border-2 border-white h-[110px] w-[110px]"
-                  : ""
-              }`}
-              style={{
-                backgroundImage: `url(${box.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="bg-white rounded-2xl text-[10px] md:text-sm px-2 py-1 m-2">
-                {box.title}
-              </div>
-            </div>
-          ))}
+      </div>
+    </div>
+  );
+};
+
+const CaseStudies = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Handle clicking the left arrow (previous)
+  const handlePrevClick = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  // Handle clicking the right arrow (next)
+  const handleNextClick = () => {
+    if (currentIndex < caseStudies.length - 3) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  return (
+    <div className="relative w-full bg-white py-12 lg:py-24 font-inter px-4 lg:px-20">
+      {/* Carousel Header */}
+      <div className="flex flex-col gap-3 mb-8 text-center">
+        <h2 className="text-[28px] lg:text-[40px] font-bold font-sans">
+          Capstone Project Decks
+        </h2>
+        <p className="text-[16px] lg:text-[18px]">
+          Dive into Case Studies that Drive Product Innovation
+        </p>
+      </div>
+
+      {/* Carousel Container */}
+      <div className="flex items-center justify-center gap-2">
+        {/* Left Arrow */}
+        <button
+          onClick={handlePrevClick}
+          className={`z-10 hidden lg:flex text-2xl bg-gray-200 px-4 py-3 rounded-full hover:bg-gray-300 ${
+            currentIndex === 0 && "opacity-50 cursor-not-allowed"
+          }`}
+          disabled={currentIndex === 0}
+        >
+          ←
+        </button>
+
+        {/* Visible Cards */}
+        <div className="overflow-scroll lg:overflow-hidden">
+          <div
+            className="flex transition-transform duration-300"
+            style={{ transform: `translateX(-${currentIndex * 415}px)` }}
+          >
+            {caseStudies.map((box, index) => (
+              index == caseStudies.length - 1 && window.innerWidth < 1204 ? (
+                ""
+              ) : (
+                <CaseStudyCard
+                  key={index}
+                  logo={box.image}
+                  title={box.title}
+                  desc={box.desc}
+                  url={box.url}
+                  flag={index == caseStudies.length - 1 && window.innerWidth > 1023}
+                />
+              )
+            ))}
+          </div>
         </div>
+
+        {/* Right Arrow */}
+        <button
+          onClick={handleNextClick}
+          className={`hidden lg:flex z-10 text-2xl bg-gray-200 px-4 py-3 rounded-full hover:bg-gray-300 ${
+            currentIndex >=
+              caseStudies.length - (window.innerWidth < 1400 ? 2 : 3) &&
+            "opacity-50 cursor-not-allowed"
+          }`}
+          disabled={
+            currentIndex >=
+            caseStudies.length - (window.innerWidth < 1400 ? 2 : 3)
+          }
+        >
+          →
+        </button>
       </div>
     </div>
   );

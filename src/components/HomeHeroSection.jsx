@@ -1,6 +1,7 @@
-import CircleFlipGrid from "./CircleFlipGrid";
 import bgImage from "../assets/title-bg.png";
-// import fromBg from "../assets/from.svg";
+import heroImage from "../assets/home-hero-image.svg";
+import stars from "../assets/home-hero-star.svg";
+import arrow from "../assets/right-arrow.svg";
 import fromBg from "../assets/from-bg.png";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,7 +23,7 @@ const HomeHeroSection = () => {
   };
 
   return (
-    <div className="lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-start gap-8 custom-13:gap-24">
+    <div className="lg:px-20 xl:px-0 flex flex-col lg:flex-row items-center lg:items-center justify-between text-center lg:text-start gap-8 custom-13:gap-24">
       <div className="w-full lg:w-1/2 px-6 xl:px-24 custom-13:px-0">
         <p
           className="font-sans text-[17px] text-transparent font-semibold ml-0 sm:ml-1 md:text-[24px] pt-8 
@@ -41,7 +42,6 @@ const HomeHeroSection = () => {
     md:bg-[position:top_6%_left_25%] xl:bg-[position:top_2%_left_25%]"
           style={{
             backgroundImage: `url(${bgImage})`,
-            // backgroundPosition: "top 2% left 30%",
             backgroundSize: "59%",
           }}
         >
@@ -56,34 +56,45 @@ const HomeHeroSection = () => {
         </h1>
 
         <div className="lg:hidden w-full lg:w-1/2 flex justify-center mb-10 items-center">
-          <CircleFlipGrid />
+          <img src={heroImage} alt="" />
         </div>
 
-        <p className="lg:w-4/5 text-[18px] mb-4 font-medium">
+        <p className="lg:w-4/5 text-[16px] lg:text-[18px] mb-4 font-normal font-inter">
           1:1 Mentorship with Product Leaders who really care
         </p>
 
-        <div className="lg:w-4/5 items-center mb-4 text-sm lg:text-lg">
-          4.8 <span className="text-yellow-400">★</span>
-          <span className="ml-2 text-sm lg:text-lg font-base">
-            500+ Student Reviews
-          </span>
+        <div className="flex justify-center lg:justify-start gap-2 items-start lg:w-4/5 text-[#334155] text-[12px] lg:text-[16px] font-inter">
+          <img src={stars} alt="" className="w-16 h-3 lg:h-4 lg:w-20" />
+          <p>4900+ 5 Stars</p>
         </div>
 
-        <div className="mt-8 font-semibold text-sm lg:text-lg">
+        <div className="flex mt-8 gap-4 justify-center lg:justify-start">
           <Link to={"/pm-fellowship"}>
             <button
               // onClick={toggleModal}
-              className="text-[18px] w-[300px] bg-[#FEC923] text-black p-4 xl:px-16 rounded-full hover:shadow-[5px_5px_0_rgba(245,133,119)] transform hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 ease-in-out"
+              className="flex items-center gap-2 justify-center text-[16px] w-[135px] lg:w-[164px] bg-[#FFA000] text-white p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
               >
-              Get Started!
+                <p>
+                  Get Started
+                </p>
+              <img src={arrow} alt="" />
             </button>
           </Link>
+          
+          <Link to={"/pm-fellowship"}>
+            <button
+              // onClick={toggleModal}
+              className="flex items-center gap-2 justify-center text-[16px] font-medium w-[135px] lg:w-[164px] bg-[#FFA0001F] text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-[#B8B8B8]"
+              >
+                Book a Demo
+            </button>
+          </Link>
+          
         </div>
       </div>
 
-      <div className="hidden lg:flex w-full md:w-3/4 lg:w-1/2 flex justify-center">
-        <CircleFlipGrid />
+      <div className="hidden lg:flex w-1/2">
+        <img src={heroImage} alt="" />
       </div>
           
       {/* Modal Form */}

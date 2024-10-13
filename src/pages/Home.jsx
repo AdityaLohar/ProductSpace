@@ -12,6 +12,10 @@ import BottomBar from "./../components/BottomBar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 import CourseSnapshot from "../components/CourseSnapshot";
+import PmChallenges from "../components/PmChallenges";
+import JoinNetwork from "../components/JoinNetwork";
+import WhoIsThisCourseFor from "../components/WhoIsThisCourseFor";
+import CaseStudies from "../components/CaseStudies";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -50,18 +54,20 @@ const Home = () => {
       </div>
 
       <div className="w-full max-w-screen-2xl">
-        <Benefits bgColor={"#F5F5F5"} />
         <Companies />
+        <Results />
+        <PmChallenges />
+        <Benefits />
+        <CourseSnapshot />
       </div>
 
-      <hr className="w-full max-w-screen-xl border-t-2" />
-
       <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
-        <Results />
         <Alumini />
-        <MeetMentors bgColor={"#F5F5F5"} />
-        <CaseStudies1 />
-        <NewsLetter />
+        <JoinNetwork />
+        <WhoIsThisCourseFor />
+        <MeetMentors />
+        <CaseStudies />
+        <Faq />
       </div>
 
       {/* <div className="w-full bg-black lg:pb-16 max-w-screen-2xl">
