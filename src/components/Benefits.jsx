@@ -54,14 +54,14 @@ const Benefits = () => {
             </button>
           </Link>
 
-          <Link to={"/pm-fellowship"}>
+          <a href={"https://topmate.io/propel/62841"} target="_blank">
             <button
               // onClick={toggleModal}
               className="flex items-center gap-2 justify-center text-[16px] font-medium w-full lg:w-[241px] bg-[#FFA0001F] text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-[#B8B8B8]"
             >
-              Book 1-1 mentorship
+              Meet 1-1 with mentors
             </button>
-          </Link>
+          </a>
         </div>
       </div>
 

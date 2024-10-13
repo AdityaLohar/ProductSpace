@@ -39,7 +39,7 @@ const DropdownItem = ({ question, content, image, isOpen, onClick }) => {
         <div className="">
           <svg
             className={`h-6 w-6 transition-transform duration-200 rounded-full ease-in-out ${
-              isOpen ? "rotate-[-180deg]" : "rotate-[0deg]"
+              isOpen ? "rotate-[180deg]" : "rotate-[0deg]"
             }`}
             viewBox="0 0 20 20"
             fill="currentColor"

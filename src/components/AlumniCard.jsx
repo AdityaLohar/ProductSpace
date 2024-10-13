@@ -30,7 +30,7 @@ const AlumniCard = ({
             {name}
           </p>
           <p className="text-[16px] text-[#333] font-inter">
-            Batch 123
+            {/* Batch 123 */}
           </p>
         </div>
       </div>

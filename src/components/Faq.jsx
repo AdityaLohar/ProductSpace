@@ -7,12 +7,11 @@ import faqBg1 from "../assets/faqBg1.svg";
 const Faq = () => {
   return (
     <div
-      className={`flex flex-col gap-8 lg:flex-row lg:justify-between py-16 px-4 lg:px-28 font-inter`}
+      className={`flex flex-col gap-8 lg:flex-row lg:justify-between py-16 px-4 lg:px-28 font-inter bg-gradient-to-r from-[#EEFAFD] to-[#DBF6FF]`}
       style={{
-        background: `url(${faqBg}) left top no-repeat, 
-                     url(${faqBg1}) left top no-repeat,
-                     linear-gradient(180deg, #EEFAFD 0%, #DBF6FF 100%)`,
-        backgroundSize: "contain, contain, cover", // Adjust as needed
+        backgroundImage: `url(${faqBg}) left top no-repeat, 
+                     url(${faqBg1}) left top no-repeat`,
+        backgroundSize: "auto, auto", // Adjust as needed
       }}
     >
       <div className="flex flex-col gap-6 w-full">

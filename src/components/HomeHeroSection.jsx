@@ -81,14 +81,14 @@ const HomeHeroSection = () => {
             </button>
           </Link>
           
-          <Link to={"/pm-fellowship"}>
+          <a href={"https://topmate.io/propel/62841"} target="_blank">
             <button
               // onClick={toggleModal}
-              className="flex items-center gap-2 justify-center text-[16px] font-medium w-[135px] lg:w-[164px] bg-[#FFA0001F] text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-[#B8B8B8]"
+              className="flex items-center gap-2 justify-center text-[16px] font-medium  bg-[#FFA0001F] text-black p-2 py-4 lg:p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-[#B8B8B8]"
               >
-                Book a Demo
+                Meet with 1:1 mentors
             </button>
-          </Link>
+          </a>
           
         </div>
       </div>

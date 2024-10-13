@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
   const DropdownItem = ({ question, content, isOpen, onClick }) => {
       return (
-          <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#111]" : "border border-2 border-transparent"}`}>
+          <div className={`relative bg-white px-6 py-4 rounded-lg transition-all duration-200 ease-in-out ${isOpen ? "border border-2 border-[#E7E7E7]" : "border border-2 border-transparent"}`}>
               <div className="flex justify-between items-center cursor-pointer" onClick={onClick}>
                   <div className='text-[16px] font-semibold text-[#333333]'>
                       <p>{question}</p>
                   </div>
                   <div className=''>
                       <svg
-                          className={`h-6 w-6 transition-transform duration-200 rounded-full ease-in-out ${isOpen ? 'rotate-[0deg] bg-[#111] text-white' : 'text-gray-400 rotate-[-90deg]'}`}
+                          className={`h-6 w-6 transition-transform duration-200 rounded-full text-black ease-in-out ${isOpen ? 'rotate-[180deg]' : 'rotate-[0deg]'}`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
