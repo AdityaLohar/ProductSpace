@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import img1 from "../assets/challenege1.svg";
 import img2 from "../assets/challenege2.svg";
-import img3 from "../assets/challenege3.svg";
-import img4 from "../assets/challenege4.svg";
+import img3 from "../assets/challenege4.svg";
+import img4 from "../assets/challenege3.svg";
 import img5 from "../assets/challenege5.svg";
 
 const questions = [
   "Don't know how to begin in PM ?",
-  "Lack of hands-on PM experience?",
-  "Need interview prep and guidance?",
-  "Struggling to get shortlisted for product roles?",
-  "Unsure how to progress further?",
+  "Lack of prior experience in product management",
+  "Not getting shortlisted for product roles",
+  "Struggling with interview preparation and finding the right guidance",
+  "Already in early stage product-career but unsure how to advance further",
 ];
 
 const contents = [
   "Get structured and customized learning roadmaps designed specifically for your growth.",
-  "Get structured and customized learning roadmaps designed specifically for your growth.",
-  "Get structured and customized learning roadmaps designed specifically for your growth.",
-  "Get structured and customized learning roadmaps designed specifically for your growth.",
-  "Get structured and customized learning roadmaps designed specifically for your growth.",
+  "Participate in live industry projects and master PM tools to become job-ready in just 10 weeks.",
+  "Get your resume directly in the hands of the hiring manager.",
+  "Get expert interview coaching and mentorship from top product leaders in the industry.",
+  "Receive tailored guidance to confidently navigate and accelerate your career progression. | Get 1:1 guidance with our top product leaders",
 ];
 
 const images = [img1, img2, img3, img4, img5];
