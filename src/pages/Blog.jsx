@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
+import JoinNetwork from '../components/JoinNetwork';
+import NewsLetter from '../components/NewsLetter';
 
 const Blog = () => {
   const { id } = useParams(); // Get post ID from the URL
@@ -12,7 +14,6 @@ const Blog = () => {
   // const slug = useParams().slug;
 
   useEffect(() => {
-
     const fetchPost = async () => {
       try {
         const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts?slug=${id}`);
@@ -36,6 +37,20 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
+  // Function to format the date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString); // Convert the string to a Date object
+
+    // Use Intl.DateTimeFormat to format the date
+    const formattedDate = new Intl.DateTimeFormat("en-US", {
+      month: "long", // Full month name
+      day: "2-digit", // 2-digit day
+      year: "numeric", // 4-digit year
+    }).format(date);
+
+    return formattedDate;
+  };
+
   if (loading) {
     return (
       <div className="flex items-center bg-white justify-center h-[80vh]">
@@ -48,24 +63,33 @@ const Blog = () => {
   const canonicalUrl = `https://aspareo.dcms.site/blogs/${post.slug}`;
 
   return (
-    <div className="px-4 sm:px-20 lg:px-60 bg-white">
-      <Helmet>
-        <title>{post.title.rendered}</title>
-        <meta name="description" content={post.excerpt.rendered} />
-        <link rel="canonical" href={canonicalUrl} />
-      </Helmet>
-      {post && (
-        <div className="max-w-3xl mx-auto py-6">
-        <h1 className="text-[24px] lg:text-[36px] font-bold mb-4" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h1>
-  
-        <div
-          className="prose prose-lg text-[16px] lg:text-[18px] font-sans"
-          dangerouslySetInnerHTML={{ __html: post.content.rendered }}  // This renders the HTML content including subheadings
-        />
+    <div>
+      <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter">
+        <Helmet>
+          <title>{post.title.rendered}</title>
+          <meta name="description" content={post.excerpt.rendered} />
+          <link rel="canonical" href={canonicalUrl} />
+        </Helmet>
+        {post && (
+          <div className="max-w-4xl w-full flex flex-col gap-8"> {/* Adjust the max-width as needed */}
+          <div>
+            <h1 className="text-[24px] lg:text-[36px] font-sans font-bold mb-4" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h1>
+            <div className="text-[16px] text-[#667085]">{formatDate(post.date)}</div>
+          </div>
+
+            <div
+            className="prose prose-lg text-[16px] lg:text-[18px] max-w-4xl mx-auto"
+            dangerouslySetInnerHTML={{ __html: post.content.rendered }} // This renders the HTML content including subheadings
+          />
+
+          </div>
+        )}
+
       </div>
-      )}
+
+      <NewsLetter />
     </div>
-  );
+  );  
 };
 
-export default Blog;
+export default Blog;  
