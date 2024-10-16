@@ -46,6 +46,7 @@ const BlogPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [show, setShow] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("All Posts");
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -131,6 +132,8 @@ const BlogPage = () => {
   };
 
   const handleCategoryClick = (clickedTag) => {
+    setActiveCategory(clickedTag);
+
     if(clickedTag == "All Posts") {
       setFilteredPosts(posts);
     }
@@ -193,7 +196,7 @@ const BlogPage = () => {
       <div className="px-4 lg:px-28 custom-12:px-0 py-16 font-hind">
         <div className="flex flex-wrap gap-2 lg:gap-3">
           {uniqueTags.slice(0,show ? uniqueTags.length : 6).map((data, index) => (
-            <button onClick={() => handleCategoryClick(data)} key={index} className="bg-[#21C1F32F] text-[#21C1F3] p-3 rounded-lg"> {/* Use key for list items */}
+            <button onClick={() => handleCategoryClick(data)} key={index} className={`${activeCategory == data ? "bg-[#21C1F35F] text-[#21C1F3]" : "bg-[#21C1F32F] text-[#21C1F3]"} p-3 rounded-lg`}>
               <p>{data}</p> {/* Use curly braces to display the variable */}
             </button>
           ))}
