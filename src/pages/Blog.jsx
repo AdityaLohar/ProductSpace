@@ -9,6 +9,7 @@ const Blog = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [canonicalUrl, setCanonicalUrl] = useState(null);
   // const slug = useParams().slug;
 
   useEffect(() => {
@@ -36,6 +37,12 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
+  useEffect(() => {
+    if (!loading) {
+      setCanonicalUrl(`https://aspareo.dcms.site/blogs/${post.slug}`);
+    }
+  }, [loading]);
+
   if (loading) {
     return (
       <div className="flex items-center bg-white justify-center h-[80vh]">
@@ -45,15 +52,13 @@ const Blog = () => {
   }
   if (error) return <p>Error: {error.message}</p>;
 
-  const canonicalUrl = `https://aspareo.dcms.site/blogs/${post.slug}`;
-
   return (
     <div className="px-4 sm:px-20 lg:px-60 bg-white">
-      <Helmet>
+      {post && <Helmet>
         <title>{post.title.rendered}</title>
         <meta name="description" content={post.excerpt.rendered} />
         <link rel="canonical" href={canonicalUrl} />
-      </Helmet>
+      </Helmet>}
       {post && (
         <div className="max-w-3xl mx-auto py-6">
         <h1 className="text-[24px] lg:text-[36px] font-bold mb-4" dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h1>
