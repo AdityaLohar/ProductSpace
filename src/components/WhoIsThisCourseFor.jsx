@@ -17,7 +17,7 @@ const descriptions = [
 
 const Card = ({ title, desc }) => {
   return (
-    <div className="h-[250px] lg:h-[310px] bg-white flex flex-col rounded-xl p-6 gap-4 hover:shadow hover:shadow-2xl hover:pointer-default">
+    <div className="h-[250px] lg:h-[300px] bg-white flex flex-col rounded-xl p-6 gap-4 hover:shadow hover:shadow-2xl hover:pointer-default">
       <div>
         <img
           src={icon1}
@@ -26,7 +26,7 @@ const Card = ({ title, desc }) => {
         />
       </div>
 
-      <div className="text-[20px] lg:text-[28px] font-semibold">{title}</div>
+      <div className="text-[20px] xl:text-[28px] font-semibold ">{title}</div>
 
       <div>
         {desc}
@@ -71,11 +71,13 @@ const WhoIsThisCourseFor = () => {
             <img src={arrow} alt="" />
           </Link>
 
-          <button
-            className="flex items-center gap-2 justify-center text-[16px] w-3/4 lg:w-[164px] font-medium bg-[#21C1F31F] text-black border border-[#B8B8B8] p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          <a
+            href="https://topmate.io/propel/62841"
+            target="_blank"            
+            className="flex items-center gap-2 justify-center text-[16px] w-3/4 lg:w-[204px] font-medium bg-[#21C1F31F] text-black border border-[#B8B8B8] p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >
-            Book a Call
-          </button>
+            Meet with 1:1 mentors
+          </a>
         </div>
 
     </div>
