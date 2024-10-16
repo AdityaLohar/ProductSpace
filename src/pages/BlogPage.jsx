@@ -199,11 +199,11 @@ const BlogPage = () => {
           ))}
         </div>
 
-        <div className="flex justify-center pt-4">
+        {!loading && <div className="flex justify-center pt-4">
           <button className="bg-gray-200 p-2 rounded-lg" onClick={handleShow}>
             Show {show ? "Less" : "More"}
           </button>
-        </div>
+        </div>}
 
         <div className="text-[24px] lg:text-[28px] font-bold font-sans py-12">
           <h1>All Posts</h1>
