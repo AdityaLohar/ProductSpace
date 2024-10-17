@@ -56,14 +56,6 @@ const caseStudies = [
     desc: "Improve user experience on Meesho to increase the order volume by 15% in 2 months",
     url: "https://www.canva.com/design/DAF87cmuzWk/SSCUOthx5U4Ja4lMu23-jQ/view?utm_content=DAF87cmuzWk&utm_campaign=designshare&utm_medium=link&utm_source=editor#1",
   },
-  {
-    id: 8,
-    title: "Meesho",
-    image:
-      "",
-    desc: "Improve user experience on Meesho to increase the order volume by 15% in 2 months",
-    url: "https://www.canva.com/design/DAF87cmuzWk/SSCUOthx5U4Ja4lMu23-jQ/view?utm_content=DAF87cmuzWk&utm_campaign=designshare&utm_medium=link&utm_source=editor#1",
-  },
 ];
 
 export default caseStudies;
