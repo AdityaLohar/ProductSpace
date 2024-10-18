@@ -109,7 +109,7 @@ const BlogPage = () => {
   const [error, setError] = useState(null);
   const [show, setShow] = useState(0);
   const [activeCategory, setActiveCategory] = useState("All Posts");
-  const [activeSort, setActiveSort] = useState("Alphabetically");
+  const [activeSort, setActiveSort] = useState("Descending");
 
   const [isSortDropdownVisible, setSortDropdownVisible] = useState(false);
   const [isCategoriesDropdownVisible, setCategoriesDropdownVisible] =
@@ -224,9 +224,28 @@ const BlogPage = () => {
     }
   };
 
-  const handleSortClick = (clickedTag) => {
-    setActiveSort(clickedTag);
+  const handleSortClick = (sortOption) => {
+    setActiveSort(sortOption);
+
+    let sortedPosts = [...filteredPosts]; // Create a copy of filteredPosts to avoid direct mutation
+  
+    if (sortOption === "Alphabetically") {
+      sortedPosts.sort((a, b) => {
+        return a.title.rendered.localeCompare(b.title.rendered);
+      });
+    } else if (sortOption === "Ascending") {
+      sortedPosts.sort((a, b) => {
+        return new Date(a.date) - new Date(b.date); // Sort by date in ascending order (earliest first)
+      });
+    } else if (sortOption === "Descending") {
+      sortedPosts.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date); // Sort by date in descending order (latest first)
+      });
+    }
+  
+    setFilteredPosts(sortedPosts); // Update the state with the sorted array
   };
+
 
   const handleShow = () => {
     setShow(!show);
