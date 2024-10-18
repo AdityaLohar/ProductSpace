@@ -40,7 +40,7 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="bg-white px-4 md:px-10 xl:px-32 pt-10 lg:pt-10 pb-16 font-inter">
+    <div className="bg-transparent px-4 md:px-10 xl:px-32 pt-10 lg:pt-10 pb-16 font-inter">
       <div
         className="hidden lg:flex bg-black text-white flex-col py-12 rounded-2xl max-w-[1180px] mx-auto items-between justify-between text-center gap-6"
         style={{

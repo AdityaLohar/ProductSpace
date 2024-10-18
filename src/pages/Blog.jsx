@@ -12,7 +12,7 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [canonicalUrl, setCanonicalUrl] = useState(null);
-  // const slug = useParams().slug;
+  const [tags, setTags] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -44,6 +44,31 @@ const Blog = () => {
   useEffect(() => {
     if (!loading) {
       setCanonicalUrl(`https://aspareo.dcms.site/blogs/${post.slug}`);
+
+      const fetchTags = async () => {
+        try {
+          // Fetch tags for the specific post using post.id
+          const response = await fetch(
+            `https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/tags?post=${post.id}`
+          );
+      
+          const data = await response.json();
+      
+          // Extract tag names from the response (assuming it's an array)
+          const tagData = data.map((entry) => entry?.name); // Get tag names
+      
+          // Update state with the tags for this specific post
+          setTags(tagData);
+      
+        } catch (error) {
+          console.error('Error fetching tags:', error);
+          setError(error);
+          setLoading(false);
+        }
+      };
+      
+
+      fetchTags();
     }
   }, [loading]);
 
@@ -83,23 +108,38 @@ const Blog = () => {
           </Helmet>
         )}
 
-        {post && (
+        {post && tags && (
           <div className="max-w-4xl w-full flex flex-col gap-8">
             {" "}
             {/* Adjust the max-width as needed */}
-            <div>
+            <div className="flex flex-col gap-3">
               <h1
-                className="text-[24px] lg:text-[36px] font-sans font-bold mb-4"
+                className="text-[24px] lg:text-[36px] font-sans font-bold"
                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
               ></h1>
+
               <div className="text-[16px] text-[#667085]">
                 {formatDate(post.date)}
               </div>
+
+              <div className="flex flex-wrap gap-1">
+                {tags.map((tag, index) => (
+                  <p
+                    key={index}
+                    className="bg-[#E7F7FC] border border-[#013B4D3D] text-black p-2 rounded-lg"
+                  >
+                    {tag}  {/* Render the tag content instead of "hello" */}
+                  </p>
+                ))}
+              </div>
+
             </div>
+            
             <div
               className="prose prose-lg text-[16px] lg:text-[18px] max-w-4xl mx-auto"
               dangerouslySetInnerHTML={{ __html: post.content.rendered }} // This renders the HTML content including subheadings
             />
+          
           </div>
         )}
       </div>
