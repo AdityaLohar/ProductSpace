@@ -19,9 +19,9 @@ import ContactUsForm from "./components/ContactUsForm";
 import { RecoilRoot } from "recoil";
 import { HelmetProvider } from "react-helmet-async";
 import TermsAndConditions from "./pages/TermsAndConditions";
-import PrivacyPolicy from './PrivacyPolicy';
-import RefundPolicy from './RefundPolicy';
-import ContactUs from './ContactUs';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import RefundPolicy from './pages/RefundPolicy';
+import ContactUs from './pages/ContactUs';
 import CaseStudiesPage from "./pages/CaseStudiesPage";
 
 function App() {

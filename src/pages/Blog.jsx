@@ -1,9 +1,6 @@
-// src/pages/BlogPostPage.js
-
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import JoinNetwork from "../components/JoinNetwork";
 import NewsLetter from "../components/NewsLetter";
 
 const Blog = () => {

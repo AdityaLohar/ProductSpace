@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import caseStudies from "../data/CaseStudiesData";
 import arrowLight from "../assets/right-arrow.svg";
 import arrowDark from "../assets/right-arrow-dark.svg";
-import { Link } from "react-router-dom";
 
 const CaseStudyCard = ({ logo, title, desc, url }) => {
   const [isHovered, setIsHovered] = useState(false);
