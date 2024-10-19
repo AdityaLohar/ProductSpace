@@ -109,13 +109,13 @@ const BlogPage = () => {
   const [error, setError] = useState(null);
   const [show, setShow] = useState(0);
   const [activeCategory, setActiveCategory] = useState("All Posts");
-  const [activeSort, setActiveSort] = useState("Descending");
+  const [activeSort, setActiveSort] = useState("Newest To Oldest");
 
   const [isSortDropdownVisible, setSortDropdownVisible] = useState(false);
   const [isCategoriesDropdownVisible, setCategoriesDropdownVisible] =
     useState(false);
 
-  const sortList = ["Alphabetically", "Ascending", "Descending"];
+  const sortList = ["Alphabetically", "Newest To Oldest", "Most Popular", "Featured Articles"];
 
   const toggleSortDropdown = () => {
     setSortDropdownVisible(!isSortDropdownVisible);
@@ -233,11 +233,8 @@ const BlogPage = () => {
       sortedPosts.sort((a, b) => {
         return a.title.rendered.localeCompare(b.title.rendered);
       });
-    } else if (sortOption === "Ascending") {
-      sortedPosts.sort((a, b) => {
-        return new Date(a.date) - new Date(b.date); // Sort by date in ascending order (earliest first)
-      });
-    } else if (sortOption === "Descending") {
+    }  
+    else if (sortOption === "Newest To Oldest") {
       sortedPosts.sort((a, b) => {
         return new Date(b.date) - new Date(a.date); // Sort by date in descending order (latest first)
       });
@@ -252,7 +249,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="font-inter max-w-screen-2xl mx-auto space-y-4 lg:space-y-8 bg-gradient-to-b from-[#26CBFF13] via-[#FFFFFF] to-[#26CBFF13]">
+    <div className="font-inter max-w-screen-2xl mx-auto space-y-4 lg:space-y-8 bg-gradient-to-b from-[#26CBFF23] via-[#FFFFFF] to-[#26CBFF23]">
       <div className="px-4 lg:px-28 pt-2 lg:pt-12">
         <div className="py-8 text-start space-y-4">
           <h1 className="text-[28px] lg:text-[40px] font-sans font-bold">
@@ -408,16 +405,6 @@ const BlogPage = () => {
           <div className="flex gap-1 text-[16px] items-center">
             <img src={recentPosts} alt="" />
             <p>Recent Posts</p>
-          </div>
-
-          <div>
-            <Link
-              to={"/blogs"}
-              className="flex gap-2 border rounded-lg p-2 lg:p-3 text-[14px] lg:text-[16px] transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-            >
-              <p>Read more</p>
-              <img src={arrowDark} alt="" />
-            </Link>
           </div>
         </div>
 
