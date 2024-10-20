@@ -9,7 +9,7 @@ const BottomBar = () => {
   const carouselItems = [
     { title: "Course Duration", subtitle: "10 Weeks" },
     { title: "Time commitment", subtitle: "6-8 hrs/weeks" },
-    { title: "Next cohort starts on", subtitle: "19th October" },
+    { title: "Next cohort starts on", subtitle: "7th December" },
     { title: "Mode of delivery", subtitle: "Online" },
     { title: "Seats filling fast", subtitle: "" },
   ];
@@ -59,7 +59,7 @@ const BottomBar = () => {
                 Next cohort starts on
               </div>
               <div className="font-bold border-l border-l-2 border-[#21C1F3] px-2">
-                19th October
+                7th December
               </div>
             </div>
             <div>
