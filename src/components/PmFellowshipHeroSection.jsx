@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 import DownloadCurriculumForm from "./DownloadCurriculumForm";
 
+
 const PmFellowshipHeroSection = () => {
   const [bgImages, setBgImages] = useState([disco1, disco2, disco3]);
   const [opacity, setOpacity] = useState([1, 0, 0]);
@@ -83,7 +84,7 @@ const PmFellowshipHeroSection = () => {
             <div className="flex justify-around lg:justify-start gap-10 text-[16px]">
               <div>
                 <div className="text-[16px]">Start Date</div>
-                <div className="font-semibold text-[#00B5CE]">Dec 7, 2024</div>
+                <div className="font-semibold text-[#00B5CE]">Nov 30, 2024</div>
               </div>
               <div>
                 <div className="text-[16px]">Duration</div>
