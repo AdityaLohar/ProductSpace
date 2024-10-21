@@ -108,14 +108,14 @@ const BlogCard = ({ post, formatDate, tag }) => {
               </div>
             </div>
             <div className="flex justify-between gap-4">
-              <button className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
+              <div className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
                 <img src={likeIcon} alt="" />
                 <p>24</p>
-              </button>
-              <button className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
+              </div>
+              <div className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
                 <img src={bookmarkIcon} alt="" />
                 <p>24</p>
-              </button>
+              </div>
               <button
                 onClick={togglePopup}
                 className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center"
