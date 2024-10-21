@@ -70,7 +70,7 @@ const BlogCard = ({ post, formatDate, tag }) => {
         className="flex flex-col-reverse lg:flex-row justify-between gap-2 lg:gap-12"
       >
         <div className="flex flex-col py-4 gap-4 lg:gap-8 w-full lg:w-3/4">
-          <div className="flex flex-col gap-6">
+          <Link to={`/blogs/${post.slug}`} className="flex flex-col gap-6">
             <h2
               className="text-[20px] lg:text-[28px] font-bold"
               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
@@ -87,9 +87,9 @@ const BlogCard = ({ post, formatDate, tag }) => {
                 __html: post.excerpt.rendered.slice(0, 100) + "...",
               }}
             ></p>
-          </div>
+          </Link>
 
-          <div className="flex flex-col  lg:flex-row justify-between gap-4 lg:gap-0">
+          <div className="flex flex-col lg:flex-row justify-between gap-4 lg:gap-0">
             <div className="flex flex-col lg:flex-row gap-4 lg:items-center text-[13px]">
               <div className="flex flex-wrap lg:flex-row gap-3">
                 {tag &&
@@ -175,13 +175,13 @@ const BlogCard = ({ post, formatDate, tag }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/4">
+        <Link to={`/blogs/${post.slug}`} className="w-full lg:w-1/4">
           <img
             src={post.jetpack_featured_media_url || missingImg}
             alt={post.title.rendered}
             className="w-full h-[200px] lg:h-[250px] object-cover rounded-xl"
           />
-        </div>
+        </Link>
       </div>
     </div>
   );
