@@ -28,7 +28,13 @@ const BlogCard = ({ post, formatDate, tag }) => {
               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
             ></h2>
             <p
-              className="text-[18px] text-[#232E52]"
+              className="hidden lg:flex text-[18px] text-[#232E52]"
+              dangerouslySetInnerHTML={{
+                __html: post.excerpt.rendered.slice(0,300) + "...",
+              }}
+            ></p>
+            <p
+              className="lg:hidden text-[18px] text-[#232E52]"
               dangerouslySetInnerHTML={{
                 __html: post.excerpt.rendered.slice(0, 100) + "...",
               }}
