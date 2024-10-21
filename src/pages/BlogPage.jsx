@@ -110,11 +110,11 @@ const BlogCard = ({ post, formatDate, tag }) => {
             <div className="flex justify-between gap-4">
               <div className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
                 <img src={likeIcon} alt="" />
-                <p>24</p>
+                <p>{Math.floor(Math.random() * (300 - 200 + 1)) + 200}</p>
               </div>
               <div className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
                 <img src={bookmarkIcon} alt="" />
-                <p>24</p>
+                <p>{Math.floor(Math.random() * (300 - 200 + 1)) + 200}</p>
               </div>
               <button
                 onClick={togglePopup}
