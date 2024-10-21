@@ -10,15 +10,63 @@ import arrowDark from "../assets/right-arrow-dark.svg";
 import shareIcon from "../assets/share.svg";
 import likeIcon from "../assets/like-outline.svg";
 import bookmarkIcon from "../assets/bookmark-outline.svg";
+import copyIcon from "../assets/copy.svg";
+import whatsappIcon from "../assets/whatsapp.svg";
+import emailIcon from "../assets/email.svg";
+import facebookIcon from "../assets/facebook.svg";
 
 let missingImg =
   "https://substackcdn.com/image/fetch/w_848,h_565,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcb250a4e-ba34-4f22-ade7-4b6babb20c05_1280x861.png";
 
 const BlogCard = ({ post, formatDate, tag }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const togglePopup = () => {
+    setCopied(false);
+    setIsOpen(!isOpen);
+  };
+
+  const currentUrl = `theproductspace.in/blogs/${post.slug}`;
+
+  const handleShare = (platform) => {
+    let shareUrl = "";
+
+    switch (platform) {
+      case "facebook":
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
+      case "instagram":
+        // Instagram doesn't allow direct sharing via URL; users have to share manually on their app
+        alert("Please share this link manually on Instagram.");
+        return;
+      case "whatsapp":
+        shareUrl = `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
+        break;
+      case "copy":
+        navigator.clipboard.writeText(currentUrl);
+        setCopied(true);
+        break;
+      case "email":
+        shareUrl = `mailto:?subject=Check this out&body=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
+      default:
+        break;
+    }
+
+    if (shareUrl) {
+      window.open(shareUrl, "_blank");
+    }
+  };
+
   return (
-    <div className="w-full rounded-xl overflow-hidden p-4 border border-[#E8E8EA] font-inter">
-      <Link
-        to={`/blogs/${post.slug}`}
+    <div className="relative w-full rounded-xl p-4 border border-[#E8E8EA] font-inter">
+      <div
+        // to={`/blogs/${post.slug}`}
         className="flex flex-col-reverse lg:flex-row justify-between gap-2 lg:gap-12"
       >
         <div className="flex flex-col py-4 gap-4 lg:gap-8 w-full lg:w-3/4">
@@ -30,7 +78,7 @@ const BlogCard = ({ post, formatDate, tag }) => {
             <p
               className="hidden lg:flex text-[18px] text-[#232E52]"
               dangerouslySetInnerHTML={{
-                __html: post.excerpt.rendered.slice(0,300) + "...",
+                __html: post.excerpt.rendered.slice(0, 300) + "...",
               }}
             ></p>
             <p
@@ -68,9 +116,61 @@ const BlogCard = ({ post, formatDate, tag }) => {
                 <img src={bookmarkIcon} alt="" />
                 <p>24</p>
               </button>
-              <button className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
+              <button
+                onClick={togglePopup}
+                className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center"
+              >
                 <img src={shareIcon} alt="" />
               </button>
+
+              {/* Popup for sharing options */}
+              {isOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+                  <div className="w-[80%] lg:w-[20%] bg-white border border-gray-300 shadow-lg rounded-lg py-4 z-30">
+                    <div className="text-center font-semibold text-[20px] pb-6">
+                      Share with friends
+                    </div>
+
+                    <div className="flex flex-col gap-2 px-4">
+                      <button
+                        onClick={() => handleShare("copy")}
+                        className="flex items-center justify-start gap-5 pl-3 pb-2"
+                      >
+                        <img src={copyIcon} alt="Copy Link" />
+                        <p>{copied ? "Link Copied" : "Copy Link"}</p>
+                      </button>
+
+                      <button
+                        onClick={() => handleShare("facebook")}
+                        className="flex items-center justify-start gap-2"
+                      >
+                        <img src={facebookIcon} alt="Facebook" />
+                        <p>Share to Facebook</p>
+                      </button>
+                      <button
+                        onClick={() => handleShare("email")}
+                        className="flex items-center justify-start gap-2"
+                      >
+                        <img src={emailIcon} alt="Email" />
+                        <p>Share via Email</p>
+                      </button>
+
+                      <button
+                        onClick={() => handleShare("whatsapp")}
+                        className="flex items-center justify-start gap-2"
+                      >
+                        <img src={whatsappIcon} alt="WhatsApp" />
+                        <p>Share to WhatsApp</p>
+                      </button>
+                    </div>
+
+                    <div className="mx-3">
+                      <button onClick={togglePopup} className="w-full rounded-xl text-center p-3 bg-[#EEEEEF]">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
             </div>
           </div>
         </div>
@@ -82,7 +182,7 @@ const BlogCard = ({ post, formatDate, tag }) => {
             className="w-full h-[200px] lg:h-[250px] object-cover rounded-xl"
           />
         </div>
-      </Link>
+      </div>
     </div>
   );
 };
