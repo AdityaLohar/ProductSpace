@@ -7,6 +7,9 @@ import trending from "../assets/trending.svg";
 import filterIcon from "../assets/filter_alt.svg";
 import recentPosts from "../assets/recent-posts.svg";
 import arrowDark from "../assets/right-arrow-dark.svg";
+import shareIcon from "../assets/share.svg";
+import likeIcon from "../assets/like-outline.svg";
+import bookmarkIcon from "../assets/bookmark-outline.svg";
 
 let missingImg =
   "https://substackcdn.com/image/fetch/w_848,h_565,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcb250a4e-ba34-4f22-ade7-4b6babb20c05_1280x861.png";
@@ -16,7 +19,7 @@ const BlogCard = ({ post, formatDate, tag }) => {
     <div className="w-full rounded-xl overflow-hidden p-4 border border-[#E8E8EA] font-inter">
       <Link
         to={`/blogs/${post.slug}`}
-        className="flex flex-col lg:flex-row justify-between gap-2 lg:gap-12"
+        className="flex flex-col-reverse lg:flex-row justify-between gap-2 lg:gap-12"
       >
         <div className="flex flex-col py-4 gap-4 lg:gap-8 w-full lg:w-3/4">
           <div className="flex flex-col gap-6">
@@ -26,25 +29,42 @@ const BlogCard = ({ post, formatDate, tag }) => {
             ></h2>
             <p
               className="text-[18px] text-[#232E52]"
-              dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+              dangerouslySetInnerHTML={{
+                __html: post.excerpt.rendered.slice(0, 100) + "...",
+              }}
             ></p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-4 lg:items-center text-[13px]">
-            <div className="flex flex-wrap lg:flex-row gap-3">
-              {tag &&
-                tag.slice(0, 2).map((entry, index) => (
-                  <p
-                    key={index}
-                    className="bg-[#E7F7FC] border border-[#013B4D3D] text-black p-2 rounded-lg"
-                  >
-                    {entry}
-                  </p>
-                ))}
-            </div>
+          <div className="flex flex-col  lg:flex-row justify-between gap-4 lg:gap-0">
+            <div className="flex flex-col lg:flex-row gap-4 lg:items-center text-[13px]">
+              <div className="flex flex-wrap lg:flex-row gap-3">
+                {tag &&
+                  tag.slice(0, 2).map((entry, index) => (
+                    <p
+                      key={index}
+                      className="bg-[#E7F7FC] border border-[#013B4D3D] text-black p-2 rounded-lg"
+                    >
+                      {entry}
+                    </p>
+                  ))}
+              </div>
 
-            <div className="text-black font-semibold">
-              {formatDate(post.date)}
+              <div className="text-black font-semibold">
+                {formatDate(post.date)}
+              </div>
+            </div>
+            <div className="flex justify-between gap-4">
+              <button className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
+                <img src={likeIcon} alt="" />
+                <p>24</p>
+              </button>
+              <button className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
+                <img src={bookmarkIcon} alt="" />
+                <p>24</p>
+              </button>
+              <button className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
+                <img src={shareIcon} alt="" />
+              </button>
             </div>
           </div>
         </div>
@@ -53,7 +73,7 @@ const BlogCard = ({ post, formatDate, tag }) => {
           <img
             src={post.jetpack_featured_media_url || missingImg}
             alt={post.title.rendered}
-            className="w-full lg:h-[250px] object-cover rounded-xl"
+            className="w-full h-[200px] lg:h-[250px] object-cover rounded-xl"
           />
         </div>
       </Link>
@@ -115,7 +135,12 @@ const BlogPage = () => {
   const [isCategoriesDropdownVisible, setCategoriesDropdownVisible] =
     useState(false);
 
-  const sortList = ["Alphabetically", "Newest To Oldest", "Most Popular", "Featured Articles"];
+  const sortList = [
+    "Alphabetically",
+    "Newest To Oldest",
+    "Most Popular",
+    "Featured Articles",
+  ];
 
   const toggleSortDropdown = () => {
     setSortDropdownVisible(!isSortDropdownVisible);
@@ -228,21 +253,19 @@ const BlogPage = () => {
     setActiveSort(sortOption);
 
     let sortedPosts = [...filteredPosts]; // Create a copy of filteredPosts to avoid direct mutation
-  
+
     if (sortOption === "Alphabetically") {
       sortedPosts.sort((a, b) => {
         return a.title.rendered.localeCompare(b.title.rendered);
       });
-    }  
-    else if (sortOption === "Newest To Oldest") {
+    } else if (sortOption === "Newest To Oldest") {
       sortedPosts.sort((a, b) => {
         return new Date(b.date) - new Date(a.date); // Sort by date in descending order (latest first)
       });
     }
-  
+
     setFilteredPosts(sortedPosts); // Update the state with the sorted array
   };
-
 
   const handleShow = () => {
     setShow(!show);
@@ -397,7 +420,6 @@ const BlogPage = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
 

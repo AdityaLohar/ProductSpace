@@ -23,6 +23,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import RefundPolicy from './pages/RefundPolicy';
 import ContactUs from './pages/ContactUs';
 import CaseStudiesPage from "./pages/CaseStudiesPage";
+import Events from "./pages/Events";
 
 function App() {
   const location = useLocation();
@@ -47,6 +48,7 @@ function App() {
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

@@ -1,6 +1,6 @@
 import { FaDiscord, FaLinkedinIn } from "react-icons/fa";
 import logo from "../assets/ps-logo.svg";
-import footerLogo from "../assets/footer-logo.svg";
+import substackLogo from "../assets/substack-logo.svg";
 import linkedin from "../assets/linkedin-circle.svg";
 import "react-toastify/dist/ReactToastify.css";
 import footerBg from "../assets/footer bg.png";
@@ -76,7 +76,7 @@ const Footer = () => {
             <div className="flex gap-4 text-gray-400">
                 <div>
                     <a href="https://theproductspace.substack.com" target="_blank" className="flex items-center gap-2">
-                      <img src={footerLogo} alt="" className="h-8 w-8" />
+                      <img src={substackLogo} alt="" className="h-8 w-8" />
                     </a>
                 </div>
                 <div>

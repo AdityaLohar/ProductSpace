@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import policies from "./data/privacyPolicyData";
+import policies from "../data/privacyPolicyData";
 
 const Section = ({ title, content }) => {
   return (
