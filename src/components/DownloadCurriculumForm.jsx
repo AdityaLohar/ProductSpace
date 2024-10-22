@@ -83,7 +83,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
  
-    window.location.href = "https://drive.google.com/file/d/1hnTMLSTvedhPv5FYqV2hRLdqq1SguutG/view?usp=drive_link";
+    window.location.href = "https://drive.google.com/file/d/1eCG-mFkEEk5ZfSWAbAv40PB0vLpzAYrh/view?usp=drivesdk";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
