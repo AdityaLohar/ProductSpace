@@ -8,8 +8,9 @@ export default {
         hind: ["Hind Madurai", "sans-serif"],
         satoshi: ["Satoshi", "sans-serif"],
         inter: ["Inter", "sans-serif"],
+        restora: ["Restora", "Inter"], // Added Restora with serif fallback
         serif: ["sans-serif"],
-      },
+      },      
       animation: {
         "loop-scroll": "loop-scroll 200s linear infinite",
       },

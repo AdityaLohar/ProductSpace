@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import hackathonImg from "../assets/prime-video.svg";
 import arrowIcon from "../assets/right-arrow.svg";
 import locationIcon from "../assets/location.svg";
@@ -13,15 +13,79 @@ import slackIcon from "../assets/slack.svg";
 import bookmarkIcon from "../assets/bookmark-icon.svg";
 import FaqEvents from "./FaqEvents";
 import bgBlue from "../assets/blue-bg.png";
+import hackBg from "../assets/event-hack-bg.svg";
 import linkIcon from "../assets/link-icon.svg";
+import eventsBg from "../assets/events-bg.png";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 
-// change component name
-// hackathon name + img + tags dynamic
-// register now redirection ?
-// where does it go in small screens ?
+const timelines = [
+  {
+    title: "Registration",
+    startDateNumber: 18,
+    startDateMonth: "Oct 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  },
+  {
+    title: "Hackathon Kickoff Session",
+    startDateNumber: 4,
+    startDateMonth: "Nov 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  },
+  {
+    title: "Start your 7 Day Streak for Learning Challenge",
+    startDateNumber: 5,
+    startDateMonth: "Nov 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  },
+  {
+    title: "Doubt clearing session",
+    startDateNumber: 7,
+    startDateMonth: "Nov 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  },
+  {
+    title: "Submission Day",
+    startDateNumber: 10,
+    startDateMonth: "Nov 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  },
+  {
+    title: "Result Day",
+    startDateNumber: 13,
+    startDateMonth: "Nov 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  },
+  {
+    title: "Get detailed feedback on your work",
+    startDateNumber: "13-16",
+    startDateMonth: "Nov 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  },
+  {
+    title: "Demo Day For Top 5 Teams",
+    startDateNumber: 17,
+    startDateMonth: "Nov 24",
+    endDate: "28 Oct 24",
+    endTime: "12:30 AM",
+    startTime: "05:30 AM"
+  }
+];  
 
 const EventInfo = ({ icon, title, desc }) => {
   return (
@@ -49,21 +113,154 @@ const EventBenefit = ({ title, desc }) => {
   );
 };
 
+const TimelineCard = ({title, startDateNumber, startDateMonth, endDate, endTime, startTime, flag}) => {
+  return (
+    <div className="flex text-[#383838] gap-4"> 
+      <div className="flex flex-col gap-2">
+        <div>
+          <div className="bg-[#DBEBFC] font-semibold py-1 w-[60px] text-center rounded-t-xl text-[20px]">
+            {startDateNumber}
+          </div>
+          <div className="bg-[#EDF5FE] py-1 w-[60px] text-center rounded-b-xl text-[12px] text-[#5D5D5D]">
+            {startDateMonth}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 bg-white text-white h-full">
+          <div className={`${flag ? "border-r-2 border-[#0073E6]" : ""}`}>18</div>
+          <div>Oct</div>
+        </div>
+      </div>
+
+      <div className="flex justify-between p-4 border border-[#E2E2E2] shadow shadow-md w-full rounded-xl text-[12px]">
+        <div className="flex flex-col gap-3">
+          <div className="text-[16px] font-semibold">
+            {title}
+          </div>
+
+          <div className="flex flex-col gap-1 text-[#5D5D5D]">
+            <div>
+              Start : <span>{startDateNumber} {startDateMonth}, {startTime} </span>
+            </div>
+            <div>
+              End : <span>{endDate}, {endTime} </span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          Live
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const HackathonRegisterationForm = ({togglePopup}) => {
+  return (
+    <div className="mt-16 pt-10 px-12 pb-12 bg-white rounded-xl">
+      <div className="flex justify-end">
+        <button onClick={togglePopup}>
+          ✖
+        </button>
+      </div>
+
+      <div className="flex flex-col gap-8">
+        <div className="text-[#120D26] font-semibold text-[24px] font-inter">
+          <h2>Fill the form to Register</h2>
+        </div>
+
+        <div className="flex flex-col gap-8">
+          <div className="relative">
+            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+              Name*
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
+            />
+          </div>
+
+          <div className="relative">
+            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+              Email Address
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
+            />
+          </div>
+
+          <div className="flex gap-3">
+            <div className="relative">
+              <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+                Contact Number
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
+              />
+            </div>
+            <div className="relative">
+              <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+                Designation
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
+              />
+            </div>
+          </div>
+
+          <div className="relative">
+            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+              Company/College
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
+            />
+          </div>
+
+          <div>
+            <button onClick={togglePopup} className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ">
+              <p className="text-[20px] font-medium">Register Now</p>
+              <img src={arrowIcon} alt="icon" />
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const Event1 = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    console.log("open");
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div
-      className="max-w-screen-2xl mx-auto flex flex-col gap-4 lg:gap-10 font-inter bg-transparent py-8 lg:py-16 text-[#120D26]"
+      className="max-w-screen-2xl mx-auto flex flex-col gap-4 lg:gap-16 font-inter bg-transparent py-8 lg:py-16 text-[#120D26]"
       style={{
-        backgroundImage: `radial-gradient(circle, #E6E7E7 1px, transparent 2px), url(${bgBlue})`,
-        backgroundSize: "115px 10px, contain", // Specify sizes for each background
-        backgroundPosition: "0 0, top", // Specify positions for each background
-        backgroundRepeat: "repeat, no-repeat", // Specify repeat behavior for each background
-      }}
+        backgroundImage: `url(${eventsBg}), radial-gradient(circle, #E6E7E7 1px, transparent 2px)`, // Swap the order of backgrounds
+        backgroundSize: "contain, 115px 10px", // Specify sizes for each background
+        backgroundPosition: "top, 0 0", // Specify positions for each background
+        backgroundRepeat: "no-repeat, repeat", // Specify repeat behavior for each background
+      }}      
     >
       <div className="text-[20px] lg:text-[48px] text-center font-bold">
-        <h1 className="flex justify-center items-center gap-4">
-          <img src={bookmarkIcon} alt="" className="w-10 lg:w-14" />
-          <p>PS Live PM Project #1</p>
+        <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
+          The <span className="font-restora">Most Happening Product Event</span> in Nov&apos; 2024
         </h1>
       </div>
 
@@ -72,15 +269,15 @@ const Event1 = () => {
           <div className="flex flex-col gap-8">
             <div>
               <img
-                src={demoImg}
+                src={hackBg}
                 alt=""
                 className="h-[200px] sm:h-[300px] lg:h-[457px] w-full object-cover rounded-xl"
               />
             </div>
 
-            <div className="text-[16px] lg:text-[20px] text-[#969696]">
-              Dont just learn product management - experience it!
-              {/* Dont just learn product management - experience it! 🚀 */}
+            <div className="text-[16px] lg:text-[24px] text-[#24304C] font-bold">
+            Join the Ultimate Product Management Challenge - <br /> 
+            <span className="font-semibold italic">Innovate, Collaborate, and Win Big !</span> 
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between gap-3">
@@ -97,29 +294,9 @@ const Event1 = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
-              Speakers
-            </div>
-            <div className="flex gap-2 text-[18px] lg:gap-5">
-              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
-                <img src={linkedInIcon} alt="" className="h-8 lg:h-12" />
-                <p>Speaker 1</p>
-              </div>
-              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
-                <img src={substackIcon} alt="" className="h-8 lg:h-12" />
-                <p>Speaker 2</p>
-              </div>
-              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
-                <img src={slackIcon} alt="" className="h-8 lg:h-12" />
-                <p>Speaker 3</p>
-              </div>
-            </div>
-          </div>
-
           <div className="flex flex-col gap-4 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              What is PM Hackathon
+              What is Product Management Hackathon
             </div>
             <div className="text-[#969696]">
               It&apos;s a unique, immersive program designed by Product Space
@@ -128,6 +305,91 @@ const Event1 = () => {
               Product Managers with practical, hands-on experience, build your
               PM skills and enhance your product portfolio.
             </div>
+          </div>
+
+          <div className="flex flex-col gap-4 text-[16px] lg:text-[20px]">
+            <div className="text-[16px] lg:text-[18px] font-medium text-[#969696]">
+              <img src="" alt="" />
+              <p>STAGES AND TIMELINES</p>
+            </div>
+            <div className="flex flex-col gap-8 text-[#969696]">
+              {timelines.map((event, index) => (
+                <TimelineCard 
+                  key={index}
+                  title={event.title} 
+                  startDateNumber={event.startDateNumber} 
+                  startDateMonth={event.startDateMonth} 
+                  endDate={event.endDate} 
+                  endTime={event.endTime} 
+                  startTime={event.startTime} 
+                  flag={index == timelines.length - 1 ? 0 : 1}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
+            <div className="text-[20px] lg:text-[28px] font-semibold">
+              Who Should Join ?
+            </div>
+            <ul className="flex flex-col gap-8 font-semibold list-disc ml-8">
+              <li>
+                Current PMs & APMs{" "}
+                <span className="font-normal text-[#969696]">
+                  seeking to upskill and tackle new challenges.
+                </span>
+              </li>
+              <li>
+                Aspiring PMs{" "}
+                <span className="font-normal text-[#969696]">
+                  looking to break into PM role with practical experience.
+                </span>
+              </li>
+              <li>
+                Recent Graduates & MBA Students{" "}
+                <span className="font-normal text-[#969696]">
+                  seeking to upskill and tackle new challenges.
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
+            <div className="text-[20px] lg:text-[28px] font-semibold">
+              Why Participate ?
+            </div>
+            <ul className="flex flex-col gap-8 font-semibold list-disc ml-8">
+              <li>
+                Solve Real-World Problems: {" "}
+                <span className="font-normal text-[#969696]">
+                  Tackle industry challenges provided by leading companies, offering you hands-on experience that goes beyond theory.
+                </span>
+              </li>
+              <li>
+                Gain Expert Mentorship: {" "}
+                <span className="font-normal text-[#969696]">
+                Collaborate with top product leaders who will guide and mentor you throughout the event, helping you sharpen your ideas.
+                </span>
+              </li>
+              <li>
+                Network with Industry Professionals: {" "}
+                <span className="font-normal text-[#969696]">
+                Meet like-minded participants, product experts, and potential employers who can accelerate your career.
+                </span>
+              </li>
+              <li>
+                Earn Recognition & Prizes: {" "}
+                <span className="font-normal text-[#969696]">
+                Stand out with innovative solutions and earn exciting rewards, including cash prizes, certificates, and potential job or internship offers.
+                </span>
+              </li>
+              <li>
+                Boost Your Portfolio: {" "}
+                <span className="font-normal text-[#969696]">
+                Add this high-impact experience to your resume and demonstrate your ability to think, innovate, and execute in real-world situations.
+                </span>
+              </li>
+            </ul>
           </div>
 
           <div className="flex flex-col gap-6">
@@ -172,45 +434,22 @@ const Event1 = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
+          <div className="flex flex-col gap-2">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Who Is It For:
+              Judges
             </div>
-            <ul className="flex flex-col gap-8 font-semibold list-disc ml-8">
-              <li>
-                Current PMs & APMs{" "}
-                <span className="font-normal text-[#969696]">
-                  seeking to upskill and tackle new challenges.
-                </span>
-              </li>
-              <li>
-                Aspiring PMs{" "}
-                <span className="font-normal text-[#969696]">
-                  looking to break into PM role with practical experience.
-                </span>
-              </li>
-              <li>
-                Recent Graduates & MBA Students{" "}
-                <span className="font-normal text-[#969696]">
-                  seeking to upskill and tackle new challenges.
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
-              How It Works:
-            </div>
-            <div className="flex flex-col gap-4 text-[#969696]">
-              <div>1. Register for the Live PM Project.</div>
-              <div>
-                2. Start your project. Join our Slack community for support and
-                collaboration.
+            <div className="flex gap-2 text-[18px] lg:gap-5">
+              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
+                <img src={linkedInIcon} alt="" className="h-8 lg:h-12" />
+                <p>Soni Vora</p>
               </div>
-              <div>3. Submit your project and get it evaluated by mentors.</div>
-              <div>
-                4. Earn your certificate of project completion and achievement.
+              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
+                <img src={substackIcon} alt="" className="h-8 lg:h-12" />
+                <p>Pamit Anand</p>
+              </div>
+              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
+                <img src={slackIcon} alt="" className="h-8 lg:h-12" />
+                <p>Arun Nandewal</p>
               </div>
             </div>
           </div>
@@ -263,6 +502,24 @@ const Event1 = () => {
                 <img src={linkIcon} alt="" className="h-5" />
                 <p>Notion Link</p>
             </a>
+          </div>
+
+
+          <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
+            <div className="text-[20px] lg:text-[28px] font-semibold">
+              Event Agenda
+            </div>
+            <div className="flex flex-col gap-4 text-[#969696]">
+              <div>1. Register for the Live PM Project.</div>
+              <div>
+                2. Start your project. Join our Slack community for support and
+                collaboration.
+              </div>
+              <div>3. Submit your project and get it evaluated by mentors.</div>
+              <div>
+                4. Earn your certificate of project completion and achievement.
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
@@ -348,7 +605,7 @@ const Event1 = () => {
             </div>
 
             <div className="">
-              <button className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ">
+              <button onClick={togglePopup} className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ">
                 <p className="text-[20px] font-medium">Register Now</p>
                 <img src={arrowIcon} alt="icon" />
               </button>
@@ -356,6 +613,14 @@ const Event1 = () => {
           </div>
         </div>
       </div>
+
+      {/* Register Form */}
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+          <HackathonRegisterationForm togglePopup={togglePopup} setIsOpen={setIsOpen} />
+        </div>
+      )}
+
     </div>
   );
 };
