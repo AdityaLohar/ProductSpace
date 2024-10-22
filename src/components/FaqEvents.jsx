@@ -14,7 +14,7 @@ const FaqEvents = () => {
       setIsOpenForm(true);
       setTimeout(() => setIsVisible(true), 10);
     } else {
-      console.log("enter")
+      console.log("enter");
       setIsVisible(false);
       setTimeout(() => setIsOpenForm(false), 300);
     }
@@ -22,11 +22,14 @@ const FaqEvents = () => {
 
   return (
     <div
-      className={`flex flex-col gap-8 py-16 px-4 xl:px-28 font-inter bg-gradient-to-r from-[#EEFAFD] to-[#DBF6FF] rounded-xl`}
+      className={`flex flex-col gap-8 py-16 px-4 xl:px-28 font-inter rounded-xl`}
       style={{
-        backgroundImage: `url(${faqBg}) left top no-repeat, 
-                     url(${faqBg1}) left top no-repeat`,
-        backgroundSize: "auto, auto", // Adjust as needed
+        background: `url(${faqBg}) left top no-repeat, 
+                      url(${faqBg1}) center top no-repeat, 
+                      linear-gradient(to right, #EEFAFD, #DBF6FF)`,
+        backgroundSize: "auto, auto, cover", // Adjust the size for each layer
+        backgroundPosition: "left top, center top, center", // Adjust position for each background
+        backgroundRepeat: "no-repeat, no-repeat, no-repeat",
       }}
     >
       <div className="flex flex-col gap-6 w-full">
@@ -39,13 +42,13 @@ const FaqEvents = () => {
         </div>
 
         <div className="flex">
-            <button
-              onClick={toggleModal}
-              className="flex items-center font-semibold gap-2 justify-center text-[16px] w-1/2 lg:w-[164px] bg-transparent text-black p-4 rounded-lg border border-[#60A5FA] transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-            >
-              <p>Contact Us</p>
-              <img src={arrow} alt="" />
-            </button>
+          <button
+            onClick={toggleModal}
+            className="flex items-center font-semibold gap-2 justify-center text-[16px] w-1/2 lg:w-[164px] bg-transparent text-black p-4 rounded-lg border border-[#60A5FA] transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <p>Contact Us</p>
+            <img src={arrow} alt="" />
+          </button>
         </div>
       </div>
 

@@ -14,6 +14,7 @@ import copyIcon from "../assets/copy.svg";
 import whatsappIcon from "../assets/whatsapp.svg";
 import emailIcon from "../assets/email.svg";
 import facebookIcon from "../assets/facebook.svg";
+import bgBlue from "../assets/blue-bg.png";
 
 let missingImg =
   "https://substackcdn.com/image/fetch/w_848,h_565,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcb250a4e-ba34-4f22-ade7-4b6babb20c05_1280x861.png";
@@ -378,7 +379,15 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="font-inter max-w-screen-2xl mx-auto space-y-4 lg:space-y-8 bg-gradient-to-b from-[#26CBFF23] via-[#FFFFFF] to-[#26CBFF23]">
+    <div
+      className="font-inter max-w-screen-2xl mx-auto space-y-4 lg:space-y-8"
+      style={{
+        backgroundImage: `radial-gradient(circle, #E6E7E7 1px, transparent 2px), url(${bgBlue})`,
+        backgroundSize: "115px 10px, contain",  // Specify sizes for each background
+        backgroundPosition: "0 0, top",     // Specify positions for each background
+        backgroundRepeat: "repeat, no-repeat"  // Specify repeat behavior for each background
+      }}
+    >
       <div className="px-4 lg:px-28 pt-2 lg:pt-12">
         <div className="py-8 text-start space-y-4">
           <h1 className="text-[28px] lg:text-[40px] font-sans font-bold">
@@ -393,15 +402,21 @@ const BlogPage = () => {
       </div>
 
       {!loading && (
-        <div className="flex flex-col lg:flex-row gap-16 px-4 lg:px-28 flex items-start rounded-xl">
-          <div className="flex flex-col gap-4 lg:gap-6 w-full">
+        <div className="flex flex-col lg:flex-row gap-16 px-4 lg:px-28 flex items-start rounded-xl"
+        style={{
+          background: `linear-gradient(to bottom, transparent 0%, transparent 5%, white 30%, white 60%, transparent 95%, transparent 100%)`
+        }}
+        >
+          <div className="flex flex-col gap-4 lg:gap-6 w-full"
+          >
             <div className="flex gap-2 items-center text-[20px] font-semibold">
               <img src={spotlight} alt="" />
               <p>Splotlight</p>
             </div>
             <div>
               <img
-                src={posts[0].jetpack_featured_media_url || missingImg}
+                src={missingImg}
+                // src={posts[0].jetpack_featured_media_url || missingImg}
                 alt={posts[0].title.rendered}
                 className="w-full h-[200px] lg:h-[400px] object-cover rounded-xl"
               />
@@ -438,7 +453,7 @@ const BlogPage = () => {
                   ))}
               </div>
 
-              <div className="font-semibold">{formatDate(posts[0].date)}</div>
+              <div className="font-semibold bg-white">{formatDate(posts[0].date)}</div>
             </div>
           </div>
 
