@@ -67,7 +67,7 @@ const DropdownListEvents = ({ len, flag }) => {
     "No prior PM experience is needed, though a basic understanding of product management principles is helpful.",
     "Projects are curated by Product Space mentors with 10+ years of industry experience, categorized by industry (B2B, B2C, D2C, etc.) and domain (tech, fintech, healthtech, e-commerce, etc.).",
     "All required tools (prototyping, roadmapping, etc.) are available for free.",
-    "It’s our learn in public challenge where participants will share their 7 day learning journey in public on LinkedIn and can score extra brownie points for the competition."
+    "It’s our voice of product challenge where participants will share their 7 day learning journey in public on LinkedIn and can score extra brownie points for the competition."
   ];
   
 

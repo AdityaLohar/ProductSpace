@@ -155,6 +155,9 @@ const Navbar = () => {
             >
               PM Fellowship
             </a>
+            <a href="/pm-hackathon" className="hover:underline">
+              PM Hackathon
+            </a>
             <a
               onClick={handleScrollOrNavigate}
               className="hover:cursor-pointer hover:underline flex items-center gap-1"
@@ -166,9 +169,6 @@ const Navbar = () => {
               className="hover:underline flex items-center gap-1"
             >
               Blogs
-            </a>
-            <a href="/pm-hackathon" className="hover:underline">
-              Events
             </a>
             <button
               onClick={toggleModal}
@@ -188,14 +188,14 @@ const Navbar = () => {
         <a href="/pm-fellowship" className="hover:underline">
           PM Fellowship
         </a>
+        <a href="/pm-hackathon" className="hover:underline">
+        PM Hackathon
+        </a>
         <a onClick={handleScrollOrNavigate} className="hover:underline">
           Alumni
         </a>
         <a href="/blogs" className="hover:underline">
           Blogs
-        </a>
-        <a href="/pm-hackathon" className="hover:underline">
-          Events
         </a>
         <a
           onClick={toggleModal}
