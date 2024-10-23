@@ -163,6 +163,9 @@ const Navbar = () => {
             <a href="/blogs" className="hover:underline flex items-center gap-1">
               Blogs
             </a>
+            <a href="/events" className="hover:underline flex items-center gap-1">
+              Events
+            </a>
             <button onClick={toggleModal} className="hover:underline flex items-center gap-1">
               Contact Us
             </button>
@@ -183,6 +186,9 @@ const Navbar = () => {
         </a>
         <a href="/blogs" className="hover:underline">
           Blogs
+        </a>
+        <a href="/events" className="hover:underline">
+          Events
         </a>
         <a onClick={toggleModal} className="hover:underline flex items-center gap-1">
           Contact Us
