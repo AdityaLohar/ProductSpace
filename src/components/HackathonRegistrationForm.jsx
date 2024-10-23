@@ -12,7 +12,6 @@ const HackathonRegistrationForm = ({ togglePopup, setShowSuccess }) => {
     name: '',
     email: '',
     phoneNumber: '',
-    designation: '',
     companyCollege: ''
   });
 
@@ -20,7 +19,7 @@ const HackathonRegistrationForm = ({ togglePopup, setShowSuccess }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const saveUserData = async (name, email, phoneNumber, companyCollege, designation, currentTimestamp) => {
+  const saveUserData = async (name, email, phoneNumber, companyCollege, currentTimestamp, formattedTimestamp) => {
     try {
       const response = await axios.post(
         airtableBaseUrl,
@@ -29,9 +28,9 @@ const HackathonRegistrationForm = ({ togglePopup, setShowSuccess }) => {
             Name: name,
             "Mobile Number": phoneNumber, // Make sure this matches exactly
             "Email Id": email, // Make sure this matches exactly
+            "Unique Id": currentTimestamp.toString(),
             "Company/College": companyCollege,
-            "Designation": designation,
-            Timestamp: currentTimestamp,
+            Timestamp: formattedTimestamp,
           },
         },
         {
@@ -78,8 +77,9 @@ const HackathonRegistrationForm = ({ togglePopup, setShowSuccess }) => {
     }
 
     setLoading(true);
-    const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
-    const res = await saveUserData(formData.name, formData.email, formData.phoneNumber, formData.companyCollege, formData.designation, currentTimestamp);
+    const currentTimestamp = Date.now();
+    const formattedTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+    const res = await saveUserData(formData.name, formData.email, formData.phoneNumber, formData.companyCollege, currentTimestamp, formattedTimestamp);
     setLoading(false);
 
     console.log("data saved");
@@ -141,7 +141,6 @@ return (
           />
         </div>
 
-        <div className="flex gap-3">
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
               Phone Number
@@ -155,20 +154,6 @@ return (
               className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
             />
           </div>
-          <div className="relative">
-            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Designation
-            </label>
-            <input
-              type="text"
-              name="designation"
-              value={formData.designation}
-              onChange={handleChange}
-              placeholder=""
-              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
-            />
-          </div>
-        </div>
 
         <div className="relative">
           <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
@@ -189,7 +174,7 @@ return (
             onClick={handleSubmit}
             className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white"
           >
-            <p className="text-[20px] font-medium">{loading ? "Loading..." : "Register Now"}</p>
+            <p className="text-[20px] font-medium">{loading ? "Loading..." : "Join Waitlist"}</p>
             <img src={arrowIcon} alt="icon" />
           </button>
         </div>

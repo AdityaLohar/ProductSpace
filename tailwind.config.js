@@ -8,7 +8,7 @@ export default {
         hind: ["Hind Madurai", "sans-serif"],
         satoshi: ["Satoshi", "sans-serif"],
         inter: ["Inter", "sans-serif"],
-        restora: ["Restora", "Inter"], // Added Restora with serif fallback
+        libre: ['Libre Baskerville', 'serif'],
         serif: ["sans-serif"],
       },      
       animation: {

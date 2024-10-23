@@ -35,7 +35,7 @@ const EventsStickyBar = ({togglePopup }) => {
         <div className="flex gap-0 2xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
           <div className="hidden md:flex flex-col gap-1">
             <div className="text-[16px] text-[#969696]">
-              Monday, Aug 13, 2024 - 7 pm IST
+              Monday, Nov 4, 2024 - 7 pm IST
             </div>
             <div className="text-[20px] text-[#120D26] font-semibold">
               Product Management Hackathon 2024
@@ -55,7 +55,7 @@ const EventsStickyBar = ({togglePopup }) => {
 
             <div className="flex items-center">
               <button onClick={togglePopup} className="shimmer bg-[#FFA000] text-white py-2 px-4 2xl:px-8 rounded-lg">
-                Register Now
+                Join Waitlist
               </button>
             </div>
 

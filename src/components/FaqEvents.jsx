@@ -59,13 +59,15 @@ const DropdownListEvents = ({ len, flag }) => {
     "Do I need prior PM experience?",
     "What kind of projects will I be working on?",
     "What tools will I need to complete these projects?",
+    "What is 7-day streak?",
   ];
   
   const contents = [
     "Each project will be live for 15 days, with final submissions required within that period. After 15 days, projects move to our repository and become self-paced, still eligible for help and certification.",
     "No prior PM experience is needed, though a basic understanding of product management principles is helpful.",
     "Projects are curated by Product Space mentors with 10+ years of industry experience, categorized by industry (B2B, B2C, D2C, etc.) and domain (tech, fintech, healthtech, e-commerce, etc.).",
-    "All required tools (prototyping, roadmapping, etc.) are available for free."
+    "All required tools (prototyping, roadmapping, etc.) are available for free.",
+    "It’s our learn in public challenge where participants will share their 7 day learning journey in public on LinkedIn and can score extra brownie points for the competition."
   ];
   
 
