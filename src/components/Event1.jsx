@@ -31,72 +31,49 @@ const slackInviteLink =
 const whatsappInviteLink =
   "https://chat.whatsapp.com/FliRxZnuOz04AbZRXDWsZo";
 
-const timelines = [
-  {
-    title: "Registration",
-    startDateNumber: "24",
-    startDateMonth: "Oct 24",
-    endDate: "3 Nov 24",
-    endTime: "11:59 PM",
-    startTime: "",
-  },
-  {
-    title: "Hackathon Kickoff Session",
-    startDateNumber: "4",
-    startDateMonth: "Nov 24",
-    endDate: "4 Nov 24",
-    endTime: "",
-    startTime: "",
-  },
-  {
-    title: "Start your 7 Day Streak for Learning Challenge",
-    startDateNumber: "5",
-    startDateMonth: "Nov 24",
-    endDate: "11 Nov 24",
-    endTime: "",
-    startTime: "9-11 AM",
-  },
-  {
-    title: "Doubt clearing session",
-    startDateNumber: "7",
-    startDateMonth: "Nov 24",
-    endDate: "7 Nov 24",
-    endTime: "",
-    startTime: "",
-  },
-  {
-    title: "Submission Day",
-    startDateNumber: "",
-    startDateMonth: "",
-    endDate: "10 Nov 24",
-    endTime: "",
-    startTime: "",
-  },
-  {
-    title: "Result Day",
-    startDateNumber: "13",
-    startDateMonth: "Nov 24",
-    endDate: "28 Oct 24",
-    endTime: "",
-    startTime: "",
-  },
-  {
-    title: "Get detailed feedback on your work",
-    startDateNumber: "13",
-    startDateMonth: "Nov 24",
-    endDate: "16 Nov 24",
-    endTime: "",
-    startTime: "",
-  },
-  {
-    title: "Demo Day For Top 5 Teams",
-    startDateNumber: "17",
-    startDateMonth: "Nov 24",
-    endDate: "28 Oct 24",
-    endTime: "",
-    startTime: "",
-  },
-];
+  const timelines = [
+    {
+      title: "Registration",
+      startDate: "24 Oct 24",
+      endDate: "3 Nov 24",
+    },
+    {
+      title: "Hackathon Kickoff Session",
+      startDate: "4 Nov 24",
+      endDate: "4 Nov 24",
+    },
+    {
+      title: "Start your 7 Day Streak for Learning Challenge",
+      startDate: "5 Nov 24",
+      endDate: "11 Nov 24",
+    },
+    {
+      title: "Doubt clearing session",
+      startDate: "7 Nov 24",
+      endDate: "7 Nov 24",
+    },
+    {
+      title: "Submission Day",
+      startDate: "10 Nov 24", 
+      endDate: "10 Nov 24",
+    },
+    {
+      title: "Result Day",
+      startDate: "13 Nov 24",
+      endDate: "13 Nov 24",
+    },
+    {
+      title: "Get detailed feedback on your work",
+      startDate: "13 Nov 24",
+      endDate: "16 Nov 24",
+    },
+    {
+      title: "Demo Day For Top 5 Teams",
+      startDate: "17 Nov 24",
+      endDate: "17 Nov 24", 
+    },
+  ];
+  
 
 const submissions = [
   {
@@ -139,39 +116,29 @@ const EventBenefit = ({ title, desc }) => {
 
 const TimelineCard = ({
   title,
-  startDateNumber,
-  startDateMonth,
+  startDate,
   endDate,
-  endTime,
-  startTime,
   flag,
 }) => {
-  const parseDate = (day, monthYear, time) => {
-    // Extract the first date from a range (e.g., "13-16" becomes "13")
-    const firstDate = day.includes("-") ? day.split("-")[0] : day;
-
-    // Assuming monthYear is like "Oct 24"
-    const [month, year] = monthYear.split(" ");
-    const dateString = `${firstDate} ${month} ${year} ${time} UTC`;
-    return new Date(dateString);
-  };
 
   // Create start and end date objects
-  const startDate = parseDate(startDateNumber, startDateMonth, startTime);
-  const endDateTime = new Date(`${endDate} ${endTime} UTC`);
+  const startDateTime =  new Date(`${startDate}UTC`);
+  const endDateTime = new Date(`${endDate}UTC`);
+  console.log(startDate);
+  console.log(endDate);
 
-  // Get the current date
   const currentDate = new Date();
+  const isLive = currentDate >= startDateTime && currentDate <= endDateTime;
 
-  // Check if the current date is between start and end date
-  const isLive = currentDate >= startDate && currentDate <= endDateTime;
+  const startDateNumber = startDate.split(' ')[0];
+  const startDateMonth = startDate.split(' ')[1] + " " + startDate.split(' ')[2];
 
   return (
     <div className="flex text-[#0A244B] gap-4">
       <div className="flex flex-col gap-2">
         <div>
           <div className="bg-[#C3F1FF] font-semibold py-1 w-[60px] text-center rounded-t-xl text-[20px]">
-            {startDateNumber}
+            {title.includes("Get") ? "13-16" : startDateNumber}
           </div>
           <div className="bg-[#E1F8FF] py-1 w-[60px] text-center rounded-b-xl text-[12px] text-[#2A3B64]">
             {startDateMonth}
@@ -186,25 +153,8 @@ const TimelineCard = ({
         </div>
       </div>
 
-      <div className="flex justify-between p-4 border border-[#E2E2E2] shadow shadow-md w-full rounded-xl text-[12px]">
-        <div className="flex flex-col gap-3">
-          <div className="text-[16px] font-semibold">{title}</div>
-
-          <div className="flex flex-col gap-1 text-[#5D5D5D]">
-            <div>
-              Start :{" "}
-              <span>
-                {startDateNumber} {startDateMonth}, {startTime}{" "}
-              </span>
-            </div>
-            <div>
-              End :{" "}
-              <span>
-                {endDate}, {endTime}{" "}
-              </span>
-            </div>
-          </div>
-        </div>
+      <div className="flex justify-between items-center p-4 border border-[#E2E2E2] shadow shadow-md w-full rounded-xl text-[12px]">
+        <div className="text-[16px] font-semibold">{title}</div>
 
         <div>
           {isLive ? (
@@ -386,7 +336,7 @@ const Event1 = () => {
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          The <span className="font-libre">Most Happening Product Event</span>{" "}
+          The <span className="italic">Most Happening Product Event</span>{" "}
           in Nov&apos; 2024
         </h1>
       </div>
@@ -448,11 +398,8 @@ const Event1 = () => {
                 <TimelineCard
                   key={index}
                   title={event.title}
-                  startDateNumber={event.startDateNumber}
-                  startDateMonth={event.startDateMonth}
+                  startDate={event.startDate}
                   endDate={event.endDate}
-                  endTime={event.endTime}
-                  startTime={event.startTime}
                   flag={index == timelines.length - 1 ? 0 : 1}
                 />
               ))}
@@ -535,30 +482,30 @@ const Event1 = () => {
               Judges
             </div>
             <div className="flex gap-6 text-[12px] lg:text-[18px] lg:gap-8">
-              <div className="flex flex-col items-center gap-3 font-semibold">
+              <a href="https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in" target="_blank" className="flex flex-col items-center gap-3 font-semibold">
                 <img
                   src={judge1}
                   alt=""
                   className="h-16 lg:h-28 rounded-full"
                 />
                 <p>Soni Vora</p>
-              </div>
-              <div className="flex flex-col items-center gap-3 font-semibold">
+              </a>
+              <a href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in" target="_blank" className="flex flex-col items-center gap-3 font-semibold">
                 <img
                   src={judge2}
                   alt=""
                   className="h-16 lg:h-28 rounded-full"
                 />
                 <p>Pamit Anand</p>
-              </div>
-              <div className="flex flex-col items-center gap-3 font-semibold">
+              </a>
+              <a href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in" target="_blank" className="flex flex-col items-center gap-3 font-semibold">
                 <img
                   src={judge3}
                   alt=""
                   className="h-16 lg:h-28 rounded-full"
                 />
                 <p>Arun Nandewal</p>
-              </div>
+              </a>
             </div>
           </div>
 
