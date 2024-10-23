@@ -23,7 +23,7 @@ const Navbar = () => {
       setIsOpenForm(true);
       setTimeout(() => setIsVisible(true), 10);
     } else {
-      console.log("enter")
+      console.log("enter");
       setIsVisible(false);
       setTimeout(() => setIsOpenForm(false), 300);
     }
@@ -37,7 +37,6 @@ const Navbar = () => {
       // Navigate to /pm and scroll to the section after page load
       navigate("/pm-fellowship#reviews");
     }
-
   };
 
   useEffect(() => {
@@ -47,24 +46,24 @@ const Navbar = () => {
 
       const buffer = 20; // Adjust the buffer size if needed
 
-      if (scrollPosition < (screenHeight - buffer)) {
+      if (scrollPosition < screenHeight - buffer) {
         setShowTomBar(true);
-      } else if (scrollPosition > (screenHeight + buffer)) {
+      } else if (scrollPosition > screenHeight + buffer) {
         setShowTomBar(false);
       }
     };
 
     const calculateDaysLeft = () => {
       // Set the cohort start date
-      const cohortDate = new Date('2024-11-30'); // Adjust the year if needed
+      const cohortDate = new Date("2024-11-30"); // Adjust the year if needed
       const today = new Date();
-      
+
       // Calculate the difference in time (in milliseconds)
       const diffTime = cohortDate - today;
-      
+
       // Convert the difference in milliseconds to days
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      
+
       // Set the calculated days left in state
       setDaysToGo(diffDays);
     };
@@ -92,25 +91,21 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg ">
-      {
-        showTopBar && (
-          <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
-            <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
-              <div className="text-black">NEXT COHORT STARTS: 30th November</div>
-              <Link to={"/pm-fellowship"} className="flex items-center">
-                
-                <button className="bg-[#130D00] px-2 py-1 rounded-md">
-                  {daysToGo} DAYS TO GO
-                </button>
-                <div className="text-black">
-                  <RiArrowRightSFill />
-                </div>
-                
-              </Link>
-            </div>
+      {showTopBar && (
+        <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
+          <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
+            <div className="text-black">NEXT COHORT STARTS: 30th November</div>
+            <Link to={"/pm-fellowship"} className="flex items-center">
+              <button className="bg-[#130D00] px-2 py-1 rounded-md">
+                {daysToGo} DAYS TO GO
+              </button>
+              <div className="text-black">
+                <RiArrowRightSFill />
+              </div>
+            </Link>
           </div>
-        )
-      }
+        </div>
+      )}
 
       <div className="flex justify-between w-full items-center px-[10px] md:px-[80px] lg:px-[120px] py-[15px] custom-12:px-[0px] xl:mx-auto max-w-screen-2xl font-hind">
         <a
@@ -154,16 +149,31 @@ const Navbar = () => {
 
         <div className="hidden lg:flex space-x-8 items-center">
           <div className="hidden lg:flex space-x-10 xl:space-x-16 font-medium text-[18px]">
-            <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
+            <a
+              href="/pm-fellowship"
+              className="hover:underline flex items-center gap-1"
+            >
               PM Fellowship
             </a>
-            <a onClick={handleScrollOrNavigate} className="hover:cursor-pointer hover:underline flex items-center gap-1">
+            <a
+              onClick={handleScrollOrNavigate}
+              className="hover:cursor-pointer hover:underline flex items-center gap-1"
+            >
               Alumni
             </a>
-            <a href="/blogs" className="hover:underline flex items-center gap-1">
+            <a
+              href="/blogs"
+              className="hover:underline flex items-center gap-1"
+            >
               Blogs
             </a>
-            <button onClick={toggleModal} className="hover:underline flex items-center gap-1">
+            <a href="/pm-hackathon" className="hover:underline">
+              Events
+            </a>
+            <button
+              onClick={toggleModal}
+              className="hover:underline flex items-center gap-1"
+            >
               Contact Us
             </button>
           </div>
@@ -184,7 +194,13 @@ const Navbar = () => {
         <a href="/blogs" className="hover:underline">
           Blogs
         </a>
-        <a onClick={toggleModal} className="hover:underline flex items-center gap-1">
+        <a href="/pm-hackathon" className="hover:underline">
+          Events
+        </a>
+        <a
+          onClick={toggleModal}
+          className="hover:underline flex items-center gap-1"
+        >
           Contact Us
         </a>
       </div>

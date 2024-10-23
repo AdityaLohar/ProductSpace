@@ -7,6 +7,8 @@ export default {
         sans: ["Montserrat", "sans-serif"],
         hind: ["Hind Madurai", "sans-serif"],
         satoshi: ["Satoshi", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        libre: ['Libre Baskerville', 'serif'],
         serif: ["sans-serif"],
       },
       animation: {
