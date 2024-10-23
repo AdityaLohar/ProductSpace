@@ -102,7 +102,7 @@ const handleChange = (e) => {
 };
 
 return (
-  <div className="mt-16 pt-10 px-12 pb-12 bg-white rounded-xl">
+  <div className="mx-4 md:mx-0 pt-10 px-8 lg:px-12 pb-12 bg-white rounded-xl">
     <div className="flex justify-end">
       <button onClick={togglePopup}>✖</button>
     </div>

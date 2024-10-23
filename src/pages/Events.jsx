@@ -1,5 +1,6 @@
 import React from 'react'
 import Event1 from '../components/Event1'
+import EventsStickyBar from '../components/EventsStickyBar'
 
 const Events = () => {
   return (

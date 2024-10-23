@@ -21,7 +21,10 @@ import judge3 from "../assets/arun.svg";
 import person1 from "../assets/demoPerson1.svg";
 import person2 from "../assets/demoPerson2.svg";
 import person3 from "../assets/demoPerson3.svg";
+import submissionImg1 from "../assets/submission1.svg";
+import submissionImg2 from "../assets/submission2.svg";
 import HackathonRegistrationForm from "./HackathonRegistrationForm";
+import EventsStickyBar from "./EventsStickyBar";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
@@ -92,6 +95,19 @@ const timelines = [
     startTime: "05:30 AM"
   }
 ];  
+
+const submissions = [
+  {
+    title: "Croma Product Teardown",
+    image: submissionImg1,
+    url: "https://drive.google.com/file/d/10Ya0gDTQDjG_sQdc9kkMn71_qEJZkKKF/view",
+  },
+  {
+    title: "Improve Customer Purchase and Satisfaction",
+    image: submissionImg2,
+    url: "https://drive.google.com/file/d/1oiEX8ON6DVjotX20SeKLfoYE0mnyFNz-/view",
+  },
+]
 
 const EventInfo = ({ icon, title, desc }) => {
   return (
@@ -189,6 +205,29 @@ const TimelineCard = ({title, startDateNumber, startDateMonth, endDate, endTime,
   )
 }
 
+const PreviousSubmissionCard = ({title, image, url}) => {
+  return (
+    <div className="flex flex-col justify-between gap-4 items-center">
+      <div className="flex flex-col gap-2">
+        <div>
+          <img src={image} alt="" />
+        </div>
+
+        <div className="text-18px] lg:text-[20px] font-semibold">
+          {title}
+        </div>
+      </div>
+
+      <div className="w-full">
+        <a href={url} target="_blank" className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ">
+          <p className="text-[14px] lg:text-[16px] font-medium">View more</p>
+          <img src={arrowIcon} alt="icon" />
+        </a>
+      </div>
+    </div>
+  )
+}
+
 const RegisterationSuccess = ({toggleSuccess}) => {
   return (
     <div className="bg-white p-6 pb-12 mx-4 md:mx-0 rounded-xl">
@@ -219,6 +258,28 @@ const Event1 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [background, setBackground] = useState(eventsBg1);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showBottomBar, setShowBottomBar] = useState(false);
+
+
+  // For checking scroll & displaying sticky bar
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const screenHeight = window.innerHeight;
+
+      if (scrollPosition > (4 * screenHeight) / 5) {
+        setShowBottomBar(true);
+      } else {
+        setShowBottomBar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -516,6 +577,18 @@ const Event1 = () => {
             </a>
           </div>
 
+          <div className="flex flex-col gap-4">
+            <div className="text-[20px] lg:text-[28px] font-semibold">
+              Previous submissions
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {submissions.map((submission, index) => (
+                <PreviousSubmissionCard key={index} title={submission.title} image={submission.image} url={submission.url} />
+              ))}
+            </div>
+          </div>
+
           <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Prizes
@@ -609,6 +682,8 @@ const Event1 = () => {
           <RegisterationSuccess toggleSuccess={toggleSuccess} />
         </div>
       )}
+
+    {showBottomBar && <EventsStickyBar togglePopup={togglePopup} />}
 
     </div>
   );
