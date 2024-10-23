@@ -1,7 +1,7 @@
 import DropdownList from "./DropdownList";
 import arrow from "../assets/right-arrow-dark.svg";
-import faqBg from "../assets/faqBg.svg";
-import faqBg1 from "../assets/faqBg1.svg";
+import faqBg from "../assets/faqBg.png";
+import faqBg1 from "../assets/faqBg1.png";
 import { useRecoilState } from "recoil";
 import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
 

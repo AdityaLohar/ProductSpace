@@ -18,6 +18,9 @@ import eventsBg2 from "../assets/events-bg.svg";
 import judge1 from "../assets/sonia.svg";
 import judge2 from "../assets/pamit.svg";
 import judge3 from "../assets/arun.svg";
+import person1 from "../assets/demoPerson1.svg";
+import person2 from "../assets/demoPerson2.svg";
+import person3 from "../assets/demoPerson3.svg";
 import HackathonRegistrationForm from "./HackathonRegistrationForm";
 
 const slackInviteLink =
@@ -188,7 +191,7 @@ const TimelineCard = ({title, startDateNumber, startDateMonth, endDate, endTime,
 
 const RegisterationSuccess = ({toggleSuccess}) => {
   return (
-    <div className="bg-white p-6 rounded-xl">
+    <div className="bg-white p-6 pb-12 mx-4 md:mx-0 rounded-xl">
       <div className="flex justify-end">
         <button onClick={toggleSuccess}>✖</button>
       </div>
@@ -198,13 +201,14 @@ const RegisterationSuccess = ({toggleSuccess}) => {
           <img src={greenTick} alt="" className="h-10" />
         </div>
 
-        <div className="flex flex-col gap-3 w-3/4 justify-center">
-          <div className="text-[20px] font-semibold">Registration Complete!</div>
-          <div>You have successfully registered for the event. You will receive invite on email shortly.</div>
+        <div className="flex flex-col gap-3 lg:w-3/4 justify-center">
+          <div className="text-[20px] font-semibold">You&apos;re Registered for the Product Management Hackathon!</div>
+          <div>Thank you for registering. You will receive event details on email shortly.
+          </div>
         </div>
 
         <div>
-          <button onClick={toggleSuccess} className="bg-[#24304C] text-white p-4 rounded-xl px-12">Explore More</button>
+          <a href={slackInviteLink} target="_blank" onClick={toggleSuccess} className="bg-[#24304C] text-white p-4 rounded-xl px-12">Join Event Community</a>
         </div>
       </div>
     </div>
@@ -262,7 +266,7 @@ const Event1 = () => {
               <img
                 src={hackBg}
                 alt=""
-                className="h-[200px] sm:h-[300px] lg:h-[457px] w-full object-cover rounded-xl"
+                className="h-[200px] sm:h-[300px] lg:h-[507px] w-full object-cover rounded-xl"
               />
             </div>
 
@@ -275,12 +279,12 @@ const Event1 = () => {
               <EventInfo
                 icon={calendarIcon}
                 title={"RUNS FROM"}
-                desc={"Aug 13-15, 2024"}
+                desc={"Nov 4-17, 2024"}
               />
               <EventInfo
                 icon={locationDarkIcon}
                 title={"HAPPENING AT"}
-                desc={"Delhi University, New Delhi"}
+                desc={"Online (Google Meet)"}
               />
             </div>
           </div>
@@ -323,26 +327,43 @@ const Event1 = () => {
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Who Should Join ?
             </div>
-            <ul className="flex flex-col gap-8 font-semibold list-disc ml-8">
-              <li>
-                Current PMs & APMs{" "}
-                <span className="font-normal text-[#969696]">
-                  seeking to upskill and tackle new challenges.
-                </span>
-              </li>
-              <li>
-                Aspiring PMs{" "}
-                <span className="font-normal text-[#969696]">
-                  looking to break into PM role with practical experience.
-                </span>
-              </li>
-              <li>
-                Recent Graduates & MBA Students{" "}
-                <span className="font-normal text-[#969696]">
-                  seeking to upskill and tackle new challenges.
-                </span>
-              </li>
-            </ul>
+            <div className="flex flex-col gap-8 font-semibold">
+              <div className="flex gap-4 items-center">
+                <div className="h-12 w-24 sm:h-24">
+                  <img src={person1} alt="" className="rounded-full h-12 sm:h-24 w-auto" />
+                </div>
+                <div>
+                  Current PMs & APMs{" "}
+                  <span className="font-normal text-[#969696]">
+                    seeking to upskill and tackle new challenges.
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-center">
+                <div className="h-12 w-24 sm:h-24">
+                  <img src={person2} alt="" className="rounded-full h-12 sm:h-24 w-auto" />
+                </div>
+                <div>
+                  Aspiring PMs{" "}
+                  <span className="font-normal text-[#969696]">
+                    looking to break into PM role with practical experience.
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-center">
+                <div className="h-12 w-24 sm:h-24">
+                  <img src={person3} alt="" className="rounded-full h-12 sm:h-24 w-auto" />
+                </div>
+                <div>
+                  Recent Graduates & MBA Students{" "}
+                  <span className="font-normal text-[#969696]">
+                    seeking to upskill and tackle new challenges.
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
@@ -495,24 +516,6 @@ const Event1 = () => {
             </a>
           </div>
 
-
-          <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
-              Event Agenda
-            </div>
-            <div className="flex flex-col gap-4 text-[#969696]">
-              <div>1. Register for the Live PM Project.</div>
-              <div>
-                2. Start your project. Join our Slack community for support and
-                collaboration.
-              </div>
-              <div>3. Submit your project and get it evaluated by mentors.</div>
-              <div>
-                4. Earn your certificate of project completion and achievement.
-              </div>
-            </div>
-          </div>
-
           <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Prizes
@@ -559,17 +562,6 @@ const Event1 = () => {
 
         <div className="hidden lg:flex w-[30%] flex-col">
           <div className="flex flex-col gap-4 bg-white shadow shadow-lg rounded-xl p-8">
-            <div className="flex items-start justify-between">
-              <img
-                src={hackathonImg}
-                alt="img"
-                className="rounded-xl h-[84px] w-[84px]"
-              />
-              <div className="shadow-xl p-3 rounded-xl">
-                <img src={shareIcon} alt="share option" />
-              </div>
-            </div>
-
             <div className="text-[28px] font-bold">Product Hackathon</div>
 
             <div className="flex flex-col gap-2 text-[#969696] font-semibold">
