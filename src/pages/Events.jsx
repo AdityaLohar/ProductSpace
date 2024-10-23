@@ -3,6 +3,7 @@ import arrowIconDark from "../assets/right-arrow-dark.svg";
 import arrowIcon from "../assets/right-arrow.svg";
 import locationIcon from "../assets/location.svg";
 import copyIcon from "../assets/copy.svg";
+import whatsappIcon1 from "../assets/whatsapp1.svg";
 import whatsappIcon from "../assets/whatsapp.svg";
 import emailIcon from "../assets/email.svg";
 import facebookIcon from "../assets/facebook.svg";
@@ -578,11 +579,11 @@ const Events = () => {
                 <img src={substackIcon} alt="" className="h-8 lg:h-12" />
               </a>
               <a
-                href={slackInviteLink}
+                href={whatsappInviteLink}
                 target="_blank"
                 className="shadow shadow-xl rounded-xl p-2"
               >
-                <img src={slackIcon} alt="" className="h-8 lg:h-12" />
+                <img src={whatsappIcon1} alt="" className="h-8 lg:h-12" />
               </a>
             </div>
           </div>

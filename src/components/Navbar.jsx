@@ -157,14 +157,14 @@ const Navbar = () => {
             <a href="/pm-fellowship" className="hover:underline flex items-center gap-1">
               PM Fellowship
             </a>
+            <a href="/pm-hackathon" className="hover:underline flex items-center gap-1">
+              PM Hackathon
+            </a>
             <a onClick={handleScrollOrNavigate} className="hover:cursor-pointer hover:underline flex items-center gap-1">
               Alumni
             </a>
             <a href="/blogs" className="hover:underline flex items-center gap-1">
               Blogs
-            </a>
-            <a href="/pm-hackathon" className="hover:underline flex items-center gap-1">
-              Events
             </a>
             <button onClick={toggleModal} className="hover:underline flex items-center gap-1">
               Contact Us
@@ -181,14 +181,14 @@ const Navbar = () => {
         <a href="/pm-fellowship" className="hover:underline">
           PM Fellowship
         </a>
+        <a href="/pm-hackathon" className="hover:underline">
+          PM Hackathon
+        </a>
         <a onClick={handleScrollOrNavigate} className="hover:underline">
           Alumni
         </a>
         <a href="/blogs" className="hover:underline">
           Blogs
-        </a>
-        <a href="/pm-hackathon" className="hover:underline">
-          Events
         </a>
         <a onClick={toggleModal} className="hover:underline flex items-center gap-1">
           Contact Us
