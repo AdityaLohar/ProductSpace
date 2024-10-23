@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import arrowIconDark from "../assets/right-arrow-dark.svg";
 import arrowIcon from "../assets/right-arrow.svg";
 import locationIcon from "../assets/location.svg";
 import copyIcon from "../assets/copy.svg";
@@ -20,6 +21,7 @@ import eventsBg2 from "../assets/events-bg.svg";
 import judge1 from "../assets/sonia.svg";
 import judge2 from "../assets/pamit.svg";
 import judge3 from "../assets/arun.svg";
+import liveSticker from "../assets/live-sticker.svg";
 import submissionImg1 from "../assets/submission1.svg";
 import submissionImg2 from "../assets/submission2.svg";
 import uberLogo from "../assets/uber-logo.svg";
@@ -28,52 +30,50 @@ import EventsStickyBar from "./EventsStickyBar";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
-const whatsappInviteLink =
-  "https://chat.whatsapp.com/FliRxZnuOz04AbZRXDWsZo";
+const whatsappInviteLink = "https://chat.whatsapp.com/FliRxZnuOz04AbZRXDWsZo";
 
-  const timelines = [
-    {
-      title: "Registration",
-      startDate: "24 Oct 24",
-      endDate: "3 Nov 24",
-    },
-    {
-      title: "Hackathon Kickoff Session",
-      startDate: "4 Nov 24",
-      endDate: "4 Nov 24",
-    },
-    {
-      title: "Start your 7 Day Streak for Learning Challenge",
-      startDate: "5 Nov 24",
-      endDate: "11 Nov 24",
-    },
-    {
-      title: "Doubt clearing session",
-      startDate: "7 Nov 24",
-      endDate: "7 Nov 24",
-    },
-    {
-      title: "Submission Day",
-      startDate: "10 Nov 24", 
-      endDate: "10 Nov 24",
-    },
-    {
-      title: "Result Day",
-      startDate: "13 Nov 24",
-      endDate: "13 Nov 24",
-    },
-    {
-      title: "Get detailed feedback on your work",
-      startDate: "13 Nov 24",
-      endDate: "16 Nov 24",
-    },
-    {
-      title: "Demo Day For Top 5 Teams",
-      startDate: "17 Nov 24",
-      endDate: "17 Nov 24", 
-    },
-  ];
-  
+const timelines = [
+  {
+    title: "Registration",
+    startDate: "24 Oct 24",
+    endDate: "3 Nov 24",
+  },
+  {
+    title: "Hackathon Kickoff Session",
+    startDate: "4 Nov 24",
+    endDate: "4 Nov 24",
+  },
+  {
+    title: "Start your 7 Day Streak for Learning Challenge",
+    startDate: "5 Nov 24",
+    endDate: "11 Nov 24",
+  },
+  {
+    title: "Doubt clearing session",
+    startDate: "7 Nov 24",
+    endDate: "7 Nov 24",
+  },
+  {
+    title: "Submission Day",
+    startDate: "10 Nov 24",
+    endDate: "10 Nov 24",
+  },
+  {
+    title: "Result Day",
+    startDate: "13 Nov 24",
+    endDate: "13 Nov 24",
+  },
+  {
+    title: "Get detailed feedback on your work",
+    startDate: "13 Nov 24",
+    endDate: "16 Nov 24",
+  },
+  {
+    title: "Demo Day For Top 5 Teams",
+    startDate: "17 Nov 24",
+    endDate: "17 Nov 24",
+  },
+];
 
 const submissions = [
   {
@@ -114,15 +114,9 @@ const EventBenefit = ({ title, desc }) => {
   );
 };
 
-const TimelineCard = ({
-  title,
-  startDate,
-  endDate,
-  flag,
-}) => {
-
+const TimelineCard = ({ title, startDate, endDate, flag }) => {
   // Create start and end date objects
-  const startDateTime =  new Date(`${startDate}UTC`);
+  const startDateTime = new Date(`${startDate}UTC`);
   const endDateTime = new Date(`${endDate}UTC`);
   console.log(startDate);
   console.log(endDate);
@@ -130,8 +124,9 @@ const TimelineCard = ({
   const currentDate = new Date();
   const isLive = currentDate >= startDateTime && currentDate <= endDateTime;
 
-  const startDateNumber = startDate.split(' ')[0];
-  const startDateMonth = startDate.split(' ')[1] + " " + startDate.split(' ')[2];
+  const startDateNumber = startDate.split(" ")[0];
+  const startDateMonth =
+    startDate.split(" ")[1] + " " + startDate.split(" ")[2];
 
   return (
     <div className="flex text-[#0A244B] gap-4">
@@ -154,7 +149,7 @@ const TimelineCard = ({
       </div>
 
       <div className="flex justify-between items-center p-4 border border-[#E2E2E2] shadow shadow-md w-full rounded-xl text-[12px]">
-        <div className="text-[16px] font-semibold">{title}</div>
+        <div className="text-[16px] md:text-[18px] font-semibold">{title}</div>
 
         <div>
           {isLive ? (
@@ -186,10 +181,10 @@ const PreviousSubmissionCard = ({ title, image, url }) => {
         <a
           href={url}
           target="_blank"
-          className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white "
+          className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-white"
         >
-          <p className="text-[14px] lg:text-[16px] font-medium">View more</p>
-          <img src={arrowIcon} alt="icon" />
+          <p className="text-[14px] lg:text-[16px] font-bold">View more</p>
+          <img src={arrowIconDark} alt="icon" />
         </a>
       </div>
     </div>
@@ -213,7 +208,7 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
             You&apos;re Registered for the Product Management Hackathon!
           </div>
           <div>
-            Thank you for registering. You will receive event details on email
+            Thank you for registering! You will receive event details on email
             shortly.
           </div>
         </div>
@@ -336,44 +331,52 @@ const Event1 = () => {
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          The <span className="italic">Most Happening Product Event</span>{" "}
+          The{" "}
+          <span className="font-libre italic">
+            Most Happening Product Event
+          </span>{" "}
           in Nov&apos; 2024
         </h1>
       </div>
 
       <div className="flex px-4 lg:px-8 xl:px-28 lg:gap-8 2xl:gap-12">
         <div className="w-full lg:w-[70%] flex flex-col gap-8 lg:gap-16 rounded-xl sm:shadow-xl bg-white p-4 lg:p-8">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 md:gap-14">
             <div className="relative">
               <img
                 src={hackBg}
                 alt=""
                 className="h-[200px] sm:h-[300px] lg:h-[507px] w-full object-cover rounded-xl"
               />
+
               <button
                 onClick={toggleSharePopup}
                 className="absolute bottom-2 right-2 md:bottom-8 md:right-8 bg-white p-2 md:p-3 shadow-lg rounded-xl"
               >
                 <img src={shareIcon} alt="Share Icon" />
               </button>
+
+              <div className="absolute -top-[5.5px] right-3 md:-top-2 md:right-4 flex items-center justify-center">
+                <img src={liveSticker} alt="Live Sticker" className="h-12 w-12 md:h-auto md:w-auto" />
+              </div>
             </div>
 
-            <div className="text-[16px] lg:text-[24px] text-[#24304C] font-bold">
-              Join the Ultimate Product Management Challenge - <br />
+            <div className="text-[16px] lg:text-[26px] text-[#24304C] font-bold">
+              Join the Ultimate Product Management Challenge {" "}
               <span className="font-semibold font-libre italic">
-                Innovate, Collaborate, and Win Big !
+                - Innovate, Collaborate, and Win Big !
               </span>
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between gap-3">
               <EventInfo
                 icon={calendarIcon}
-                title={"RUNS FROM"}
+                title={"WHEN"}
                 desc={"Nov 4-17, 2024"}
               />
               <EventInfo
                 icon={locationDarkIcon}
-                title={"HAPPENING AT"}
+                title={"WHERE"}
                 desc={"Online"}
               />
             </div>
@@ -384,7 +387,11 @@ const Event1 = () => {
               What is Product Management Hackathon
             </div>
             <div className="text-[#7f7f7f]">
-            It&apos;s a unique, immersive program designed by Product Space mentors (from companies like Microsoft, BharatPe, Ajio, Intuit, Moengage, Jio and more) to provide aspiring and current Product Managers with practical, hands-on experience, build your PM skills and enhance your product portfolio.
+              It&apos;s a unique, immersive program designed by Product Space
+              mentors (from companies like Microsoft, BharatPe, Ajio, Intuit,
+              Moengage, Jio and more) to provide aspiring and current Product
+              Managers with practical, hands-on experience, build your PM skills
+              and enhance your product portfolio.
             </div>
           </div>
 
@@ -411,35 +418,82 @@ const Event1 = () => {
               Who Should Join ?
             </div>
 
-            <ul className="flex flex-col gap-8 font-semibold list-disc ml-4 lg:ml-8">
-                <li>
-                  Current PMs & APMs{" "}
-                  <span className="font-normal text-[#7f7f7f]">
-                    seeking to upskill and tackle new challenges.
-                  </span>
-                </li>
-                
-                <li>
-                  Aspiring PMs{" "}
-                  <span className="font-normal text-[#7f7f7f]">
-                    looking to break into PM role with practical experience.
-                  </span>
-                </li>
+            <ul className="flex flex-col gap-5 font-semibold list-disc ml-4 lg:ml-8">
+              <li>
+                Current PMs & APMs{" "}
+                <span className="font-normal text-[#7f7f7f]">
+                  seeking to upskill and tackle new challenges.
+                </span>
+              </li>
 
-                <li>
-                  Recent Graduates & MBA Students{" "}
-                  <span className="font-normal text-[#7f7f7f]">
-                    seeking to upskill and tackle new challenges.
-                  </span>
-                </li>
+              <li>
+                Aspiring PMs{" "}
+                <span className="font-normal text-[#7f7f7f]">
+                  looking to break into PM role with practical experience.
+                </span>
+              </li>
+
+              <li>
+                Recent Graduates & MBAs{" "}
+                <span className="font-normal text-[#7f7f7f]">
+                  seeking to upskill and tackle new challenges.
+                </span>
+              </li>
             </ul>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <div className="text-[20px] lg:text-[28px] font-semibold">
+              Judges
+            </div>
+            <div className="flex gap-3 text-[12px] lg:text-[18px] lg:gap-8">
+              <a
+                href="https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in"
+                target="_blank"
+                className="flex flex-col items-center text-center gap-3 font-semibold"
+              >
+                <img
+                  src={judge1}
+                  alt=""
+                  className="h-16 lg:h-28 rounded-full"
+                />
+                <p>Soni Vora</p>
+                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">Head of Product, Narayana Health</p>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in"
+                target="_blank"
+                className="flex flex-col items-center text-center gap-3 font-semibold"
+              >
+                <img
+                  src={judge2}
+                  alt=""
+                  className="h-16 lg:h-28 rounded-full"
+                  />
+                <p>Pamit Anand</p>
+                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">VP of Product, Magicbricks</p>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in"
+                target="_blank"
+                className="flex flex-col items-center text-center gap-3 font-semibold"
+              >
+                <img
+                  src={judge3}
+                  alt=""
+                  className="h-16 lg:h-28 rounded-full"
+                />
+                <p>Arun Nandewal</p>
+                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">Sr. Product Manager, Microsoft</p>
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-col gap-6">
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Exclusive Benefits:
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-5">
               <EventBenefit
                 title={"💼 Practical Experience"}
                 desc={
@@ -479,38 +533,6 @@ const Event1 = () => {
 
           <div className="flex flex-col gap-4">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Judges
-            </div>
-            <div className="flex gap-6 text-[12px] lg:text-[18px] lg:gap-8">
-              <a href="https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in" target="_blank" className="flex flex-col items-center gap-3 font-semibold">
-                <img
-                  src={judge1}
-                  alt=""
-                  className="h-16 lg:h-28 rounded-full"
-                />
-                <p>Soni Vora</p>
-              </a>
-              <a href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in" target="_blank" className="flex flex-col items-center gap-3 font-semibold">
-                <img
-                  src={judge2}
-                  alt=""
-                  className="h-16 lg:h-28 rounded-full"
-                />
-                <p>Pamit Anand</p>
-              </a>
-              <a href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in" target="_blank" className="flex flex-col items-center gap-3 font-semibold">
-                <img
-                  src={judge3}
-                  alt=""
-                  className="h-16 lg:h-28 rounded-full"
-                />
-                <p>Arun Nandewal</p>
-              </a>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
               Previous submissions
             </div>
 
@@ -532,15 +554,9 @@ const Event1 = () => {
             </div>
 
             <ul className="flex flex-col gap-4 text-[#7f7f7f] list-disc ml-4 lg:ml-8">
-              <li>
-                Top 2 - upto Rs. 15000* worth voucher + 1 sessions [1-1 connect for 30 mins] + certificate of winning and top 1% + get featured on PS website
-              </li>
-              <li>
-                Top 3 - upto Rs. 12000* worth voucher + 1 sessions [1-1 connect for 15 mins] + certificate of top 5%
-              </li>
-              <li>
-                Certificate of participation for all
-              </li>
+              <li>Top 2 Teams: Get 15000* worth voucher</li>
+              <li>Top 3 to 5 Teams: Get 12000* worth voucher</li>
+              <li>Certificate of participation for all</li>
             </ul>
           </div>
 
@@ -574,10 +590,7 @@ const Event1 = () => {
           </div>
 
           <div className="flex flex-col gap-6 text-[18px] lg:text-[20px] font-semibold">
-            <div>
-              💁🏻 Have questions? Reach out to us on our Hackathon Community, and we&apos;ll be
-              happy to assist you!
-            </div>
+            <div>💁🏻 Join our PM Hackathon group for further communication!</div>
             <a
               href={whatsappInviteLink}
               target="_blank"
@@ -597,7 +610,10 @@ const Event1 = () => {
                 <img src={uberLogo} alt="" />
               </div>
               <div>
-                <button onClick={toggleSharePopup} className="p-3 shadow shadow-lg rounded-xl">
+                <button
+                  onClick={toggleSharePopup}
+                  className="p-3 shadow shadow-lg rounded-xl"
+                >
                   <img src={shareIcon} alt="" />
                 </button>
               </div>
@@ -628,7 +644,7 @@ const Event1 = () => {
                   onClick={togglePopup}
                   className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white "
                 >
-                  <p className="text-[20px] font-medium">Join Waitlist</p>
+                  <p className="text-[20px] font-medium">Register Now</p>
                   <img src={arrowIcon} alt="icon" />
                 </button>
               </div>

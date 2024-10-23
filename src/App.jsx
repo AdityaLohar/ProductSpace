@@ -48,7 +48,7 @@ function App() {
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/events" element={<Events />} />
+          <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

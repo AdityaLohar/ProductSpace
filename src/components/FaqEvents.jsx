@@ -109,20 +109,6 @@ const DropdownListEvents = ({ len, flag }) => {
 };
 
 const FaqEvents = () => {
-  const [isVisible, setIsVisible] = useRecoilState(isVisibleformState); // Recoil for visibility
-  const [isOpenForm, setIsOpenForm] = useRecoilState(isOpenFormState);
-
-  const toggleModal = () => {
-    if (!isOpenForm) {
-      setIsOpenForm(true);
-      setTimeout(() => setIsVisible(true), 10);
-    } else {
-      console.log("enter");
-      setIsVisible(false);
-      setTimeout(() => setIsOpenForm(false), 300);
-    }
-  };
-
   return (
     <div
       className={`flex flex-col gap-8 py-16 px-4 xl:px-28 font-inter rounded-xl`}
@@ -138,20 +124,6 @@ const FaqEvents = () => {
       <div className="flex flex-col gap-6 w-full">
         <div className="text-[32px] lg:text-[40px] font-bold text-start font-sans">
           Frequently Asked <br /> Questions
-        </div>
-
-        <div className="text-[18px] text-start text-gray-800 font-medium">
-          Have more Queries?
-        </div>
-
-        <div className="flex">
-          <button
-            onClick={toggleModal}
-            className="flex items-center font-semibold gap-2 justify-center text-[16px] w-1/2 lg:w-[164px] bg-transparent text-black py-4 px-1 lg:p-4 rounded-lg border border-[#60A5FA] transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-          >
-            <p>Contact Us</p>
-            <img src={arrow} alt="" />
-          </button>
         </div>
       </div>
 

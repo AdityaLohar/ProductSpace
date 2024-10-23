@@ -108,7 +108,7 @@ return (
     </div>
 
     <div className="flex flex-col gap-8">
-      <div className="text-[#120D26] font-semibold text-[24px] font-inter">
+      <div className="text-[#120D26] font-semibold text-[22px] md:text-[24px] font-inter">
         <h2>Fill the form to Register</h2>
       </div>
 
@@ -174,7 +174,7 @@ return (
             onClick={handleSubmit}
             className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white"
           >
-            <p className="text-[20px] font-medium">{loading ? "Loading..." : "Join Waitlist"}</p>
+            <p className="text-[18px] md:text-[20px] font-medium">{loading ? "Loading..." : "Register Now"}</p>
             <img src={arrowIcon} alt="icon" />
           </button>
         </div>
