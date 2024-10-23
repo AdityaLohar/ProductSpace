@@ -13,7 +13,6 @@ const Events = () => {
 // Restora font fix
 // timeline live fix - visible only according to date
 // timeline heading icon
-// judges images 
 // previous submissions
 // sticky add
 // register form store in airtable

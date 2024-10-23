@@ -18,7 +18,6 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
 
   const saveUserData = async (name, email, phoneNumber, currentTimestamp) => {
     try {
-
       const response = await axios.post(
         airtableBaseUrl,
         {

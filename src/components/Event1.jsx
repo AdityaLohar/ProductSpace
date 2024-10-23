@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import hackathonImg from "../assets/prime-video.svg";
 import arrowIcon from "../assets/right-arrow.svg";
 import locationIcon from "../assets/location.svg";
@@ -6,16 +6,19 @@ import locationDarkIcon from "../assets/location-dark.svg";
 import timeIcon from "../assets/access-time.svg";
 import shareIcon from "../assets/share.svg";
 import calendarIcon from "../assets/calendar.svg";
-import demoImg from "../assets/demo-image.svg";
 import linkedInIcon from "../assets/linkedin-circle.svg";
 import substackIcon from "../assets/substack-logo.svg";
 import slackIcon from "../assets/slack.svg";
-import bookmarkIcon from "../assets/bookmark-icon.svg";
 import FaqEvents from "./FaqEvents";
-import bgBlue from "../assets/blue-bg.png";
+import greenTick from "../assets/tick-green.svg";
 import hackBg from "../assets/event-hack-bg.svg";
 import linkIcon from "../assets/link-icon.svg";
-import eventsBg from "../assets/events-bg.png";
+import eventsBg1 from "../assets/events-bg.png";
+import eventsBg2 from "../assets/events-bg.svg";
+import judge1 from "../assets/sonia.svg";
+import judge2 from "../assets/pamit.svg";
+import judge3 from "../assets/arun.svg";
+import HackathonRegistrationForm from "./HackathonRegistrationForm";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
@@ -23,7 +26,7 @@ const slackInviteLink =
 const timelines = [
   {
     title: "Registration",
-    startDateNumber: 18,
+    startDateNumber: "18",
     startDateMonth: "Oct 24",
     endDate: "28 Oct 24",
     endTime: "12:30 AM",
@@ -31,7 +34,7 @@ const timelines = [
   },
   {
     title: "Hackathon Kickoff Session",
-    startDateNumber: 4,
+    startDateNumber: "4",
     startDateMonth: "Nov 24",
     endDate: "28 Oct 24",
     endTime: "12:30 AM",
@@ -39,7 +42,7 @@ const timelines = [
   },
   {
     title: "Start your 7 Day Streak for Learning Challenge",
-    startDateNumber: 5,
+    startDateNumber: "5",
     startDateMonth: "Nov 24",
     endDate: "28 Oct 24",
     endTime: "12:30 AM",
@@ -47,7 +50,7 @@ const timelines = [
   },
   {
     title: "Doubt clearing session",
-    startDateNumber: 7,
+    startDateNumber: "7",
     startDateMonth: "Nov 24",
     endDate: "28 Oct 24",
     endTime: "12:30 AM",
@@ -55,7 +58,7 @@ const timelines = [
   },
   {
     title: "Submission Day",
-    startDateNumber: 10,
+    startDateNumber: "10",
     startDateMonth: "Nov 24",
     endDate: "28 Oct 24",
     endTime: "12:30 AM",
@@ -63,7 +66,7 @@ const timelines = [
   },
   {
     title: "Result Day",
-    startDateNumber: 13,
+    startDateNumber: "13",
     startDateMonth: "Nov 24",
     endDate: "28 Oct 24",
     endTime: "12:30 AM",
@@ -79,7 +82,7 @@ const timelines = [
   },
   {
     title: "Demo Day For Top 5 Teams",
-    startDateNumber: 17,
+    startDateNumber: "17",
     startDateMonth: "Nov 24",
     endDate: "28 Oct 24",
     endTime: "12:30 AM",
@@ -114,6 +117,26 @@ const EventBenefit = ({ title, desc }) => {
 };
 
 const TimelineCard = ({title, startDateNumber, startDateMonth, endDate, endTime, startTime, flag}) => {
+  const parseDate = (day, monthYear, time) => {
+    // Extract the first date from a range (e.g., "13-16" becomes "13")
+    const firstDate = day.includes('-') ? day.split('-')[0] : day;
+
+    // Assuming monthYear is like "Oct 24"
+    const [month, year] = monthYear.split(" ");
+    const dateString = `${firstDate} ${month} ${year} ${time} UTC`;
+    return new Date(dateString);
+  };
+
+  // Create start and end date objects
+  const startDate = parseDate(startDateNumber, startDateMonth, startTime);
+  const endDateTime = new Date(`${endDate} ${endTime} UTC`);
+
+  // Get the current date
+  const currentDate = new Date();
+
+  // Check if the current date is between start and end date
+  const isLive = currentDate >= startDate && currentDate <= endDateTime;
+
   return (
     <div className="flex text-[#383838] gap-4"> 
       <div className="flex flex-col gap-2">
@@ -149,91 +172,39 @@ const TimelineCard = ({title, startDateNumber, startDateMonth, endDate, endTime,
         </div>
 
         <div>
-          Live
+          {isLive ? (
+            <div className="flex items-center gap-1 border border-[#E2E2E2] p-2 px-3 rounded-3xl">
+              <div className="h-2 w-2 bg-red-500 rounded-full"></div>
+              <div>Live</div>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>
   )
 }
 
-const HackathonRegisterationForm = ({togglePopup}) => {
+const RegisterationSuccess = ({toggleSuccess}) => {
   return (
-    <div className="mt-16 pt-10 px-12 pb-12 bg-white rounded-xl">
+    <div className="bg-white p-6 rounded-xl">
       <div className="flex justify-end">
-        <button onClick={togglePopup}>
-          ✖
-        </button>
+        <button onClick={toggleSuccess}>✖</button>
       </div>
 
-      <div className="flex flex-col gap-8">
-        <div className="text-[#120D26] font-semibold text-[24px] font-inter">
-          <h2>Fill the form to Register</h2>
+      <div className="text-[14px] text-center flex flex-col gap-8 items-center">
+        <div className="flex justify-center">
+          <img src={greenTick} alt="" className="h-10" />
         </div>
 
-        <div className="flex flex-col gap-8">
-          <div className="relative">
-            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Name*
-            </label>
-            <input
-              type="text"
-              placeholder=""
-              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
-            />
-          </div>
+        <div className="flex flex-col gap-3 w-3/4 justify-center">
+          <div className="text-[20px] font-semibold">Registration Complete!</div>
+          <div>You have successfully registered for the event. You will receive invite on email shortly.</div>
+        </div>
 
-          <div className="relative">
-            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Email Address
-            </label>
-            <input
-              type="text"
-              placeholder=""
-              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
-            />
-          </div>
-
-          <div className="flex gap-3">
-            <div className="relative">
-              <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-                Contact Number
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
-              />
-            </div>
-            <div className="relative">
-              <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-                Designation
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
-              />
-            </div>
-          </div>
-
-          <div className="relative">
-            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Company/College
-            </label>
-            <input
-              type="text"
-              placeholder=""
-              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
-            />
-          </div>
-
-          <div>
-            <button onClick={togglePopup} className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ">
-              <p className="text-[20px] font-medium">Register Now</p>
-              <img src={arrowIcon} alt="icon" />
-            </button>
-          </div>
-
+        <div>
+          <button onClick={toggleSuccess} className="bg-[#24304C] text-white p-4 rounded-xl px-12">Explore More</button>
         </div>
       </div>
     </div>
@@ -242,30 +213,50 @@ const HackathonRegisterationForm = ({togglePopup}) => {
 
 const Event1 = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [background, setBackground] = useState(eventsBg1);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const togglePopup = () => {
-    console.log("open");
     setIsOpen(!isOpen);
   };
+  const toggleSuccess = () => {
+    setShowSuccess(!showSuccess);
+  };
+
+  const updateBackground = () => {
+    if (window.innerWidth <= 768) {
+      setBackground(eventsBg2);
+    } else {
+      setBackground(eventsBg1);
+    }
+  };
+
+  useEffect(() => {
+    updateBackground();
+
+    window.addEventListener('resize', updateBackground);
+
+    return () => window.removeEventListener('resize', updateBackground);
+  }, []);
 
   return (
     <div
       className="max-w-screen-2xl mx-auto flex flex-col gap-4 lg:gap-16 font-inter bg-transparent py-8 lg:py-16 text-[#120D26]"
       style={{
-        backgroundImage: `url(${eventsBg}), radial-gradient(circle, #E6E7E7 1px, transparent 2px)`, // Swap the order of backgrounds
+        backgroundImage: `url(${background}), radial-gradient(circle, #E6E7E7 1px, transparent 2px)`, // Swap the order of backgrounds
         backgroundSize: "contain, 115px 10px", // Specify sizes for each background
         backgroundPosition: "top, 0 0", // Specify positions for each background
         backgroundRepeat: "no-repeat, repeat", // Specify repeat behavior for each background
       }}      
     >
-      <div className="text-[20px] lg:text-[48px] text-center font-bold">
+      <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
           The <span className="font-restora">Most Happening Product Event</span> in Nov&apos; 2024
         </h1>
       </div>
 
-      <div className="flex px-0 lg:px-28 custom-12:px-[0px] lg:gap-8 2xl:gap-12">
-        <div className="w-full lg:w-[70%] flex flex-col gap-8 lg:gap-16 rounded-xl shadow-xl bg-white p-4 lg:p-8">
+      <div className="flex px-4 lg:px-8 xl:px-28 custom-12:px-[0px] lg:gap-8 2xl:gap-12">
+        <div className="w-full lg:w-[70%] flex flex-col gap-8 lg:gap-16 rounded-xl sm:shadow-xl bg-white p-4 lg:p-8">
           <div className="flex flex-col gap-8">
             <div>
               <img
@@ -434,21 +425,21 @@ const Event1 = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Judges
             </div>
-            <div className="flex gap-2 text-[18px] lg:gap-5">
-              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
-                <img src={linkedInIcon} alt="" className="h-8 lg:h-12" />
+            <div className="flex gap-6 text-[12px] lg:text-[18px] lg:gap-8">
+              <div className="flex flex-col items-center gap-3 font-semibold">
+                <img src={judge1} alt="" className="h-16 lg:h-28 rounded-full" />
                 <p>Soni Vora</p>
               </div>
-              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
-                <img src={substackIcon} alt="" className="h-8 lg:h-12" />
+              <div className="flex flex-col items-center gap-3 font-semibold">
+                <img src={judge2} alt="" className="h-16 lg:h-28 rounded-full" />
                 <p>Pamit Anand</p>
               </div>
-              <div className="flex flex-col items-center gap-3 shadow shadow-xl rounded-xl p-2">
-                <img src={slackIcon} alt="" className="h-8 lg:h-12" />
+              <div className="flex flex-col items-center gap-3 font-semibold">
+                <img src={judge3} alt="" className="h-16 lg:h-28 rounded-full" />
                 <p>Arun Nandewal</p>
               </div>
             </div>
@@ -537,15 +528,15 @@ const Event1 = () => {
               Find us on
             </div>
             <div className="flex gap-2 lg:gap-5">
-              <div className="shadow shadow-xl rounded-xl p-2">
+              <a href="https://www.linkedin.com/company/theproductspace/" target="_blank" className="shadow shadow-xl rounded-xl p-2">
                 <img src={linkedInIcon} alt="" className="h-8 lg:h-12" />
-              </div>
-              <div className="shadow shadow-xl rounded-xl p-2">
+              </a>
+              <a href="https://theproductspace.substack.com/" target="_blank" className="shadow shadow-xl rounded-xl p-2">
                 <img src={substackIcon} alt="" className="h-8 lg:h-12" />
-              </div>
-              <div className="shadow shadow-xl rounded-xl p-2">
+              </a>
+              <a href={slackInviteLink} target="_blank" className="shadow shadow-xl rounded-xl p-2">
                 <img src={slackIcon} alt="" className="h-8 lg:h-12" />
-              </div>
+              </a>
             </div>
           </div>
 
@@ -617,7 +608,13 @@ const Event1 = () => {
       {/* Register Form */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
-          <HackathonRegisterationForm togglePopup={togglePopup} setIsOpen={setIsOpen} />
+          <HackathonRegistrationForm togglePopup={togglePopup} setShowSuccess={setShowSuccess} />
+        </div>
+      )}
+      
+      {showSuccess && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+          <RegisterationSuccess toggleSuccess={toggleSuccess} />
         </div>
       )}
 
