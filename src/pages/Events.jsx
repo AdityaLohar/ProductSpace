@@ -588,14 +588,10 @@ const Events = () => {
           </div>
 
           <div className="flex flex-col gap-6 text-[18px] lg:text-[20px] font-semibold">
-            <div>💁🏻 Join our PM Hackathon group for further communication!</div>
-            <a
-              href={whatsappInviteLink}
+            <div>💁🏻 Join our <span> <a href={whatsappInviteLink}
               target="_blank"
-              className="underline text-[#FFA600]"
-            >
-              Join Hackathon Group
-            </a>
+              className="underline text-[#FFA600]">PM Hackathon group </a> </span> for further communication!</div>
+ 
           </div>
 
           <FaqEvents />
