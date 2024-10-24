@@ -330,11 +330,7 @@ const Events = () => {
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          The{" "}
-          <span className="font-libre italic">
-            Most Happening Product Event
-          </span>{" "}
-          in Nov&apos; 2024
+          The Most Happening Product Event in Nov&apos; 2024
         </h1>
       </div>
 
