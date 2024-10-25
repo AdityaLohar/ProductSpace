@@ -35,43 +35,45 @@ const whatsappInviteLink = "https://chat.whatsapp.com/FliRxZnuOz04AbZRXDWsZo";
 
 const timelines = [
   {
-    title: "Registration",
-    startDate: "24 Oct 24",
-    endDate: "3 Nov 24",
-  },
-  {
-    title: "Hackathon Kickoff Session",
-    startDate: "4 Nov 24",
-    endDate: "4 Nov 24",
+    title: "Kickoff / AMA",
+    desc: "30 Oct 24",
+    startDate: "30 Oct 24",
+    endDate: "1 Nov 24",
   },
   {
     title: "Start your 7 Day Streak for Learning Challenge",
-    startDate: "5 Nov 24",
-    endDate: "11 Nov 24",
-  },
-  {
-    title: "Doubt clearing session",
-    startDate: "7 Nov 24",
+    desc: "2 Nov 24",
+    startDate: "2 Nov 24",
     endDate: "7 Nov 24",
   },
   {
-    title: "Submission Day",
-    startDate: "10 Nov 24",
-    endDate: "10 Nov 24",
+    title: "Doubt clearing session",
+    desc: "2-7 Nov 24",
+    startDate: "2 Nov 24",
+    endDate: "7 Nov 24",
+  },
+  {
+    title: "EOD - Submission",
+    desc: "9 Nov 24",
+    startDate: "9 Nov 24",
+    endDate: "9 Nov 24",
   },
   {
     title: "Result Day",
-    startDate: "13 Nov 24",
-    endDate: "13 Nov 24",
+    desc: "11 Nov 24",
+    startDate: "11 Nov 24",
+    endDate: "11 Nov 24",
   },
   {
     title: "Get detailed feedback on your work",
-    startDate: "13 Nov 24",
-    endDate: "16 Nov 24",
+    desc: "11-14 Nov 24",
+    startDate: "11 Nov 24",
+    endDate: "14 Nov 24",
   },
   {
     title: "Demo Day For Top 5 Teams",
-    startDate: "17 Nov 24",
+    desc: "16/17 Nov 24",
+    startDate: "16 Nov 24",
     endDate: "17 Nov 24",
   },
 ];
@@ -115,7 +117,7 @@ const EventBenefit = ({ title, desc }) => {
   );
 };
 
-const TimelineCard = ({ title, startDate, endDate, flag }) => {
+const TimelineCard = ({ title, desc, startDate, endDate, flag }) => {
   // Create start and end date objects
   const startDateTime = new Date(`${startDate}UTC`);
   const endDateTime = new Date(`${endDate}UTC`);
@@ -132,7 +134,7 @@ const TimelineCard = ({ title, startDate, endDate, flag }) => {
       <div className="flex flex-col gap-2">
         <div>
           <div className="bg-[#C3F1FF] font-semibold py-1 w-[60px] text-center rounded-t-xl text-[20px]">
-            {title.includes("Get") ? "13-16" : startDateNumber}
+            {desc.split(" ")[0]}
           </div>
           <div className="bg-[#E1F8FF] py-1 w-[60px] text-center rounded-b-xl text-[12px] text-[#2A3B64]">
             {startDateMonth}
@@ -400,6 +402,7 @@ const Events = () => {
                 <TimelineCard
                   key={index}
                   title={event.title}
+                  desc={event.desc}
                   startDate={event.startDate}
                   endDate={event.endDate}
                   flag={index == timelines.length - 1 ? 0 : 1}
@@ -466,7 +469,7 @@ const Events = () => {
                   className="h-16 lg:h-28 rounded-full"
                   />
                 <p>Pamit Anand</p>
-                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">VP of Product, Magicbricks</p>
+                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">Sr. VP of Product, Magicbricks</p>
               </a>
               <a
                 href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in"
