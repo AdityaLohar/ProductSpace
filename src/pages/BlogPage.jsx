@@ -12,23 +12,29 @@ const BlogPage = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      try {
-        const response = await fetch(
-          "https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts"
-        );
+      let page = 1;
+      setPosts([]);
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+      while(true) {
+        try {
+          const response = await fetch(
+            `https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts?page=${page}`
+          );
+  
+          if (!response.ok) {
+            break;
+          }
+          const data = await response.json();
+          setPosts((prevPosts) => [...prevPosts, ...data]);
+          setLoading(false);
+          
+          page++;
+
+        } catch (error) {
+          setError(error);
+          setLoading(false);
+          break;
         }
-        const data = await response.json();
-        setPosts(data);
-        setLoading(false);
-
-        console.log(data);
-        console.log(posts[0]._embedded);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
       }
     };
 
@@ -97,7 +103,7 @@ const BlogPage = () => {
                     <p
                       className="text-[12px] lg:text-[17px] text-gray-600"
                       dangerouslySetInnerHTML={{
-                        __html: post.excerpt.rendered.slice(100),
+                        __html: post.excerpt.rendered.slice(0,120) + ". . .",
                       }}
                     ></p>
                   </div>
