@@ -369,7 +369,7 @@ const Events = () => {
               <EventInfo
                 icon={calendarIcon}
                 title={"WHEN"}
-                desc={"Nov 4-17, 2024"}
+                desc={"Oct 30 - Nov 17, 2024"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -619,7 +619,7 @@ const Events = () => {
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
                 <div className="flex gap-2 items-center">
                   <img src={timeIcon} alt="" className="h-5" />
-                  <p>Nov 4, 2024</p>
+                  <p>Oct 30, 2024</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <img src={locationIcon} alt="" className="h-5" />
