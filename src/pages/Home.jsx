@@ -38,10 +38,10 @@ const Home = () => {
   return (
     <div className="font-hind xl:flex xl:flex-col items-center">
       <Helmet>
-        <title>Product Space</title>
+        <title>Product Space | The Only Personalized Product Management Course for Your Unique Journey</title>
         <meta
           name="description"
-          content="Product Space is the premier platform to transition into Product Management. Our 10-week PM fellowship will help you upskill and ace interviews."
+          content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job."
         />
       </Helmet>
 

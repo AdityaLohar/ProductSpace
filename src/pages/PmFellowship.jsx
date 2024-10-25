@@ -63,7 +63,7 @@ const PmFellowship = () => {
           <title>PM Fellowship Page - Product Space</title>
           <meta
             name="description"
-            content="Welcome to the PM Fellowship page of Product Space."
+            content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job."
           />
         </Helmet>
 
