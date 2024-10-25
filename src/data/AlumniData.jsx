@@ -67,7 +67,7 @@ const alumni = [
   {
     id: 5,
     profile:
-      "https://media.licdn.com/dms/image/v2/D4D03AQH9KgQMIt5vkQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680059572169?e=1732147200&v=beta&t=KHdx36G7QF1jmzDAyDiYvRl32EYrsecVrC4s280BPuA",
+      "https://media.licdn.com/dms/image/v2/D4D03AQH6d0Le5QHqkw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729355022013?e=1735171200&v=beta&t=hLcV-rzpvgsWTClskEO1x6FVfXV8csTPbFR9syiaKck",
     name: "Aditi Maheshwari",
     // prevCompany: "Cognizant",
     prevCompany:
@@ -153,7 +153,7 @@ const alumni = [
   {
     id: 10,
     profile:
-      "https://media.licdn.com/dms/image/v2/D4D03AQG_XhVWVr-pqA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725585006683?e=1731542400&v=beta&t=2Fjqbbyh9lINGj4rhKcdLpe2srt6lYuM_uInTnpTQco",
+      "https://media.licdn.com/dms/image/v2/D4D03AQGclhtHQzU6MQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729762812876?e=1735171200&v=beta&t=l4ZKMRU7dJsR6J-JuWN-BHve-_WfHs1jGAVsFA3PgpU",
     name: "Amara Venkata Sai Srujan",
     // prevCompany: "ISM Dhanbad",
     prevCompany:
