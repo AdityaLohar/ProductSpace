@@ -1,5 +1,5 @@
 // src/pages/BlogListPage.js
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 let missingImg =
@@ -9,33 +9,39 @@ const BlogPage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const isFetched = useRef(false); // Ref to track if data has been fetched
 
   useEffect(() => {
+    // Only fetch if posts haven't been fetched already
+    if (isFetched.current) return;
+
     const fetchPosts = async () => {
       let page = 1;
-      setPosts([]);
+      const allPosts = []; // Temporary storage for fetched posts
 
-      while(true) {
+      while (true) {
         try {
           const response = await fetch(
             `https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts?page=${page}`
           );
-  
-          if (!response.ok) {
-            break;
-          }
-          const data = await response.json();
-          setPosts((prevPosts) => [...prevPosts, ...data]);
-          setLoading(false);
-          
-          page++;
 
+          if (!response.ok) break;
+
+          const data = await response.json();
+
+          if (data.length === 0) break; // Stop fetching if no more posts
+
+          allPosts.push(...data); // Add new data to allPosts
+          page++;
         } catch (error) {
           setError(error);
-          setLoading(false);
           break;
         }
       }
+
+      setPosts(allPosts); // Set posts only once after all data is fetched
+      setLoading(false);
+      isFetched.current = true; // Mark as fetched
     };
 
     fetchPosts();

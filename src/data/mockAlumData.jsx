@@ -45,49 +45,49 @@ const mockAlumni = [
       linkedin: "https://www.linkedin.com/in/ayushi-maurya-iit/",
     },
     {
-      id: 1,
+      id: 4,
       profile:
-        "",
-      name: "",
+        "https://media.licdn.com/dms/image/v2/D5603AQGTWvA7LLGNHg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727371385878?e=1735171200&v=beta&t=8ajwTLgH80AFQJ5TULOlMxHfou-1S1TeWztinyFefIc",
+      name: "Gaddam Pranay",
       prevCompany:
-        "",
-      prevPost: "",
+        "IIIT Gwalior",
+      prevPost: "In College",
       curCompany:
-        "",
-      curPost: "",
+        "TrulyMadly",
+      curPost: "APM ",
       testimonial:
-        "",
-      linkedin: "",
+        "I'm deeply grateful to Product Space for the transformative experience. The mentorship, feedback, and mock interviews were essential in my growth as a product manager. Akhil Yash Tiwari's guidance and belief in me were invaluable. I highly recommend Product Space to anyone seeking to advance their career in product management.",
+      linkedin: "https://www.linkedin.com/in/pranaygaddam/",
     },
     {
-      id: 1,
+      id: 5,
       profile:
-        "",
-      name: "",
+        "https://media.licdn.com/dms/image/v2/D4D35AQEq2grcWMmxKg/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1678619524214?e=1730502000&v=beta&t=GrkDPS1yuyMn73JMbVEBFBKG4r1xsxhXBtIjs9UZMx0",
+      name: "Nikhil Karamchandani ",
       prevCompany:
-        "",
-      prevPost: "",
+        "IIT Kanpur",
+      prevPost: "In College",
       curCompany:
-        "",
-      curPost: "",
+        "Zomato",
+      curPost: "Intern",
       testimonial:
-        "",
-      linkedin: "",
+        "The Product Space program was a great way to gain insights into product management, learn about the tools used by PMs, and prepare for interviews. If you're passionate about products and looking to enhance your skills or break into this field, I strongly recommend it.",
+      linkedin: "https://www.linkedin.com/in/nikhil-karamchandani-678153228/",
     },
     {
-      id: 1,
+      id: 6,
       profile:
         "",
-      name: "",
+      name: "Nikhil Karoti",
       prevCompany:
         "",
       prevPost: "",
       curCompany:
-        "",
-      curPost: "",
+        "Hero MotoCorp",
+      curPost: "Research Analyst",
       testimonial:
         "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/nikhil-karoti-1258771b3",
     },
     {
       id: 1,
