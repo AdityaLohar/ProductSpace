@@ -58,7 +58,7 @@ const BlogPage = () => {
 
       <div className="px-4 md:px-20 lg:px-32 xl:px-40 2xl:px-60 py-16 font-hind">
         <div className="text-[24px] lg:text-[28px] font-bold font-sans">
-          <h1>Trending Posts</h1>
+          <h1>Blog Posts</h1>
         </div>
 
         <div className="pt-3 pb-6">
