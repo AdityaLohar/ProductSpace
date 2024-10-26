@@ -360,7 +360,7 @@ const Events = () => {
 
             <div className="text-[16px] lg:text-[26px] text-[#24304C] font-bold">
               Join the Ultimate Product Management Challenge {" "}
-              <span className="font-semibold font-libre italic">
+              <span className="font-semibold">
                 - Innovate, Collaborate, and Win Big !
               </span>
             </div>
