@@ -1,40 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <link id="favicon" rel="icon" type="image/svg+xml"
-      href="/ps-logo-dark.svg" />
+    <link id="favicon" rel="icon" type="image/svg+xml" href="/ps-logo-dark.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="keywords"
-      content="Product Space, Product Management, PM Fellowship, Product Manager, Upskill for PM" />
-    <meta name="description"
-      content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job." />
+    <meta name="keywords" content="Product Space, Product Management, PM Fellowship, Product Manager, Upskill for PM" />
+    <meta name="description" content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job." />
 
     <title>Product Space</title>
 
-    <!-- public/index.html -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Hind+Madurai:wght@200;300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700&family=Restora:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet" />
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Product Space" />
+    <meta property="og:description" content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background." />
+    <meta property="og:image" content="/path/to/your/image.jpg" /> <!-- Update this with your image path -->
+    <meta property="og:url" content="https://theproductspace.co.in" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Hind+Madurai:wght@200;300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700&family=Restora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Google Analytics -->
-    <script async
-      src="https://www.googletagmanager.com/gtag/js?id=G-5MF7F8L6PB"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MF7F8L6PB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-5MF7F8L6PB');
     </script>
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -58,21 +53,28 @@
       ],
       "description": "Product Space helps aspiring product managers transition into Product Management with live projects and PM interview prep."
     }
-  </script>
+    </script>
 
-    <!-- Google console -->
-    <meta name="google-site-verification"
-      content="55XzqBzHV0D9Zb8f3mRx539QW0b-XrXxyfCxYtu8_vs" />
+    <!-- Google Console -->
+    <meta name="google-site-verification" content="55XzqBzHV0D9Zb8f3mRx539QW0b-XrXxyfCxYtu8_vs" />
 
     <!-- Amplitude Analytics -->
-    <script
-      src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script><script
-      src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
-
-    <title>Product Space</title>
-  </head>
-  <body>
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
+    <script>
+        (function() {
+            window.amplitude = window.amplitude || {};
+            const sessionReplayPlugin = window.sessionReplay.plugin({ sampleRate: 1 });
+            window.amplitude.add(sessionReplayPlugin);
+            window.amplitude.init('8e633ae684c6d27e3c32bc06b0d75c25', {
+                "serverZone": "EU",
+                "autocapture": { "elementInteractions": true }
+            });
+        })();
+    </script>
+</head>
+<body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+</body>
 </html>
