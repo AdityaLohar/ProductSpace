@@ -74,21 +74,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      (function() {
-          // Check if amplitude is already defined to avoid overwriting
-          if (typeof window.amplitude === 'undefined') {
-              window.amplitude = {};
-          }
-
-          // Initialize Amplitude Analytics
-          const sessionReplayPlugin = window.sessionReplay.plugin({ sampleRate: 1 });
-          window.amplitude.add(sessionReplayPlugin);
-          window.amplitude.init('8e633ae684c6d27e3c32bc06b0d75c25', {
-              "serverZone": "EU",
-              "autocapture": { "elementInteractions": true }
-          });
-      })();
-  </script>
   </body>
 </html>
