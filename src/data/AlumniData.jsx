@@ -65,24 +65,6 @@ const alumni = [
     linkedin: "https://www.linkedin.com/in/aryanjaiswal2401/",
   },
   {
-    id: 5,
-    profile:
-      "https://media.licdn.com/dms/image/v2/D4D03AQH6d0Le5QHqkw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729355022013?e=1735171200&v=beta&t=hLcV-rzpvgsWTClskEO1x6FVfXV8csTPbFR9syiaKck",
-    name: "Aditi Maheshwari",
-    // prevCompany: "Cognizant",
-    prevCompany:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKE0GgxQbFi1chj5IfW9bPKDh6FMF7sbXfLA&s",
-    prevPost: "Associate",
-    // curCompany: "Magicbricks",
-    curCompany:
-      "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
-    curPost: "Associate Product Manager",
-    testimonial:
-      "Product Space is an excellent community for aspiring and current product managers. The program provides a supportive environment to learn, grow, and connect with like-minded professionals. The mentorship from Akhil Yash Tiwari was invaluable, and the resources were top-notch. I highly recommend Product Space for advancing your product management career.",
-    linkedin:
-      "https://www.linkedin.com/in/aditi1905?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-  },
-  {
     id: 6,
     profile:
       "https://media.licdn.com/dms/image/v2/D5603AQFuaisZpsSTjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705161505684?e=1731542400&v=beta&t=aThtTNNdBqxkVgYOfBP394wH95SeA8T1ZANwJZ1s_18",
