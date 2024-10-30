@@ -519,7 +519,7 @@ const BlogPage = () => {
           <div className="flex flex-col gap-4 lg:gap-6 w-full">
             <div className="flex gap-2 items-center text-[20px] font-semibold">
               <img src={spotlight} alt="" />
-              <p>Splotlight</p>
+              <p>Spotlight</p>
             </div>
             <Link to={`/blogs/${posts[0].slug}`}>
               <img
