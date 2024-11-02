@@ -1,7 +1,7 @@
 import "./App.css";
 import {
   Route,
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Routes,
   useLocation,
 } from "react-router-dom";
