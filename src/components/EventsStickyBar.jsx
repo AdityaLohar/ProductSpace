@@ -11,6 +11,7 @@ const EventsStickyBar = ({ togglePopup }) => {
   });
 
   useEffect(() => {
+    let interval; // Declare the interval variable
     const calculateTimeRemaining = () => {
       const total = Date.parse(endDate) - Date.now();
       const minutes = Math.floor((total / 1000 / 60) % 60);
@@ -26,7 +27,7 @@ const EventsStickyBar = ({ togglePopup }) => {
     };
 
     calculateTimeRemaining(); // Run the function immediately
-    const interval = setInterval(calculateTimeRemaining, 1000); // Update every second
+    interval = setInterval(calculateTimeRemaining, 1000); // Update every second
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
