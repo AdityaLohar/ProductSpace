@@ -32,6 +32,7 @@ import EventsStickyBar from "../components/EventsStickyBar";
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/FliRxZnuOz04AbZRXDWsZo";
+const eventDate = new Date("2024-10-30T23:59:59");
 
 const timelines = [
   {
@@ -236,6 +237,7 @@ const Events = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isPastEventDate, setIsPastEventDate] = useState(false);
 
   const toggleSharePopup = () => {
     setCopied(false);
@@ -276,6 +278,19 @@ const Events = () => {
       window.open(shareUrl, "_blank");
     }
   };
+
+  useEffect(() => {
+    const checkEventDate = () => {
+      const currentDate = new Date();
+      setIsPastEventDate(currentDate >= eventDate);
+    };
+
+    checkEventDate(); // Run the check initially
+
+    const interval = setInterval(checkEventDate, 21600000); // Check every 6 hours
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []);
 
   // For checking scroll & displaying sticky bar
   useEffect(() => {
@@ -354,12 +369,16 @@ const Events = () => {
               </button>
 
               <div className="absolute -top-[5.5px] right-3 md:-top-2 md:right-4 flex items-center justify-center">
-                <img src={liveSticker} alt="Live Sticker" className="h-12 w-12 md:h-auto md:w-auto" />
+                <img
+                  src={liveSticker}
+                  alt="Live Sticker"
+                  className="h-12 w-12 md:h-auto md:w-auto"
+                />
               </div>
             </div>
 
             <div className="text-[16px] lg:text-[26px] text-[#24304C] font-bold">
-              Join the Ultimate Product Management Challenge {" "}
+              Join the Ultimate Product Management Challenge{" "}
               <span className="font-semibold">
                 - Innovate, Collaborate, and Win Big !
               </span>
@@ -456,7 +475,9 @@ const Events = () => {
                   className="h-16 lg:h-28 rounded-full"
                 />
                 <p>Soni Vora</p>
-                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">Head of Product, Narayana Health</p>
+                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">
+                  Head of Product, Narayana Health
+                </p>
               </a>
               <a
                 href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in"
@@ -467,9 +488,11 @@ const Events = () => {
                   src={judge2}
                   alt=""
                   className="h-16 lg:h-28 rounded-full"
-                  />
+                />
                 <p>Pamit Anand</p>
-                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">Sr. VP of Product, Magicbricks</p>
+                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">
+                  Sr. VP of Product, Magicbricks
+                </p>
               </a>
               <a
                 href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in"
@@ -482,7 +505,9 @@ const Events = () => {
                   className="h-16 lg:h-28 rounded-full"
                 />
                 <p>Arun Nandewal</p>
-                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">Sr. Product Manager, Microsoft</p>
+                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">
+                  Sr. Product Manager, Microsoft
+                </p>
               </a>
             </div>
           </div>
@@ -548,7 +573,7 @@ const Events = () => {
 
           <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-            🏆Prizes
+              🏆Prizes
             </div>
 
             <ul className="flex flex-col gap-4 text-[#7f7f7f] list-disc ml-4 lg:ml-8">
@@ -588,10 +613,20 @@ const Events = () => {
           </div>
 
           <div className="flex flex-col gap-6 text-[18px] lg:text-[20px] font-semibold">
-            <div>💁🏻 Join our <span> <a href={whatsappInviteLink}
-              target="_blank"
-              className="underline text-[#FFA600]">PM Hackathon group </a> </span> for further communication!</div>
- 
+            <div>
+              💁🏻 Join our{" "}
+              <span>
+                {" "}
+                <a
+                  href={whatsappInviteLink}
+                  target="_blank"
+                  className="underline text-[#FFA600]"
+                >
+                  PM Hackathon group{" "}
+                </a>{" "}
+              </span>{" "}
+              for further communication!
+            </div>
           </div>
 
           <FaqEvents />
@@ -636,7 +671,10 @@ const Events = () => {
               <div className="">
                 <button
                   onClick={togglePopup}
-                  className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white "
+                  disabled={isPastEventDate}
+                  className={`flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ${
+                    isPastEventDate ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
                 >
                   <p className="text-[20px] font-medium">Register Now</p>
                   <img src={arrowIcon} alt="icon" />
