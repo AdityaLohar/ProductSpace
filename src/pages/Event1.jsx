@@ -17,7 +17,7 @@ import slackIcon from "../assets/slack.svg";
 import FaqEvents from "../components/FaqEvents";
 import greenTick from "../assets/tick-green.svg";
 import hackBg from "../assets/event-hack-bg.svg";
-import eventsBg1 from "../assets/events-bg.png";
+import eventsBg1 from "../assets/ai-for-pm-bg.svg";
 import eventsBg2 from "../assets/events-bg.svg";
 import judge1 from "../assets/sonia.svg";
 import judge2 from "../assets/pamit.svg";
@@ -346,7 +346,7 @@ const Events = () => {
       }}
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
-        <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
+        <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#E7E7E780] to-[#FFFFFF]">
           The Most Happening Product Event in Nov&apos; 2024
         </h1>
       </div>
@@ -378,17 +378,15 @@ const Events = () => {
             </div>
 
             <div className="text-[16px] lg:text-[26px] text-[#24304C] font-bold">
-              Join the Ultimate Product Management Challenge{" "}
-              <span className="font-semibold">
-                - Innovate, Collaborate, and Win Big !
-              </span>
+              Master the tools and techniques of AI to supercharge your product
+              management skills
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between gap-3">
               <EventInfo
                 icon={calendarIcon}
                 title={"WHEN"}
-                desc={"Oct 30 - Nov 17, 2024"}
+                desc={"Nov 25, 2024"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -400,114 +398,101 @@ const Events = () => {
 
           <div className="flex flex-col gap-4 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              What is Product Management Hackathon
+              What is AI for PM?
             </div>
             <div className="text-[#7f7f7f]">
-              It&apos;s a unique, immersive program designed by Product Space
-              mentors (from companies like Microsoft, BharatPe, Ajio, Intuit,
-              Moengage, Jio and more) to provide aspiring and current Product
-              Managers with practical, hands-on experience, build your PM skills
-              and enhance your product portfolio.
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-4 text-[16px] lg:text-[20px]">
-            <div className="text-[16px] lg:text-[18px] font-medium text-[#7f7f7f]">
-              <img src="" alt="" />
-              <p>STAGES AND TIMELINES</p>
-            </div>
-            <div className="flex flex-col gap-8 text-[#7f7f7f]">
-              {timelines.map((event, index) => (
-                <TimelineCard
-                  key={index}
-                  title={event.title}
-                  desc={event.desc}
-                  startDate={event.startDate}
-                  endDate={event.endDate}
-                  flag={index == timelines.length - 1 ? 0 : 1}
-                />
-              ))}
+              Step into the world of AI with our hands-on workshop tailored for
+              Product Managers. Discover how artificial intelligence can drive
+              better product decisions, improve user experiences, and provide
+              powerful insights across the product lifecycle. This session is
+              designed to give you practical knowledge, real-world examples, and
+              an introduction to key tools that you can immediately start using
+              in your work.
             </div>
           </div>
 
           <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Who Should Join ?
+              Learning Outcomes
             </div>
 
-            <ul className="flex flex-col gap-5 font-semibold list-disc ml-4 lg:ml-8">
-              <li>
-                Current PMs & APMs{" "}
+            <div className="flex flex-col gap-5 font-semibold">
+              <div>
+                Unlock AI-Driven Insights:{" "}
                 <span className="font-normal text-[#7f7f7f]">
                   seeking to upskill and tackle new challenges.
                 </span>
-              </li>
+              </div>
 
-              <li>
-                Aspiring PMs{" "}
+              <div>
+                Hands-On with AI Tools{" "}
                 <span className="font-normal text-[#7f7f7f]">
                   looking to break into PM role with practical experience.
                 </span>
-              </li>
+              </div>
 
-              <li>
-                Recent Graduates & MBAs{" "}
+              <div>
+                Real-World Applications{" "}
                 <span className="font-normal text-[#7f7f7f]">
                   seeking to upskill and tackle new challenges.
                 </span>
-              </li>
-            </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6 text-[16px] lg:text-[20px]">
+            <div className="text-[20px] lg:text-[28px] font-semibold">
+              Workshop Details
+            </div>
+
+            <div className="flex flex-col gap-5 font-semibold">
+              <div className="flex flex-col gap-3">
+                <div>Who Should Attend:</div>
+                <div className="font-normal text-[#7f7f7f]">
+                  This workshop is designed for Product Managers, Aspiring
+                  Product Managers, and Product Analysts interested in
+                  leveraging AI in their work. No prior AI experience is
+                  necessary, but a basic understanding of product management and
+                  data analytics is recommended.
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <div>Prerequisites:</div>
+                <div className="font-normal text-[#7f7f7f]">
+                  Basic knowledge of product management concepts and comfort
+                  with analytics are beneficial.
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <div>What to Bring:</div>
+                <div className="font-normal text-[#7f7f7f]">
+                  Bring a laptop for the hands-on portion, a notepad for jotting
+                  down insights, and come prepared with your questions!
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col gap-4">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Judges
+              Speaker
             </div>
-            <div className="flex gap-3 text-[12px] lg:text-[18px] lg:gap-8">
+            <div className="flex gap-3 text-[14px] lg:text-[20px] lg:gap-8">
+              <img src={judge1} alt="" className="h-16 lg:h-28 rounded-full" />
+              <div>
+                <p>Soni Vora</p>
+                <p className="text-[#4B5563] font-medium text-[16px] md:text-[20px]">
+                  Head of Product, Narayana Health
+                </p>
+              </div>
               <a
                 href="https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in"
                 target="_blank"
                 className="flex flex-col items-center text-center gap-3 font-semibold"
               >
-                <img
-                  src={judge1}
-                  alt=""
-                  className="h-16 lg:h-28 rounded-full"
-                />
-                <p>Sonia Vora</p>
-                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">
-                  Head of Product, Narayana Health
-                </p>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in"
-                target="_blank"
-                className="flex flex-col items-center text-center gap-3 font-semibold"
-              >
-                <img
-                  src={judge2}
-                  alt=""
-                  className="h-16 lg:h-28 rounded-full"
-                />
-                <p>Pamit Anand</p>
-                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">
-                  Sr. VP of Product, Magicbricks
-                </p>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in"
-                target="_blank"
-                className="flex flex-col items-center text-center gap-3 font-semibold"
-              >
-                <img
-                  src={judge3}
-                  alt=""
-                  className="h-16 lg:h-28 rounded-full"
-                />
-                <p>Arun Nandewal</p>
-                <p className="text-[#4B5563] font-medium text-[12px] md:text-[14px]">
-                  Sr. Product Manager, Microsoft
-                </p>
+                <img src="" alt="" />
               </a>
             </div>
           </div>
