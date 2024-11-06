@@ -9,7 +9,6 @@ const Blog = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [canonicalUrl, setCanonicalUrl] = useState(null);
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
@@ -41,7 +40,6 @@ const Blog = () => {
 
   useEffect(() => {
     if (!loading) {
-      setCanonicalUrl(`https://aspareo.dcms.site/blogs/${post.slug}`);
 
       const fetchTags = async () => {
         try {
@@ -102,7 +100,6 @@ const Blog = () => {
           <Helmet>
             <title>{post.title.rendered}</title>
             <meta name="description" content={post.excerpt.rendered} />
-            <link rel="canonical" href={canonicalUrl} />
           </Helmet>
         )}
 

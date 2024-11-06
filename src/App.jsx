@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Routes,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
@@ -45,6 +46,7 @@ function App() {
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
+          <Route path="*" element={<Navigate to="/" />} />    {/* all routes not present will redirect to home route */}
         </Routes>
         {/* </Router> */}
         <div className={`w-full bg-black ${isHomePage ? "pb-6 lg:pb-16" : ""}`}>
