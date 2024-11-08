@@ -18,6 +18,10 @@ const Navbar = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleformState); // Recoil for visibility
   const [isOpenForm, setIsOpenForm] = useRecoilState(isOpenFormState);
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
   const toggleModal = () => {
     if (!isOpenForm) {
       setIsOpenForm(true);
@@ -155,9 +159,16 @@ const Navbar = () => {
             >
               PM Fellowship
             </a>
-            <a href="/pm-hackathon" className="hover:underline">
-              PM Hackathon
-            </a>
+            {/* Events Dropdown */}
+            <div className="relative group">
+              <a className="hover:underline flex items-center gap-1 cursor-pointer">
+                Events
+              </a>
+              <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+                <a href="/ai-for-pm" className="px-4 py-2 hover:bg-gray-100 rounded-md">AI for PM</a>
+                <a href="/pm-hackathon" className="px-4 py-2 hover:bg-gray-100 rounded-md">PM Hackathon</a>
+              </div>
+            </div>
             <a
               onClick={handleScrollOrNavigate}
               className="hover:cursor-pointer hover:underline flex items-center gap-1"
@@ -188,9 +199,18 @@ const Navbar = () => {
         <a href="/pm-fellowship" className="hover:underline">
           PM Fellowship
         </a>
-        <a href="/pm-hackathon" className="hover:underline">
-        PM Hackathon
-        </a>
+        {/* Events Dropdown for Mobile */}
+        <div className="relative">
+          <a onClick={toggleDropdown} className="flex items-center gap-1 cursor-pointer">
+            Events
+          </a>
+          {isDropdownOpen && (
+            <div className="flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2 mt-2">
+              <a href="/ai-for-pm" className="px-4 py-2 hover:bg-gray-100 rounded-md">AI for PM</a>
+              <a href="/pm-hackathon" className="px-4 py-2 hover:bg-gray-100 rounded-md">PM Hackathon</a>
+            </div>
+          )}
+        </div>
         <a onClick={handleScrollOrNavigate} className="hover:underline">
           Alumni
         </a>
