@@ -20,6 +20,7 @@ import ContactUsForm from "./components/ContactUsForm";
 import { RecoilRoot } from "recoil";
 import { HelmetProvider } from "react-helmet-async";
 import Events from './pages/Events';
+import Event1 from "./pages/Event1";
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path="/pm-hackathon" element={<Events />} />
+          <Route path="/ai-for-pm" element={<Event1 />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="*" element={<Navigate to="/" />} />    {/* all routes not present will redirect to home route */}
