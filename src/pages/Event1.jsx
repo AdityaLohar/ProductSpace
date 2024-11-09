@@ -252,7 +252,7 @@ const Event1 = () => {
               <EventInfo
                 icon={calendarIcon}
                 title={"When"}
-                desc={"Sat, Nov 16, 2024"}
+                desc={"Sat, Nov 16, 2024 (11 AM - 1 PM)"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -693,7 +693,7 @@ const Event1 = () => {
           <div className="flex flex-col gap-4 bg-white shadow shadow-lg rounded-xl p-8 sticky top-24">
             <div className="flex justify-between items-center">
               <div>
-                <img src={uberLogo} alt="" />
+                {/* <img src={uberLogo} alt="" /> */}
               </div>
               <div>
                 <button
@@ -713,7 +713,7 @@ const Event1 = () => {
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
                 <div className="flex gap-2 items-center">
                   <img src={timeIcon} alt="" className="h-5" />
-                  <p>9 AM - Nov 16, 2024</p>
+                  <p>11 AM - Nov 16, 2024</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <img src={locationIcon} alt="" className="h-5" />
