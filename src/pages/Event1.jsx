@@ -690,7 +690,7 @@ const Event1 = () => {
         </div>
 
         <div className="hidden lg:flex w-[30%] flex-col">
-          <div className="flex flex-col gap-4 bg-white shadow shadow-lg rounded-xl p-8 sticky top-24">
+          <div className="flex flex-col gap-1 bg-white shadow-[0_5px_25px_rgba(0,0,0,0.1)] rounded-xl p-8 sticky top-24">
             <div className="flex justify-between items-center">
               <div>
                 {/* <img src={uberLogo} alt="" /> */}
