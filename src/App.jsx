@@ -66,7 +66,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
-          <Route path="/genai-for-pm" element={<Event1 />} />
+          <Route path="/ai-for-pm" element={<Event1 />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
 

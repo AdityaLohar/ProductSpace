@@ -165,7 +165,7 @@ const Navbar = () => {
                 Events
               </a>
               <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
-                <a href="/genai-for-pm" className="px-4 py-2 hover:bg-gray-100 rounded-md">Gen AI for PM</a>
+                <a href="/ai-for-pm" className="px-4 py-2 hover:bg-gray-100 rounded-md">Gen AI for PM</a>
                 <a href="/pm-hackathon" className="px-4 py-2 hover:bg-gray-100 rounded-md">PM Hackathon</a>
               </div>
             </div>
@@ -206,7 +206,7 @@ const Navbar = () => {
           </a>
           {isDropdownOpen && (
             <div className="flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2 mt-2">
-              <a href="/genai-for-pm" className="px-4 py-2 hover:bg-gray-100 rounded-md">Gen AI for PM</a>
+              <a href="/ai-for-pm" className="px-4 py-2 hover:bg-gray-100 rounded-md">Gen AI for PM</a>
               <a href="/pm-hackathon" className="px-4 py-2 hover:bg-gray-100 rounded-md">PM Hackathon</a>
             </div>
           )}
