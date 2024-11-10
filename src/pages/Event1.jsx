@@ -683,7 +683,7 @@ const Event1 = () => {
               </div>
             </div>
 
-            <a href="https://pages.viral-loops.com/product-space-gen-ai-for-pms-bcp5e0e2" target="_blank" className="flex w-full lg:w-1/3 gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white">
+            <a href="https://pages.viral-loops.com/product-space-gen-genai-for-pms-bcp5e0e2" target="_blank" className="flex w-full lg:w-1/3 gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white">
               <p className="text-[18px] md:text-[20px] font-medium">
                 Refer Now
               </p>
