@@ -4,9 +4,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ command, ssrBuild }) => ({
   plugins: [react()],
-  server: {
-    port: 4200, // Change this to 4200
-  },
   build: {
     outDir: ssrBuild ? 'dist/server' : 'dist/client',
     ssr: ssrBuild,
