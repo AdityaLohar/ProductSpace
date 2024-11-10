@@ -83,14 +83,19 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
           </div>
         </div>
 
-        <div>
-          <Link
-            to={"/pm-fellowship"}
-            className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-12"
+        <button
+          className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12"
+        >
+          <a
+            href="https://chat.whatsapp.com/JcobHhXvDtV5OwEsb9YjXm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block w-full h-full"
           >
-            Explore other programs
-          </Link>
-        </div>
+            Join our community for active updates
+          </a>
+        </button>
+
       </div>
     </div>
   );

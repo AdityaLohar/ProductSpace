@@ -44,6 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
+          {/* <Route path="/blogs/how-to-conduct-a-b-testing-in-product-management" element={<Blog1 />} /> */}
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/ai-for-pm" element={<Event1 />} />
           <Route path="/faq" element={<FaqPage />} />
