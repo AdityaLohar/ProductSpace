@@ -1,12 +1,9 @@
-import { Helmet } from "react-helmet-async";
+
 import NewsLetter from "../../components/NewsLetter";
 
 const Blog7 = () => {
   return (
     <div>
-      <Helmet>
-        <title>The Ultimate No-Code Guide For Product Managers</title>
-      </Helmet>
 
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

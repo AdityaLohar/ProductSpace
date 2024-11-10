@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import NewsLetter from "../components/NewsLetter";
 import he from "he";
@@ -96,12 +95,7 @@ const Blog = () => {
   return (
     <div>
       <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
-        {post && (
-          <Helmet>
-            <title>{post.title.rendered}</title>
-            <meta name="description" content={post.excerpt.rendered} />
-          </Helmet>
-        )}
+        {post }
 
         {post && tags && (
           <div className="max-w-4xl w-full flex flex-col gap-8">

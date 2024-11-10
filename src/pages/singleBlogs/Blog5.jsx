@@ -1,12 +1,8 @@
 import NewsLetter from "../../components/NewsLetter";
-import { Helmet } from "react-helmet-async";
 
 const Blog5 = () => {
   return (
     <div>
-      <Helmet>
-        <title>What is Lean Product Management and How to Apply&nbsp;It?</title>
-      </Helmet>
 
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

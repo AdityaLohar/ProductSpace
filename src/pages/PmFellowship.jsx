@@ -6,7 +6,6 @@ import PmFellowshipHeroSection from "../components/PmFellowshipHeroSection";
 import ResultsPmFellowship from "../components/ResultsPmFellowship";
 import ReviewPmFellowship from "../components/ReviewPmFellowship";
 import WhyPmFellowship from "../components/WhyPmFellowship";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Transitions from "../components/Transitions";
@@ -57,15 +56,7 @@ const PmFellowship = () => {
   })
 
   return (
-    <HelmetProvider>
       <div className="bg-white font-hind xl:flex xl:flex-col items-center">
-        <Helmet>
-          <title>PM Fellowship Page - Product Space</title>
-          <meta
-            name="description"
-            content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job."
-          />
-        </Helmet>
 
         <div className="w-full max-w-screen-2xl">
           <PmFellowshipHeroSection />
@@ -85,7 +76,6 @@ const PmFellowship = () => {
           {showBottomBar && <BottomBar />}
         </div>
       </div>
-    </HelmetProvider>
   );
 };
 

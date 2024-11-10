@@ -1,12 +1,9 @@
 import NewsLetter from "../../components/NewsLetter";
-import { Helmet } from "react-helmet-async";
+
 
 const Blog6 = () => {
   return (
     <div>
-        <Helmet>
-        <title>Competitor Analysis Frameworks to Master for Product&nbsp;Managers</title>
-      </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
           <div className="max-w-4xl w-full flex flex-col gap-8">

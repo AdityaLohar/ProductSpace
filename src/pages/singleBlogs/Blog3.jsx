@@ -1,12 +1,8 @@
 import NewsLetter from "../../components/NewsLetter";
-import { Helmet } from "react-helmet-async";
 
 const Blog3 = () => {
   return (
     <div>
-        <Helmet>
-        <title>What are PRDs and how to create&nbsp;them?</title>
-      </Helmet>
 
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

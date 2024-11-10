@@ -4,6 +4,9 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ command, ssrBuild }) => ({
   plugins: [react()],
+  ssr: {
+    noExternal: ['react', 'react-dom'] // Ensure Vite handles these dependencies for SSR
+  },
   build: {
     outDir: ssrBuild ? 'dist/server' : 'dist/client',
     ssr: ssrBuild,

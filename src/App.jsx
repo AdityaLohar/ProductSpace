@@ -18,7 +18,6 @@ import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
 import ContactUsForm from "./components/ContactUsForm";
 import { RecoilRoot } from "recoil";
-import { HelmetProvider } from "react-helmet-async";
 import Events from './pages/Events';
 import Event1 from "./pages/Event1";
 import Blog1 from "./pages/singleBlogs/Blog1";
@@ -58,8 +57,7 @@ function App() {
     location.pathname === "/" || location.pathname === "/pm-fellowship";
 
   return (
-    <RecoilRoot>
-      <HelmetProvider>
+    <RecoilRoot>      
         <Navbar />
         <ContactUsForm />
         {/* <Router> */}
@@ -103,7 +101,6 @@ function App() {
         <div className={`w-full bg-black ${isHomePage ? "pb-6 lg:pb-16" : ""}`}>
           <Footer />
         </div>
-      </HelmetProvider>
     </RecoilRoot>
     // strata scratch
   );
