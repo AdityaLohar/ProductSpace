@@ -92,7 +92,7 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
             rel="noopener noreferrer"
             className="inline-block w-full h-full"
           >
-            Join our community for active updates
+            Join Our Community for Active Updates
           </a>
         </button>
 
