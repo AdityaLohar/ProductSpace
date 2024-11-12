@@ -3,6 +3,7 @@ import netLeft from "../assets/net-pattern-left.svg";
 import netRight from "../assets/net-pattern-right.svg";
 import { z } from "zod";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import axios from "axios";
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
@@ -13,7 +14,54 @@ const NewsLetter = () => {
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
 
-  const handleSubmit = () => {
+  const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_NEWSLETTER_URL;
+  const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
+
+  const saveUserData = async (email, currentTimestamp) => {
+    try {
+      const response = await axios.post(
+        airtableBaseUrl,
+        {
+          fields: {
+            'Email Id': email,           // Make sure this matches exactly
+            "Timestamp": currentTimestamp,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      console.log('Data saved successfully:', response.data);
+
+      setNotification({
+        type: "success",
+        title: "Subscription Successful",
+        description: "Thank you for subscribing to our newsletter! Get ready for the latest insights and updates delivered right to your inbox. 🚀",
+      });
+      setShowNotification(true);
+    } 
+    catch (error) {
+      setNotification({
+        type: "error",
+        title: "Error",
+        description: "Error in saving you data in air table",
+      });
+
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      
+      console.error('Error saving data:', error);
+      
+      return;
+    }
+  };
+
+  const handleSubmit = async () => {
     const result = schema.safeParse({ email });
 
     if (!result.success) {
@@ -23,14 +71,10 @@ const NewsLetter = () => {
         description: "Invalid email address. Please try again.",
       });
       setShowNotification(true);
-    } else {
-      setNotification({
-        type: "success",
-        title: "Subscription Successful",
-        description:
-          "Thank you for subscribing to our newsletter! Get ready for the latest insights and updates delivered right to your inbox. 🚀",
-      });
-      setShowNotification(true);
+    } 
+    else {
+      const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+      const res = await saveUserData(email, currentTimestamp);
     }
 
     // Automatically hide notification after 10 seconds
