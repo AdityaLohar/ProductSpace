@@ -34,7 +34,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
 
   return (
     <div>
-      <div className="flex fixed bottom-0 left-0 right-0 z-40 bg-white px-4 md:px-12 lg:px-[120px] py-3 shadow-[0_-15px_28px_-10px_rgba(0,0,0,0.2)]">
+      <div className="flex fixed bottom-0 left-0 right-0 z-10 bg-white px-4 md:px-12 lg:px-[120px] py-3 shadow-[0_-15px_28px_-10px_rgba(0,0,0,0.2)]">
         <div className="flex gap-0 2xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
           <div className="hidden md:flex flex-col gap-1">
             <div className="text-[16px] text-[#969696]">

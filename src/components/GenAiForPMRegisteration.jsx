@@ -69,15 +69,41 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
   };
 
   const handleSubmit = async () => {
-    if (
-      formData.name === "" ||
-      !formData.phoneNumber === "" ||
-      formData.email === ""
+    // Regular expressions for validation
+    const phoneNumberRegex = /^\d{10}$/; // 10 digits only
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,6}$/;
+
+    if(formData.name === "") {
+      setNotification({
+        type: "error",
+        title: "Error",
+        description: "Name cannot be empty",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
+    }
+    else if(!emailRegex.test(formData.email)) {
+      setNotification({
+        type: "error",
+        title: "Error",
+        description: "Enter correct email",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
+    }
+    else if (
+      !phoneNumberRegex.test(formData.phoneNumber)
     ) {
       setNotification({
         type: "error",
         title: "Error",
-        description: "Fill in all details",
+        description: "Enter correct phone number",
       });
       setShowNotification(true);
       setTimeout(() => {
@@ -119,6 +145,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
 
   return (
     <div className="mx-4 md:mx-0 pt-10 px-8 lg:px-12 pb-12 bg-white rounded-xl">
+
       <div className="flex justify-end">
         <button onClick={togglePopup}>✖</button>
       </div>
@@ -131,7 +158,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
         <div className="flex flex-col gap-8">
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Name*
+              Name<span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -145,7 +172,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Email
+              Email<span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -159,7 +186,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Phone Number
+              Phone Number<span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -204,7 +231,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
         <div
           className={`fixed left-1/2 transform -translate-x-1/2 ${
             showNotification ? "bottom-4 opacity-100" : "-bottom-20 opacity-0"
-          } transition-all duration-500 ease-in-out z-50 max-w-[340px] md:max-w-[400px] w-full`}
+          } transition-all duration-500 ease-in-out z-80 max-w-[340px] md:max-w-[400px] w-full`}
         >
           <div
             className={`flex items-center justify-between gap-3 p-4 rounded-lg shadow-lg ${

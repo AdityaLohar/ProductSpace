@@ -94,7 +94,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg ">
+    <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-lg ">
       {showTopBar && (
         <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
           <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
