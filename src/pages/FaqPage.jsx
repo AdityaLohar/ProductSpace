@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import DropdownList from "../components/DropdownList";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
 
 const FaqPage = () => {
@@ -8,13 +7,8 @@ const FaqPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <HelmetProvider>
-      <div className="flex flex-col pb-40 bg-white">
-        <Helmet>
-          <title>Frequently Asked Questions - Product Space</title>
-          <meta name="description" content="Welcome to the faq page of Product Space. Look at all questions you may have." />
-        </Helmet>
+  return (    
+      <div className="flex flex-col pb-40 bg-white">        
 
         {/* Back Arrow at the top */}
         <div className="px-4 md:px-[120px] pt-6 max-w-screen-2xl">
@@ -49,7 +43,6 @@ const FaqPage = () => {
           <DropdownList len={13} flag={0} />
         </div>
       </div>
-    </HelmetProvider>
   );
 };
 

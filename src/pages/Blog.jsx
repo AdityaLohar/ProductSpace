@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import NewsLetter from "../components/NewsLetter";
 import he from "he";
@@ -9,60 +8,64 @@ const Blog = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [canonicalUrl, setCanonicalUrl] = useState(null);
   const [tags, setTags] = useState([]);
 
-  const fetchPost = () => {
-    fetch(`https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts?slug=${id}`)
-      .then(response => {
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(
+          `https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/posts?slug=${id}`
+        );
+
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json();
-      })
-      .then(data => {
+        const data = await response.json();
+
         setPost(data[0]);
+        // console.log(data[0])
         setLoading(false);
-      })
-      .catch(error => {
+      } catch (error) {
         setError(error);
         setLoading(false);
-      });
-  };
-
-  fetchPost();
-
-  // Scroll to top when component mounts
-  window.scrollTo(0, 0);
-  const fetchTags = async () => {
-    try {
-      // Fetch tags for the specific post using post.id
-      const response = await fetch(
-        `https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/categories?post=${post.id}`
-      );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
       }
-      const data = await response.json();
-      // Extract tag names from the response (assuming it's an array)
-      const tagData = data.map((entry) => he.decode(entry?.name)); // Get tag names
-      // Update state with the tags for this specific post
-      setTags(tagData);
-    } catch (error) {
-      console.error('Error fetching tags:', error);
-      setError(error);
-      setLoading(false);
-    }
-  };
+    };
+
+    fetchPost();
+
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, [id]);
 
   useEffect(() => {
     if (!loading) {
-      setCanonicalUrl(`https://aspareo.dcms.site/blogs/${post.slug}`);
-      // fetchTags();
+
+      const fetchTags = async () => {
+        try {
+          // Fetch tags for the specific post using post.id
+          const response = await fetch(
+            `https://public-api.wordpress.com/wp/v2/sites/productspaceorgin.wordpress.com/categories?post=${post.id}`
+          );
+      
+          const data = await response.json();
+      
+          // Extract tag names from the response (assuming it's an array)
+          const tagData = data.map((entry) => he.decode(entry?.name)); // Get tag names
+      
+          // Update state with the tags for this specific post
+          setTags(tagData);
+      
+        } catch (error) {
+          console.error('Error fetching tags:', error);
+          setError(error);
+          setLoading(false);
+        }
+      };
+      
+
+      fetchTags();
     }
   }, [loading]);
-  
-  fetchTags();
 
   // Function to format the date
   const formatDate = (dateString) => {
@@ -92,13 +95,7 @@ const Blog = () => {
   return (
     <div>
       <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
-        {post && (
-          <Helmet>
-            <title>{post.title.rendered}</title>
-            <meta name="description" content={post.excerpt.rendered} />
-            <link rel="canonical" href={canonicalUrl} />
-          </Helmet>
-        )}
+        {post }
 
         {post && tags && (
           <div className="max-w-4xl w-full flex flex-col gap-8">

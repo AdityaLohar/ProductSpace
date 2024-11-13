@@ -8,7 +8,6 @@ import ResultsPmFellowship from "../components/ResultsPmFellowship";
 import ReviewPmFellowship from "../components/ReviewPmFellowship";
 import WhyPmFellowship from "../components/WhyPmFellowship";
 import { v4 as uuidv4 } from 'uuid';
-import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
@@ -102,16 +101,8 @@ const PmFellowshipReferral = () => {
     checkReferralAndIncrement();
   }, [location]);
 
-  return (
-    <HelmetProvider>
-      <div className="bg-white font-hind xl:flex xl:flex-col items-center">
-        <Helmet>
-          <title>PM Fellowship Page - Product Space</title>
-          <meta
-            name="description"
-            content="Welcome to the PM Fellowship page of Product Space."
-          />
-        </Helmet>
+  return (    
+      <div className="bg-white font-hind xl:flex xl:flex-col items-center">        
 
         <div className="w-full max-w-screen-2xl">
           <PmFellowshipHeroSection />
@@ -127,7 +118,6 @@ const PmFellowshipReferral = () => {
           <MeetAlums />
         </div>
       </div>
-    </HelmetProvider>
   );
 };
 
