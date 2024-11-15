@@ -38,6 +38,7 @@ import GenAiForPMRegisteration from "../components/GenAiForPMRegisteration";
 import FaqAiForPm from "../components/FaqAiForPm";
 import AiForPmStickyBar from "../components/AiforPmStickyBar";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
@@ -216,6 +217,7 @@ const Event1 = () => {
         backgroundRepeat: "no-repeat, repeat", // Specify repeat behavior for each background
       }}
     >
+
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4 lg:px-16">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
           Get ahead of the Product Management curve with Gen AI

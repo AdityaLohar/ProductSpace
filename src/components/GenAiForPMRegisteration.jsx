@@ -225,7 +225,6 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
               Status of Education / Employment
-              <span className="text-red-500">*</span>
             </label>
             <select
               name="status"
@@ -238,8 +237,8 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
               <option value="Students">Students</option>
               <option value="PMs (0 to 3 Yr exp.)">PMs (0 to 3 Yr exp.)</option>
               <option value="PMs (3+ Yrs exp.)">PMs (3+ Yrs exp.)</option>
-              <option value="Industry Professionals (Non Product)">
-              Industry Professionals (Non Product)
+              <option value="Non Product Professional">
+                Non Product Professional
               </option>
               <option value="Others">Others</option>
             </select>
@@ -251,7 +250,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
               className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white"
             >
               <p className="text-[18px] md:text-[20px] font-medium">
-                {loading ? "Loading..." : "Register Now"}
+                {loading ? "Loading..." : "Join the Waitlist"}
               </p>
               <img src={arrowIcon} alt="icon" />
             </button>

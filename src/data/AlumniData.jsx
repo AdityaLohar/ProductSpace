@@ -13,6 +13,7 @@ const alumni = [
     prevCompany:
       "https://image4.owler.com/logo/bharti-axa_owler_20200630_223719_original.png",
     prevPost: "Digital PM Intern",
+    company: "CineStox",
     curCompany:
       "https://www.f6s.com/content-resource/profiles/3766740_original.jpg",
     curPost: "PM Intern",
@@ -29,7 +30,7 @@ const alumni = [
     prevCompany:
       "https://media.licdn.com/dms/image/v2/C4D0BAQE69ntFHh3yiQ/company-logo_200_200/company-logo_200_200/0/1663559468849/droame_logo?e=2147483647&v=beta&t=bJLjvxxdzZv5Pb8oXQBM12vLOfD6Ip9bumu5fawaBNM",
     prevPost: "Product & Strategy Associate",
-    // curCompany: "Magicbricks",
+    company: "Magicbricks",
     curCompany:
       "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
     curPost: "Product Management Intern",
@@ -46,7 +47,7 @@ const alumni = [
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDF5ZX8zis1PxBlqNGSjb5XRwYQbW9EG-CzOSztnSPsq-15F2StzXldr8q9jlaZ6YLs_g&usqp=CAU",
     prevPost: "Associate Product Manager",
-    // curCompany: "Swiggy",
+    company: "Swiggy",
     curCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH4MrpJVVh45uKulQVIefwzC2FycDx2Au7mg&s",
     curPost: "Product Management Consultant",
@@ -62,7 +63,7 @@ const alumni = [
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFFp2CH07jaVbj04vCi9L4suN2hJBbtH93Yw&s",
     prevPost: "Financial Services",
-    // curCompany: "Ind Money",
+    company: "Ind Money",
     curCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2kajw7rctnsjz7bcS_DGh_ClS1xVKD3pXA&s",
     curPost: "Product Management Trainee",
@@ -79,7 +80,7 @@ const alumni = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl0f6J3L_slGJWEf4mQOttHHCSRBmCBdTLEw&s",
     // prevCompany: "Thermax",
     prevPost: "Marketing Research",
-    // curCompany: "CreditAccess Grameen",
+    company: "CreditAccess Grameen",
     curCompany:
       "https://www.temenos.com/wp-content/uploads/2024/01/CreditAccess-Grameen-logo.jpg",
     curPost: "Product Manager",
@@ -96,7 +97,7 @@ const alumni = [
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0ufc8DbCUiZR72d7gFTA4kPIsvGsI3EJFbA&s",
     prevPost: "Project Manager",
-    // curCompany: "Magicbricks",
+    company: "Magicbricks",
     curCompany:
       "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
     curPost: "APM",
@@ -113,7 +114,7 @@ const alumni = [
     prevCompany:
       "https://static.vecteezy.com/system/resources/previews/020/336/263/original/icici-logo-icici-icon-free-free-vector.jpg",
     prevPost: "Product Manager",
-    // curCompany: "My Sivi",
+    company: "My Sivi",
     curCompany:
       "https://framerusercontent.com/assets/4b43uKdIsaAy8VSR0OtLRxCAtTc.png",
     curPost: "Product Manager",
@@ -129,7 +130,7 @@ const alumni = [
     prevCompany:
       "https://upload.wikimedia.org/wikipedia/commons/9/93/Justdial_logo.png",
     prevPost: "Product Operation",
-    // curCompany: "Cimpress",
+    company: "Cimpress",
     curCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjLtV29x13EmGY-yph7Uoxi_d-dNGPXC3cJw&s",
     curPost: "Product Ops Specialist",
@@ -146,7 +147,7 @@ const alumni = [
     prevCompany:
       "https://uxdt.nic.in/wp-content/uploads/2024/06/iit-dhanbad-feature-img-01.jpg?x69772",
     prevPost: "Student",
-    // curCompany: "Nabe Eats",
+    company: "Nabe Eats",
     curCompany:
       "https://play-lh.googleusercontent.com/-fc2nr9Zmm7uBa5mqQsxPfaMW4JRmf9SGYYGQV-6K5bzv-Paduq3Dq2kzVFPzqA0BA",
     curPost: "Product Manager",
@@ -163,7 +164,7 @@ const alumni = [
     prevCompany:
       "https://bsmedia.business-standard.com/_media/bs/img/article/2018-04/03/full/1522755576-0608.jpg",
     prevPost: "Junior Product Manager",
-    // curCompany: "Kaam",
+    company: "Kaam",
     curCompany:
       "https://kaam.com/assets/home/ccf322f1205bc49408eac7cebf763b1d.png",
     curPost: "Junior Product Manager",
@@ -180,7 +181,7 @@ const alumni = [
     prevCompany:
       "https://bharatinvest.com/wp-content/uploads/2023/06/PHARMEASY-API-HOLDINGS-min-1.jpg",
     prevPost: "Finance Intern",
-    // curCompany: "WiJungle",
+    company: "WiJungle",
     curCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-GQdUd0OInAlijbxbc16Aepixj5CU4hFnHg&s",
     curPost: "Product Manager Internship",
@@ -197,7 +198,7 @@ const alumni = [
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQheR4DA4QQfQQf6h05S8-bt8hfYXGvq7_Gfg&s",
     prevPost: "Founder's Office",
-    // curCompany: "Bento Labs",
+    company: "Bento Labs",
     curCompany:
       "https://media.licdn.com/dms/image/v2/D560BAQGQaB2o7W-68g/company-logo_200_200/company-logo_200_200/0/1663139917134?e=2147483647&v=beta&t=E_Ha-P7-9mr4QhNUx7z7RV_hSQQbnK81kDUHxxjcj-s",
     curPost: "Product Management Intern",
@@ -214,7 +215,7 @@ const alumni = [
     prevCompany:
       "https://media.licdn.com/dms/image/v2/D560BAQFbjLGkoC0QjA/company-logo_200_200/company-logo_200_200/0/1701242524397/healmeright_logo?e=2147483647&v=beta&t=5UpqEAFiLq0B8qp7RPA5f4Ogi8EeLkjsJxvUFZZXJRI",
     prevPost: "Product Management Intern",
-    // curCompany: "TrulyMadly",
+    company: "TrulyMadly",
     curCompany:
       "https://media.licdn.com/dms/image/v2/C4E0BAQF7ALI3p7iTzQ/company-logo_200_200/company-logo_200_200/0/1630617609198?e=2147483647&v=beta&t=8C5Zw08eUwXiXA2FQMGDSzkh4dyNILaO9JY76MMSPCU",
     curPost: "Associate Product Manager",
@@ -231,7 +232,7 @@ const alumni = [
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5qtGidO_Dg4kQes9ODcE00w1Ai66hI6HTAg&s",
     prevPost: "Associate Analyst",
-    // curCompany: "Optiblack",
+    company: "Optiblack",
     curCompany:
       "https://media.licdn.com/dms/image/v2/D4D0BAQH0fHdHdbMMSQ/company-logo_200_200/company-logo_200_200/0/1709279882066/optiblack_logo?e=2147483647&v=beta&t=TSViU15uxSpEsUE28XCODqw3oF0m6PCam_J-XijyI70",
     curPost: "Product Manager",
@@ -248,7 +249,7 @@ const alumni = [
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnrwp5tPxI72Reu074a05i1pmISdUFDGuig&s",
     prevPost: "Associate System Engineer",
-    // curCompany: "Tohands",
+    company: "Tohands",
     curCompany:
       "https://media.licdn.com/dms/image/v2/D560BAQEwepizqTq4MQ/company-logo_200_200/company-logo_200_200/0/1708343129209/tohands_logo?e=2147483647&v=beta&t=PBvg5iqYvppXcx6qxRgMOeoXntB7BC7v-hPM1Uu0j4s",
     curPost: "Product Marketing Manager",

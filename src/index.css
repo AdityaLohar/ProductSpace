@@ -19,7 +19,7 @@
 
 body {
   background-color: transparent !important;
-  background-image: url('./assets/bg-curve1.svg');
+  /* background-image: url('./assets/bg-curve1.svg'); */
   background-position: top 0% left 0%;
   background-size: auto;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    background-image: url('./assets/bg-curve1.svg'); /* Only show the first background */
+    /* background-image: url('./assets/bg-curve1.svg'); Only show the first background */
     background-position: top 1% left;
     background-size: 106% auto; /* Adjust as needed */
   }
@@ -81,6 +81,22 @@ body {
   animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
 }
 
+/* GenAi page */
+.scroll-wrapper-3 {
+  display: flex;
+  width: calc(100% * 2); /* Adjust width based on the number of repetitions */
+  animation: scrollHorizontal linear infinite;
+  animation-duration: 70s; /* Adjust based on content length */
+  animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
+}
+.scroll-wrapper-4 {
+  display: flex;
+  width: calc(100% * 3); /* Adjust width based on the number of repetitions */
+  animation: scrollHorizontal linear infinite;
+  animation-duration: 80s; /* Adjust based on content length */
+  animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
+}
+
 
 @keyframes scrollHorizontal {
   0% {
@@ -91,8 +107,14 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .scroll-wrapper {
+    animation-duration: 20s; /* Faster for mobile view */
+  }
+  .scroll-wrapper-3 {
+    animation-duration: 15s; /* Faster for mobile view */
+  }
+  .scroll-wrapper-4 {
     animation-duration: 20s; /* Faster for mobile view */
   }
 }

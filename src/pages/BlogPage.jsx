@@ -18,6 +18,7 @@ import whatsappIcon from "../assets/whatsapp.svg";
 import emailIcon from "../assets/email.svg";
 import facebookIcon from "../assets/facebook.svg";
 import bgBlue from "../assets/blue-bg.png";
+import { Helmet } from "react-helmet-async";
 
 let missingImg =
   "https://substackcdn.com/image/fetch/w_848,h_565,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcb250a4e-ba34-4f22-ade7-4b6babb20c05_1280x861.png";
@@ -498,6 +499,15 @@ const BlogPage = () => {
         backgroundRepeat: "no-repeat", // Specify repeat behavior for each background
       }}
     >
+      <Helmet>
+        <title>Blogs Page - Product Space</title>
+        <meta
+          name="description"
+          content="Join our Gen AI for PM Fellowship course and excel in your Product Management Career with practical AI skills and 1:1 mentorship from industry experts."
+        />
+      </Helmet>
+
+
       <div className="px-4 lg:px-28 pt-2 lg:pt-12">
         <div className="py-8 text-start md:text-center space-y-4">
           <h1 className="text-[28px] lg:text-[40px] font-sans font-bold">
