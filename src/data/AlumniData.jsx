@@ -1,8 +1,14 @@
+import adityaMandothia from "../assets/aditya-mandothia.jpeg";
+import arpita from "../assets/arpita.png";
+import alankrat from "../assets/alankrat.jpeg";
+import nishant from "../assets/nishant-sinha.jpeg";
+import anshul from "../assets/anshul-agarwal.jpeg";
+
 const alumni = [
   {
     id: 1,
     profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQGGLNTiBlHcrw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710504658899?e=1731542400&v=beta&t=Bc1TFPzuuo0uEN4fuf-1tdXKDwYl3OF2yW31-PwAQIo",
+      adityaMandothia,
     name: "Aditya Mandothia",
     prevCompany:
       "https://image4.owler.com/logo/bharti-axa_owler_20200630_223719_original.png",
@@ -67,8 +73,8 @@ const alumni = [
   {
     id: 6,
     profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQFuaisZpsSTjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1705161505684?e=1731542400&v=beta&t=aThtTNNdBqxkVgYOfBP394wH95SeA8T1ZANwJZ1s_18",
-    name: "Nishant Sinja",
+      nishant,
+    name: "Nishant Sinha",
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl0f6J3L_slGJWEf4mQOttHHCSRBmCBdTLEw&s",
     // prevCompany: "Thermax",
@@ -84,7 +90,7 @@ const alumni = [
   {
     id: 7,
     profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQELarrUuOd4sA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1704697376037?e=1731542400&v=beta&t=x2tbb1gSOBhVhdXO_qZgpjR0TZ3M2N-u9yHW53JV_S4",
+      arpita,
     name: "Arpita",
     // prevCompany: "Salarpuria Sattva",
     prevCompany:
@@ -101,7 +107,7 @@ const alumni = [
   {
     id: 8,
     profile:
-      "https://media.licdn.com/dms/image/v2/D4D03AQFb1RR6l5Nufg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1694013700834?e=1731542400&v=beta&t=X4wG_7rX198PAeNMDMT8Gjrgb-GvWMf8NkzosVLVbZw",
+      anshul,
     name: "Anshul Agarwal",
     // prevCompany: "ICICI Bank",
     prevCompany:
@@ -117,8 +123,7 @@ const alumni = [
   },
   {
     id: 9,
-    profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQHrZaIw4qYSYg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1698746437560?e=1731542400&v=beta&t=j7-M5QvihfgnJlzQ4PLK2zei8slmh5Wyp70uKQrwrPg",
+    profile: alankrat,
     name: "Alankrat Nigam",
     // prevCompany: "Justdial",
     prevCompany:
