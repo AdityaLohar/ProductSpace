@@ -135,9 +135,9 @@ const PmFellowshipHeroSection = () => {
               </div>
             </div>
 
-            <p className="">
+            <p className="font-bold">
               {" "}
-              Pay 50% now to enrol and remaining in next 2 weeks.
+              ⏳Price rises to 40,000 in Jan 2025
             </p>
 
             <div className="font-semibold text-[14px]">Cohort seats: 60</div>
