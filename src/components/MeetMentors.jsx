@@ -4,6 +4,11 @@ import microsoft from "../assets/microsoft.svg";
 import fedex from "../assets/fedex.svg";
 import reliance from "../assets/reliance.svg";
 import inmobi from "../assets/inmobi.svg";
+import sonia from "../assets/sonia.svg";
+import arun from "../assets/arun.svg";
+import lalith from "../assets/lalith.jpeg";
+import shilpi from "../assets/shilpi.jpeg";
+import kanishk from "../assets/kanishk.jpeg";
 import MentorCard1 from "./MentorCard1";
 import { useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
@@ -11,8 +16,7 @@ import EnrollmentForm from "./EnrollmentForm";
 const mentors = [
   {
     id: 1,
-    profile:
-      "https://media.licdn.com/dms/image/v2/C5603AQGZh1nhPJbd9A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1586993297319?e=1731542400&v=beta&t=cF6UVCHOY84ehfuuNzCb2qABr6lTtJH82qrQ753MaK4",
+    profile: sonia,
     name: "Sonia Vora",
     company: "Narayana Health",
     post: "Head of Product",
@@ -22,8 +26,7 @@ const mentors = [
   },
   {
     id: 2,
-    profile:
-      "https://media.licdn.com/dms/image/v2/C4E03AQHjZ3JB90t_nA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1587323348124?e=1731542400&v=beta&t=P6-MxMiuaUnfGnqcdcVi_QOxkDjIbGG3Nmz_J3nlJC4",
+    profile: arun,
     name: "Arun Nandewal",
     company: "Microsoft",
     post: "Sr. Product Manager",
@@ -32,8 +35,7 @@ const mentors = [
   },
   {
     id: 3,
-    profile:
-      "https://media.licdn.com/dms/image/v2/C4E03AQFnGwyNhCQADg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1637825840329?e=1731542400&v=beta&t=FL_hXMi556xTvEyyg34P0prdiAADiTB9HOmII1Ff26A",
+    profile: lalith,
     name: "Lalith Kumar",
     company: "FedEx",
     post: "VP of Product",
@@ -43,8 +45,7 @@ const mentors = [
   },
   {
     id: 4,
-    profile:
-      "https://media.licdn.com/dms/image/v2/C5103AQFvYT_gMa_31Q/profile-displayphoto-shrink_400_400-alternative/profile-displayphoto-shrink_400_400-alternative/0/1528975669833?e=1731542400&v=beta&t=EZcfogH9xxfygIpn0yOfYVCouJTvOD3x5hlAF8ebLh4",
+    profile: shilpi,
     name: "Shilpi",
     company: "Reliance",
     post: "Sr. Product Manager",
@@ -53,8 +54,7 @@ const mentors = [
   },
   {
     id: 5,
-    profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQGzVCf2qubRGA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721931911839?e=1731542400&v=beta&t=Jwj6bqoXiush9EsZrL5CqZwzbVoHQPhV8O2DNrKJa7w",
+    profile: kanishk,
     name: "Kanishk Mehta",
     company: "InMobi",
     post: "Director of Product",
