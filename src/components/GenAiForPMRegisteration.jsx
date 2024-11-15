@@ -40,7 +40,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
             "Email Id": email, // Make sure this matches exactly
             "Unique Id": currentTimestamp.toString(),
             "Company/College": companyCollege,
-            "Status": status,
+            Status: status,
             Timestamp: formattedTimestamp,
           },
         },
@@ -76,7 +76,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
     const phoneNumberRegex = /^\d{10}$/; // 10 digits only
     const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,6}$/;
 
-    if(formData.name === "") {
+    if (formData.name === "") {
       setNotification({
         type: "error",
         title: "Error",
@@ -87,8 +87,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
         setShowNotification(false);
       }, 5000);
       return;
-    }
-    else if(!emailRegex.test(formData.email)) {
+    } else if (!emailRegex.test(formData.email)) {
       setNotification({
         type: "error",
         title: "Error",
@@ -99,10 +98,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
         setShowNotification(false);
       }, 5000);
       return;
-    }
-    else if (
-      !phoneNumberRegex.test(formData.phoneNumber)
-    ) {
+    } else if (!phoneNumberRegex.test(formData.phoneNumber)) {
       setNotification({
         type: "error",
         title: "Error",
@@ -113,8 +109,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
         setShowNotification(false);
       }, 5000);
       return;
-    }
-    else if(formData.status == "Select an option") {
+    } else if (formData.status == "Select an option") {
       setNotification({
         type: "error",
         title: "Error",
@@ -161,7 +156,6 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
 
   return (
     <div className="mx-4 md:mx-0 pt-10 px-8 lg:px-12 pb-12 bg-white rounded-xl">
-
       <div className="flex justify-end">
         <button onClick={togglePopup}>✖</button>
       </div>
@@ -230,7 +224,8 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Status of Education / Employment<span className="text-red-500">*</span>
+              Status of Education / Employment
+              <span className="text-red-500">*</span>
             </label>
             <select
               name="status"
@@ -240,15 +235,13 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
               required
             >
               <option value="">Select an option</option>
-              <option value="Student (tech/engg)">Student (tech/engg)</option>
-              <option value="Student (other)">Student (other)</option>
-              <option value="Aspiring PM / Analyst">Aspiring PM / Analyst</option>
-              <option value="Already PM (0-3 yrs exp)">Already PM (0-3 yrs exp)</option>
-              <option value="Already PM / SPM (3+ years exp)">Already PM / SPM (3+ years exp)</option>
-              <option value="GPM / Director PM / VP+">GPM / Director PM / VP+</option>
-              <option value="Marketing / Business / NonTech / Non product roles">Marketing / Business / NonTech / Non product roles</option>
-              <option value="Entrepreneur / Founder">Entrepreneur / Founder</option>
-              <option value="Fresher / Open To Work">Fresher / Open To Work</option>
+              <option value="Students">Students</option>
+              <option value="PMs (0 to 3 Yr exp.)">PMs (0 to 3 Yr exp.)</option>
+              <option value="PMs (3+ Yrs exp.)">PMs (3+ Yrs exp.)</option>
+              <option value="Non Product Professional">
+                Non Product Professional
+              </option>
+              <option value="Others">Others</option>
             </select>
           </div>
 
