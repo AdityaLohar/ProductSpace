@@ -238,8 +238,8 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
               <option value="Students">Students</option>
               <option value="PMs (0 to 3 Yr exp.)">PMs (0 to 3 Yr exp.)</option>
               <option value="PMs (3+ Yrs exp.)">PMs (3+ Yrs exp.)</option>
-              <option value="Non Product Professional">
-                Non Product Professional
+              <option value="Industry Professionals (Non Product)">
+              Industry Professionals (Non Product)
               </option>
               <option value="Others">Others</option>
             </select>
