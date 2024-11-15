@@ -14,6 +14,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
     email: "",
     phoneNumber: "",
     companyCollege: "",
+    status: "Select an option",
   });
 
   const [notification, setNotification] = useState(null);
@@ -25,6 +26,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
     email,
     phoneNumber,
     companyCollege,
+    status,
     currentTimestamp,
     formattedTimestamp
   ) => {
@@ -38,6 +40,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
             "Email Id": email, // Make sure this matches exactly
             "Unique Id": currentTimestamp.toString(),
             "Company/College": companyCollege,
+            "Status": status,
             Timestamp: formattedTimestamp,
           },
         },
@@ -111,6 +114,18 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
       }, 5000);
       return;
     }
+    else if(formData.status == "Select an option") {
+      setNotification({
+        type: "error",
+        title: "Error",
+        description: "Enter all required fields",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
+    }
 
     setLoading(true);
     const currentTimestamp = Date.now();
@@ -120,6 +135,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
       formData.email,
       formData.phoneNumber,
       formData.companyCollege,
+      formData.status,
       currentTimestamp,
       formattedTimestamp
     );
@@ -155,7 +171,7 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
           <h2>Fill the form to Register</h2>
         </div>
 
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
               Name<span className="text-red-500">*</span>
@@ -210,6 +226,30 @@ const GenAiForPMRegisteration = ({ togglePopup, setShowSuccess }) => {
               placeholder=""
               className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none"
             />
+          </div>
+
+          <div className="relative">
+            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+              Status of Education / Employment<span className="text-red-500">*</span>
+            </label>
+            <select
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+              className="border border-[#C1C1C1] rounded-md px-3 py-2 w-full outline-none bg-white"
+              required
+            >
+              <option value="">Select an option</option>
+              <option value="Student (tech/engg)">Student (tech/engg)</option>
+              <option value="Student (other)">Student (other)</option>
+              <option value="Aspiring PM / Analyst">Aspiring PM / Analyst</option>
+              <option value="Already PM (0-3 yrs exp)">Already PM (0-3 yrs exp)</option>
+              <option value="Already PM / SPM (3+ years exp)">Already PM / SPM (3+ years exp)</option>
+              <option value="GPM / Director PM / VP+">GPM / Director PM / VP+</option>
+              <option value="Marketing / Business / NonTech / Non product roles">Marketing / Business / NonTech / Non product roles</option>
+              <option value="Entrepreneur / Founder">Entrepreneur / Founder</option>
+              <option value="Fresher / Open To Work">Fresher / Open To Work</option>
+            </select>
           </div>
 
           <div>

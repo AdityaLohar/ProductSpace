@@ -166,7 +166,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
                     onClick={handleSubmit}
                     className="text-[16px] lg:text-[20px] w-full bg-[#FEC923] text-black font-semibold px-2 md:px-6 py-3 rounded-full hover:bg-yellow-500"
                   >
-                    {loading ? "Loading..." : "Begin Your PM Career"}
+                    {loading ? "Loading..." : "Secure your Spot Now"}
                   </button>
                   <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
                     <p>Get 1-1 mentorship via our PM Fellowship cohort</p>
