@@ -14,6 +14,7 @@ const FaqPage = () => {
         <Helmet>
           <title>Frequently Asked Questions - Product Space</title>
           <meta name="description" content="Welcome to the faq page of Product Space. Look at all questions you may have." />
+          <link rel="canonical" href="https://theproductspace.in/faq" />        
         </Helmet>
 
         {/* Back Arrow at the top */}

@@ -6,6 +6,7 @@ const Blog13 = () => {
     <div>
         <Helmet>
         <title>Prototyping for Product&nbsp;Managers</title>
+        <link rel="canonical" href="https://theproductspace.in/blogs/prototyping-for-product-managers" />
       </Helmet>
 
       <div>

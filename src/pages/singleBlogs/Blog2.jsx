@@ -10,6 +10,7 @@ const Blog2 = () => {
           name="description"
           content="Explore how Perplexity is challenging Google's dominance in the search industry. This product case study delves into the strategies and innovations driving Perplexity’s disruptive growth."
         />
+        <link rel="canonical" href="https://theproductspace.in/blogs/how-perplexity-is-challenging-googles-dominance" />
       </Helmet>
 
       <div>

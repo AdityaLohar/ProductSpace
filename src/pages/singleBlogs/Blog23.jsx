@@ -5,7 +5,13 @@ const Blog23 = () => {
   return (
     <div>
       <Helmet>
-        <title>Case Study: Decoding Flipkart’s Big Billion Days&nbsp;Strategy</title>
+        <title>
+          Case Study: Decoding Flipkart’s Big Billion Days&nbsp;Strategy
+        </title>
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/case-study-decoding-flipkarts-big-billion-days-strategy"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
