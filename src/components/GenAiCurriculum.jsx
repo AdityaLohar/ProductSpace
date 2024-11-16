@@ -148,15 +148,11 @@ const GenAiCurriculum = () => {
 
         <div className="w-full md:w-2/3 space-y-4 md:space-y-2">
           <div className="text-[24px] lg:text-[40px] font-bold text-center lg:text-start text-[#24304C]">
-          What your curriculum will look like
+          Course Curriculum
           </div>
           <div className="text-[16px]">
             <p>
-              A sneak peak into what you will learn in our 10 week curriculum.
-            </p>
-            <p>
-              You will have to commit to investing 6 to 8 hours of dedicated
-              time to this program every week.
+            5 Weeks of practical & live learning, with a comprehensive AI resource library, to help you master AI applications in product management.
             </p>
           </div>
         </div>

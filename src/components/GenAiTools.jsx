@@ -51,7 +51,7 @@ const GenAiTools = () => {
         </div>
       </div>
 
-      <div className="flex text-[#36363633] text-[18px] lg:text-[28px] font-semibold">
+      <div className="flex text-[#3636368a] text-[18px] lg:text-[28px] font-semibold">
         <p>and many more...</p>
       </div>
     </div>

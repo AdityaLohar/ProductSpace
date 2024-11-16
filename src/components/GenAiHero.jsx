@@ -171,12 +171,13 @@ const GenAiHero = () => {
             <div className="flex flex-col gap-2 bg-[#f5f5f5] py-4 px-4 lg:px-6 rounded-lg text-[12px] lg:text-[16px]">
               <div className="flex items-center gap-2">
                 <img src={cohortSeats} alt="" className="h-4" />
-                <p>Total cohort seats : 60</p>
+                <p>Total cohort seats : 15</p>
               </div>
               <div className="flex items-center gap-2">
                 <img src={clock} alt="" className="h-4 w-5" />
                 <p>
-                  Hurry! <b>20 people</b> have enrolled in the past 1 month
+                  {/* Hurry! <b>20 people</b> have enrolled in the past 1 month */}
+                  Hurry! seats are filling fast
                 </p>
               </div>
             </div>

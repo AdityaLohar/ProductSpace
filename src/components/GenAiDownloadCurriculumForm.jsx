@@ -83,7 +83,7 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
  
-    window.location.href = "https://drive.google.com/file/d/1ZHy7P4m1Fue5zffYpi2oxPjtE8ic8peL/view?usp=sharing";
+    window.location.href = "https://drive.google.com/file/d/1lr20XvCpeE76KItUwzigZsoC6H277I3m/view?usp=sharing";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {

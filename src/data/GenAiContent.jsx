@@ -32,10 +32,9 @@ import ethics from "../assets/ethics.png";
 import slides from "../assets/google-slides.png";
 import mixpanel from "../assets/mixpanel.png";
 import powerpoint from "../assets/powerpoint.png";
-import googleCollab from "../assets/powerpoint.png";
+import googleCollab from "../assets/google-collab.png";
 
 // import googleCollab from "https://colab.research.google.com/img/colab_favicon_256px.png";
-
 
 const tinder =
   "https://logodownload.org/wp-content/uploads/2020/09/tinder-logo.png";
@@ -48,19 +47,25 @@ const sql =
 const GenAIContent = [
   {
     week: "1",
-    title: "01 Foundations of Generative AI (GenAI)",
+    title: "01 Foundations of GenAI",
     desc: [
-      "Exploring GenAI Fundamentals: Gain a foundational understanding of Generative AI and its core concepts.",
-      "Guest Speaker Session: An industry expert discusses practical applications of GenAI in product development.",
+      "Understanding GenAI Fundamentals: Demystifying Generative AI concepts such as Large Language Models, Generative Adversarial Networks (GANs), and others.",
+      "Exploring the potential applications of GenAI across industries.",
+      "Identifying the ethical considerations and limitations of GenAI.",
+      "Guest Speaker Session: Industry expert on the practical use of GenAI in product development.",
     ],
     toolsLearned: [chatgpt, midjourney, perplexity, googleCollab],
   },
   {
     week: "2",
-    title: "02 Strategic Integration of GenAI",
+    title: "02 Implementation of GenAI in Product Management",
     desc: [
-      "Assessing Opportunities and Risks: Learn to evaluate potential benefits and challenges of GenAI.",
-      "Strategic Planning for GenAI: Develop a strategic approach to incorporating GenAI into product management.",
+      "Analyze diverse use cases for GenAI in product development using the Value Proposition Canvas.",
+      "Brainstorm innovative GenAI features for existing products with Blue Ocean Strategy.",
+      "Identify potential challenges and risks with GenAI implementation through SWOT analysis.",
+      "Define your product's UVP and enhance it using GenAI capabilities with the Value Proposition Canvas.",
+      "Create a phased roadmap for GenAI feature rollout aligned with customer needs using JTBD.",
+      "Assess the ROI of GenAI implementation with metrics like CAC and CLV.",
     ],
     toolsLearned: [notion, airtable, miro, msPowerBi],
   },
@@ -68,20 +73,23 @@ const GenAIContent = [
     week: "3",
     title: "03 Practical Applications of GenAI",
     desc: [
-      "Hands-On Training with GenAI Tools: Get practical experience using key GenAI tools.",
-      "Real-World Use Case: Explore the application of GenAI in enhancing Customer Experience (CX).",
+      "Introduction to popular GenAI platforms and prompt engineering (e.g., Gemini, Claude AI, Perplexity, OpenAI, MidJourney).",
+      "AI implementation prompts on using these tools for various product management tasks: Product Documentation (PRD, Roadmap, Competitor Analysis).",
+      "Use customer segmentation for personalized experiences.",
+      "Implement A/B tests to optimize features and metrics.",
+      "Apply JTBD and Empathy Maps to address user needs.",
+      "Optimization of conversion funnels to boost retention and engagement.",
     ],
     toolsLearned: [figma, jupyter, ibm],
   },
   {
     week: "4",
-    title: "04 Managing the GenAI Product Lifecycle",
+    title: "04 Product Building From Ideation to Execution using GenAI",
     desc: [
-      "Developing AI-Driven Products: Understand the full lifecycle from ideation to deployment.",
-      "Ideation and Planning: Techniques for generating ideas and structuring development.",
-      "Data and Model Development: Handling data and building GenAI models.",
-      "Ethics and Bias Mitigation: Address ethical concerns and bias.",
-      "Deployment and Continuous Monitoring: Best practices for launching and refining AI products.",
+      "Apply generative AI techniques to improve performance across the product lifecycle.",
+      "AI integration into the product management lifecycle, AI’s impact and use cases, and strategies for commercializing AI products.",
+      "Conduct a skills analysis, examine AI opportunities and challenges, and use AI tools in product development and market reach expansion.",
+      "Describe the AI value proposition, methods for communicating with stakeholders, the AI process, stages of AI product development, and the ROI of AI.",
     ],
     toolsLearned: [slack, tableau, googleAnalytics, ethics],
   },
@@ -89,15 +97,13 @@ const GenAIContent = [
     week: "5",
     title: "05 Capstone Project",
     desc: [
-      "Project Development: Students choose a product concept and create a GenAI integration plan.",
-      "Project Presentations: Each presentation covers problem analysis, AI functionalities, roadmap, and evaluation metrics.",
+      "Cohort members will choose a product concept and develop a plan for integrating GenAI features.",
+      "Presentation will include: Problem definition and target audience analysis.",
+      "Proposed AI functionalities and their expected benefits.",
+      "Implementation roadmap with resource allocation.",
+      "Evaluation metrics and success criteria.",
     ],
-    toolsLearned: [
-      airtable,
-      slides,
-      mixpanel,
-      powerpoint,
-    ],
+    toolsLearned: [airtable, slides, mixpanel],
   },
 ];
 

@@ -37,7 +37,7 @@ const GenAiIsCourseRight = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <CardLeft title={"Technical Product Managers"} image={rumit} />
+        <CardLeft title={"PMs & SPMs"} image={rumit} />
         <CardRight title={"Technology Professionals"} image={rumit} />
         <CardLeft title={"Technology Consultants"} image={rumit} />
         <CardRight title={"UI/UX Designers"} image={rumit} />

@@ -28,10 +28,10 @@ const WhyGenAi = () => {
               alt="PM-Focused Expertise Icon"
               className="h-5 w-5"
             />
-            <div className="font-medium text-[20px]">PM-Focused Expertise</div>
+            <div className="font-medium text-[20px]">Expert-led Training</div>
           </div>
           <div className="text-[16px]">
-            Designed by Product Leaders
+            Designed by PM specific application
           </div>
         </div>
 
@@ -44,11 +44,11 @@ const WhyGenAi = () => {
               className="h-5 w-5"
             />
             <div className="font-medium text-[20px]">
-              Real-World Applications{" "}
+              Hands-on Learning{" "}
             </div>
           </div>
           <div className="text-[16px]">
-            Practical, Project-Based Learning
+            Work on practical, real world projects
           </div>
         </div>
 
@@ -60,10 +60,10 @@ const WhyGenAi = () => {
               alt="Competitive Edge Icon"
               className="h-6 w-6"
             />
-            <div className="font-medium text-[20px]">Competitive Edge</div>
+            <div className="font-medium text-[20px]">8+ Trending AI Tools</div>
           </div>
           <div className="text-[16px]">
-            AI Fundamentals for PMs
+            Master in-demand AI tools
           </div>
         </div>
 
@@ -75,10 +75,10 @@ const WhyGenAi = () => {
               alt="Placement Support Icon"
               className="h-6 w-6"
             />
-            <div className="font-medium text-[20px]">Networking</div>
+            <div className="font-medium text-[20px]">AI Resource Library</div>
           </div>
           <div className="text-[16px]">
-            Connect with AI-Savvy PMs and Mentors
+            Get access to exhaustive AI resource guides and case studies
           </div>
         </div>
       </div>
