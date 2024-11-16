@@ -31,7 +31,7 @@ const GenAiWhyEnroll = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-5">
-        <div className="flex flex-col gap-2 lg:gap-4 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tl-xl rounded-tr-[100px] rounded-bl-[100px] rounded-br-xl text-start"
+        <div className="flex flex-col gap-2 lg:gap-4 w-full lg:w-1/2 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tl-xl rounded-tr-[100px] rounded-bl-[100px] rounded-br-xl text-start"
             style={{
                 backgroundImage: `url(${curveBg})`,
                 backgroundPosition: 'top right',
@@ -53,7 +53,7 @@ const GenAiWhyEnroll = () => {
           </div>
         </div>
         
-        <div className="flex flex-col gap-2 lg:gap-4 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tr-xl rounded-tl-[100px] rounded-br-[100px] rounded-bl-xl text-start"
+        <div className="flex flex-col gap-2 lg:gap-4 w-full lg:w-1/2 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tr-xl rounded-tl-[100px] rounded-br-[100px] rounded-bl-xl text-start"
             style={{
                 backgroundImage: `url(${curveBg})`,
                 backgroundPosition: 'top right',
@@ -65,7 +65,7 @@ const GenAiWhyEnroll = () => {
 
           <div className="flex flex-col gap-3">
             <div className="text-[#24304c] text-[18px] lg:text-[20px] font-semibold">
-              is the Average Salary of Employee at AI as Product Manager
+              is the Average Salary as an AI Product Manager
             </div>
 
             <div className="text-[#24304c] text-[12px] lg:text-[16px] font-medium">
