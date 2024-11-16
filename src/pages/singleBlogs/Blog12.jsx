@@ -5,7 +5,13 @@ const Blog12 = () => {
   return (
     <div>
       <Helmet>
-        <title>Linktree: A Billion-Dollar Lesson in Product-Led&nbsp;Growth</title>
+        <title>
+          Linktree: A Billion-Dollar Lesson in Product-Led&nbsp;Growth
+        </title>
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/linktree-a-billion-dollar-lesson-in-product-led-growth"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

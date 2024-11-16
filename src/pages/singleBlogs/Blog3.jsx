@@ -10,6 +10,7 @@ const Blog3 = () => {
   name="description" 
   content="Learn what Product Requirement Documents (PRDs) are and how to create them effectively. This guide provides a step-by-step process to write clear, actionable PRDs for successful product development." 
 />
+<link rel="canonical" href="https://theproductspace.in/blogs/what-are-prds-and-how-to-create-them" />
       </Helmet>
 
       <div>

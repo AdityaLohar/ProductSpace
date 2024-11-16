@@ -10,6 +10,7 @@ const Blog1 = () => {
           name="description"
           content="How technical does a product manager need to be? Discover the right balance of technical skills required to excel in product management and work effectively with engineering teams."
         />
+        <link rel="canonical" href="https://theproductspace.in/blogs/how-technical-product-manager-needs-to-be" />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

@@ -7,6 +7,7 @@ const Blog19 = () => {
         <Helmet>
         <title>What is ‘Time To Value’ metric? How to measure and
         achieve&nbsp;it?</title>
+        <link rel="canonical" href="https://theproductspace.in/blogs/what-is-time-to-value-metric-how-to-measure-and-achieve-it" />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
