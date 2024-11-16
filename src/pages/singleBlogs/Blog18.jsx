@@ -1,14 +1,22 @@
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "../../components/NewsLetter";
 
-
 const Blog18 = () => {
   return (
     <div>
-        <Helmet>
-        <title>How to build strong product sense: The ultimate guide for
-        product&nbsp;managers</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/how-to-build-strong-product-sense-the-ultimate-guide-for-product-managers" />
+      <Helmet>
+        <title>
+          How to build strong product sense: The ultimate guide for
+          product&nbsp;managers
+        </title>
+        <meta
+          name="description"
+          content="Discover how to build a strong product sense with this ultimate guide for product managers. Learn key skills, strategies, and insights to create user-centered products that succeed."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/how-to-build-strong-product-sense-the-ultimate-guide-for-product-managers"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

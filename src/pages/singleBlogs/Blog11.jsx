@@ -4,9 +4,16 @@ import NewsLetter from "../../components/NewsLetter";
 const Blog11 = () => {
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>Ace Your First Product Manager&nbsp;Interview</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/ace-your-first-product-manager-interview" />
+        <meta
+          name="description"
+          content="Prepare to ace your first product manager interview with this comprehensive guide. Learn key tips, sample questions, and strategies to confidently land your dream PM role."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/ace-your-first-product-manager-interview"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

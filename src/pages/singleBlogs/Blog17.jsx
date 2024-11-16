@@ -4,9 +4,16 @@ import NewsLetter from "../../components/NewsLetter";
 const Blog17 = () => {
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>Data storytelling for Product&nbsp;Managers</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/data-storytelling-for-product-managers" />
+        <meta
+          name="description"
+          content="Master data storytelling as a product manager to turn complex data into compelling narratives. Learn techniques to communicate insights, drive decisions, and align stakeholders."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/data-storytelling-for-product-managers"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

@@ -6,7 +6,14 @@ const Blog22 = () => {
     <div>
       <Helmet>
         <title>How to Conduct A/B Testing in Product Management</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/how-to-conduct-a-b-testing-in-product-management" />
+        <meta
+          name="description"
+          content="Explore Flipkart’s Big Billion Days strategy in this in-depth case study. Learn how innovative tactics, data insights, and customer focus helped drive record-breaking sales and growth."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/how-to-conduct-a-b-testing-in-product-management"
+        />
       </Helmet>
       <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
         <div className="max-w-4xl w-full flex flex-col gap-8">

@@ -4,9 +4,16 @@ import NewsLetter from "../../components/NewsLetter";
 const Blog15 = () => {
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>The Beginner’s Guide to Product&nbsp;Roadmaps</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/the-beginners-guide-to-product-roadmaps" />
+        <meta
+          name="description"
+          content="Start your journey in product management with this beginner's guide to product roadmaps. Learn how to create, manage, and communicate effective roadmaps that drive product success."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/the-beginners-guide-to-product-roadmaps"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

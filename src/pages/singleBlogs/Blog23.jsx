@@ -8,6 +8,10 @@ const Blog23 = () => {
         <title>
           Case Study: Decoding Flipkart’s Big Billion Days&nbsp;Strategy
         </title>
+        <meta
+          name="description"
+          content="Learn how to conduct A/B testing in product management to make data-driven decisions, optimize features, and improve user experience. This beginner's guide covers best practices, tools, and analysis."
+        />
         <link
           rel="canonical"
           href="https://theproductspace.in/blogs/case-study-decoding-flipkarts-big-billion-days-strategy"

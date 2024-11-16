@@ -8,6 +8,10 @@ const Blog12 = () => {
         <title>
           Linktree: A Billion-Dollar Lesson in Product-Led&nbsp;Growth
         </title>
+        <meta
+          name="description"
+          content="Explore how Linktree's product-led growth strategy turned it into a billion-dollar success. Learn key lessons and strategies that can drive your product’s growth."
+        />
         <link
           rel="canonical"
           href="https://theproductspace.in/blogs/linktree-a-billion-dollar-lesson-in-product-led-growth"

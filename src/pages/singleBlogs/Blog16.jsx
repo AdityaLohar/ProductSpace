@@ -5,8 +5,15 @@ const Blog16 = () => {
   return (
     <div>
       <Helmet>
-        <title>How to Conduct Effective User&nbsp;Interviews</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/how-to-conduct-effective-user-interviews" />
+        <title>How to Conduct Effective User&nbsp;Interviews</title>\
+        <meta
+          name="description"
+          content="Many product teams still rely on assumptions rather than direct user feedback when making critical product decisions, leading to product failures. This is where user interviews become invaluable."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/how-to-conduct-effective-user-interviews"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
