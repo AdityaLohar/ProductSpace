@@ -6,6 +6,10 @@ const Blog2 = () => {
     <div>
       <Helmet>
         <title>How Perplexity is Challenging Googles&nbsp;Dominance?</title>
+        <meta
+          name="description"
+          content="Explore how Perplexity is challenging Google's dominance in the search industry. This product case study delves into the strategies and innovations driving Perplexity’s disruptive growth."
+        />
       </Helmet>
 
       <div>

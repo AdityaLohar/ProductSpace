@@ -6,6 +6,10 @@ const Blog3 = () => {
     <div>
         <Helmet>
         <title>What are PRDs and how to create&nbsp;them?</title>
+        <meta 
+  name="description" 
+  content="Learn what Product Requirement Documents (PRDs) are and how to create them effectively. This guide provides a step-by-step process to write clear, actionable PRDs for successful product development." 
+/>
       </Helmet>
 
       <div>

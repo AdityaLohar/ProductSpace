@@ -6,6 +6,10 @@ const Blog9 = () => {
     <div>
       <Helmet>
         <title>5 WHYs Framework for Product&nbsp;Managers</title>
+        <meta
+          name="description"
+          content="The 5 WHYs Framework is a tool used by most product managers to peel back the layers of a problem and get to its root cause."
+        />
       </Helmet>
 
       <div>

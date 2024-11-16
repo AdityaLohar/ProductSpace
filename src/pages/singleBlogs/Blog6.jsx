@@ -4,8 +4,14 @@ import { Helmet } from "react-helmet-async";
 const Blog6 = () => {
   return (
     <div>
-        <Helmet>
-        <title>Competitor Analysis Frameworks to Master for Product&nbsp;Managers</title>
+      <Helmet>
+        <title>
+          Competitor Analysis Frameworks to Master for Product&nbsp;Managers
+        </title>
+        <meta
+          name="description"
+          content="Master competitor analysis frameworks every product manager should know. Learn how to analyze market trends, identify opportunities, and build better products with these proven strategies."
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

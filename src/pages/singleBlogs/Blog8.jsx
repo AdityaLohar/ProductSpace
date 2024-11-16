@@ -6,6 +6,10 @@ const Blog8 = () => {
     <div>
       <Helmet>
         <title>7 UI Design Principles a Product Manager Should Know</title>
+        <meta
+          name="description"
+          content="Discover the 7 essential UI design principles every product manager should know. Enhance your product's user experience with these practical guidelines and drive better user engagement."
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

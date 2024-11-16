@@ -6,6 +6,10 @@ const Blog7 = () => {
     <div>
       <Helmet>
         <title>The Ultimate No-Code Guide For Product Managers</title>
+        <meta
+          name="description"
+          content="Explore the ultimate no-code guide for product managers. Learn how to leverage no-code tools to build, test, and launch products faster without needing a technical background."
+        />
       </Helmet>
 
       <div>

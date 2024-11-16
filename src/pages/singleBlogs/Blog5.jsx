@@ -6,6 +6,10 @@ const Blog5 = () => {
     <div>
       <Helmet>
         <title>What is Lean Product Management and How to Apply&nbsp;It?</title>
+        <meta
+          name="description"
+          content="Discover what lean product management is and how to apply it to streamline development, reduce waste, and deliver value faster. A practical guide for product managers."
+        />
       </Helmet>
 
       <div>

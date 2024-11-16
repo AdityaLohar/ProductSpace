@@ -8,6 +8,10 @@ const Blog10 = () => {
         <title>
           Your Ultimate Guide to Crack Product Management&nbsp;Interviews
         </title>
+        <meta
+          name="description"
+          content="This guide is an attempt to provide you with the frameworks and practical strategies to confidently answer common PM interview questions and demonstrate your product sense."
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

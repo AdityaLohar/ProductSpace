@@ -6,6 +6,10 @@ const Blog4 = () => {
     <div>
       <Helmet>
         <title>North Star Metric: A Guide for Product&nbsp;Managers</title>
+        <meta
+          name="description"
+          content="Learn how to define and leverage a North Star Metric as a product manager. This guide helps you align your team’s focus, drive growth, and measure long-term success."
+        />
       </Helmet>
 
       <div>
