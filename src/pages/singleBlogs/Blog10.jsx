@@ -12,6 +12,7 @@ const Blog10 = () => {
           name="description"
           content="This guide is an attempt to provide you with the frameworks and practical strategies to confidently answer common PM interview questions and demonstrate your product sense."
         />
+        <link rel="canonical" href="https://theproductspace.in/blogs/your-ultimate-guide-to-crack-product-management-interviews" />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

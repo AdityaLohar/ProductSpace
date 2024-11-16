@@ -43,6 +43,7 @@ const Home = () => {
           name="description"
           content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job."
         />
+        <link rel="canonical" href="https://theproductspace.in/" />
       </Helmet>
 
       <div className="bg-transparent py-2 max-w-screen-xl lg:py-16">

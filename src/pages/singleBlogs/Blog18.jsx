@@ -8,6 +8,7 @@ const Blog18 = () => {
         <Helmet>
         <title>How to build strong product sense: The ultimate guide for
         product&nbsp;managers</title>
+        <link rel="canonical" href="https://theproductspace.in/blogs/how-to-build-strong-product-sense-the-ultimate-guide-for-product-managers" />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

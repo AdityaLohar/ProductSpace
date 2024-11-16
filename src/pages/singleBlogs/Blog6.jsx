@@ -12,6 +12,7 @@ const Blog6 = () => {
           name="description"
           content="Master competitor analysis frameworks every product manager should know. Learn how to analyze market trends, identify opportunities, and build better products with these proven strategies."
         />
+        <link rel="canonical" href="https://theproductspace.in/blogs/competitor-analysis-frameworks-to-master-for-product-managers" />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
