@@ -134,11 +134,11 @@ const GenAiHero = () => {
 
               <div className="flex items-center gap-2 px-4 lg:px-8">
                 <div className="text-[28px] lg:text-[44px] font-bold">
-                  ₹9,999
+                  ₹12,499
                 </div>
                 <div>
                   <div className="text-[#eb2c2f] font-semibold text-[12px] lg:text-[20px]">
-                    60% off
+                    50% off
                   </div>
                   <div className="text-[12px] lg:text-[20px] line-through">
                   ₹24,999
@@ -171,7 +171,7 @@ const GenAiHero = () => {
             <div className="flex flex-col gap-2 bg-[#f5f5f5] py-4 px-4 lg:px-6 rounded-lg text-[12px] lg:text-[16px]">
               <div className="flex items-center gap-2">
                 <img src={cohortSeats} alt="" className="h-4" />
-                <p>Total cohort seats : 15</p>
+                <p>Total cohort seats : 20 (4 seats left)</p>
               </div>
               <div className="flex items-center gap-2">
                 <img src={clock} alt="" className="h-4 w-5" />
