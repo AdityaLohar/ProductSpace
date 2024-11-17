@@ -79,6 +79,24 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/adityapant--"
   },
   {
+    id: 4,
+    profile: ayushiMaurya,
+    name: "Ayushi Maurya",
+    curCompany: "First Cry",
+    company: "https://microadia.net/wp-content/uploads/firstcry-logo-350x350.png",
+    curPost: "Product Executive",
+    linkedin: "https://www.linkedin.com/in/ayushi-maurya-iit"
+  },
+  {
+    id: 7,
+    profile: nikhilKaroti,
+    name: "Nikhil Karoti",
+    curCompany: "Hero MotoCorp",
+    company: heroMotoCorp,
+    curPost: "Research Analyst",
+    linkedin: "https://www.linkedin.com/in/nikhil-karoti-1258771b3"
+  },
+  {
     id: 18,
     profile: komalKaur,
     name: "Komal Kaur",
@@ -178,15 +196,6 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/nikhil-karamchandani-678153228"
   },
   {
-    id: 4,
-    profile: ayushiMaurya,
-    name: "Ayushi Maurya",
-    curCompany: "First Cry",
-    company: "https://microadia.net/wp-content/uploads/firstcry-logo-350x350.png",
-    curPost: "Product Executive",
-    linkedin: "https://www.linkedin.com/in/ayushi-maurya-iit"
-  },
-  {
     id: 5,
     profile: pranayGaddam,
     name: "Gaddam Pranay",
@@ -194,15 +203,6 @@ const transitions = [
     company: "https://cdni.trulymadly.com/tm-static-assets-production/web/logo.webp",
     curPost: "APM",
     linkedin: "https://www.linkedin.com/in/pranaygaddam/"
-  },
-  {
-    id: 7,
-    profile: nikhilKaroti,
-    name: "Nikhil Karoti",
-    curCompany: "Hero MotoCorp",
-    company: heroMotoCorp,
-    curPost: "Research Analyst",
-    linkedin: "https://www.linkedin.com/in/nikhil-karoti-1258771b3"
   },
   {
     id: 8,
