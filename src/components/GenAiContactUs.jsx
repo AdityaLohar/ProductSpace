@@ -8,7 +8,6 @@ import { useRecoilState } from "recoil";
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_GEN_AI_CONTACT_US_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
-
 const GenAiContactUsForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -47,6 +47,7 @@ import Blog22 from "./pages/singleBlogs/Blog22";
 import GenAi from "./pages/GenAi";
 import Blog24 from "./pages/singleBlogs/Blog24";
 import Blog25 from "./pages/singleBlogs/Blog25";
+import GenAiContactUsForm from "./components/GenAiContactUs";
 
 function App() {
   const location = useLocation();
@@ -64,6 +65,7 @@ function App() {
       <HelmetProvider>
         <Navbar />
         <ContactUsForm />
+        <GenAiContactUsForm />
         {/* <Router> */}
         <Routes>
           <Route path="/" element={<Home />} />

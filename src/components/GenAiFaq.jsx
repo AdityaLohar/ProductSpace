@@ -117,7 +117,7 @@ const GenAiFaq = () => {
           Frequently Asked <br /> Questions
         </div>
 
-        {/* <div className="text-[18px] text-start text-gray-800 font-medium">
+        <div className="text-[18px] text-start text-gray-800 font-medium">
           Have more Queries?
         </div>
 
@@ -129,7 +129,7 @@ const GenAiFaq = () => {
               <p>Contact Us</p>
               <img src={arrow} alt="" />
             </button>
-        </div> */}
+        </div>
       </div>
 
       <div className="w-full lg:w-[95%]">
