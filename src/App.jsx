@@ -46,6 +46,7 @@ import Blog23 from "./pages/singleBlogs/Blog23";
 import Blog22 from "./pages/singleBlogs/Blog22";
 import GenAi from "./pages/GenAi";
 import Blog24 from "./pages/singleBlogs/Blog24";
+import Blog25 from "./pages/singleBlogs/Blog25";
 
 function App() {
   const location = useLocation();
@@ -168,6 +169,10 @@ function App() {
           <Route
             path="/blogs/how-drones-industry-found-product-market-fit-in-india-a-case-study"
             element={<Blog24 />}
+          />
+          <Route
+            path="/blogs/understanding-first-principles-of-product-management"
+            element={<Blog25 />}
           />
           <Route path="*" element={<Navigate to="/" />} />{" "}
         </Routes>
