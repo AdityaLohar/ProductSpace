@@ -43,7 +43,7 @@ import { Helmet } from "react-helmet-async";
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://wa.me/917219542525";
-const eventDate = new Date("2024-11-25T23:59:59");
+const eventDate = new Date("2024-11-16T23:59:59");
 
 
 const EventInfo = ({ icon, title, desc }) => {
@@ -684,8 +684,8 @@ const Event1 = () => {
                 </div>
               </div>
             </div>
-
-            <a href="https://pages.viral-loops.com/product-space-gen-ai-for-pms-bcp5e0e2" target="_blank" className="flex w-full lg:w-1/3 gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white">
+              
+            <a href="https://pages.viral-loops.com/product-space-gen-ai-for-pms-bcp5e0e2" target="_blank" className={`flex w-full lg:w-1/3 gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ${isPastEventDate ? "pointer-events-none opacity-70" : ""}`}>
               <p className="text-[18px] md:text-[20px] font-medium">
                 Refer Now
               </p>
