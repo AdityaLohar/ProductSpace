@@ -5,7 +5,5 @@ Allow: /
 Disallow: /category/Product-Name
 Disallow: /blog/
 Disallow: /blog/slack-case-study-saas-product
-Disallow: /blogs/ace-your-first-product-management-interview
-Disallow: /blogs/ui-design-principles-for-product-managers
 
 Sitemap: https://theproductspace.in/sitemap.xml
