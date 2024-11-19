@@ -633,7 +633,7 @@ const Event1 = () => {
             </div>
           </div>
 
-          {/* <div className="flex flex-col items-center gap-4 my-8">
+          <div className="flex flex-col items-center gap-4 my-8">
             <div className="text-[20px] lg:text-[28px] w-full font-semibold text-start">
               Refer & Earn exciting Rewards
             </div>
@@ -691,7 +691,7 @@ const Event1 = () => {
               </p>
               <img src={arrowIcon} alt="icon" />
             </a>
-          </div> */}
+          </div>
 
           <FaqAiForPm />
         </div>
