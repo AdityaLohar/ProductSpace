@@ -54,11 +54,9 @@ const Home = () => {
       </div>
 
       <div className="w-full max-w-screen-2xl">
-        <div className="max-w-[900px] mx-auto py-20">
+        <div className="px-4 md:px-12 max-w-[900px] mx-auto py-20">
           <div className="aspect-w-16 aspect-h-9">
             <iframe
-              width="560"
-              height="315"
               src="https://www.youtube.com/embed/buSdqtdn_4I?si=pYcdkek5FXZBseCk?rel=0"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
