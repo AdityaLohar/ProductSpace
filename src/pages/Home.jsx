@@ -38,7 +38,10 @@ const Home = () => {
   return (
     <div className="font-hind xl:flex xl:flex-col items-center">
       <Helmet>
-        <title>Product Space | The Only Personalized Product Management Course for Your Unique Journey</title>
+        <title>
+          Product Space | The Only Personalized Product Management Course for
+          Your Unique Journey
+        </title>
         <meta
           name="description"
           content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job."
@@ -51,6 +54,19 @@ const Home = () => {
       </div>
 
       <div className="w-full max-w-screen-2xl">
+        <div className="max-w-[900px] mx-auto py-20">
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/buSdqtdn_4I?si=pYcdkek5FXZBseCk?rel=0"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              // referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
         <Benefits bgColor={"#F5F5F5"} />
         <Companies />
       </div>
