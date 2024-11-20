@@ -1,4 +1,5 @@
-import alumni from "../data/AlumniData";
+// import alumni from "../data/AlumniData";
+import alumni from "../data/TransitionsData";
 import chevron from "../assets/chevron-double.svg";
 import { useState } from "react";
 
@@ -6,8 +7,11 @@ const TransitionCard = ({
   profile,
   name,
   curCompany,
+  company,
 }) => {
   const [isSquare, setIsSquare] = useState(false);
+
+  const comps = ["TrulyMadly", "Zomato", "HSBC", "Swiggy", "Amazon"];
 
     const handleImageLoad = (e) => {
         const imgWidth = e.target.naturalWidth;
@@ -41,12 +45,21 @@ const TransitionCard = ({
       </div>
 
       <div className="flex items-center h-[50px] justify-center w-full">
-        <img
+        {comps.includes(company) ? 
+        (<img
             src={curCompany}
             alt="company"
-            className={isSquare ? "w-16 h-auto" : "h-12 w-auto"}
+            className={isSquare ? "w-16 h-auto" : "h-6 w-auto"}
             onLoad={handleImageLoad}
-        />
+        />)
+        :
+          (<img
+              src={curCompany}
+              alt="company"
+              className={isSquare ? "w-12 h-auto" : "h-14 w-auto"}
+              onLoad={handleImageLoad}
+          />)
+        }
       </div>
     </div>
   );
@@ -76,7 +89,7 @@ const Transitions = () => {
                 key={`${alums.id}-${index}-${i}`}
                 className="scroll-item hover:cursor-pointer"
               >
-                <TransitionCard
+                {/* <TransitionCard
                   profile={alums.profile}
                   name={alums.name}
                   prevCompany={alums.prevCompany}
@@ -84,6 +97,12 @@ const Transitions = () => {
                   curCompany={alums.curCompany}
                   curPost={alums.curPost}
                   testimonial={alums.testimonial}
+                /> */}
+                <TransitionCard
+                  profile={alums.profile}
+                  name={alums.name}
+                  curCompany={alums.company}
+                  company={alums.curCompany}
                 />
               </a>
             ))

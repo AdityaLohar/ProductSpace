@@ -6,7 +6,14 @@ const Blog20 = () => {
     <div>
       <Helmet>
         <title>Design Thinking for Product&nbsp;Managers</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/design-thinking-for-product-managers" />
+        <meta
+          name="description"
+          content="Learn how product managers can leverage design thinking to create innovative products. This guide covers key principles, processes, and real-world applications for better user-centric solutions."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/design-thinking-for-product-managers"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

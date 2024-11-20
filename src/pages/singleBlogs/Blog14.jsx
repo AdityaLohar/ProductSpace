@@ -8,7 +8,14 @@ const Blog14 = () => {
         <title>
           How Slack Became the Fastest Growing B2B SaaS&nbsp;Business
         </title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/how-slack-became-the-fastest-growing-b2b-saas-business" />
+        <meta
+          name="description"
+          content="Explore the case study of Slack's meteoric rise as the fastest-growing B2B SaaS business. Uncover the strategies and lessons that fueled its success in the competitive SaaS market."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/how-slack-became-the-fastest-growing-b2b-saas-business"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

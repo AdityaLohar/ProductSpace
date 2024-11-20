@@ -179,7 +179,7 @@ const GenAiCurriculum = () => {
               <p className="text-[28px] lg:text-[40px] text-black font-semibold ">
                 5+
               </p>
-              <p>live projects</p>
+              <p>projects</p>
             </div>
           </div>
 

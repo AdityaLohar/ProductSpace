@@ -4,9 +4,16 @@ import NewsLetter from "../../components/NewsLetter";
 const Blog13 = () => {
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>Prototyping for Product&nbsp;Managers</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/prototyping-for-product-managers" />
+        <meta
+          name="description"
+          content="Master the fundamentals of prototyping in product management. Learn how to create effective prototypes that validate ideas, streamline development, and enhance user experience."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/prototyping-for-product-managers"
+        />
       </Helmet>
 
       <div>

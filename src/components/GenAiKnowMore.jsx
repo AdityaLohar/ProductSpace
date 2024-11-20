@@ -19,7 +19,7 @@ const GenAiKnowMore = () => {
 
         <div className="flex flex-col lg:flex-row justify-between gap-4">
           <a
-            href="https://topmate.io/propel/62841"
+            href="https://topmate.io/propel/1309845"
             target="_blank"
             className="flex items-center gap-2 justify-center text-[16px] w-full lg:w-[284px] font-medium bg-white text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >
@@ -43,7 +43,7 @@ const GenAiKnowMore = () => {
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
           <a
-            href="https://topmate.io/propel/62841"
+            href="https://topmate.io/propel/1309845"
             target="_blank"
             className="flex items-center gap-2 justify-center text-[14px] sm:text-[16px] w-[80%] font-medium bg-white text-black p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >

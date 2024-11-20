@@ -76,7 +76,7 @@ const GenAiInstructors = () => {
         />
         <Card
           name={"Rumit Anand"}
-          title={"Director of Product"}
+          title={"VP of Gen AI Products"}
           desc={"15+ years"}
           profile={rumit}
           company={inmobi}

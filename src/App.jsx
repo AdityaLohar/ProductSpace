@@ -45,6 +45,9 @@ import Blog21 from "./pages/singleBlogs/Blog21";
 import Blog23 from "./pages/singleBlogs/Blog23";
 import Blog22 from "./pages/singleBlogs/Blog22";
 import GenAi from "./pages/GenAi";
+import Blog24 from "./pages/singleBlogs/Blog24";
+import Blog25 from "./pages/singleBlogs/Blog25";
+import GenAiContactUsForm from "./components/GenAiContactUs";
 
 function App() {
   const location = useLocation();
@@ -62,6 +65,7 @@ function App() {
       <HelmetProvider>
         <Navbar />
         <ContactUsForm />
+        <GenAiContactUsForm />
         {/* <Router> */}
         <Routes>
           <Route path="/" element={<Home />} />
@@ -164,8 +168,15 @@ function App() {
             path="/blogs/case-study-decoding-flipkarts-big-billion-days-strategy"
             element={<Blog23 />}
           />
+          <Route
+            path="/blogs/how-drones-industry-found-product-market-fit-in-india-a-case-study"
+            element={<Blog24 />}
+          />
+          <Route
+            path="/blogs/understanding-first-principles-of-product-management"
+            element={<Blog25 />}
+          />
           <Route path="*" element={<Navigate to="/" />} />{" "}
-          {/* all routes not present will redirect to home route */}
         </Routes>
         {/* </Router> */}
         <div className={`w-full bg-black ${isHomePage ? "pb-6 lg:pb-16" : ""}`}>

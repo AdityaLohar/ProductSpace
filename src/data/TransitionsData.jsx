@@ -41,6 +41,32 @@ import yashSamsukha from "../assets/yash-samsukha.png";
 
 import spyne from "../assets/spyne.jpg";
 import zomato from "../assets/zomato-logo.svg";
+import heroMotoCorp from "../assets/Hero MotoCorp.svg";
+import quickwork from "../assets/Quickwork.svg";
+import cipla from "../assets/Cipla Digital.svg";
+import newton from "../assets/Newton School.svg";
+import deloitte from "../assets/Deloitte.svg";
+import reliance from "../assets/Reliance Jio.svg";
+import ziCloud from "../assets/image 1628.svg";
+import sriram from "../assets/sriram.svg";
+import verizon from "../assets/Verizon.svg";
+import ncpi from "../assets/ncpi.svg";
+import tata from "../assets/Tata Steel.svg";
+import mahindra from "../assets/Mahindra Logistics.svg";
+import namma from "../assets/Namma Yatri.svg";
+import magicbricks from "../assets/Magicbricks.svg";
+import mastercard from "../assets/Mastercard.svg";
+import indiaMart from "../assets/IndiaMART.svg";
+import kreditbee from "../assets/Kreditbee.svg";
+import fieldAssist from "../assets/FieldAssist.svg";
+import amex from "../assets/American Express.svg";
+import builderAi from "../assets/Builder AI.svg";
+import indMoney from "../assets/ind-money.png";
+import publicis from "../assets/Publicis Re.svg";
+import adda247 from "../assets/adda247.jpeg";
+import even from "../assets/even-logo.jpg";
+
+// amazon, swiggy, ola, cred, magicbricks, npci, tata, jpmc, mastercard, amex, zomato
 
 const transitions = [
   {
@@ -53,15 +79,6 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/adityapant--"
   },
   {
-    id: 2,
-    profile: anushkaJain,
-    name: "Anushka Jain",
-    curCompany: "JPMorgan Chase & Co",
-    company: "https://logos-world.net/wp-content/uploads/2021/02/JP-Morgan-Chase-Logo.png",
-    curPost: "Investment Banking Analyst Intern",
-    linkedin: "https://www.linkedin.com/in/anushka-jain-3515a427b"
-  },
-  {
     id: 4,
     profile: ayushiMaurya,
     name: "Ayushi Maurya",
@@ -71,13 +88,103 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/ayushi-maurya-iit"
   },
   {
-    id: 5,
-    profile: pranayGaddam,
-    name: "Gaddam Pranay",
-    curCompany: "TrulyMadly",
-    company: "https://cdni.trulymadly.com/tm-static-assets-production/web/logo.webp",
+    id: 7,
+    profile: nikhilKaroti,
+    name: "Nikhil Karoti",
+    curCompany: "Hero MotoCorp",
+    company: heroMotoCorp,
+    curPost: "Research Analyst",
+    linkedin: "https://www.linkedin.com/in/nikhil-karoti-1258771b3"
+  },
+  {
+    id: 18,
+    profile: komalKaur,
+    name: "Komal Kaur",
+    curCompany: "Amazon",
+    company: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
+    curPost: "Operation Manager",
+    linkedin: "http://linkedin.com/in/komalpreet-kaur-77ba67122"
+  },
+  {
+    id: 19,
+    profile: medhyaBudhwar,
+    name: "Medhya Budhwar",
+    curCompany: "Swiggy",
+    company: "https://cdn.worldvectorlogo.com/logos/swiggy-logo.svg",
+    curPost: "PM Consultant",
+    linkedin: "https://www.linkedin.com/in/medhya-budhwar-27715420a"
+  },
+  {
+    id: 23,
+    profile: tushanKumarSingh,
+    name: "Tushan Kumar Singh",
+    curCompany: "Ola Electric",
+    company: "https://cdn.olaelectric.com/sites/evdp/pages/news_room/press_kit/branding/branding-featured.webp",
     curPost: "APM",
-    linkedin: "https://www.linkedin.com/in/pranaygaddam/"
+    linkedin: "https://www.linkedin.com/in/tushan-kumar-singh"
+  },
+  {
+    id: 25,
+    profile: vishalGujrati,
+    name: "Vishal Gujrati",
+    curCompany: "Cred",
+    company: "https://upload.wikimedia.org/wikipedia/en/7/7c/CRED_%28FinTech_company%29_logo.png",
+    curPost: "Product Operations Analyst",
+    linkedin: "https://www.linkedin.com/in/vishal-gujrati/"
+  },
+  {
+    id: 28,
+    profile: arpita,
+    name: "Arpita",
+    curCompany: "Magicbricks",
+    company: magicbricks,
+    curPost: "Product",
+    linkedin: "https://www.linkedin.com/in/aatavalgi"
+  },
+  {
+    id: 32,
+    profile: ninadTarambale,
+    name: "Ninad Tarambale",
+    curCompany: "National Payments Corporation Of India (NPCI)",
+    company: ncpi,
+    curPost: "Product Lead",
+    linkedin: "https://www.linkedin.com/in/ninad-t/"
+  },
+  {
+    id: 33,
+    profile: preranaDas,
+    name: "Prerana Das",
+    curCompany: "Tata Steel",
+    company: tata,
+    curPost: "Manager",
+    linkedin: "https://www.linkedin.com/in/prerana-das-140351216"
+  },
+  {
+    id: 2,
+    profile: anushkaJain,
+    name: "Anushka Jain",
+    curCompany: "JPMorgan Chase & Co",
+    company: "https://logos-world.net/wp-content/uploads/2021/02/JP-Morgan-Chase-Logo.png",
+    curPost: "Investment Banking Analyst Intern",
+    linkedin: "https://www.linkedin.com/in/anushka-jain-3515a427b"
+  },
+  {
+    id: 39,
+    profile: ankurJain,
+    name: "Ankur Jain",
+    curCompany: "Mastercard",
+    company: mastercard,
+    curPost: "SPM",
+    linkedin: "http://linkedin.com/in/ankur-jain-072331bb"
+  },
+  {
+    id: 41,
+    profile: nidhiAgarwal,
+    name: "Nidhi Agarwal",
+    curCompany: "American Express",
+    company: amex,
+    curPost: "Senior Manager - Digital Product Management",
+    linkedin: "https://www.linkedin.com/in/nidhi-agarwal-090990"
   },
   {
     id: 6,
@@ -89,20 +196,20 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/nikhil-karamchandani-678153228"
   },
   {
-    id: 7,
-    profile: nikhilKaroti,
-    name: "Nikhil Karoti",
-    curCompany: "Hero MotoCorp",
-    company: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Hero_MotoCorp_Logo.svg/1200px-Hero_MotoCorp_Logo.svg.png",
-    curPost: "Research Analyst",
-    linkedin: "https://www.linkedin.com/in/nikhil-karoti-1258771b3"
+    id: 5,
+    profile: pranayGaddam,
+    name: "Gaddam Pranay",
+    curCompany: "TrulyMadly",
+    company: "https://cdni.trulymadly.com/tm-static-assets-production/web/logo.webp",
+    curPost: "APM",
+    linkedin: "https://www.linkedin.com/in/pranaygaddam/"
   },
   {
     id: 8,
     profile: swapneshPatra,
     name: "Swapnesh Patra",
     curCompany: "Quickwork",
-    company: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM-ED89QeMttr4v-WkfqjxxAOrOost5kPqUw&s",
+    company: quickwork,
     curPost: "Growth PM",
     linkedin: "https://www.linkedin.com/in/swapnesh-patra/"
   },
@@ -111,7 +218,7 @@ const transitions = [
     profile: vedaangGulhane,
     name: "Vedaang Gulhane",
     curCompany: "Cipla Digital",
-    company: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Cipla_logo.svg/2560px-Cipla_logo.svg.png",
+    company: cipla,
     curPost: "PM",
     linkedin: "https://www.linkedin.com/in/vedaang-gulhane-0b7550198/"
   },
@@ -129,7 +236,7 @@ const transitions = [
     profile: sagarikaDalai,
     name: "Sagarika Dalai",
     curCompany: "Newton School",
-    company: "https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/64df4847c57fbbefc3975c51_NS%20Primary%20wo_o%20button.png",
+    company: newton,
     curPost: "Full stack Web Development",
     linkedin: "https://www.linkedin.com/in/sagarika-dalai/"
   },
@@ -156,7 +263,7 @@ const transitions = [
     profile: anjaliGirnar,
     name: "Anjali Girnar",
     curCompany: "Deloitte",
-    company: "https://upload.wikimedia.org/wikipedia/commons/1/15/Deloitte_Logo.png",
+    company: deloitte,
     curPost: "Senior Consultant",
     linkedin: "https://www.linkedin.com/in/anjali-girnar-027b21103"
   },
@@ -165,7 +272,7 @@ const transitions = [
     profile: aryanJaiswal,
     name: "Aryan Jaiswal",
     curCompany: "INDMoney",
-    company: "",
+    company: indMoney,
     curPost: "Product Management Trainee",
     linkedin: "https://www.linkedin.com/in/aryanjaiswal2401/"
   },
@@ -188,29 +295,11 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/gaurav-bhisikar"
   },
   {
-    id: 18,
-    profile: komalKaur,
-    name: "Komal Kaur",
-    curCompany: "Amazon",
-    company: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    curPost: "Operation Manager",
-    linkedin: "http://linkedin.com/in/komalpreet-kaur-77ba67122"
-  },
-  {
-    id: 19,
-    profile: medhyaBudhwar,
-    name: "Medhya Budhwar",
-    curCompany: "Swiggy",
-    company: "https://cdn.worldvectorlogo.com/logos/swiggy-logo.svg",
-    curPost: "PM Consultant",
-    linkedin: "https://www.linkedin.com/in/medhya-budhwar-27715420a"
-  },
-  {
     id: 20,
     profile: pratibhaJain,
     name: "Pratibha Jain",
     curCompany: "Builder AI",
-    company: "",
+    company: builderAi,
     curPost: "Product Owner",
     linkedin: "https://www.linkedin.com/in/pratibha-jain-pmp%C2%AE-49045aa9"
   },
@@ -219,7 +308,7 @@ const transitions = [
     profile: sujithHuruli,
     name: "Sujith Huruli",
     curCompany: "Even",
-    company: "",
+    company: even,
     curPost: "Healthcare Operations",
     linkedin: "https://www.linkedin.com/in/drsujithh/"
   },
@@ -228,36 +317,18 @@ const transitions = [
     profile: sumitWankhede,
     name: "Sumit Wankhede",
     curCompany: "Verizon",
-    company: "https://pentagram-production.imgix.net/ba1eda20-927e-47ad-882b-037993fb348a/mb_verizon_01.jpg?crop=edges&fit=crop&h=630&rect=337%2C0%2C3834%2C2400&w=1200",
+    company: verizon,
     curPost: "PM",
     linkedin: "https://www.linkedin.com/in/sumitwankhede"
-  },
-  {
-    id: 23,
-    profile: tushanKumarSingh,
-    name: "Tushan Kumar Singh",
-    curCompany: "Ola Electric",
-    company: "https://cdn.olaelectric.com/sites/evdp/pages/news_room/press_kit/branding/branding-featured.webp",
-    curPost: "APM",
-    linkedin: "https://www.linkedin.com/in/tushan-kumar-singh"
   },
   {
     id: 24,
     profile: vipulSingh,
     name: "Vipul Singh",
     curCompany: "Mahindra Logistics",
-    company: "https://upload.wikimedia.org/wikipedia/commons/7/70/MAHINDRA_LOGISTICS_LOGO.jpg",
+    company: mahindra,
     curPost: "Business & Operations Intern",
     linkedin: "www.linkedin.com/in/vipul-singh-59a111273"
-  },
-  {
-    id: 25,
-    profile: vishalGujrati,
-    name: "Vishal Gujrati",
-    curCompany: "Cred",
-    company: "https://upload.wikimedia.org/wikipedia/en/7/7c/CRED_%28FinTech_company%29_logo.png",
-    curPost: "Product Operations Analyst",
-    linkedin: "https://www.linkedin.com/in/vishal-gujrati/"
   },
   {
     id: 26,
@@ -273,25 +344,16 @@ const transitions = [
     profile: akshitaSinghBais,
     name: "Akshita Singh Bais",
     curCompany: "IndiaMART",
-    company: "https://corporate.indiamart.com/wp-content/uploads/2024/07/indiamart-logo.png",
+    company: indiaMart,
     curPost: "APM",
     linkedin: "https://www.linkedin.com/in/akshita-bais/"
-  },
-  {
-    id: 28,
-    profile: arpita,
-    name: "Arpita",
-    curCompany: "Magicbricks",
-    company: "https://upload.wikimedia.org/wikipedia/commons/8/88/Magic_Bricks_logo.png",
-    curPost: "Product",
-    linkedin: "https://www.linkedin.com/in/aatavalgi"
   },
   {
     id: 29,
     profile: darshanSripad,
     name: "Darshan Sripad",
     curCompany: "Zi Cloud",
-    company: "https://zicloud.co/wp-content/uploads/bb-plugin/cache/Zi-Cloud-Logo-FInal-1-300x300-landscape.png",
+    company: ziCloud,
     curPost: "PM Intern",
     linkedin: "https://www.linkedin.com/in/darshan-sripad"
   },
@@ -300,7 +362,7 @@ const transitions = [
     profile: eklavyaMishra,
     name: "Eklavya Mishra",
     curCompany: "Publicis Re:Sources",
-    company: "",
+    company: publicis,
     curPost: "PM",
     linkedin: "https://www.linkedin.com/in/eklavyamishra?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
   },
@@ -309,27 +371,9 @@ const transitions = [
     profile: madhuriNayakAmgoth,
     name: "Madhuri Nayak Amgoth",
     curCompany: "Kreditbee",
-    company: "",
+    company: kreditbee,
     curPost: "APM",
     linkedin: "https://www.linkedin.com/in/madhuri-99a0331a8/"
-  },
-  {
-    id: 32,
-    profile: ninadTarambale,
-    name: "Ninad Tarambale",
-    curCompany: "National Payments Corporation Of India (NPCI)",
-    company: "",
-    curPost: "Product Lead",
-    linkedin: "https://www.linkedin.com/in/ninad-t/"
-  },
-  {
-    id: 33,
-    profile: preranaDas,
-    name: "Prerana Das",
-    curCompany: "Tata Steel",
-    company: "https://iconape.com/wp-content/files/pa/273000/svg/273000.svg",
-    curPost: "Manager",
-    linkedin: "https://www.linkedin.com/in/prerana-das-140351216"
   },
   {
     id: 34,
@@ -345,7 +389,7 @@ const transitions = [
     profile: rahulRanjan,
     name: "Rahul Ranjan",
     curCompany: "Adda247",
-    company: "",
+    company: adda247,
     curPost: "APM",
     linkedin: "https://www.linkedin.com/in/rahul-ranjan-71555292"
   },
@@ -354,7 +398,7 @@ const transitions = [
     profile: raquibKhan,
     name: "Raquib Khan",
     curCompany: "Reliance Jio",
-    company: "",
+    company: reliance,
     curPost: "PM",
     linkedin: "http://linkedin.com/in/raquib-k"
   },
@@ -363,7 +407,7 @@ const transitions = [
     profile: srijaniDas,
     name: "Srijani Das",
     curCompany: "Namma Yatri",
-    company: "",
+    company: namma,
     curPost: "APM",
     linkedin: "http://linkedin.com/in/srijani-das-496367125"
   },
@@ -372,7 +416,7 @@ const transitions = [
     profile: ambujHatwal,
     name: "Ambuj Hatwal",
     curCompany: "FieldAssist",
-    company: "",
+    company: fieldAssist,
     curPost: "Senior Product Analyst",
     linkedin: "https://www.linkedin.com/in/hatwalambuj?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
@@ -381,25 +425,16 @@ const transitions = [
     profile: ankurJain,
     name: "Ankur Jain",
     curCompany: "Mastercard",
-    company: "",
+    company: mastercard,
     curPost: "SPM",
     linkedin: "http://linkedin.com/in/ankur-jain-072331bb"
-  },
-  {
-    id: 41,
-    profile: nidhiAgarwal,
-    name: "Nidhi Agarwal",
-    curCompany: "American Express",
-    company: "",
-    curPost: "Senior Manager - Digital Product Management",
-    linkedin: "https://www.linkedin.com/in/nidhi-agarwal-090990"
   },
   {
     id: 43,
     profile: yashSamsukha,
     name: "Yash Samsukha",
     curCompany: "Shriram Finance Limited",
-    company: "",
+    company: sriram,
     curPost: "PM",
     linkedin: "https://www.linkedin.com/in/yash-samsukha"
   },

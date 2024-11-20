@@ -65,7 +65,7 @@ const DropdownListGenAi = ({ len, flag }) => {
     "This workshop is ideal for current and aspiring Product Managers who want to integrate AI into their existing products & daily work.",
     "Yes, all participants who share their learnings on gen will receive a certificate of participation.",
     "No prior AI experience is required.",
-    "The workshop is valued at ₹24,999, but we're offering a 60% discount as a special new course discount. Join now and get access for just ₹9,999!"
+    "The workshop is valued at ₹24,999, but we're offering a 50% discount as a special new course discount. Join now and get access for just ₹12,499!"
   ];
   
 
@@ -117,7 +117,7 @@ const GenAiFaq = () => {
           Frequently Asked <br /> Questions
         </div>
 
-        {/* <div className="text-[18px] text-start text-gray-800 font-medium">
+        <div className="text-[18px] text-start text-gray-800 font-medium">
           Have more Queries?
         </div>
 
@@ -129,7 +129,7 @@ const GenAiFaq = () => {
               <p>Contact Us</p>
               <img src={arrow} alt="" />
             </button>
-        </div> */}
+        </div>
       </div>
 
       <div className="w-full lg:w-[95%]">

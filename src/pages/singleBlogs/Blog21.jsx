@@ -4,10 +4,19 @@ import NewsLetter from "../../components/NewsLetter";
 const Blog21 = () => {
   return (
     <div>
-        <Helmet>
-        <title>Jobs-to-Be-Done Framework – A Practical Guide for
-        Product&nbsp;Managers</title>
-        <link rel="canonical" href="https://theproductspace.in/blogs/jobs-to-be-done-framework-a-practical-guide-for-product-managers" />
+      <Helmet>
+        <title>
+          Jobs-to-Be-Done Framework – A Practical Guide for
+          Product&nbsp;Managers
+        </title>
+        <meta
+          name="description"
+          content="Master the Jobs to Be Done (JTBD) framework with this practical guide for product managers. Learn how to uncover customer needs, create valuable products, and drive growth."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/jobs-to-be-done-framework-a-practical-guide-for-product-managers"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
