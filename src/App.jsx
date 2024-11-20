@@ -48,6 +48,8 @@ import GenAi from "./pages/GenAi";
 import Blog24 from "./pages/singleBlogs/Blog24";
 import Blog25 from "./pages/singleBlogs/Blog25";
 import GenAiContactUsForm from "./components/GenAiContactUs";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
   const location = useLocation();
@@ -69,6 +71,8 @@ function App() {
         {/* <Router> */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/ai-for-pm" element={<Event1 />} />
           <Route path="/gen-ai-for-pm" element={<GenAi />} />

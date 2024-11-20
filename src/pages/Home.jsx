@@ -12,6 +12,7 @@ import BottomBar from "./../components/BottomBar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 import CourseSnapshot from "../components/CourseSnapshot";
+import SignupPopUp from "../components/SignupPopUp";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -54,7 +55,8 @@ const Home = () => {
       </div>
 
       <div className="w-full max-w-screen-2xl">
-        <div className="px-4 md:px-12 max-w-[900px] mx-auto py-20">
+        <SignupPopUp />
+        {/* <div className="px-4 md:px-12 max-w-[900px] mx-auto py-20">
           <div className="aspect-w-16 aspect-h-9">
             <iframe
               src="https://www.youtube.com/embed/buSdqtdn_4I?si=pYcdkek5FXZBseCk?rel=0"
@@ -64,7 +66,7 @@ const Home = () => {
               allowfullscreen
             ></iframe>
           </div>
-        </div>
+        </div> */}
         <Benefits bgColor={"#F5F5F5"} />
         <Companies />
       </div>

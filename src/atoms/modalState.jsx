@@ -23,3 +23,16 @@ export const isOpenGenAiFormState = atom({
   key: 'isOpenGenAiFormState',
   default: false, // Default is closed
 });
+
+
+// Atom to manage visibility (for scaling or fading effect)
+export const isVisibleSignin = atom({
+  key: 'isVisibleSignin',
+  default: false, // Default is not visible
+});
+
+// Atom to manage if the form is open
+export const isOpenSignin = atom({
+  key: 'isOpenSignin',
+  default: false, // Default is closed
+});
