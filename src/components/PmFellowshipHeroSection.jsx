@@ -15,14 +15,15 @@ import offer from "../assets/offer-valid.svg";
 import { useEffect, useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 import DownloadCurriculumForm from "./DownloadCurriculumForm";
-
+import { useRecoilState } from "recoil";
+import { isOpenSignin, isVisibleSignin } from "../atoms/modalState";
 
 const PmFellowshipHeroSection = () => {
-  const [bgImages, setBgImages] = useState([disco1, disco2, disco3]);
-  const [opacity, setOpacity] = useState([1, 0, 0]);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useRecoilState(isVisibleSignin); // Recoil for visibility
+  const [isOpen, setIsOpen] = useRecoilState(isOpenSignin);
 
   const [isOpenEnquire, setIsOpenEnquire] = useState(false);
   const [isVisibleEnquire, setIsVisibleEnquire] = useState(false);
@@ -31,39 +32,24 @@ const PmFellowshipHeroSection = () => {
     if (!isOpenEnquire) {
       setIsOpenEnquire(true);
       setTimeout(() => setIsVisibleEnquire(true), 10);
-    } else {
+    } 
+    else {
       setIsVisibleEnquire(false);
       setTimeout(() => setIsOpenEnquire(false), 300);
     }
   };
 
+  // Now we are directly opening signup form, later we will check user is logged in then we will open signup option
   const toggleModal = () => {
     if (!isOpen) {
       setIsOpen(true);
       setTimeout(() => setIsVisible(true), 10);
-    } else {
+    } 
+    else {
       setIsVisible(false);
       setTimeout(() => setIsOpen(false), 300);
     }
   };
-
-  const rotateBackgrounds = () => {
-    setBgImages((prev) => {
-      return [prev[2], prev[0], prev[1]]; // Rotate the images
-    });
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOpacity([0, 0, 0]); // Start fading out
-      setTimeout(() => {
-        rotateBackgrounds();
-        setOpacity([1, 0, 0]); // Fade in after rotating
-      }, 600); // Match this duration with your fade-out duration
-    }, 3000);
-
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
 
   return (
     <div
@@ -152,8 +138,6 @@ const PmFellowshipHeroSection = () => {
             </div>
             <div className="ml-2 text-xl">→</div>
           </button>
-          {/* <a href="https://pages.razorpay.com/getintoPM" target="_blank">
-          </a> */}
 
           <button
             onClick={toggleModal}
@@ -180,13 +164,13 @@ const PmFellowshipHeroSection = () => {
             isOpen={isOpenEnquire}
             toggleModal={toggleModalEnquire}
           />
-          <DownloadCurriculumForm
+          {/* <DownloadCurriculumForm
             setIsOpen={setIsOpen}
             isVisible={isVisible}
             setIsVisible={setIsVisible}
             isOpen={isOpen}
             toggleModal={toggleModal}
-          />
+          /> */}
         </div>
       </div>
 

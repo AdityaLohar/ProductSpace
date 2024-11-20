@@ -50,6 +50,8 @@ import Blog25 from "./pages/singleBlogs/Blog25";
 import GenAiContactUsForm from "./components/GenAiContactUs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import SignupPopUp from "./components/SignupPopUp";
+import LoginPopUp from "./components/LoginPopUp";
 
 function App() {
   const location = useLocation();
@@ -68,6 +70,8 @@ function App() {
         <Navbar />
         <ContactUsForm />
         <GenAiContactUsForm />
+        <SignupPopUp />
+        <LoginPopUp />
         {/* <Router> */}
         <Routes>
           <Route path="/" element={<Home />} />

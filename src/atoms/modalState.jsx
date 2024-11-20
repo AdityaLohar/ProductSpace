@@ -36,3 +36,15 @@ export const isOpenSignin = atom({
   key: 'isOpenSignin',
   default: false, // Default is closed
 });
+
+// Atom to manage visibility (for scaling or fading effect)
+export const isVisibleLogin = atom({
+  key: 'isVisibleLogin',
+  default: false, // Default is not visible
+});
+
+// Atom to manage if the form is open
+export const isOpenLogin = atom({
+  key: 'isOpenLogin',
+  default: false, // Default is closed
+});

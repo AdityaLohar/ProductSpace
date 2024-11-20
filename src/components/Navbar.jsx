@@ -20,8 +20,10 @@ const Navbar = () => {
   const [isOpenForm, setIsOpenForm] = useRecoilState(isOpenFormState);
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+  const toggleAuthDropdown = () => setIsAuthDropdownOpen(!isAuthDropdownOpen);
 
   const toggleModal = () => {
     if (!isOpenForm) {
@@ -280,10 +282,10 @@ const Navbar = () => {
           Contact Us
         </a>
         <div className="relative group">
-          <div>
+          <div onClick={toggleAuthDropdown}>
             <img src={profile} alt="" className="h-6" />
           </div>
-          <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+          {isAuthDropdownOpen && <div className="group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
             <Link
               to={"/login"}
               className="px-4 py-2 hover:bg-gray-100 rounded-md"
@@ -296,7 +298,7 @@ const Navbar = () => {
             >
               Signup
             </Link>
-          </div>
+          </div>}
         </div>
       </div>
     </div>
