@@ -206,9 +206,9 @@ const Navbar = () => {
             </button>
 
             <div className="relative group">
-              <a href="/signup">
-                <img src={profile} alt="" />
-              </a>
+              <div>
+                <img src={profile} alt="" className="h-6" />
+              </div>
               <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
                 <Link
                   to={"/login"}
@@ -280,9 +280,9 @@ const Navbar = () => {
           Contact Us
         </a>
         <div className="relative group">
-          <a href="/signup">
-            <img src={profile} alt="" />
-          </a>
+          <div>
+            <img src={profile} alt="" className="h-6" />
+          </div>
           <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
             <Link
               to={"/login"}
