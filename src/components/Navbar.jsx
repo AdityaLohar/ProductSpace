@@ -279,6 +279,25 @@ const Navbar = () => {
         >
           Contact Us
         </a>
+        <div className="relative group">
+          <a href="/signup">
+            <img src={profile} alt="" />
+          </a>
+          <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+            <Link
+              to={"/login"}
+              className="px-4 py-2 hover:bg-gray-100 rounded-md"
+            >
+              Login
+            </Link>
+            <Link
+              to={"/signup"}
+              className="px-4 py-2 hover:bg-gray-100 rounded-md"
+            >
+              Signup
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

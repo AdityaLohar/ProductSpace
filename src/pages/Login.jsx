@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    alert(password);
+    alert("success");
   };
 
   return (
@@ -48,7 +48,7 @@ const Login = () => {
 
         <button className="lg:text-[14px] py-3 lg:py-4 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex gap-3 items-center justify-center">
           <img src={microsoft} alt="" className="h-4" />
-          <p>Sign in with Microsoft</p>
+          <p>Continue with Microsoft</p>
         </button>
 
         <div className="flex gap-2 w-full items-center">

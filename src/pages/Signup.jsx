@@ -17,6 +17,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [isRemembered, setIsRemembered] = useState(false);
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
   const [matchPassword, setIsmatchPassword] = useState(true);
 
   const handleCheckboxChange = () => {
@@ -47,7 +48,11 @@ const Signup = () => {
     setPassword(confirmPass);
 
     // Check if both passwords match or not
-    if (password !== "" && confirmPass !== "" && confirmPassword !== confirmPass) {
+    if (
+      password !== "" &&
+      confirmPass !== "" &&
+      confirmPassword !== confirmPass
+    ) {
       setIsmatchPassword(false); // Passwords don't match
     } else {
       setIsmatchPassword(true); // Passwords match or empty
@@ -69,11 +74,25 @@ const Signup = () => {
     // validate email, check if passwords match
     // if both yes then success
     // else show error
+    alert("success");
+  };
+
+  const handleVerifyEmail = () => {
+    alert("Email Verified");
+    setIsEmailVerified(true);
   };
 
   return (
-    <div className="flex lg:grid lg:grid-cols-2 h-[90vh] lg:h-full auth-bg-custom">
-      <div className="hidden lg:flex lg:flex-col h-screen w-full overflow-hidden">
+    <div
+      className={`flex lg:grid lg:grid-cols-2 h-[90vh] ${
+        isEmailVerified ? "lg:h-full" : "lg:h-[86vh]"
+      } auth-bg-custom`}
+    >
+      <div
+        className={`hidden lg:flex lg:flex-col ${
+          isEmailVerified ? "lg:h-[100vh]" : "lg:h-[86vh]"
+        } w-full overflow-hidden`}
+      >
         <img src={authBg} alt="" className="w-full" />
       </div>
 
@@ -87,7 +106,7 @@ const Signup = () => {
 
         <button className="lg:text-[14px] py-3 lg:py-4 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex gap-3 items-center justify-center">
           <img src={microsoft} alt="" className="h-4" />
-          <p>Sign in with Microsoft</p>
+          <p>Continue with Microsoft</p>
         </button>
 
         <div className="flex gap-2 w-full items-center">
@@ -112,63 +131,72 @@ const Signup = () => {
               className="p-3 lg:p-4 rounded-xl border border-[#D4D4D4] placeholder-[#DEDEDE] text-[#333] outline-none"
             />
           </div>
-          <div className="flex flex-col gap-1">
-            <p>Password</p>
-            <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
-              <input
-                onChange={handlePassword}
-                type={type1}
-                className="outline-none"
-              />
-              <img
-                onClick={toggleShowPassword}
-                src={eye1}
-                alt=""
-                className="h-6 cursor-pointer"
-              />
+          {isEmailVerified && (
+            <div className="flex flex-col gap-1">
+              <p>Password</p>
+              <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
+                <input
+                  onChange={handlePassword}
+                  type={type1}
+                  className="outline-none"
+                />
+                <img
+                  onClick={toggleShowPassword}
+                  src={eye1}
+                  alt=""
+                  className="h-6 cursor-pointer"
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-1">
-            <p>Confirm Password</p>
-            <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
-              <input
-                onChange={handleConfirmPassword}
-                type={type2}
-                className="outline-none"
-              />
-              <img
-                onClick={toggleShowConfirmPassword}
-                src={eye2}
-                alt=""
-                className="h-6 cursor-pointer"
-              />
-            </div>
-            <p className={`${matchPassword ? "hidden" : "flex"} text-red-400`}>
-              Both passwords didn&apos;t match
-            </p>
-          </div>
+          )}
 
-          <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="rememberMe"
-                className="cursor-pointer"
-                checked={isRemembered}
-                onChange={handleCheckboxChange}
-              />
-              <label htmlFor="rememberMe" className="cursor-pointer">
-                Remember me
-              </label>
+          {isEmailVerified && (
+            <div className="flex flex-col gap-1">
+              <p>Confirm Password</p>
+              <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
+                <input
+                  onChange={handleConfirmPassword}
+                  type={type2}
+                  className="outline-none"
+                />
+                <img
+                  onClick={toggleShowConfirmPassword}
+                  src={eye2}
+                  alt=""
+                  className="h-6 cursor-pointer"
+                />
+              </div>
+              <p
+                className={`${matchPassword ? "hidden" : "flex"} text-red-400`}
+              >
+                Both passwords didn&apos;t match
+              </p>
             </div>
-            <div className="cursor-pointer">Forgot password?</div>
-          </div>
+          )}
+
+          {isEmailVerified && (
+            <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  className="cursor-pointer"
+                  checked={isRemembered}
+                  onChange={handleCheckboxChange}
+                />
+                <label htmlFor="rememberMe" className="cursor-pointer">
+                  Remember me
+                </label>
+              </div>
+              <div className="cursor-pointer">Forgot password?</div>
+            </div>
+          )}
 
           <button
-            onClick={handleSubmit}
+            onClick={isEmailVerified ? handleSubmit : handleVerifyEmail}
             className="w-full text-center text-white bg-[#4F90F0] p-3 lg:p-4 rounded-xl"
           >
-            <p>Create Account</p>
+            <p>{isEmailVerified ? "Create Account" : "Verify Mail"}</p>
           </button>
         </div>
 
