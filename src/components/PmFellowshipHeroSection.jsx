@@ -109,13 +109,13 @@ const PmFellowshipHeroSection = () => {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <span className="font-bold">15%</span> <br /> OFF
+            <span className="font-bold">10%</span> <br /> OFF
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px]">👉🏻 Best price for next 5 seats</p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
-                ₹25,499
+                ₹26,999
               </p>
               <p className="text-[18px] line-through pb-1">₹29,999</p>
             </div>
