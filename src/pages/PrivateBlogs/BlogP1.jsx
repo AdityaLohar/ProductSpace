@@ -1,6 +1,15 @@
+import { Helmet } from "react-helmet-async";
+
 const BlogP1 = () => {
   return (
     <div>
+      <Helmet>
+        <title>Large Language Models (LLMs): A guide for Product&nbsp;Managers</title>
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/large-language-models-llms-a-guide-for-product-managers"
+        />
+      </Helmet>
       <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
         <div className="max-w-4xl w-full flex flex-col gap-8">
           {" "}
