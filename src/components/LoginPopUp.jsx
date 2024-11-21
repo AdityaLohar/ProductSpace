@@ -10,6 +10,8 @@ import {
   isVisibleSignin,
 } from "../atoms/modalState";
 import { useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const LoginPopUp = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleLogin); // Recoil for visibility
@@ -60,10 +62,30 @@ const LoginPopUp = () => {
 
   const handleSubmit = () => {
     alert("success");
+  };  
+
+
+  // Once successful login happens, store the data somewhere and do the logic part
+  // then close the modal
+  const LoginWithGoogle = () => {
+    return (
+      <GoogleLogin
+        onSuccess={(credentialResponse) => {
+          const decoded = jwtDecode(credentialResponse.credential);
+          console.log(decoded);
+          const fname = decoded.given_name;
+          const lname = decoded.family_name;
+        }}
+        onError={() => {
+          console.log("Login Failed");
+        }}
+      />
+    );
   };
 
   return (
     <div>
+      <button onClick={toggleModal}>Click Me</button>
       {isOpen && (
         <div>
           {/* Modal overlay */}
@@ -87,15 +109,16 @@ const LoginPopUp = () => {
 
               <div className="text-[24px]">Log In to continue</div>
 
-              <button className="text-[14px] lg:text-[16px] py-1 lg:py-1 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex items-center justify-center">
+              {/* <button className="text-[14px] lg:text-[16px] py-1 lg:py-1 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex items-center justify-center">
                 <img src={google} alt="" className="h-8 lg:h-10" />
                 <p>Sign in with Google</p>
-              </button>
+              </button> */}
+              <LoginWithGoogle />
 
-              <button className="text-[14px] lg:text-[16px] py-3 lg:py-4 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex gap-2 lg:gap-3 items-center justify-center">
+              {/* <button className="text-[14px] lg:text-[16px] py-3 lg:py-4 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex gap-2 lg:gap-3 items-center justify-center">
                 <img src={microsoft} alt="" className="h-3 lg:h-4" />
                 <p>Continue with Microsoft</p>
-              </button>
+              </button> */}
 
               <div className="flex gap-2 w-full items-center">
                 <div className="w-full text-transparent">
