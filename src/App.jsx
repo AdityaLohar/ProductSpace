@@ -48,6 +48,8 @@ import GenAi from "./pages/GenAi";
 import Blog24 from "./pages/singleBlogs/Blog24";
 import Blog25 from "./pages/singleBlogs/Blog25";
 import GenAiContactUsForm from "./components/GenAiContactUs";
+import BlogP1 from "./pages/PrivateBlogs/BlogP1";
+import BlogP2 from "./pages/PrivateBlogs/BlogP2";
 
 function App() {
   const location = useLocation();
@@ -175,6 +177,14 @@ function App() {
           <Route
             path="/blogs/understanding-first-principles-of-product-management"
             element={<Blog25 />}
+          />
+          <Route
+            path="/blogs/large-language-models-llms-a-guide-for-product-managers"
+            element={<BlogP1 />}
+          />
+          <Route
+            path="/blogs/genai-101-a-guide-for-product-managers"
+            element={<BlogP2 />}
           />
           <Route path="*" element={<Navigate to="/" />} />{" "}
         </Routes>
