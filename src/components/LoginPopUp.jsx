@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 const LoginPopUp = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleLogin); // Recoil for visibility
@@ -62,20 +63,44 @@ const LoginPopUp = () => {
 
   const handleSubmit = () => {
     alert("success");
-  };  
-
+  };
 
   // Once successful login happens, store the data somewhere and do the logic part
   // then close the modal
   const LoginWithGoogle = () => {
+    const handleGoogleLogin = async (credentialResponse) => {
+      const decoded = jwtDecode(credentialResponse.credential);
+      console.log(decoded);
+
+      // Data to send to the backend
+      const data = {
+        email: "aditya@gmail.com",
+        password: "aditya",
+      };
+
+      try {
+        const response = await axios.post(
+          "http://localhost:8081/v1/user/login",
+          data,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        console.log("Backend Response:", response.data);
+      } catch (error) {
+        console.error(
+          "Error:",
+          error.response ? error.response.data : error.message
+        );
+      }
+    };
+
     return (
       <GoogleLogin
-        onSuccess={(credentialResponse) => {
-          const decoded = jwtDecode(credentialResponse.credential);
-          console.log(decoded);
-          const fname = decoded.given_name;
-          const lname = decoded.family_name;
-        }}
+        onSuccess={handleGoogleLogin}
         onError={() => {
           console.log("Login Failed");
         }}

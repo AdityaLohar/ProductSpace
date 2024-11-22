@@ -4,11 +4,19 @@ import alankrat from "../assets/alankrat.jpeg";
 import nishant from "../assets/nishant-sinha.jpeg";
 import anshul from "../assets/anshul-agarwal.jpeg";
 
+import medhyaBudhwar from "../assets/medhya-budhwar.png";
+import kritiGoel from "../assets/kriti-goel.jpg";
+import nousheenFahmedha from "../assets/nousheen.jpg";
+import likeshKumar from "../assets/likesh.jpg";
+import aryanJaiswal from "../assets/aryan-jaiswal.png";
+import mrigajNirvanGoradia from "../assets/mrigaj.jpeg";
+import jaydeepPraajapati from "../assets/jaydeep.jpeg";
+import vihalRotti from "../assets/vihal.jpg";
+
 const alumni = [
   {
     id: 1,
-    profile:
-      adityaMandothia,
+    profile: adityaMandothia,
     name: "Aditya Mandothia",
     prevCompany:
       "https://image4.owler.com/logo/bharti-axa_owler_20200630_223719_original.png",
@@ -24,7 +32,7 @@ const alumni = [
   {
     id: 2,
     profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQHs8_elIpWiow/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1678550820751?e=1732147200&v=beta&t=tnktSvp-N_N93Kvn-F8DCCTpx_f22SIX3-80ZHFtTr8",
+    likeshKumar,
     name: "Likesh Kumar Tangudu",
     // prevCompany: "Droame",
     prevCompany:
@@ -40,8 +48,7 @@ const alumni = [
   },
   {
     id: 3,
-    profile:
-      "https://media.licdn.com/dms/image/v2/D4D03AQH_pXGG_9D_kw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1693849888611?e=1732147200&v=beta&t=tbFwKgXP04GBJvlRer11HymoSE-y1B-t2PQsvCijR_s",
+    profile: medhyaBudhwar,
     name: "Medhya Budhwar ",
     // prevCompany: "ThinkLink",
     prevCompany:
@@ -58,7 +65,7 @@ const alumni = [
   {
     id: 4,
     profile:
-      "https://media.licdn.com/dms/image/v2/C4E03AQG_j9Ls8iygIA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1626771255085?e=1732147200&v=beta&t=OIThNf16ZpQwlDChjUtUWc1l2pJBfth6ibmatHT9kZw",
+    aryanJaiswal,
     name: "Aryan Jaiswal ",
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFFp2CH07jaVbj04vCi9L4suN2hJBbtH93Yw&s",
@@ -73,8 +80,7 @@ const alumni = [
   },
   {
     id: 6,
-    profile:
-      nishant,
+    profile: nishant,
     name: "Nishant Sinha",
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl0f6J3L_slGJWEf4mQOttHHCSRBmCBdTLEw&s",
@@ -90,8 +96,7 @@ const alumni = [
   },
   {
     id: 7,
-    profile:
-      arpita,
+    profile: arpita,
     name: "Arpita",
     // prevCompany: "Salarpuria Sattva",
     prevCompany:
@@ -107,8 +112,7 @@ const alumni = [
   },
   {
     id: 8,
-    profile:
-      anshul,
+    profile: anshul,
     name: "Anshul Agarwal",
     // prevCompany: "ICICI Bank",
     prevCompany:
@@ -158,7 +162,7 @@ const alumni = [
   {
     id: 11,
     profile:
-      "https://media.licdn.com/dms/image/v2/D4D03AQGk2o03hDHZJg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700811766381?e=1732147200&v=beta&t=Ot4UIoKvWOSSzEKcjffXnlJapsFI_gkp4aFYze3S1Rc",
+    mrigajNirvanGoradia,
     name: "Mrigaj Nirvan Goradia",
     // prevCompany: "BSE Ebix InsurTech",
     prevCompany:
@@ -175,7 +179,7 @@ const alumni = [
   {
     id: 12,
     profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQFDFdylPDq9Cw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719207899519?e=1732147200&v=beta&t=_9_NmZOdZ-L3UB2vEHUMZaQnCGM1G-FMPLRUDI2dkCw",
+    jaydeepPraajapati,
     name: "Jaydeep Prajapati",
     // prevCompany: "PharmEasy",
     prevCompany:
@@ -192,7 +196,7 @@ const alumni = [
   {
     id: 13,
     profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQFmDyzuOkIPFw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1697454692392?e=1732147200&v=beta&t=UUYoGmsPu4qvfGg_5KOfWYqmrJAPv4Q6pqVNuUnU0iA",
+    vihalRotti,
     name: "Vihal J Rotti",
     // prevCompany: "Folks",
     prevCompany:
@@ -226,7 +230,7 @@ const alumni = [
   {
     id: 15,
     profile:
-      "https://media.licdn.com/dms/image/v2/D4D03AQFZ6WfSYRuNog/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689627342831?e=1732147200&v=beta&t=A78C6gPdiIOjmTLWXS-dOhCVqgwu7d6u6gZwAhi9q_8",
+    kritiGoel,
     name: "Kriti Goel",
     // prevCompany: "United Airlines",
     prevCompany:
@@ -243,7 +247,7 @@ const alumni = [
   {
     id: 16,
     profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQG2DXHzv0QM9g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1712046223163?e=1732147200&v=beta&t=AIV4qzhETazw3W58wkQeQO65Kc6l5gXjy-spbIFeQAI",
+    nousheenFahmedha,
     name: "Nousheen Fahmedha",
     // prevCompany: "TCS",
     prevCompany:
@@ -257,7 +261,7 @@ const alumni = [
       "Looking to transition into product management? Product Space is the perfect program for you! In 10 weeks, you'll upskill with live projects, ace PM interviews with mentor mocks, and get 1-on-1 mentorship from seasoned PMs. Plus, our exclusive placement network will help you land a top job.",
     linkedin: "https://www.linkedin.com/in/nousheenfahmedha",
   },
-  
+
   // Add more alumni data here
 ];
 
