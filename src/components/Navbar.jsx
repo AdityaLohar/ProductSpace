@@ -5,12 +5,25 @@ import { RiArrowRightSFill } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ContactUsForm from "./ContactUsForm";
 import { useRecoilState } from "recoil";
-import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
+import {
+  isOpenFormState,
+  isOpenLogin,
+  isOpenSignin,
+  isVisibleformState,
+  isVisibleLogin,
+  isVisibleSignin,
+} from "../atoms/modalState";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const navigationRef = useRef(null);
+
+  const [isLoginVisible, setIsLoginVisible] = useRecoilState(isVisibleLogin); // Recoil for visibility
+  const [isLoginOpen, setIsLoginOpen] = useRecoilState(isOpenLogin);
+
+  const [isSignupVisible, setIsSignupVisible] = useRecoilState(isVisibleSignin); // Recoil for visibility
+  const [isSignupOpen, setIsSignupOpen] = useRecoilState(isOpenSignin);
 
   const [isOpen, setIsOpen] = useState(false);
   const [showTopBar, setShowTomBar] = useState(true);
@@ -24,6 +37,16 @@ const Navbar = () => {
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const toggleAuthDropdown = () => setIsAuthDropdownOpen(!isAuthDropdownOpen);
+
+  const toggleLoginModal = () => {
+    setIsLoginOpen(true);
+    setTimeout(() => setIsLoginVisible(true), 10);
+  };
+
+  const toggleSignupModal = () => {
+    setIsSignupOpen(true);
+    setTimeout(() => setIsSignupVisible(true), 10);
+  };
 
   const toggleModal = () => {
     if (!isOpenForm) {
@@ -212,18 +235,18 @@ const Navbar = () => {
                 <img src={profile} alt="" className="h-6" />
               </div>
               <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
-                <Link
-                  to={"/login"}
+                <button
+                  onClick={toggleLoginModal}
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
                 >
                   Login
-                </Link>
-                <Link
-                  to={"/signup"}
+                </button>
+                <button
+                  onClick={toggleSignupModal}
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
                 >
                   Signup
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -285,20 +308,22 @@ const Navbar = () => {
           <div onClick={toggleAuthDropdown}>
             <img src={profile} alt="" className="h-6" />
           </div>
-          {isAuthDropdownOpen && <div className="group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
-            <Link
-              to={"/login"}
-              className="px-4 py-2 hover:bg-gray-100 rounded-md"
-            >
-              Login
-            </Link>
-            <Link
-              to={"/signup"}
-              className="px-4 py-2 hover:bg-gray-100 rounded-md"
-            >
-              Signup
-            </Link>
-          </div>}
+          {isAuthDropdownOpen && (
+            <div className="group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+              <button
+              onClick={toggleLoginModal}
+              className="px-2 py-2 hover:bg-gray-100 rounded-md"
+              >
+                Login
+              </button>
+              <button
+                onClick={toggleSignupModal}
+                className="px-2 py-2 hover:bg-gray-100 rounded-md"
+              >
+                Signup
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

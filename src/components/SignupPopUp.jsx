@@ -1,4 +1,5 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
+import React, { memo, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import google from "../assets/google-square.svg";
 import eyeSlash from "../assets/eye-slash.svg";
@@ -9,10 +10,51 @@ import {
   isVisibleLogin,
   isVisibleSignin,
 } from "../atoms/modalState";
-import { useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
+
+const LoginWithGoogle = memo(() => {
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+
+      // Data to send to the backend
+      const data = {
+        email: decoded.email, // Decoded email
+        password: "aditya", // Dummy password
+      };
+
+      const response = await axios.post(
+        "http://localhost:8081/v1/user/login",
+        data,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      console.log("Backend Response:", response.data);
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
+  return (
+    <GoogleLogin
+      onSuccess={handleGoogleLogin}
+      onError={() => console.log("Login Failed")}
+    />
+  );
+});
+
+// Set display name for memoized component
+LoginWithGoogle.displayName = "LoginWithGoogle";
 
 const SignupPopUp = () => {
-  const [isVisible, setIsVisible] = useRecoilState(isVisibleSignin); // Recoil for visibility
+  const [isVisible, setIsVisible] = useRecoilState(isVisibleSignin);
   const [isOpen, setIsOpen] = useRecoilState(isOpenSignin);
 
   const [type1, setType1] = useState("password");
@@ -25,12 +67,11 @@ const SignupPopUp = () => {
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
 
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [isRemembered, setIsRemembered] = useState(false);
-  const [isEmailVerified, setIsEmailVerified] = useState(false);
-  const [matchPassword, setIsmatchPassword] = useState(true);
+  const [matchPassword, setIsMatchPassword] = useState(true);
 
   const toggleModal = () => {
     if (!isOpen) {
@@ -45,71 +86,86 @@ const SignupPopUp = () => {
   const toggleLogin = () => {
     setIsOpen(false);
     setIsVisible(false);
-
     setIsLoginOpen(true);
     setIsLoginVisible(true);
   };
 
-  const handleCheckboxChange = () => {
-    setIsRemembered(!isRemembered);
-  };
-
   const toggleShowPassword = () => {
-    if (type1 === "password") {
-      setType1("text");
-      setEye1(eyeSlash);
-    } else {
-      setType1("password");
-      setEye1(eyeSlash);
-    }
+    setType1(type1 === "password" ? "text" : "password");
   };
+
   const toggleShowConfirmPassword = () => {
-    if (type2 === "password") {
-      setType2("text");
-      setEye2(eyeSlash);
-    } else {
-      setType2("password");
-      setEye2(eyeSlash);
+    setType2(type2 === "password" ? "text" : "password");
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    setIsMatchPassword(value === confirmPassword || !confirmPassword);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const value = e.target.value;
+    setConfirmPassword(value);
+    setIsMatchPassword(password === value || !password);
+  };
+
+  /* 
+    1. validate email
+    2. check empty fields
+    3. send backend req
+  */
+  const handleSubmit = async () => {
+    // Email validation regex
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Validate email
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
     }
-  };
 
-  const handlePassword = (e) => {
-    const confirmPass = e.target.value;
-    setPassword(confirmPass);
-
-    // Check if both passwords match or not
-    if (
-      password !== "" &&
-      confirmPass !== "" &&
-      confirmPassword !== confirmPass
-    ) {
-      setIsmatchPassword(false); // Passwords don't match
-    } else {
-      setIsmatchPassword(true); // Passwords match or empty
+    // Validate Phone number
+    if (phone.length < 10) {
+      alert("Enter Valid Phone Number");
+      return;
     }
-  };
-  const handleConfirmPassword = (e) => {
-    const confirmPass = e.target.value;
-    setConfirmPassword(confirmPass);
 
-    // Check if both passwords match or not
-    if (password !== "" && confirmPass !== "" && password !== confirmPass) {
-      setIsmatchPassword(false); // Passwords don't match
-    } else {
-      setIsmatchPassword(true); // Passwords match or empty
+    // Check if password is empty
+    if (password.length < 6) {
+      alert("Password must be of atleast 6 letter");
+      return;
     }
-  };
 
-  const handleSubmit = () => {
-    // validate email, check if passwords match
-    // if both yes then success
-    // else show error
-    alert("success");
-  };
+    // Check if passwords match
+    if (!matchPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
 
-  const handleVerifyEmail = () => {
-    alert("Email Verified");
-    setIsEmailVerified(true);
+    const data = {
+      email: email,
+      password: password,
+      mobile: phone,
+    };
+
+    try {
+      const response = await axios.post("http://localhost:8081/v1/user", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log("Backend Response:", response.data);
+      alert("Account created successfully!");
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+
+      alert("Error in creating account!");
+    }
   };
 
   return (
@@ -127,7 +183,7 @@ const SignupPopUp = () => {
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
             }`}
           >
-            <div className="rounded-xl bg-white flex flex-col gap-4 lg:gap-3 w-[300px] sm:w-[400px] lg:w-[600px] mx-auto items-center py-8 px-8 lg:px-20 font-inter transform transition-transform duration-300 ease-out">
+            <div className="rounded-xl bg-white flex flex-col gap-4 w-[300px] sm:w-[400px] md:w-[600px] mx-auto items-center py-8 px-8 lg:px-20 font-inter transform transition-transform duration-300 ease-out">
               <button
                 onClick={toggleModal}
                 className="absolute top-4 right-5 text-gray-500 hover:text-gray-700"
@@ -137,15 +193,10 @@ const SignupPopUp = () => {
 
               <div className="text-[24px]">Sign In to continue</div>
 
-              <button className="text-[14px] lg:text-[16px] py-1 lg:py-1 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex items-center justify-center">
-                <img src={google} alt="" className="h-8 lg:h-10" />
-                <p>Sign in with Google</p>
-              </button>
-
-              <button className="text-[14px] lg:text-[16px] py-3 lg:py-4 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex gap-2 lg:gap-3 items-center justify-center">
-                <img src={microsoft} alt="" className="h-3 lg:h-4" />
-                <p>Continue with Microsoft</p>
-              </button>
+              <div className="flex flex-col md:flex-row justify-between gap-4">
+                <LoginWithGoogle />
+                {/* <LoginWithGoogle /> */}
+              </div>
 
               <div className="flex gap-2 w-full items-center">
                 <div className="w-full text-transparent">
@@ -164,79 +215,84 @@ const SignupPopUp = () => {
                   <p>Email</p>
                   <input
                     type="email"
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="abc@yourdomain.com"
                     className="p-3 lg:p-4 rounded-xl border border-[#D4D4D4] outline-none"
                   />
                 </div>
 
-                {isEmailVerified && (
-                  <div className="flex flex-col gap-1">
-                    <p>Password</p>
-                    <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
-                      <input
-                        onChange={handlePassword}
-                        type={type1}
-                        className="outline-none"
-                      />
-                      <img
-                        onClick={toggleShowPassword}
-                        src={eye1}
-                        alt=""
-                        className="h-6 cursor-pointer"
-                      />
-                    </div>
-                  </div>
-                )}
+                <div className="flex flex-col gap-1">
+                  <p>Phone Number</p>
+                  <input
+                    type="tel"
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder=""
+                    className="p-3 lg:p-4 rounded-xl border border-[#D4D4D4] outline-none"
+                  />
+                </div>
 
-                {isEmailVerified && (
-                  <div className="flex flex-col gap-1">
-                    <p>Confirm Password</p>
-                    <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
-                      <input
-                        onChange={handleConfirmPassword}
-                        type={type2}
-                        className="outline-none"
-                      />
-                      <img
-                        onClick={toggleShowConfirmPassword}
-                        src={eye2}
-                        alt=""
-                        className="h-6 cursor-pointer"
-                      />
-                    </div>
-                    <p
-                      className={`${
-                        matchPassword ? "hidden" : "flex"
-                      } text-red-400`}
-                    >
-                      Both passwords didn&apos;t match
-                    </p>
+                <div className="flex flex-col gap-1">
+                  <p>Password</p>
+                  <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
+                    <input
+                      onChange={handlePasswordChange}
+                      type={type1}
+                      className="outline-none"
+                    />
+                    <img
+                      onClick={toggleShowPassword}
+                      src={eye1}
+                      alt=""
+                      className="h-6 cursor-pointer"
+                    />
                   </div>
-                )}
+                </div>
 
-                {isEmailVerified && (
-                  <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        id="rememberMe"
-                        className="cursor-pointer"
-                        checked={isRemembered}
-                        onChange={handleCheckboxChange}
-                      />
-                      <label htmlFor="rememberMe" className="cursor-pointer">
-                        Remember me
-                      </label>
-                    </div>
-                    <div className="cursor-pointer">Forgot password?</div>
+                <div className="flex flex-col gap-1">
+                  <p>Confirm Password</p>
+                  <div className="flex justify-between p-2 lg:p-3 rounded-xl border border-[#D4D4D4]">
+                    <input
+                      onChange={handleConfirmPasswordChange}
+                      type={type2}
+                      className="outline-none"
+                    />
+                    <img
+                      onClick={toggleShowConfirmPassword}
+                      src={eye2}
+                      alt=""
+                      className="h-6 cursor-pointer"
+                    />
                   </div>
-                )}
+                  <p
+                    className={`${
+                      matchPassword ? "hidden" : "flex"
+                    } text-red-400`}
+                  >
+                    Both passwords didn&apos;t match
+                  </p>
+                </div>
+
+                <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id="rememberMe"
+                      className="cursor-pointer"
+                      checked={isRemembered}
+                      // onChange={handleCheckboxChange}
+                    />
+                    <label htmlFor="rememberMe" className="cursor-pointer">
+                      Remember me
+                    </label>
+                  </div>
+                  <div className="cursor-pointer">Forgot password?</div>
+                </div>
 
                 <button
-                  onClick={isEmailVerified ? handleSubmit : handleVerifyEmail}
+                  onClick={handleSubmit}
                   className="w-full text-center text-white bg-[#4F90F0] p-3 lg:p-4 rounded-xl"
                 >
-                  <p>{isEmailVerified ? "Create Account" : "Verify Mail"}</p>
+                  <p>Create Account</p>
                 </button>
               </div>
 

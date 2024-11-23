@@ -9,10 +9,51 @@ import {
   isVisibleLogin,
   isVisibleSignin,
 } from "../atoms/modalState";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+
+// Once successful login happens, store the data somewhere and do the logic part
+// then close the modal
+const LoginWithGoogle = memo(() => {
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+
+      // Data to send to the backend
+      const data = {
+        email: decoded.email, // Decoded email
+        password: "aditya", // Dummy password
+      };
+
+      const response = await axios.post(
+        "http://localhost:8081/v1/user/login",
+        data,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      console.log("Backend Response:", response.data);
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
+  return (
+    <GoogleLogin
+      onSuccess={handleGoogleLogin}
+      onError={() => console.log("Login Failed")}
+    />
+  );
+});
+
+// Set display name for memoized component
+LoginWithGoogle.displayName = "LoginWithGoogle";
 
 const LoginPopUp = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleLogin); // Recoil for visibility
@@ -23,6 +64,7 @@ const LoginPopUp = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isRemembered, setIsRemembered] = useState(false);
 
   const setIsLoginVisible = useSetRecoilState(isVisibleSignin);
   const setIsLoginOpen = useSetRecoilState(isOpenSignin);
@@ -45,8 +87,6 @@ const LoginPopUp = () => {
     setIsLoginVisible(true);
   };
 
-  const [isRemembered, setIsRemembered] = useState(false);
-
   const handleCheckboxChange = () => {
     setIsRemembered(!isRemembered);
   };
@@ -61,56 +101,48 @@ const LoginPopUp = () => {
     }
   };
 
-  const handleSubmit = () => {
-    alert("success");
-  };
+  const handleSubmit = async () => {
+    // Email validation regex
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  // Once successful login happens, store the data somewhere and do the logic part
-  // then close the modal
-  const LoginWithGoogle = () => {
-    const handleGoogleLogin = async (credentialResponse) => {
-      const decoded = jwtDecode(credentialResponse.credential);
-      console.log(decoded);
+    // Validate email
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
 
-      // Data to send to the backend
-      const data = {
-        email: "aditya@gmail.com",
-        password: "aditya",
-      };
+    // Check if password is empty
+    if (password.length < 6) {
+      alert("Password must be of atleast 6 letter");
+      return;
+    }
 
-      try {
-        const response = await axios.post(
-          "http://localhost:8081/v1/user/login",
-          data,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        console.log("Backend Response:", response.data);
-      } catch (error) {
-        console.error(
-          "Error:",
-          error.response ? error.response.data : error.message
-        );
-      }
+    const data = {
+      email: email,
+      password: password
     };
 
-    return (
-      <GoogleLogin
-        onSuccess={handleGoogleLogin}
-        onError={() => {
-          console.log("Login Failed");
-        }}
-      />
-    );
+    try {
+      const response = await axios.post("http://localhost:8081/v1/user/login", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log("Backend Response:", response.data);
+      alert("Logged in successfully!");
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+
+      alert("Error in logging into account!");
+    }
   };
 
   return (
     <div>
-      <button onClick={toggleModal}>Click Me</button>
       {isOpen && (
         <div>
           {/* Modal overlay */}
@@ -134,16 +166,7 @@ const LoginPopUp = () => {
 
               <div className="text-[24px]">Log In to continue</div>
 
-              {/* <button className="text-[14px] lg:text-[16px] py-1 lg:py-1 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex items-center justify-center">
-                <img src={google} alt="" className="h-8 lg:h-10" />
-                <p>Sign in with Google</p>
-              </button> */}
               <LoginWithGoogle />
-
-              {/* <button className="text-[14px] lg:text-[16px] py-3 lg:py-4 rounded-xl text-[#737373] border border-[#D4D4D4] bg-white w-full flex gap-2 lg:gap-3 items-center justify-center">
-                <img src={microsoft} alt="" className="h-3 lg:h-4" />
-                <p>Continue with Microsoft</p>
-              </button> */}
 
               <div className="flex gap-2 w-full items-center">
                 <div className="w-full text-transparent">
@@ -162,6 +185,7 @@ const LoginPopUp = () => {
                   <p>Email</p>
                   <input
                     type="email"
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="abc@yourdomain.com"
                     className="p-3 lg:p-4 rounded-xl border border-[#D4D4D4] outline-none"
                   />
