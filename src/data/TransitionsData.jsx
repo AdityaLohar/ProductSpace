@@ -2,8 +2,6 @@ import adityaPant from "../assets/aditya-pant.png";
 import anushkaJain from "../assets/anushka-jain.png";
 import ayushiMaurya from "../assets/ayushi-maurya.png";
 import pranayGaddam from "../assets/gaddam-pranay.png";
-import nikhilKaramchandani from "../assets/nikhil-karamchandani.png";
-import nikhilKaroti from "../assets/nikhil-karoti.png";
 import swapneshPatra from "../assets/swapnesh-patra.png";
 import vedaangGulhane from "../assets/vedaang-gulhane.png";
 import vidur from "../assets/vidur.png";
@@ -14,11 +12,9 @@ import anjaliGirnar from "../assets/anjali-girnar.png";
 import aryanJaiswal from "../assets/aryan-jaiswal.png";
 import asthaJain from "../assets/astha-jain.png";
 import gauravBhisikar from "../assets/gaurav-bhisikar.png";
-import komalKaur from "../assets/komal-kaur.png";
 import medhyaBudhwar from "../assets/medhya-budhwar.png";
 import pratibhaJain from "../assets/pratibha-jain.png";
 import sujithHuruli from "../assets/sujith-huruli.png";
-import sumitWankhede from "../assets/sumit-wankhede.png";
 import tushanKumarSingh from "../assets/tushan-singh.png";
 import vipulSingh from "../assets/vipul-singh.png";
 import vishalGujrati from "../assets/vishal-gujrati.png";
@@ -29,7 +25,6 @@ import darshanSripad from "../assets/darshan-sripad.png";
 import eklavyaMishra from "../assets/eklavya-mishra.png";
 import madhuriNayakAmgoth from "../assets/madhuri-amgoth.png";
 import ninadTarambale from "../assets/ninad-tarambale.png";
-import preranaDas from "../assets/prerana-das.png";
 import priyalSethia from "../assets/priyal-sethia.png";
 import rahulRanjan from "../assets/rahul-ranjan.png";
 import raquibKhan from "../assets/raquib-khan.png";
@@ -79,40 +74,31 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/adityapant--"
   },
   {
-    id: 4,
-    profile: ayushiMaurya,
-    name: "Ayushi Maurya",
-    curCompany: "First Cry",
-    company: "https://microadia.net/wp-content/uploads/firstcry-logo-350x350.png",
-    curPost: "Product Executive",
-    linkedin: "https://www.linkedin.com/in/ayushi-maurya-iit"
+    id: 36,
+    profile: raquibKhan,
+    name: "Raquib Khan",
+    curCompany: "Reliance Jio",
+    company: reliance,
+    curPost: "PM",
+    linkedin: "http://linkedin.com/in/raquib-k"
   },
   {
-    id: 7,
-    profile: nikhilKaroti,
-    name: "Nikhil Karoti",
-    curCompany: "Hero MotoCorp",
-    company: heroMotoCorp,
-    curPost: "Research Analyst",
-    linkedin: "https://www.linkedin.com/in/nikhil-karoti-1258771b3"
+    id: 27,
+    profile: akshitaSinghBais,
+    name: "Akshita Singh Bais",
+    curCompany: "IndiaMART",
+    company: indiaMart,
+    curPost: "APM",
+    linkedin: "https://www.linkedin.com/in/akshita-bais/"
   },
   {
-    id: 18,
-    profile: komalKaur,
-    name: "Komal Kaur",
-    curCompany: "Amazon",
-    company: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png",
-    curPost: "Operation Manager",
-    linkedin: "http://linkedin.com/in/komalpreet-kaur-77ba67122"
-  },
-  {
-    id: 19,
-    profile: medhyaBudhwar,
-    name: "Medhya Budhwar",
-    curCompany: "Swiggy",
-    company: "https://cdn.worldvectorlogo.com/logos/swiggy-logo.svg",
-    curPost: "PM Consultant",
-    linkedin: "https://www.linkedin.com/in/medhya-budhwar-27715420a"
+    id: 13,
+    profile: amanAgarwal,
+    name: "Aman Agarwal",
+    curCompany: "Meesho",
+    company: "https://upload.wikimedia.org/wikipedia/commons/3/33/Meesho_logo.png",
+    curPost: "APM",
+    linkedin: "https://www.linkedin.com/in/amanagarwal3009"
   },
   {
     id: 23,
@@ -124,13 +110,13 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/tushan-kumar-singh"
   },
   {
-    id: 25,
-    profile: vishalGujrati,
-    name: "Vishal Gujrati",
-    curCompany: "Cred",
-    company: "https://upload.wikimedia.org/wikipedia/en/7/7c/CRED_%28FinTech_company%29_logo.png",
-    curPost: "Product Operations Analyst",
-    linkedin: "https://www.linkedin.com/in/vishal-gujrati/"
+    id: 4,
+    profile: ayushiMaurya,
+    name: "Ayushi Maurya",
+    curCompany: "First Cry",
+    company: "https://microadia.net/wp-content/uploads/firstcry-logo-350x350.png",
+    curPost: "Product Executive",
+    linkedin: "https://www.linkedin.com/in/ayushi-maurya-iit"
   },
   {
     id: 28,
@@ -142,6 +128,42 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/aatavalgi"
   },
   {
+    id: 15,
+    profile: aryanJaiswal,
+    name: "Aryan Jaiswal",
+    curCompany: "INDMoney",
+    company: indMoney,
+    curPost: "Product Management Trainee",
+    linkedin: "https://www.linkedin.com/in/aryanjaiswal2401/"
+  },
+  {
+    id: 19,
+    profile: medhyaBudhwar,
+    name: "Medhya Budhwar",
+    curCompany: "Swiggy",
+    company: "https://cdn.worldvectorlogo.com/logos/swiggy-logo.svg",
+    curPost: "PM Consultant",
+    linkedin: "https://www.linkedin.com/in/medhya-budhwar-27715420a"
+  },
+  {
+    id: 14,
+    profile: anjaliGirnar,
+    name: "Anjali Girnar",
+    curCompany: "Deloitte",
+    company: deloitte,
+    curPost: "Senior Consultant",
+    linkedin: "https://www.linkedin.com/in/anjali-girnar-027b21103"
+  },
+  {
+    id: 25,
+    profile: vishalGujrati,
+    name: "Vishal Gujrati",
+    curCompany: "Cred",
+    company: "https://upload.wikimedia.org/wikipedia/en/7/7c/CRED_%28FinTech_company%29_logo.png",
+    curPost: "Product Operations Analyst",
+    linkedin: "https://www.linkedin.com/in/vishal-gujrati/"
+  },
+  {
     id: 32,
     profile: ninadTarambale,
     name: "Ninad Tarambale",
@@ -149,15 +171,6 @@ const transitions = [
     company: ncpi,
     curPost: "Product Lead",
     linkedin: "https://www.linkedin.com/in/ninad-t/"
-  },
-  {
-    id: 33,
-    profile: preranaDas,
-    name: "Prerana Das",
-    curCompany: "Tata Steel",
-    company: tata,
-    curPost: "Manager",
-    linkedin: "https://www.linkedin.com/in/prerana-das-140351216"
   },
   {
     id: 2,
@@ -185,15 +198,6 @@ const transitions = [
     company: amex,
     curPost: "Senior Manager - Digital Product Management",
     linkedin: "https://www.linkedin.com/in/nidhi-agarwal-090990"
-  },
-  {
-    id: 6,
-    profile: nikhilKaramchandani,
-    name: "Nikhil Karamchandani",
-    curCompany: "Zomato",
-    company: zomato,
-    curPost: "Intern",
-    linkedin: "https://www.linkedin.com/in/nikhil-karamchandani-678153228"
   },
   {
     id: 5,
@@ -232,15 +236,6 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/vidur-rajpal-2b143b1a8/"
   },
   {
-    id: 11,
-    profile: sagarikaDalai,
-    name: "Sagarika Dalai",
-    curCompany: "Newton School",
-    company: newton,
-    curPost: "Full stack Web Development",
-    linkedin: "https://www.linkedin.com/in/sagarika-dalai/"
-  },
-  {
     id: 12,
     profile: aaryanVerma,
     name: "Aaryan Verma",
@@ -250,51 +245,6 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/aaryan-verma-8b70651a0"
   },
   {
-    id: 13,
-    profile: amanAgarwal,
-    name: "Aman Agarwal",
-    curCompany: "Meesho",
-    company: "https://upload.wikimedia.org/wikipedia/commons/3/33/Meesho_logo.png",
-    curPost: "APM",
-    linkedin: "https://www.linkedin.com/in/amanagarwal3009"
-  },
-  {
-    id: 14,
-    profile: anjaliGirnar,
-    name: "Anjali Girnar",
-    curCompany: "Deloitte",
-    company: deloitte,
-    curPost: "Senior Consultant",
-    linkedin: "https://www.linkedin.com/in/anjali-girnar-027b21103"
-  },
-  {
-    id: 15,
-    profile: aryanJaiswal,
-    name: "Aryan Jaiswal",
-    curCompany: "INDMoney",
-    company: indMoney,
-    curPost: "Product Management Trainee",
-    linkedin: "https://www.linkedin.com/in/aryanjaiswal2401/"
-  },
-  {
-    id: 16,
-    profile: asthaJain,
-    name: "Astha Jain",
-    curCompany: "PwC",
-    company: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Logo-pwc.png",
-    curPost: "Senior Analyst",
-    linkedin: "https://www.linkedin.com/in/astha-jain-9aa794a3"
-  },
-  {
-    id: 17,
-    profile: gauravBhisikar,
-    name: "Gaurav Bhisikar",
-    curCompany: "HSBC",
-    company: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/2560px-HSBC_logo_%282018%29.svg.png",
-    curPost: "Software Engineer",
-    linkedin: "https://www.linkedin.com/in/gaurav-bhisikar"
-  },
-  {
     id: 20,
     profile: pratibhaJain,
     name: "Pratibha Jain",
@@ -302,24 +252,6 @@ const transitions = [
     company: builderAi,
     curPost: "Product Owner",
     linkedin: "https://www.linkedin.com/in/pratibha-jain-pmp%C2%AE-49045aa9"
-  },
-  {
-    id: 21,
-    profile: sujithHuruli,
-    name: "Sujith Huruli",
-    curCompany: "Even",
-    company: even,
-    curPost: "Healthcare Operations",
-    linkedin: "https://www.linkedin.com/in/drsujithh/"
-  },
-  {
-    id: 22,
-    profile: sumitWankhede,
-    name: "Sumit Wankhede",
-    curCompany: "Verizon",
-    company: verizon,
-    curPost: "PM",
-    linkedin: "https://www.linkedin.com/in/sumitwankhede"
   },
   {
     id: 24,
@@ -340,24 +272,6 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/vyas-singh"
   },
   {
-    id: 27,
-    profile: akshitaSinghBais,
-    name: "Akshita Singh Bais",
-    curCompany: "IndiaMART",
-    company: indiaMart,
-    curPost: "APM",
-    linkedin: "https://www.linkedin.com/in/akshita-bais/"
-  },
-  {
-    id: 29,
-    profile: darshanSripad,
-    name: "Darshan Sripad",
-    curCompany: "Zi Cloud",
-    company: ziCloud,
-    curPost: "PM Intern",
-    linkedin: "https://www.linkedin.com/in/darshan-sripad"
-  },
-  {
     id: 30,
     profile: eklavyaMishra,
     name: "Eklavya Mishra",
@@ -376,15 +290,6 @@ const transitions = [
     linkedin: "https://www.linkedin.com/in/madhuri-99a0331a8/"
   },
   {
-    id: 34,
-    profile: priyalSethia,
-    name: "Priyal Sethia",
-    curCompany: "JP Morgan Chase",
-    company: "https://logos-world.net/wp-content/uploads/2021/02/JP-Morgan-Chase-Logo.png",
-    curPost: "Analyst",
-    linkedin: "https://www.linkedin.com/in/priyal-sethia/"
-  },
-  {
     id: 35,
     profile: rahulRanjan,
     name: "Rahul Ranjan",
@@ -392,15 +297,6 @@ const transitions = [
     company: adda247,
     curPost: "APM",
     linkedin: "https://www.linkedin.com/in/rahul-ranjan-71555292"
-  },
-  {
-    id: 36,
-    profile: raquibKhan,
-    name: "Raquib Khan",
-    curCompany: "Reliance Jio",
-    company: reliance,
-    curPost: "PM",
-    linkedin: "http://linkedin.com/in/raquib-k"
   },
   {
     id: 37,
