@@ -18,15 +18,16 @@ const SignupWithGoogle = memo(() => {
   const handleGoogleLogin = async (credentialResponse) => {
     try {
       const decoded = jwtDecode(credentialResponse.credential);
-
+      console.log("decoded :: ", decoded);
+      console.log("credentialResponse.credential :: ", credentialResponse.credential);
       // Data to send to the backend
       const data = {
         email: decoded.email, // Decoded email
       };
 
       const response = await axios.post(
-        "http://18.234.212.47:8081/v1/user",
-        data,
+        "http://localhost:8081/v1/api/auth/google",
+        credentialResponse.credential,
         {
           headers: { "Content-Type": "application/json" },
         }
@@ -149,9 +150,11 @@ const SignupPopUp = () => {
       password: password,
       mobile: phone,
     };
+    // const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user';
+    const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user';
 
     try {
-      const response = await axios.post("http://18.234.212.47:8081/v1/user", data, {
+      const response = await axios.post(PRODUCT_SPACE_API, data, {
         headers: {
           "Content-Type": "application/json",
         },

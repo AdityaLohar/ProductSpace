@@ -73,6 +73,9 @@ const LoginPopUp = () => {
   const setIsLoginVisible = useSetRecoilState(isVisibleSignin);
   const setIsLoginOpen = useSetRecoilState(isOpenSignin);
 
+  // const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user/login';
+  const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user/login';
+
   const toggleModal = () => {
     if (!isOpen) {
       setIsOpen(true);
@@ -127,7 +130,7 @@ const LoginPopUp = () => {
     };
 
     try {
-      const response = await axios.post("http://18.234.212.47:8081/v1/user/login", data, {
+      const response = await axios.post(PRODUCT_SPACE_API, data, {
         headers: {
           "Content-Type": "application/json",
         },
