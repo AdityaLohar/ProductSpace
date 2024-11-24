@@ -14,7 +14,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-const LoginWithGoogle = memo(() => {
+const SignupWithGoogle = memo(() => {
   const handleGoogleLogin = async (credentialResponse) => {
     try {
       const decoded = jwtDecode(credentialResponse.credential);
@@ -22,16 +22,17 @@ const LoginWithGoogle = memo(() => {
       // Data to send to the backend
       const data = {
         email: decoded.email, // Decoded email
-        password: "aditya", // Dummy password
       };
 
       const response = await axios.post(
-        "http://localhost:8081/v1/user/login",
+        "http://18.234.212.47:8081/v1/user",
         data,
         {
           headers: { "Content-Type": "application/json" },
         }
       );
+
+      // if backend response is success show alert of signin
 
       console.log("Backend Response:", response.data);
     } catch (error) {
@@ -51,7 +52,7 @@ const LoginWithGoogle = memo(() => {
 });
 
 // Set display name for memoized component
-LoginWithGoogle.displayName = "LoginWithGoogle";
+SignupWithGoogle.displayName = "SignupWithGoogle";
 
 const SignupPopUp = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleSignin);
@@ -150,7 +151,7 @@ const SignupPopUp = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:8081/v1/user", data, {
+      const response = await axios.post("http://18.234.212.47:8081/v1/user", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -194,8 +195,8 @@ const SignupPopUp = () => {
               <div className="text-[24px]">Sign In to continue</div>
 
               <div className="flex flex-col md:flex-row justify-between gap-4">
-                <LoginWithGoogle />
-                {/* <LoginWithGoogle /> */}
+                <SignupWithGoogle />
+                {/* <SignupWithGoogle /> */}
               </div>
 
               <div className="flex gap-2 w-full items-center">

@@ -23,12 +23,12 @@ const LoginWithGoogle = memo(() => {
 
       // Data to send to the backend
       const data = {
-        email: decoded.email, // Decoded email
-        password: "aditya", // Dummy password
+        email: decoded.email,
+        password: "aditya",
       };
 
       const response = await axios.post(
-        "http://localhost:8081/v1/user/login",
+        "http://18.234.212.47:8081/v1/user",
         data,
         {
           headers: { "Content-Type": "application/json" },
@@ -36,7 +36,11 @@ const LoginWithGoogle = memo(() => {
       );
 
       console.log("Backend Response:", response.data);
-    } catch (error) {
+
+      // if response from backend is a success show this
+      alert("Logged in with google successfully")
+    } 
+    catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message
@@ -119,11 +123,11 @@ const LoginPopUp = () => {
 
     const data = {
       email: email,
-      password: password
+      password: password,
     };
 
     try {
-      const response = await axios.post("http://localhost:8081/v1/user/login", data, {
+      const response = await axios.post("http://18.234.212.47:8081/v1/user/login", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -131,7 +135,8 @@ const LoginPopUp = () => {
 
       console.log("Backend Response:", response.data);
       alert("Logged in successfully!");
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message
