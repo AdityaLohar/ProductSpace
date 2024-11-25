@@ -102,6 +102,7 @@ const LoginPopUp = () => {
       // if success from backend redirect to profile page
       if(res.status === 'SUCCESS') {
         localStorage.setItem("token", token);
+        localStorage.setItem("email", email);
         setEmailAtom(email);
         alert(res.message);
         toggleModal();

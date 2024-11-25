@@ -5,16 +5,14 @@ import { emailAtom } from "../atoms/modalState";
 
 const UserDashboard = () => {
   const [users, setUsers] = useState();
-  const emailAtomValue = useRecoilValue(emailAtom);
 
-  const encodedEmail = encodeURIComponent(emailAtomValue);
-
-  const url = `http://18.234.212.47:8081/v1/user/search?email=${encodedEmail}&isPaged=false&page=0&size=1&sort=string&matchingAny=true`;
-  // const url = `http://18.234.212.47:8081/v1/user/search?email=lohar%40gmail.com&isPaged=false&page=0&size=1&sort=string&matchingAny=true`;
-
+  
   useEffect(() => {
-    console.log(emailAtomValue);
-    
+    const getEmail = localStorage.getItem("email");
+    const encodedEmail = encodeURIComponent(getEmail);
+
+    const url = `http://18.234.212.47:8081/v1/user/search?email=${encodedEmail}&isPaged=false&page=0&size=1&sort=string&matchingAny=true`;
+    // const url = `http://18.234.212.47:8081/v1/user/search?email=lohar%40gmail.com&isPaged=false&page=0&size=1&sort=string&matchingAny=true`;
     const fetchUsers = async () => {
       try {
         const response = await axios.get(url, {

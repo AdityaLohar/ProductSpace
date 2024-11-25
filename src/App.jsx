@@ -64,7 +64,8 @@ function App() {
     });
   }, [location]);
 
-  const isHomePage = location.pathname === "/" || location.pathname === "/pm-fellowship";
+  const isHomePage =
+    location.pathname === "/" || location.pathname === "/pm-fellowship";
 
   return (
     <RecoilRoot>
@@ -78,14 +79,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* Protected route */}
-        <Route
-          path="/user-profile"
-          element={
-            <PrivateRoute>
-              <UserDashboard />
-            </PrivateRoute>
-          }
-        />
+          <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/pm-hackathon" element={<Events />} />
