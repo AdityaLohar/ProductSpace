@@ -1,67 +1,25 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { FaTimes } from "react-icons/fa";
-import google from "../assets/google-square.svg";
-import microsoft from "../assets/microsoft-square.svg";
 import eyeSlash from "../assets/eye-slash.svg";
 import {
+  emailAtom,
   isOpenLogin,
   isOpenSignin,
   isVisibleLogin,
   isVisibleSignin,
 } from "../atoms/modalState";
-import { memo, useState } from "react";
-import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
+import { useState } from "react";
 import axios from "axios";
-
-// Once successful login happens, store the data somewhere and do the logic part
-// then close the modal
-const LoginWithGoogle = memo(() => {
-  const handleGoogleLogin = async (credentialResponse) => {
-    try {
-      const decoded = jwtDecode(credentialResponse.credential);
-
-      // Data to send to the backend
-      const data = {
-        email: decoded.email,
-        password: "aditya",
-      };
-
-      const response = await axios.post(
-        "http://18.234.212.47:8081/v1/user",
-        data,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-
-      console.log("Backend Response:", response.data);
-
-      // if response from backend is a success show this
-      alert("Logged in with google successfully")
-    } 
-    catch (error) {
-      console.error(
-        "Error:",
-        error.response ? error.response.data : error.message
-      );
-    }
-  };
-
-  return (
-    <GoogleLogin
-      onSuccess={handleGoogleLogin}
-      onError={() => console.log("Login Failed")}
-    />
-  );
-});
-
-// Set display name for memoized component
-LoginWithGoogle.displayName = "LoginWithGoogle";
+import { useNavigate } from "react-router-dom";
+import LoginWithGoogle from "./LoginWithGoogle";
 
 const LoginPopUp = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleLogin); // Recoil for visibility
   const [isOpen, setIsOpen] = useRecoilState(isOpenLogin);
+
+  const setEmailAtom = useSetRecoilState(emailAtom);
+
+  const navigate = useNavigate();
 
   const [type, setType] = useState("password");
   const [eye, setEye] = useState(eyeSlash);
@@ -73,8 +31,8 @@ const LoginPopUp = () => {
   const setIsLoginVisible = useSetRecoilState(isVisibleSignin);
   const setIsLoginOpen = useSetRecoilState(isOpenSignin);
 
-  // const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user/login';
-  const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user/login';
+  const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user/login';
+  // const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user/login';
 
   const toggleModal = () => {
     if (!isOpen) {
@@ -137,7 +95,23 @@ const LoginPopUp = () => {
       });
 
       console.log("Backend Response:", response.data);
-      alert("Logged in successfully!");
+
+      const res = response.data;
+      const token = response.data.object;
+
+      // if success from backend redirect to profile page
+      if(res.status === 'SUCCESS') {
+        localStorage.setItem("token", token);
+        setEmailAtom(email);
+        alert(res.message);
+        toggleModal();
+        navigate("/user-dashboard");
+      }
+      else {
+        alert(res.message);
+      }
+
+      // else show error
     } 
     catch (error) {
       console.error(

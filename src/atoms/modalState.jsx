@@ -48,3 +48,10 @@ export const isOpenLogin = atom({
   key: 'isOpenLogin',
   default: false, // Default is closed
 });
+
+
+// Email of user
+export const emailAtom = atom({
+  key: 'emailAtom',
+  default: "",
+});

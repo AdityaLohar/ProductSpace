@@ -1,59 +1,56 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
-import React, { memo, useState } from "react";
+import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import google from "../assets/google-square.svg";
 import eyeSlash from "../assets/eye-slash.svg";
-import microsoft from "../assets/microsoft-square.svg";
 import {
   isOpenLogin,
   isOpenSignin,
   isVisibleLogin,
   isVisibleSignin,
 } from "../atoms/modalState";
-import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import LoginWithGoogle from "./LoginWithGoogle";
 
-const SignupWithGoogle = memo(() => {
-  const handleGoogleLogin = async (credentialResponse) => {
-    try {
-      const decoded = jwtDecode(credentialResponse.credential);
-      console.log("decoded :: ", decoded);
-      console.log("credentialResponse.credential :: ", credentialResponse.credential);
-      // Data to send to the backend
-      const data = {
-        email: decoded.email, // Decoded email
-      };
+// const SignupWithGoogle = memo(() => {
+//   const handleGoogleLogin = async (credentialResponse) => {
+//     try {
+//       const decoded = jwtDecode(credentialResponse.credential);
+//       console.log("decoded :: ", decoded);
+//       console.log("credentialResponse.credential :: ", credentialResponse.credential);
+//       // Data to send to the backend
+//       const data = {
+//         email: decoded.email, // Decoded email
+//       };
 
-      const response = await axios.post(
-        "http://localhost:8081/v1/api/auth/google",
-        credentialResponse.credential,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+//       const response = await axios.post(
+//         "http://localhost:8081/v1/api/auth/google",
+//         credentialResponse.credential,
+//         {
+//           headers: { "Content-Type": "application/json" },
+//         }
+//       );
 
-      // if backend response is success show alert of signin
+//       // if backend response is success show alert of signin
 
-      console.log("Backend Response:", response.data);
-    } catch (error) {
-      console.error(
-        "Error:",
-        error.response ? error.response.data : error.message
-      );
-    }
-  };
+//       console.log("Backend Response:", response.data);
+//     } catch (error) {
+//       console.error(
+//         "Error:",
+//         error.response ? error.response.data : error.message
+//       );
+//     }
+//   };
 
-  return (
-    <GoogleLogin
-      onSuccess={handleGoogleLogin}
-      onError={() => console.log("Login Failed")}
-    />
-  );
-});
+//   return (
+//     <GoogleLogin
+//       onSuccess={handleGoogleLogin}
+//       onError={() => console.log("Login Failed")}
+//     />
+//   );
+// });
 
-// Set display name for memoized component
-SignupWithGoogle.displayName = "SignupWithGoogle";
+// // Set display name for memoized component
+// SignupWithGoogle.displayName = "SignupWithGoogle";
 
 const SignupPopUp = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleSignin);
@@ -150,8 +147,8 @@ const SignupPopUp = () => {
       password: password,
       mobile: phone,
     };
-    // const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user';
-    const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user';
+    const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user';
+    // const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user';
 
     try {
       const response = await axios.post(PRODUCT_SPACE_API, data, {
@@ -161,8 +158,14 @@ const SignupPopUp = () => {
       });
 
       console.log("Backend Response:", response.data);
+
+      // if success redirect to login pop up
       alert("Account created successfully!");
-    } catch (error) {
+      toggleLogin();
+
+      // else show error
+    } 
+    catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message
@@ -198,7 +201,7 @@ const SignupPopUp = () => {
               <div className="text-[24px]">Sign In to continue</div>
 
               <div className="flex flex-col md:flex-row justify-between gap-4">
-                <SignupWithGoogle />
+                <LoginWithGoogle />
                 {/* <SignupWithGoogle /> */}
               </div>
 
