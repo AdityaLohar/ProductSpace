@@ -106,7 +106,7 @@ const LoginPopUp = () => {
         setEmailAtom(email);
         alert(res.message);
         toggleModal();
-        navigate("/user-dashboard");
+        navigate("/user/profile");
       }
       else {
         alert(res.message);

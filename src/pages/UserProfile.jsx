@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { emailAtom } from "../atoms/modalState";
 
-const UserDashboard = () => {
+const UserProfile = () => {
   const [users, setUsers] = useState();
 
   
@@ -67,4 +67,4 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default UserProfile;

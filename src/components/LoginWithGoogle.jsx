@@ -12,13 +12,8 @@ const LoginWithGoogle = () => {
       const decoded = jwtDecode(credentialResponse.credential);
       console.log(decoded);
 
-      // Data to send to the backend
-      // const data = {
-      //   email: decoded.email,
-      // };
-
       const response = await axios.post(
-        "http://18.234.212.47:8081/v1/user/auth",
+        "http://34.233.178.37:8081/swagger-ui/index.html#/auth-controller/authenticateWithGoogle",
         credentialResponse.credential,
         {
           headers: { "Content-Type": "application/json" },

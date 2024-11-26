@@ -52,8 +52,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SignupPopUp from "./components/SignupPopUp";
 import LoginPopUp from "./components/LoginPopUp";
-import UserDashboard from "./pages/UserDashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   const location = useLocation();
@@ -79,7 +79,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* Protected route */}
-          <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route
+          path="/user/profile"
+          element={
+            <PrivateRoute>
+              <UserProfile />
+            </PrivateRoute>
+          }
+        />
+
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/pm-hackathon" element={<Events />} />

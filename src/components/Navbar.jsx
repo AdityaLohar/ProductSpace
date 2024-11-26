@@ -35,6 +35,8 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);
 
+  const [auth, setAuth] = useState(false);
+
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const toggleAuthDropdown = () => setIsAuthDropdownOpen(!isAuthDropdownOpen);
 
@@ -69,7 +71,22 @@ const Navbar = () => {
     }
   };
 
+  const handleSignout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    setAuth(false);
+    navigate("/");
+  }
+
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if(token) {
+      setAuth(true);
+    }
+    else {
+      setAuth(false);
+    }
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const screenHeight = window.innerHeight;
@@ -230,7 +247,7 @@ const Navbar = () => {
               Contact Us
             </button>
 
-            <div className="relative group">
+            {!auth ? <div className="relative group">
               <div>
                 <img src={profile} alt="" className="h-6" />
               </div>
@@ -248,7 +265,27 @@ const Navbar = () => {
                   Signup
                 </button>
               </div>
+            </div> : (
+              <div className="relative group">
+              <div>
+                <img src={profile} alt="" className="h-6" />
+              </div>
+              <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+                <Link
+                to={"/user/profile"}
+                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                >
+                  Profile
+                </Link>
+                <button
+                  onClick={handleSignout}
+                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
+            )}
           </div>
         </div>
       </div>
