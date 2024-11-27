@@ -54,6 +54,7 @@ import SignupPopUp from "./components/SignupPopUp";
 import LoginPopUp from "./components/LoginPopUp";
 import PrivateRoute from "./components/PrivateRoute";
 import UserProfile from "./pages/UserProfile";
+import OfflineEvent from "./pages/OfflineEvent";
 
 function App() {
   const location = useLocation();
@@ -92,6 +93,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/ai-for-pm" element={<Event1 />} />
+          <Route path="/offline-event" element={<OfflineEvent />} />
           <Route path="/gen-ai-for-pm" element={<GenAi />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
