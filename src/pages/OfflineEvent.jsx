@@ -15,9 +15,9 @@ import hackBg from "../assets/offline-event-bg.svg";
 import eventsBg1 from "../assets/events-bg.png";
 import eventsBg2 from "../assets/events-bg.svg";
 
-// import psMeetup1 from "../assets/ps-meetup-1.jpg";
+import psMeetup1 from "../assets/ps-meetup-1.jpeg";
 import psMeetup2 from "../assets/ps-meetup-2.jpeg";
-// import psMeetup3 from "../assets/ps-meetup-3.HEIC";
+import psMeetup3 from "../assets/ps-meetup-3.jpeg";
 
 import magicbricks from "../assets/magicbricks-logo.png";
 import wexa from "../assets/wexa.svg";
@@ -176,7 +176,7 @@ const Speakers = ({ title, name, desc, company, profile }) => {
 };
 
 const MeetupGallery = () => {
-  const images = [psMeetup2, psMeetup2, psMeetup2];
+  const images = [psMeetup2, psMeetup3, psMeetup1];
 
   return (
     <div className="flex gap-4 overflow-scroll">
