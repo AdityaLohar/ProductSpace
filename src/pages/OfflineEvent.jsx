@@ -14,20 +14,23 @@ import greenTick from "../assets/tick-green.svg";
 import hackBg from "../assets/offline-event-bg.svg";
 import eventsBg1 from "../assets/events-bg.png";
 import eventsBg2 from "../assets/events-bg.svg";
-import aitool1 from "../assets/aitool1.svg";
-import aitool2 from "../assets/aitool2.svg";
-import aitool3 from "../assets/aitool3.svg";
-import aitool4 from "../assets/aitool4.svg";
-import aitool5 from "../assets/aitool5.svg";
-import aitool6 from "../assets/aitool6.svg";
-import aitool7 from "../assets/aitool7.svg";
+
+// import psMeetup1 from "../assets/ps-meetup-1.jpg";
+import psMeetup2 from "../assets/ps-meetup-2.jpeg";
+// import psMeetup3 from "../assets/ps-meetup-3.HEIC";
 
 import magicbricks from "../assets/magicbricks-logo.png";
-import microsoft from "../assets/microsoft.svg";
+import wexa from "../assets/wexa.svg";
 import inmobi from "../assets/inmobi.svg";
+
+import eventFlow1 from "../assets/event-flow1.svg";
+import eventFlow2 from "../assets/event-flow2.svg";
+import eventFlow3 from "../assets/event-flow3.svg";
+import eventFlow4 from "../assets/event-flow4.svg";
+
 import pamit from "../assets/pamit1.svg";
 import rumit from "../assets/rumit1.svg";
-import arun from "../assets/arun1.svg";
+import kiran from "../assets/kiran.svg";
 
 import GenAiForPMRegisteration from "../components/GenAiForPMRegisteration";
 import { Helmet } from "react-helmet-async";
@@ -126,14 +129,14 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
 
         <div className="flex flex-col gap-3 lg:w-3/4 justify-center">
           <div className="text-[20px] lg:text-[24px] font-semibold">
-            You&apos;ve successfully registered for Gen AI for PMs workshop
+            You&apos;ve successfully registered for the Offline Event
           </div>
           <div className="text-[14px] lg:text-[16px]">
             You will receive email on the next steps shortly
           </div>
         </div>
 
-        <button className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12">
+        {/* <button className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12">
           <a
             href="https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i"
             target="_blank"
@@ -142,7 +145,7 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
           >
             Join Our Community for Active Updates
           </a>
-        </button>
+        </button> */}
       </div>
     </div>
   );
@@ -172,11 +175,32 @@ const Speakers = ({ title, name, desc, company, profile }) => {
   );
 };
 
+const MeetupGallery = () => {
+  const images = [psMeetup2, psMeetup2, psMeetup2];
+
+  return (
+    <div className="flex gap-4 overflow-scroll">
+      {/* Carousel scrollable */}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className="relative h-[240px] w-[330px] md:w-[360px] flex-shrink-0 overflow-hidden"
+        >
+          <img
+            src={image}
+            alt={`Slide ${index + 1}`}
+            className="h-full w-full object-cover rounded-xl"
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const OfflineEvent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [background, setBackground] = useState(eventsBg1);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showBottomBar, setShowBottomBar] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isPastEventDate, setIsPastEventDate] = useState(false);
@@ -240,26 +264,6 @@ const OfflineEvent = () => {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
 
-  // For checking scroll & displaying sticky bar
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const screenHeight = window.innerHeight;
-
-      if (scrollPosition > (4 * screenHeight) / 5) {
-        setShowBottomBar(true);
-      } else {
-        setShowBottomBar(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
@@ -309,7 +313,7 @@ const OfflineEvent = () => {
               <EventInfo
                 icon={calendarIcon}
                 title={"Event Date"}
-                desc={"Tue, Dec 10, 2024"}
+                desc={"Sat, Dec 07, 2024"}
               />
               <EventInfo
                 icon={clockIcon}
@@ -326,8 +330,8 @@ const OfflineEvent = () => {
 
           <div className="flex flex-col gap-3 lg:gap-4 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[22px] font-semibold">
-              Explore how Generative AI is transforming workflows and driving
-              innovation in product management.
+              Explore how AI is transforming workflows and driving innovation in
+              product management.
             </div>
 
             <ul className="flex flex-col gap-2 lg:gap-5 font-normal text-[#7f7f7f] list-disc ml-4">
@@ -339,21 +343,68 @@ const OfflineEvent = () => {
           </div>
 
           <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <div className="text-[20px] lg:text-[28px] font-semibold">
+                Event Flow Highlights
+              </div>
+
+              <div className="text-[16px] lg:text-[22px]">
+                Here's a quick look at what to expect..
+              </div>
+            </div>
+            
+            {/* Event Flow */}
+            <div className="flex flex-col gap-3 md:gap-6">
+              <div className="text-[#FFA000] flex gap-3 items-center bg-gradient-to-tr from-[#FFA0004D] to-white rounded-xl p-4 py-6 w-full md:w-2/3">
+                <img src={eventFlow1} alt="" className="h-12 md:h-16" />
+                <div>
+                  <div className="text-[20px] md:text-[24px] font-semibold">Panel discussion</div>
+                  <div className="text-[16px] md:text-[18px]">with product leaders</div>
+                </div>
+              </div>
+              <div className="text-[#FE6D38] flex gap-3 items-center bg-gradient-to-tr from-[#FE6D384D] to-white rounded-xl p-4 py-6 w-full md:w-2/3">
+                <img src={eventFlow2} alt="" className="h-12 md:h-16" />
+                <div>
+                  <div className="text-[20px] md:text-[24px] font-semibold">Networking</div>
+                  <div className="text-[16px] md:text-[18px]">Open networking session</div>
+                </div>
+              </div>
+              <div className="text-[#00C1FD] flex gap-3 items-center bg-gradient-to-tr from-[#00C1FD4D] to-white rounded-xl p-4 py-6 w-full md:w-2/3">
+                <img src={eventFlow3} alt="" className="h-12 md:h-16" />
+                <div>
+                  <div className="text-[20px] md:text-[24px] font-semibold">Interactive Q&A</div>
+                  <div className="text-[16px] md:text-[18px]">session</div>
+                </div>
+              </div>
+              <div className="text-[#00858C] flex gap-3 items-center bg-gradient-to-tr from-[#00858C4D] to-white rounded-xl p-4 py-6 w-full md:w-2/3">
+                <img src={eventFlow4} alt="" className="h-12 md:h-16" />
+                <div>
+                  <div className="text-[20px] md:text-[24px] font-semibold">Product challenge</div>
+                  <div className="text-[16px] md:text-[18px]">Exciting challenges</div>
+                </div>
+              </div>
+              <div className="font-bold">
+                Any many more...
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Speakers Section
+              Meet our panelists
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
               <Speakers
                 title={[
-                  "Arun brings a unique blend of",
-                  "technical expertise",
-                  "and product strategy experience.",
+                  "Kiran brings technical expertise with",
+                  "product strategy, driving innovations in AI, IoT, and SaaS.",
+                  "",
                 ]}
-                name={"Arun Nandewal"}
-                desc={"Sr. Product Manager (mentored 600+ students)"}
-                company={microsoft}
-                profile={arun}
+                name={"Kiran Pasavedala"}
+                desc={"Founder and CEO, Wexa.ai"}
+                company={wexa}
+                profile={kiran}
               />
               <Speakers
                 title={[
@@ -368,8 +419,8 @@ const OfflineEvent = () => {
               />
               <Speakers
                 title={[
-                  "Arun brings a unique blend of",
-                  "technical expertise",
+                  "Rumit brings a unique blend of",
+                  "technical expertise in GenAI",
                   "and product strategy experience.",
                 ]}
                 name={"Rumit Anand"}
@@ -378,14 +429,6 @@ const OfflineEvent = () => {
                 profile={rumit}
               />
             </div>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
-              Event Schedule
-            </div>
-
-            <EventSchedule />
           </div>
 
           <div ref={sectionRef} id="register-form">
@@ -399,49 +442,12 @@ const OfflineEvent = () => {
             </div>
 
             <div className="flex gap-4 overflow-scroll">
-              {/* Carousel scrollable */}
-              {Array(9)
-                .fill()
-                .map((_, index) => (
-                  <div
-                    key={index}
-                    className="relative h-[240px] w-[360px] flex-shrink-0 overflow-hidden"
-                  >
-                    <img
-                      src={hackBg}
-                      alt={`Slide ${index + 1}`}
-                      className="h-full w-full object-cover rounded-xl"
-                    />
-                    <div className="absolute bottom-0 left-0 text-white bg-black bg-opacity-10 font-bold p-2 text-sm rounded-lg">
-                      Bangalore Meetup 2024
-                    </div>
-                  </div>
-                ))}
+              <MeetupGallery />
             </div>
           </div>
 
           <div>
             <ReviewOfflineEvent />
-          </div>
-
-          <div className="flex flex-col gap-4 lg:gap-5 text-[16px] lg:text-[20px]">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
-              ✨AI Tools being covered
-            </div>
-
-            <div className="flex flex-wrap gap-4 md:gap-6">
-              <img src={aitool1} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={aitool2} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={aitool3} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={aitool4} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={aitool5} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={aitool6} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={aitool7} alt="" className="h-12 w-auto lg:h-16" />
-            </div>
-
-            <div className="text-[#7f7f7f]">
-              <p>and many more...</p>
-            </div>
           </div>
 
           <FaqOfflineEvent />
@@ -463,13 +469,13 @@ const OfflineEvent = () => {
 
             <div className="flex flex-col gap-4">
               <div className="text-[28px] font-bold">
-                Gen AI: Shaping the Future of Product Management
+                The future of Product Management with AI
               </div>
 
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
                 <div className="flex gap-2 items-center">
                   <img src={timeIcon} alt="" className="h-5" />
-                  <p>11 AM - Dec 10, 2024</p>
+                  <p>11 AM - Dec 07, 2024</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <img src={locationIcon} alt="" className="h-5" />
@@ -479,13 +485,7 @@ const OfflineEvent = () => {
 
               <div className="flex flex-wrap gap-2">
                 <div className="bg-[#E7F7FC] border border-[#013B4D3D] p-2 px-3 rounded-lg">
-                  Interview Session
-                </div>
-                <div className="bg-[#E7F7FC] border border-[#013B4D3D] p-2 px-3 rounded-lg">
-                  Open
-                </div>
-                <div className="bg-[#E7F7FC] border border-[#013B4D3D] p-2 px-3 rounded-lg">
-                  Live
+                  Offline Event
                 </div>
               </div>
 

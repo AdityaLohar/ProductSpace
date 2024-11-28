@@ -3,9 +3,9 @@ import arrowIcon from "../assets/right-arrow.svg";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { useState } from "react";
+import upiImage from "../assets/upi-akhil.jpg";
 
-const airtableBaseUrl = import.meta.env
-  .VITE_AIRTABLE_BASE_OFFLINE_EVENT_URL;
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_OFFLINE_EVENT_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 const OfflineEventRegisterForm = ({ setShowSuccess }) => {
@@ -14,6 +14,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
     email: "",
     phoneNumber: "",
     companyCollege: "",
+    paymentScreenshot: "",
     // status: "Select an option",
   });
 
@@ -21,12 +22,15 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [paymentScreenshot, setPaymentScreenshot] = useState(null);
+  const [popupVisible, setPopupVisible] = useState(false);
+
   const saveUserData = async (
     name,
     email,
     phoneNumber,
     companyCollege,
-    // status,
+    paymentScreenshot,
     currentTimestamp,
     formattedTimestamp
   ) => {
@@ -36,12 +40,12 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
         {
           fields: {
             Name: name,
-            "Mobile Number": phoneNumber, // Make sure this matches exactly
             "Email Id": email, // Make sure this matches exactly
+            "Mobile Number": phoneNumber, // Make sure this matches exactly
             "Unique Id": currentTimestamp.toString(),
             "Company/College": companyCollege,
-            // Status: status,
             Timestamp: formattedTimestamp,
+            "Payment Screenshot": paymentScreenshot,
           },
         },
         {
@@ -53,6 +57,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       );
 
       setShowSuccess(true);
+      setPopupVisible(false);
+      alert("You are registered successfully!");
     } catch (error) {
       setNotification({
         type: "error",
@@ -109,7 +115,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
         setShowNotification(false);
       }, 5000);
       return;
-    } 
+    }
     // else if (formData.status == "Select an option") {
     //   setNotification({
     //     type: "error",
@@ -123,6 +129,36 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
     //   return;
     // }
 
+    setPopupVisible(true);
+  };
+
+  const handlePopupSubmit = async () => {
+    if (!paymentScreenshot) {
+      alert("Please attach a screenshot.");
+      return;
+    }
+
+    const cloudData = new FormData();
+    cloudData.append("file", paymentScreenshot);
+    cloudData.append("upload_preset", "psofflineevent");
+    cloudData.append("cloud_name", "dvhebnqvp");
+
+    const cloudinaryApi =
+      "https://api.cloudinary.com/v1_1/dvhebnqvp/image/upload";
+    const cloudRes = await axios.post(cloudinaryApi, cloudData);
+    const cloudUrl = cloudRes.data.url;
+    console.log("cloud data: ", cloudUrl);
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("phoneNumber", formData.phone);
+    formDataToSend.append("paymentScreenshot", cloudUrl);
+
+    // console.log("Form Data:", formData);
+    // console.log("Payment Screenshot:", paymentScreenshot);
+    // console.log(formDataToSend);
+
     setLoading(true);
     const currentTimestamp = Date.now();
     const formattedTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
@@ -131,21 +167,18 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       formData.email,
       formData.phoneNumber,
       formData.companyCollege,
-      // formData.status,
+      cloudUrl,
       currentTimestamp,
       formattedTimestamp
     );
     setLoading(false);
+  };
 
-    console.log("data saved");
-
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 5000);
+  const handleFileChange = (e) => {
+    setPaymentScreenshot(e.target.files[0]);
   };
 
   // Update form data on change
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -288,6 +321,39 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
               className="text-xl font-bold"
             >
               ×
+            </button>
+          </div>
+        </div>
+      )}
+
+      {popupVisible && (
+        <div className="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
+            <h3 className="text-xl font-bold mb-4">Payment Details</h3>
+            <p className="mb-4">Scan the QR code below to make a payment.</p>
+            <div className="flex justify-center mb-4">
+              <img src={upiImage} alt="QR Code" className="w-60 h-60" />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="paymentScreenshot"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Upload Payment Screenshot
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                id="paymentScreenshot"
+                onChange={handleFileChange}
+                className="mt-1 block w-full"
+              />
+            </div>
+            <button
+              onClick={handlePopupSubmit}
+              className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            >
+              Submit
             </button>
           </div>
         </div>

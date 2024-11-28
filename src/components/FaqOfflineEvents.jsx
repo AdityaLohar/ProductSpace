@@ -58,13 +58,14 @@ const DropdownListEvents = ({ len, flag }) => {
     "Is this event free?",
     "What is included in the event?",
     "What should I bring?",
+    "How can I contact support?",
   ];
   
   const contents = [
-    "This workshop is ideal for current and aspiring Product Managers who want to integrate AI into their existing products & daily work.",
-    "Yes, all participants who share their learnings on LinkedIn will receive a certificate of participation.",
-    "No prior AI experience is required.",
-    "The workshop is valued at ₹ 9999, but we are offering it for free to the first 100 registrants! Join the waitlist, you could be one of the selected few."
+    "No, there's a registration fee of Rs. 499 for registration.",
+    "The event includes expert sessions, solving product challenge, networking opportunities, and snacks & drinks.",
+    "Please keep your e-pass handy at the time of entry in the venue.",
+    "For questions, email us at info@theproductspace.in"
   ];
   
 
