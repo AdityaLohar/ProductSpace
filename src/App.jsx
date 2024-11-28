@@ -50,6 +50,7 @@ import Blog25 from "./pages/singleBlogs/Blog25";
 import GenAiContactUsForm from "./components/GenAiContactUs";
 import BlogP1 from "./pages/PrivateBlogs/BlogP1";
 import BlogP2 from "./pages/PrivateBlogs/BlogP2";
+import OfflineEvent from "./pages/OfflineEvent";
 
 function App() {
   const location = useLocation();
@@ -60,7 +61,8 @@ function App() {
     });
   }, [location]);
 
-  const isHomePage = location.pathname === "/" || location.pathname === "/pm-fellowship";
+  const isHomePage =
+    location.pathname === "/" || location.pathname === "/pm-fellowship";
 
   return (
     <RecoilRoot>
@@ -73,6 +75,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/ai-for-pm" element={<Event1 />} />
+          <Route path="/offline-event" element={<OfflineEvent />} />
           <Route path="/gen-ai-for-pm" element={<GenAi />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
