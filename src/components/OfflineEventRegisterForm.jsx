@@ -147,7 +147,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       "https://api.cloudinary.com/v1_1/dvhebnqvp/image/upload";
     const cloudRes = await axios.post(cloudinaryApi, cloudData);
     const cloudUrl = cloudRes.data.url;
-    console.log("cloud data: ", cloudUrl);
+    
+    setLoading(true);
 
     const formDataToSend = new FormData();
     formDataToSend.append("name", formData.name);
@@ -159,7 +160,6 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
     // console.log("Payment Screenshot:", paymentScreenshot);
     // console.log(formDataToSend);
 
-    setLoading(true);
     const currentTimestamp = Date.now();
     const formattedTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
     const res = await saveUserData(
@@ -353,7 +353,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
               onClick={handlePopupSubmit}
               className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
             >
-              Submit
+              {loading ? "Loading..." : "Submit"}
             </button>
           </div>
         </div>
