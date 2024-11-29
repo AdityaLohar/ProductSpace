@@ -437,7 +437,7 @@ const OfflineEvent = () => {
                   "and product strategy experience.",
                 ]}
                 name={"Rumit Anand"}
-                desc={"Director of Product (15+ years)"}
+                desc={"VP of Product (15+ years)"}
                 company={inmobi}
                 profile={rumit}
               />
