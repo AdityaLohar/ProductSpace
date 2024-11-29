@@ -422,7 +422,7 @@ const OfflineEvent = () => {
               <Speakers
                 title={[
                   "Pamit has built and scaled",
-                  "multiple internet businesses",
+                  "multiple AI internet businesses",
                   "across India, Singapore, and London.",
                 ]}
                 name={"Pamit Anand"}

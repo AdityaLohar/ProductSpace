@@ -183,6 +183,12 @@ const Navbar = () => {
                 >
                   PM Hackathon
                 </a>
+                <a
+                  href="/ai-for-pm-offline-event"
+                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                >
+                  AI for PM (Offline)
+                </a>
               </div>
             </div>
             <a
@@ -242,6 +248,12 @@ const Navbar = () => {
                 className="px-4 py-2 hover:bg-gray-100 rounded-md"
               >
                 PM Hackathon
+              </a>
+              <a
+                href="/ai-for-pm-offline-event"
+                className="px-4 py-2 hover:bg-gray-100 rounded-md"
+              >
+                AI For PM (Offline)
               </a>
             </div>
           )}
