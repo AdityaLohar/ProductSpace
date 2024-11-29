@@ -110,7 +110,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
         setShowNotification(false);
       }, 5000);
       return;
-    } else if (!phoneNumberRegex.test(formData.phoneNumber)) {
+    } 
+    else if (!phoneNumberRegex.test(formData.phoneNumber)) {
       setNotification({
         type: "error",
         title: "Error",
@@ -122,6 +123,19 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       }, 5000);
       return;
     }
+    else if (formData.companyCollege === "" || formData.designation === "" || formData.linkedin === "") {
+      setNotification({
+        type: "error",
+        title: "Error",
+        description: "Fill in all details",
+      });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+      return;
+    }
+    
     // else if (formData.status == "Select an option") {
     //   setNotification({
     //     type: "error",
@@ -232,8 +246,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
             />
           </div>
 
-          <div className="flex">
-            <div className="relative w-1/2 md:w-[44%]">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-0">
+            <div className="relative w-full md:w-[44%]">
               <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
                 Phone Number<span className="text-red-500">*</span>
               </label>
@@ -246,9 +260,9 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
                 className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none"
               />
             </div>
-            <div className="relative w-1/2 md:w-[44%]">
+            <div className="relative w-full md:w-[44%]">
               <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-                Designation
+                Designation<span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -265,7 +279,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Company/College
+              Company/College<span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -279,7 +293,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              LinkedIn Profile
+              LinkedIn Profile<span className="text-red-500">*</span>
             </label>
             <input
               type="text"
