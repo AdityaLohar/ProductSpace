@@ -385,7 +385,9 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
         <div className="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
             <h3 className="text-xl font-bold mb-4">Payment Details</h3>
-            <p className="mb-4">Scan the QR code below to make a payment.</p>
+            <p className="mb-4">
+              Scan the QR code below to make a payment of <span className="text-lg font-medium text-gray-700">INR 499</span>.
+            </p>
             <div className="flex justify-center mb-4">
               <img src={upiImage} alt="QR Code" className="w-60 h-60" />
             </div>
