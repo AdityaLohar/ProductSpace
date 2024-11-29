@@ -172,6 +172,12 @@ const Navbar = () => {
               </a>
               <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
                 <a
+                  href="/ai-for-pm-offline-event"
+                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                >
+                  AI for PM (Offline)
+                </a>
+                <a
                   href="/ai-for-pm"
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
                 >
@@ -182,12 +188,6 @@ const Navbar = () => {
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
                 >
                   PM Hackathon
-                </a>
-                <a
-                  href="/ai-for-pm-offline-event"
-                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
-                >
-                  AI for PM (Offline)
                 </a>
               </div>
             </div>
@@ -238,6 +238,12 @@ const Navbar = () => {
           {isDropdownOpen && (
             <div className="flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2 mt-2">
               <a
+                href="/ai-for-pm-offline-event"
+                className="px-4 py-2 hover:bg-gray-100 rounded-md"
+              >
+                AI For PM (Offline)
+              </a>
+              <a
                 href="/ai-for-pm"
                 className="px-4 py-2 hover:bg-gray-100 rounded-md"
               >
@@ -248,12 +254,6 @@ const Navbar = () => {
                 className="px-4 py-2 hover:bg-gray-100 rounded-md"
               >
                 PM Hackathon
-              </a>
-              <a
-                href="/ai-for-pm-offline-event"
-                className="px-4 py-2 hover:bg-gray-100 rounded-md"
-              >
-                AI For PM (Offline)
               </a>
             </div>
           )}

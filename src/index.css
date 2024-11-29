@@ -4,7 +4,7 @@
 
 @layer components {
   .active {
-    height: 175px !important;
+    height: 255px !important;
   }
 }
 
