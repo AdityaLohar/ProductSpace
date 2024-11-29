@@ -335,10 +335,11 @@ const OfflineEvent = () => {
             </div>
 
             <ul className="flex flex-col gap-2 lg:gap-5 font-normal text-[#7f7f7f] list-disc ml-4">
-              <li>Understanding Generative AI and its applications.</li>
-              <li>Actionable strategies for product teams.</li>
+              <li>Building AI-Powered Products: From Concept to Market</li>
+              <li>How to become an AI Powered Product Manager</li>
 
-              <li>Networking with PM professionals.</li>
+              <li>The Future Landscape: AI's Impact on Digital Products & PM Role</li>
+              <li>Ethical AI: Building Responsible and Trustworthy Products</li>
             </ul>
           </div>
 

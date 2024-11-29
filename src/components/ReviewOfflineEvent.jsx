@@ -119,7 +119,7 @@ const ReviewOfflineEvent = () => {
     >
       <div className="py-5 lg:py-12">
         <div className="text-[20px] lg:text-[28px] font-semibold">
-          Testimonials
+          Reviews from previous attendees
         </div>
 
         <div className="pm-reviews-scrollbar flex overflow-x-scroll gap-6 pt-8 pl-4 md:pl-8">

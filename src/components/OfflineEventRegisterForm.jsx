@@ -14,7 +14,9 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
     email: "",
     phoneNumber: "",
     companyCollege: "",
+    designation: "",
     paymentScreenshot: "",
+    linkedin: "",
     // status: "Select an option",
   });
 
@@ -30,6 +32,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
     email,
     phoneNumber,
     companyCollege,
+    designation,
+    linkedin,
     paymentScreenshot,
     currentTimestamp,
     formattedTimestamp
@@ -44,6 +48,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
             "Mobile Number": phoneNumber, // Make sure this matches exactly
             "Unique Id": currentTimestamp.toString(),
             "Company/College": companyCollege,
+            "Designation": designation,
+            "Linkedin": linkedin,
             Timestamp: formattedTimestamp,
             "Payment Screenshot": paymentScreenshot,
           },
@@ -58,7 +64,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
 
       setShowSuccess(true);
       setPopupVisible(false);
-      alert("You are registered successfully!");
+      // alert("You are registered successfully!");
     } catch (error) {
       setNotification({
         type: "error",
@@ -154,6 +160,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
     formDataToSend.append("name", formData.name);
     formDataToSend.append("email", formData.email);
     formDataToSend.append("phoneNumber", formData.phone);
+    formDataToSend.append("companyCollege", formData.companyCollege);
+    formDataToSend.append("linkedin", formData.linkedin);
     formDataToSend.append("paymentScreenshot", cloudUrl);
 
     // console.log("Form Data:", formData);
@@ -167,6 +175,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       formData.email,
       formData.phoneNumber,
       formData.companyCollege,
+      formData.designation,
+      formData.linkedin,
       cloudUrl,
       currentTimestamp,
       formattedTimestamp
@@ -222,19 +232,36 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
             />
           </div>
 
-          <div className="relative">
-            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Phone Number<span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              placeholder=""
-              className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none"
-            />
+          <div className="flex">
+            <div className="relative w-1/2 md:w-[44%]">
+              <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+                Phone Number<span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                placeholder=""
+                className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none"
+              />
+            </div>
+            <div className="relative w-1/2 md:w-[44%]">
+              <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+                Designation
+              </label>
+              <input
+                type="text"
+                name="designation"
+                value={formData.designation}
+                onChange={handleChange}
+                placeholder=""
+                className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none"
+              />
+            </div>
+
           </div>
+
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
@@ -244,6 +271,20 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
               type="text"
               name="companyCollege"
               value={formData.companyCollege}
+              onChange={handleChange}
+              placeholder=""
+              className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none"
+            />
+          </div>
+
+          <div className="relative">
+            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
+              LinkedIn Profile
+            </label>
+            <input
+              type="text"
+              name="linkedin"
+              value={formData.linkedin}
               onChange={handleChange}
               placeholder=""
               className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none"
