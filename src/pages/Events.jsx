@@ -16,7 +16,7 @@ import substackIcon from "../assets/substack-logo.svg";
 import slackIcon from "../assets/slack.svg";
 import FaqEvents from "../components/FaqEvents";
 import greenTick from "../assets/tick-green.svg";
-import pmHackathonBanner from "../assets/pm-hackathon-banner.jpeg";
+import pmHackathonBanner from "../assets/pm-hackathon-banner.svg";
 import eventsBg1 from "../assets/events-bg.png";
 import eventsBg2 from "../assets/events-bg.svg";
 import judge1 from "../assets/sonia.svg";
