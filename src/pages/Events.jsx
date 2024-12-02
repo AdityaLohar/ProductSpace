@@ -347,7 +347,7 @@ const Events = () => {
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">          
-          GenAI Product Challange : Dec Edition
+          GenAI Product Challenge : Dec Edition
         </h1>
       </div>
 
