@@ -346,8 +346,8 @@ const Events = () => {
       }}
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
-        <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          The Most Happening Product Event in Dec&apos; 2024
+        <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">          
+          GenAI Product Challange : Dec Edition
         </h1>
       </div>
 
@@ -649,7 +649,7 @@ const Events = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="text-[28px] font-bold">Gen AI Product Challange</div>
+              <div className="text-[28px] font-bold">Gen AI Product Challenge</div>
 
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
                 <div className="flex gap-2 items-center">
