@@ -16,7 +16,7 @@ import substackIcon from "../assets/substack-logo.svg";
 import slackIcon from "../assets/slack.svg";
 import FaqEvents from "../components/FaqEvents";
 import greenTick from "../assets/tick-green.svg";
-import hackBg from "../assets/event-hack-bg.svg";
+import pmHackathonBanner from "../assets/pm-hackathon-banner.jpeg";
 import eventsBg1 from "../assets/events-bg.png";
 import eventsBg2 from "../assets/events-bg.svg";
 import judge1 from "../assets/sonia.svg";
@@ -25,57 +25,57 @@ import judge3 from "../assets/arun.svg";
 import liveSticker from "../assets/live-sticker.svg";
 import submissionImg1 from "../assets/submission1.svg";
 import submissionImg2 from "../assets/submission2.svg";
-import uberLogo from "../assets/uber-logo.svg";
+import reachifyLogo from "../assets/reachify-me-logo.svg";
 import HackathonRegistrationForm from "../components/HackathonRegistrationForm";
 import EventsStickyBar from "../components/EventsStickyBar";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/FliRxZnuOz04AbZRXDWsZo";
-const eventDate = new Date("2024-10-30T23:59:59");
+const eventDate = new Date("2024-12-03T23:59:59");
 
 const timelines = [
   {
     title: "Kickoff / AMA",
-    desc: "30 Oct 24",
-    startDate: "30 Oct 24",
-    endDate: "1 Nov 24",
+    desc: "3 Dec 24",
+    startDate: "3 Dec 24",
+    endDate: "3 Dec 24"
   },
   {
     title: "Start your 7 Day Streak for Learning Challenge",
-    desc: "2 Nov 24",
-    startDate: "2 Nov 24",
-    endDate: "7 Nov 24",
+    desc: "9 Dec 24",
+    startDate: "9 Dec 24",
+    endDate: "9 Dec 24"
   },
   {
     title: "Doubt clearing session",
-    desc: "2-7 Nov 24",
-    startDate: "2 Nov 24",
-    endDate: "7 Nov 24",
+    desc: "8-14 Dec 24",
+    startDate: "8 Dec 24",
+    endDate: "14 Dec 24"
   },
   {
     title: "EOD - Submission",
-    desc: "9 Nov 24",
-    startDate: "9 Nov 24",
-    endDate: "9 Nov 24",
+    desc: "15 Dec 24",
+    startDate: "15 Dec 24",
+    endDate: "15 Dec 24"
   },
   {
     title: "Result Day",
-    desc: "11 Nov 24",
-    startDate: "11 Nov 24",
-    endDate: "11 Nov 24",
+    desc: "16 Dec 24",
+    startDate: "16 Dec 24",
+    endDate: "16 Dec 24"
   },
   {
     title: "Get detailed feedback on your work",
-    desc: "11-14 Nov 24",
-    startDate: "11 Nov 24",
-    endDate: "14 Nov 24",
+    desc: "18 Dec 24",
+    startDate: "18 Dec 24",
+    endDate: "18 Dec 24"
   },
   {
     title: "Demo Day For Top 5 Teams",
-    desc: "16/17 Nov 24",
-    startDate: "16 Nov 24",
-    endDate: "17 Nov 24",
+    desc: "18 Dec 24",
+    startDate: "18 Dec 24",
+    endDate: "18 Dec 24"
   },
 ];
 
@@ -347,7 +347,7 @@ const Events = () => {
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          The Most Happening Product Event in Nov&apos; 2024
+          The Most Happening Product Event in Dec&apos; 2024
         </h1>
       </div>
 
@@ -356,7 +356,7 @@ const Events = () => {
           <div className="flex flex-col gap-8 md:gap-14">
             <div className="relative">
               <img
-                src={hackBg}
+                src={pmHackathonBanner}
                 alt=""
                 className="h-[200px] sm:h-[300px] lg:h-[507px] w-full object-cover rounded-xl"
               />
@@ -388,7 +388,7 @@ const Events = () => {
               <EventInfo
                 icon={calendarIcon}
                 title={"WHEN"}
-                desc={"Oct 30 - Nov 17, 2024"}
+                desc={"Dec 3 - Dec 22, 2024"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -577,9 +577,9 @@ const Events = () => {
             </div>
 
             <ul className="flex flex-col gap-4 text-[#7f7f7f] list-disc ml-4 lg:ml-8">
-              <li>Top 2 Teams: Get 15000* worth voucher</li>
+              <li>Top 2 Teams: course voucher</li>
               <li>Top 3 to 5 Teams: Get 12000* worth voucher</li>
-              <li>Certificate of participation for all</li>
+              <li>Appreciation & participation</li>
             </ul>
           </div>
 
@@ -636,7 +636,7 @@ const Events = () => {
           <div className="flex flex-col gap-4 bg-white shadow shadow-lg rounded-xl p-8 sticky top-24">
             <div className="flex justify-between items-center">
               <div>
-                <img src={uberLogo} alt="" />
+                <img src={reachifyLogo} alt="" />
               </div>
               <div>
                 <button
@@ -649,12 +649,12 @@ const Events = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="text-[28px] font-bold">Product Hackathon</div>
+              <div className="text-[28px] font-bold">Gen AI Product Challange</div>
 
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
                 <div className="flex gap-2 items-center">
                   <img src={timeIcon} alt="" className="h-5" />
-                  <p>Oct 30, 2024</p>
+                  <p>Dec 3, 2024</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <img src={locationIcon} alt="" className="h-5" />
