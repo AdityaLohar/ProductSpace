@@ -635,8 +635,8 @@ const Events = () => {
         <div className="hidden lg:flex w-[30%] flex-col">
           <div className="flex flex-col gap-4 bg-white shadow shadow-lg rounded-xl p-8 sticky top-24">
             <div className="flex justify-between items-center">
-              <div>
-                <img src={reachifyLogo} alt="" />
+              <div className="w-[90%]">
+                <img src={reachifyLogo} alt="" className="w-[60%]" />
               </div>
               <div>
                 <button
