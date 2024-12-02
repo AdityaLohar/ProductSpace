@@ -577,7 +577,7 @@ const Events = () => {
             </div>
 
             <ul className="flex flex-col gap-4 text-[#7f7f7f] list-disc ml-4 lg:ml-8">
-              <li>Top 2 Teams: course voucher</li>
+              <li>Top 2 Teams: Get 15000* worth course voucher</li>
               <li>Top 3 to 5 Teams: Get 12000* worth voucher</li>
               <li>Appreciation & participation</li>
             </ul>
