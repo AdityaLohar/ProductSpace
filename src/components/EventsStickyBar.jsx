@@ -41,7 +41,7 @@ const EventsStickyBar = ({ togglePopup }) => {
               Tuesday, Dec 3, 2024
             </div>
             <div className="text-[20px] text-[#120D26] font-semibold">
-              Gen Ai PM Hackathon 2024
+              Gen AI PM Hackathon 2024
             </div>
           </div>
 
