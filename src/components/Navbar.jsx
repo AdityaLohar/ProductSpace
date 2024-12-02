@@ -59,7 +59,7 @@ const Navbar = () => {
 
     const calculateDaysLeft = () => {
       // Set the cohort start date
-      const cohortDate = new Date("2024-12-10"); // Adjust the year if needed
+      const cohortDate = new Date("2024-12-12"); // Adjust the year if needed
       const today = new Date();
 
       // Calculate the difference in time (in milliseconds)
