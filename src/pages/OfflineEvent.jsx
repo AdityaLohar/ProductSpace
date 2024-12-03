@@ -6,6 +6,7 @@ import whatsappIcon from "../assets/whatsapp.svg";
 import emailIcon from "../assets/email.svg";
 import facebookIcon from "../assets/facebook.svg";
 import locationDarkIcon from "../assets/location-dark.svg";
+import rupeeIcon from "../assets/rupee.svg";
 import timeIcon from "../assets/access-time.svg";
 import shareIcon from "../assets/share.svg";
 import calendarIcon from "../assets/calendar.svg";
@@ -294,7 +295,8 @@ const OfflineEvent = () => {
           <img
             src={hackBg}
             alt=""
-            className="h-[200px] sm:h-[400px] lg:h-[627px] w-full object-cover rounded-xl"
+            className="h-[200px] sm:h-[400px] lg:h-[627px] w-full object-cover rounded-xl cursor-pointer"
+            onClick={scrollToForm}
           />
 
           <button
@@ -324,6 +326,11 @@ const OfflineEvent = () => {
                 icon={locationDarkIcon}
                 title={"Location"}
                 desc={"Hyderabad"}
+              />
+              <EventInfo
+                icon={rupeeIcon}
+                title={"Price"}
+                desc={"499"}
               />
             </div>
           </div>

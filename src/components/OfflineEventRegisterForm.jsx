@@ -6,6 +6,7 @@ import { useState } from "react";
 import upiImage from "../assets/upi-akhil.jpg";
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_OFFLINE_EVENT_URL;
+const airtablePrePaymentBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_OFFLINE_EVENT_PRE_PAYMENT_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 const OfflineEventRegisterForm = ({ setShowSuccess }) => {
@@ -28,6 +29,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
   const [popupVisible, setPopupVisible] = useState(false);
 
   const saveUserData = async (
+    isPrePayment,
+    baseUrl,
     name,
     email,
     phoneNumber,
@@ -40,7 +43,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
   ) => {
     try {
       const response = await axios.post(
-        airtableBaseUrl,
+        baseUrl,
         {
           fields: {
             Name: name,
@@ -51,7 +54,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
             "Designation": designation,
             "Linkedin": linkedin,
             Timestamp: formattedTimestamp,
-            "Payment Screenshot": paymentScreenshot,
+            ...(!isPrePayment && { "Payment Screenshot": paymentScreenshot }), // Conditionally add the field
           },
         },
         {
@@ -61,10 +64,12 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
           },
         }
       );
-
-      setShowSuccess(true);
-      setPopupVisible(false);
+      if(!isPrePayment) {
+        setShowSuccess(true);
+        setPopupVisible(false);
       // alert("You are registered successfully!");
+      }
+      
     } catch (error) {
       setNotification({
         type: "error",
@@ -148,6 +153,32 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
     //   }, 5000);
     //   return;
     // }
+    // post it to airtable
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("phoneNumber", formData.phone);
+    formDataToSend.append("companyCollege", formData.companyCollege);
+    formDataToSend.append("linkedin", formData.linkedin);
+
+    const currentTimestamp = Date.now();
+    const formattedTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+    setLoading(true);
+    await saveUserData(
+      true,
+      airtablePrePaymentBaseUrl,
+      formData.name,
+      formData.email,
+      formData.phoneNumber,
+      formData.companyCollege,
+      formData.designation,
+      formData.linkedin,
+      '',
+      currentTimestamp,
+      formattedTimestamp
+    );
+    setLoading(false);
+  
 
     setPopupVisible(true);
   };
@@ -184,7 +215,9 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
 
     const currentTimestamp = Date.now();
     const formattedTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
-    const res = await saveUserData(
+    await saveUserData(
+      false,
+      airtableBaseUrl,
       formData.name,
       formData.email,
       formData.phoneNumber,
