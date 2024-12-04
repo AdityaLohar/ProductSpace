@@ -147,7 +147,7 @@ const GenAiHero = () => {
               </div>
 
               <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
-                <span className="text-[#fec923]">⚠️</span> Offer valid till 30th Nov 24
+                <span className="text-[#fec923]">⚠️</span> Offer valid till 10th Dec 24
               </div>
             </div>
 
