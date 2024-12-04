@@ -77,7 +77,7 @@ const EventsStickyBar = ({ togglePopup }) => {
               </div>
               <div className="text-[20px] text-[#120D26] font-semibold">
                 {timeRemaining.isPast
-                  ? "Oct 30, 2024"
+                  ? "Dec 3, 2024"
                   : `${timeRemaining.days}d: ${timeRemaining.hours}h: ${timeRemaining.minutes}m`}
               </div>
             </div>
