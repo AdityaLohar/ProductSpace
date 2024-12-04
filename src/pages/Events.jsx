@@ -32,50 +32,50 @@ import EventsStickyBar from "../components/EventsStickyBar";
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/BYgkKSgFgSfDS1dgvWhh2I";
-const eventDate = new Date("2024-12-03T23:59:59");
+const eventDate = new Date("2024-12-09T23:59:59");
 
 const timelines = [
   {
-    title: "Kickoff / AMA",
-    desc: "3 Dec 24",
+    title: "Registration start",
+    desc: "3-9 Dec 24",
     startDate: "3 Dec 24",
-    endDate: "3 Dec 24"
+    endDate: "9 Dec 24",
   },
   {
-    title: "Start your 7 Day Streak for Learning Challenge",
+    title: "Kickoff",
     desc: "9 Dec 24",
     startDate: "9 Dec 24",
     endDate: "9 Dec 24"
   },
   {
-    title: "Doubt clearing session",
-    desc: "8-14 Dec 24",
-    startDate: "8 Dec 24",
+    title: "7 day streak ",
+    desc: "10 Dec 24",
+    startDate: "10 Dec 24",
+    endDate: "10 Dec 24",
+  },
+  {
+    title: "Doubt clearing",
+    desc: "10-14 Dec 24",
+    startDate: "10 Dec 24",
     endDate: "14 Dec 24"
   },
   {
-    title: "EOD - Submission",
+    title: "Submission",
     desc: "15 Dec 24",
     startDate: "15 Dec 24",
     endDate: "15 Dec 24"
   },
   {
-    title: "Result Day",
-    desc: "16 Dec 24",
-    startDate: "16 Dec 24",
-    endDate: "16 Dec 24"
+    title: "Phase 1 result with feedback  ",
+    desc: "17 Dec 24",
+    startDate: "17 Dec 24",
+    endDate: "17 Dec 24"
   },
   {
-    title: "Get detailed feedback on your work",
-    desc: "18 Dec 24",
-    startDate: "18 Dec 24",
-    endDate: "18 Dec 24"
-  },
-  {
-    title: "Demo Day For Top 5 Teams",
-    desc: "18 Dec 24",
-    startDate: "18 Dec 24",
-    endDate: "18 Dec 24"
+    title: "Demo day",
+    desc: "22 Dec 24",
+    startDate: "22 Dec 24",
+    endDate: "22 Dec 24"
   },
 ];
 
