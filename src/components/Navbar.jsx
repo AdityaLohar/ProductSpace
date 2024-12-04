@@ -98,7 +98,7 @@ const Navbar = () => {
       {showTopBar && (
         <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
           <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
-            <div className="text-black">NEXT COHORT STARTS: 12th January, 2025</div>
+            <div className="text-black">NEXT PM FELLOWSHIP COHORT STARTS: 12th January, 2025</div>
             <Link to={"/pm-fellowship"} className="flex items-center">
               <button className="bg-[#130D00] px-2 py-1 rounded-md">
                 {daysToGo} DAYS TO GO
