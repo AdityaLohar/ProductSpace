@@ -4,6 +4,7 @@ import greenBox from "../assets/green-box.svg";
 import smallCommitment from "../assets/small-commitment.svg";
 import genAiContent from "../data/GenAiContent";
 import tick from "../assets/tick-green.svg";
+import psVideo from "../assets/ps-youtube-video.png";
 import { useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 import DownloadCurriculumForm from "./DownloadCurriculumForm";
@@ -21,12 +22,12 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
       <div
         className={`flex justify-between items-center cursor-pointer transition-all duration-500 ease-in-out ${
           isOpen ? "rounded-t-md" : "rounded-md"
-        } ${title[2] !== 'Y' ? "bg-[#E6E6E6]" : "bg-[#AEECFF]" } p-5`}
+        } ${title[2] !== "Y" ? "bg-[#E6E6E6]" : "bg-[#AEECFF]"} p-5`}
         onClick={onClick}
       >
         <div className="text-[18px] font-semibold text-black ">
           <h2 className=" text-[14px] md:text-[18px] font-semibold  text-start">
-            {title[2] !== 'Y' ? (
+            {title[2] !== "Y" ? (
               <div>
                 <span className="text-[20px] md:text-[24px]">
                   {" "}
@@ -34,7 +35,7 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
                     ? `0${+title[1]}`
                     : `${title[0] + title[1] + title[2]}`}{" "}
                 </span>
-    
+
                 {title[0] === "0" ? title.slice(2) : title.slice(3)}
               </div>
             ) : (
@@ -83,27 +84,65 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
         </div>
 
         <div className="space-y-3 rounded-2xl">
-            <div className="font-bold text-[16px]">Tools Learned</div>
-            <div className="flex flex-wrap gap-4 justify-around lg:justify-start">
-              {imgs.map((logo, index) => (
-                <div key={index}>
-                  <img
-                    src={logo}
-                    alt=""
-                    className="object-contain w-18 h-12 lg:w-24 lg:h-16 rounded-md"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="font-bold text-[16px]">Tools Learned</div>
+          <div className="flex flex-wrap gap-4 justify-around lg:justify-start">
+            {imgs.map((logo, index) => (
+              <div key={index}>
+                <img
+                  src={logo}
+                  alt=""
+                  className="object-contain w-18 h-12 lg:w-24 lg:h-16 rounded-md"
+                />
+              </div>
+            ))}
           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
+const VideoWithCustomCover = () => {
+  const [playVideo, setPlayVideo] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-8 mt-20">
+      <div className="text-[24px] lg:text-[32px] font-bold text-center text-[#24304C]">
+        Watch the Gen AI for PMs Event Recording
+      </div>
+      <div className="relative w-full h-[230px] md:h-[400px] xl:h-[675px] bg-gray-800 rounded-xl">
+        {!playVideo && (
+          <div
+            className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 cursor-pointer"
+            onClick={() => setPlayVideo(true)}
+          >
+            <img
+              src={psVideo}
+              alt="Custom Cover"
+              className="w-full h-full object-cover rounded-xl"
+            />
+            <button className="absolute bg-transparent text-transparent px-4 py-2 rounded-lg font-semibold">
+              Play Video
+            </button>
+          </div>
+        )}
+        {playVideo && (
+          <iframe
+            className="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/V2yr4Z65D5Y?autoplay=1&rel=0"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        )}
       </div>
     </div>
   );
 };
 
 const GenAiCurriculum = () => {
-  const [openIndex, setOpenIndex] = useState([0,8]);
+  const [openIndex, setOpenIndex] = useState([0, 8]);
 
   const [isOpenEnquire, setIsOpenEnquire] = useState(false);
   const [isVisibleEnquire, setIsVisibleEnquire] = useState(false);
@@ -145,21 +184,22 @@ const GenAiCurriculum = () => {
   return (
     <div className="flex flex-col pt-2 pb-6 lg:pb-10 lg:pt-0 px-4 xl:px-20 font-inter">
       <div className="py-5 lg:py-14 flex flex-col md:flex-row md:px-10 justify-between">
-
         <div className="w-full md:w-2/3 space-y-4 md:space-y-2">
           <div className="text-[24px] lg:text-[40px] font-bold text-center lg:text-start text-[#24304C]">
-          Course Curriculum
+            Course Curriculum
           </div>
           <div className="text-[16px]">
             <p>
-            5 Weeks of practical & live learning, with a comprehensive AI resource library, to help you master AI applications in product management.
+              5 Weeks of practical & live learning, with a comprehensive AI
+              resource library, to help you master AI applications in product
+              management.
             </p>
           </div>
         </div>
 
         <div className="flex flex-col gap-6 justify-between pt-4">
           <div className="flex md:hidden justify-end relative">
-              <img src={greenBox} alt="" className="h-1/2 w-1/2" />
+            <img src={greenBox} alt="" className="h-1/2 w-1/2" />
           </div>
 
           <div className="flex justify-around gap-4 xl:gap-12">
@@ -185,12 +225,12 @@ const GenAiCurriculum = () => {
 
           <div className="flex justify-center">
             <button
-            onClick={toggleModal}
-            className="w-[300px] bg-[#FFC303] text-[18px] text-black font-semibold p-4 rounded-full flex justify-center items-center gap-2"
-          >
-            <img src={downloadLogo} alt="" />
-            <p>Download Curriculum</p>
-          </button>
+              onClick={toggleModal}
+              className="w-[300px] bg-[#FFC303] text-[18px] text-black font-semibold p-4 rounded-full flex justify-center items-center gap-2"
+            >
+              <img src={downloadLogo} alt="" />
+              <p>Download Curriculum</p>
+            </button>
           </div>
         </div>
       </div>
@@ -215,6 +255,8 @@ const GenAiCurriculum = () => {
           />
         ))}
       </div>
+
+      <VideoWithCustomCover />
 
       <div className="relative">
         {/* Modal */}
