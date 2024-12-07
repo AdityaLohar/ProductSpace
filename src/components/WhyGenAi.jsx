@@ -19,9 +19,9 @@ const WhyGenAi = () => {
         </div>
       </div>
 
-      <div className="hidden text-[16px] lg:grid grid-cols-2 lg:grid-cols-4 gap-2 rounded-2xl px-4 lg:px-8 py-6 border-2 border-gray-100 mt-2 mx-4 lg:mx-8 shadow-lg mb-12 lg:mb-0 text-[#141414]">
+      <div className="hidden text-[16px] lg:grid grid-cols-2 lg:grid-cols-4 rounded-2xl px-4 lg:px-8 py-6 border-2 border-gray-100 mt-2 mx-4 lg:mx-8 shadow-lg mb-12 lg:mb-0 text-[#141414]">
         {/* PM-Focused Expertise */}
-        <div className="flex flex-col justify-between items-start gap-2 text-start">
+        <div className="flex flex-col justify-between items-start gap-2 text-start pr-4">
           <div className="flex items-start gap-2">
             <img
               src={heroIcon1}
@@ -30,22 +30,18 @@ const WhyGenAi = () => {
             />
             <div className="font-medium text-[20px]">Expert-led Training</div>
           </div>
-          <div className="text-[16px]">
-            Designed by PM specific application
-          </div>
+          <div className="text-[16px]">Designed by PM specific application</div>
         </div>
 
-        {/* Real-World Applications   */}
-        <div className="flex flex-col justify-between items-start gap-2 text-start ">
-          <div className="flex items-start lg:items-center gap-2">
+        {/* Real-World Applications */}
+        <div className="flex flex-col justify-between items-start gap-2 text-start px-4 border-l border-gray-200">
+          <div className="flex items-start gap-2">
             <img
               src={heroIcon2}
-              alt="Real-World Applications   Icon"
+              alt="Real-World Applications Icon"
               className="h-5 w-5"
             />
-            <div className="font-medium text-[20px]">
-              Hands-on Learning{" "}
-            </div>
+            <div className="font-medium text-[20px]">Hands-on Learning</div>
           </div>
           <div className="text-[16px]">
             Work on practical, real world projects
@@ -53,8 +49,8 @@ const WhyGenAi = () => {
         </div>
 
         {/* Competitive Edge */}
-        <div className="flex flex-col justify-between items-start gap-2 text-start ">
-          <div className="flex items-start lg:items-center gap-2">
+        <div className="flex flex-col justify-start items-start gap-2 text-start px-4 border-l border-gray-200">
+          <div className="flex items-start gap-2">
             <img
               src={heroIcon3}
               alt="Competitive Edge Icon"
@@ -62,14 +58,12 @@ const WhyGenAi = () => {
             />
             <div className="font-medium text-[20px]">8+ Trending AI Tools</div>
           </div>
-          <div className="text-[16px]">
-            Master in-demand AI tools
-          </div>
+          <div className="text-[16px]">Master in-demand AI tools</div>
         </div>
 
         {/* Placement Support */}
-        <div className="flex flex-col justify-between items-start gap-2 text-start ">
-          <div className="flex items-start lg:items-center gap-2">
+        <div className="flex flex-col justify-between items-start gap-2 text-start pl-4 border-l border-gray-200">
+          <div className="flex items-start gap-2">
             <img
               src={heroIcon4}
               alt="Placement Support Icon"
@@ -95,11 +89,11 @@ const WhyGenAi = () => {
                 className="h-5 w-5"
               />
               <div className="font-medium text-[18px] lg:text-[20px]">
-              Expert-led Training
+                Expert-led Training
               </div>
             </div>
             <div className="text-[16px]">
-            Designed by PM specific application
+              Designed by PM specific application
             </div>
           </div>
 
@@ -111,11 +105,11 @@ const WhyGenAi = () => {
                 className="h-5 w-5"
               />
               <div className="font-medium text-[18px] lg:text-[20px]">
-              Hands-on Learning{" "}
+                Hands-on Learning{" "}
               </div>
             </div>
             <div className="text-[16px]">
-            Work on practical, real world projects
+              Work on practical, real world projects
             </div>
           </div>
 
@@ -126,11 +120,11 @@ const WhyGenAi = () => {
                 alt="Competitive Edge Icon"
                 className="h-6 w-6"
               />
-              <div className="font-medium text-[18px] lg:text-[20px]">8+ Trending AI Tools</div>
+              <div className="font-medium text-[18px] lg:text-[20px]">
+                8+ Trending AI Tools
+              </div>
             </div>
-            <div className="text-[16px]">
-            Master in-demand AI tools
-            </div>
+            <div className="text-[16px]">Master in-demand AI tools</div>
           </div>
 
           <div className="item flex gap-4">
@@ -140,10 +134,12 @@ const WhyGenAi = () => {
                 alt="Placement Support Icon"
                 className="h-6 w-6"
               />
-              <div className="font-medium text-[18px] lg:text-[20px]">AI Resource Library</div>
+              <div className="font-medium text-[18px] lg:text-[20px]">
+                AI Resource Library
+              </div>
             </div>
             <div className="text-[16px]">
-            Get access to exhaustive AI resource guides and case studies
+              Get access to exhaustive AI resource guides and case studies
             </div>
           </div>
 
@@ -156,11 +152,11 @@ const WhyGenAi = () => {
                 className="h-5 w-5"
               />
               <div className="font-medium text-[18px] lg:text-[20px]">
-              Expert-led Training
+                Expert-led Training
               </div>
             </div>
             <div className="text-[16px]">
-            Designed by PM specific application
+              Designed by PM specific application
             </div>
           </div>
 
@@ -172,11 +168,11 @@ const WhyGenAi = () => {
                 className="h-5 w-5"
               />
               <div className="font-medium text-[18px] lg:text-[20px]">
-              Hands-on Learning{" "}
+                Hands-on Learning{" "}
               </div>
             </div>
             <div className="text-[16px]">
-            Work on practical, real world projects
+              Work on practical, real world projects
             </div>
           </div>
 
@@ -187,11 +183,11 @@ const WhyGenAi = () => {
                 alt="Competitive Edge Icon"
                 className="h-6 w-6"
               />
-              <div className="font-medium text-[18px] lg:text-[20px]">8+ Trending AI Tools</div>
+              <div className="font-medium text-[18px] lg:text-[20px]">
+                8+ Trending AI Tools
+              </div>
             </div>
-            <div className="text-[16px]">
-            Master in-demand AI tools
-            </div>
+            <div className="text-[16px]">Master in-demand AI tools</div>
           </div>
 
           <div className="item flex gap-4">
@@ -201,13 +197,14 @@ const WhyGenAi = () => {
                 alt="Placement Support Icon"
                 className="h-6 w-6"
               />
-              <div className="font-medium text-[18px] lg:text-[20px]">AI Resource Library</div>
+              <div className="font-medium text-[18px] lg:text-[20px]">
+                AI Resource Library
+              </div>
             </div>
             <div className="text-[16px]">
-            Get access to exhaustive AI resource guides and case studies
+              Get access to exhaustive AI resource guides and case studies
             </div>
           </div>
-          
         </div>
       </div>
     </div>

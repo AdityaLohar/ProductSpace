@@ -1,14 +1,11 @@
 import { useState } from "react";
-import psVideo from "../assets/ps-youtube-video.png";
+import psVideo from "../assets/youtube-thumbnail.svg";
 
 const VideoWithCustomCover = () => {
   const [playVideo, setPlayVideo] = useState(false);
 
   return (
-    <div className="flex flex-col gap-8 items-center mt-12 px-4 md:px-20 font-inter">
-      <div className="text-[24px] lg:text-[32px] font-bold text-center text-[#24304C]">
-        Watch the Gen AI for PMs Event Recording
-      </div>
+    <div className="flex flex-col gap-8 items-center my-6 md:my-12 px-4 md:px-20 font-inter">
       <div
         className="relative w-full sm:w-[95%] bg-gray-800 rounded-xl overflow-hidden"
         style={{ paddingTop: "56.25%" }}
@@ -18,16 +15,19 @@ const VideoWithCustomCover = () => {
             className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 cursor-pointer"
             onClick={() => setPlayVideo(true)}
           >
+            {/* Custom Cover Image */}
             <img
               src={psVideo}
               alt="Custom Cover"
               className="absolute inset-0 w-full h-full object-cover rounded-xl"
             />
-            <button className="absolute bg-transparent text-transparent px-4 py-2 rounded-lg font-semibold">
-              Play Video
-            </button>
+            {/* YouTube-Like Play Button */}
+            <div className="relative flex items-center justify-center w-16 md:w-24 h-10 md:h-16 bg-red-600 rounded-lg md:rounded-2xl shadow-md">
+              <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-[4px]" />
+            </div>
           </div>
         )}
+
         {playVideo && (
           <iframe
             className="absolute top-0 left-0 w-full h-full rounded-xl"
