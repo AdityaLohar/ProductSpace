@@ -116,6 +116,7 @@ const SignupPopUp = () => {
     };
 
     const PRODUCT_SPACE_API = `${PRODUCT_SPACE_API_HOST}/v1/user`;
+    
 
     try {
       const response = await axios.post(PRODUCT_SPACE_API, data, {
