@@ -7,7 +7,7 @@ import {
   isOpenSignin,
   isVisibleLogin,
   isVisibleSignin,
-  authAtom
+  authAtom,
 } from "../atoms/modalState";
 import { useState } from "react";
 import axios from "axios";

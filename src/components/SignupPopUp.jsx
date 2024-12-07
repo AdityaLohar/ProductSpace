@@ -26,7 +26,7 @@ const SignupPopUp = () => {
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
 
-  const [auth, setAuth] = useRecoilState(authAtom);
+  const setAuth = useSetRecoilState(authAtom);
 
   const navigate = useNavigate();
 
@@ -40,19 +40,12 @@ const SignupPopUp = () => {
   const [matchPassword, setIsMatchPassword] = useState(true);
 
   const toggleModal = () => {
-    console.log("here");
     if (!isOpen) {
-      console.log("here 2");
       setIsOpen(true);
       setTimeout(() => setIsVisible(true), 10);
     } else {
-      console.log("here 1");
       setIsVisible(false);
       setTimeout(() => setIsOpen(false), 300);
-    }
-
-    if(auth) {
-      navigate("/user/profile");
     }
   };
 
@@ -135,8 +128,14 @@ const SignupPopUp = () => {
 
       // if success redirect to login pop up
       alert("Account created successfully!");
+
+      localStorage.setItem("token", response.data.object);
+      localStorage.setItem("email", email);
       setAuth(true);
-      toggleModal();
+      setIsOpen(false);
+      setIsVisible(false);
+
+      setTimeout(() => navigate("/user/profile"), 300);
 
       // else show error
     } catch (error) {
