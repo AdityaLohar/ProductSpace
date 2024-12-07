@@ -110,7 +110,7 @@ const VideoWithCustomCover = () => {
       <div className="text-[24px] lg:text-[32px] font-bold text-center text-[#24304C]">
         Watch the Gen AI for PMs Event Recording
       </div>
-      <div className="relative w-full md:w-[95%] h-[230px] md:h-[400px] xl:h-[675px] bg-gray-800 rounded-xl">
+      <div className="relative w-full sm:w-[95%] h-[210px] md:h-[400px] xl:h-[675px] bg-gray-800 rounded-xl">
         {!playVideo && (
           <div
             className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 cursor-pointer"
