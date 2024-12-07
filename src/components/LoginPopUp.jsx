@@ -107,7 +107,6 @@ const LoginPopUp = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("email", email);
         setEmailAtom(email);
-        alert(res.message);
         toggleModal();
         setAuth(true);
         navigate("/user/profile");
@@ -190,7 +189,7 @@ const LoginPopUp = () => {
                   </div>
                 </div>
 
-                <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
+                {/* <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
                   <div className="flex items-center gap-2">
                     <input
                       type="checkbox"
@@ -204,7 +203,7 @@ const LoginPopUp = () => {
                     </label>
                   </div>
                   <div className="cursor-pointer">Forgot password?</div>
-                </div>
+                </div> */}
 
                 <button
                   onClick={handleSubmit}

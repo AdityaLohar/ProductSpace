@@ -116,7 +116,6 @@ const SignupPopUp = () => {
     };
 
     const PRODUCT_SPACE_API = `${PRODUCT_SPACE_API_HOST}/v1/user`;
-    
 
     try {
       const response = await axios.post(PRODUCT_SPACE_API, data, {
@@ -126,9 +125,6 @@ const SignupPopUp = () => {
       });
 
       console.log("Backend Response:", response.data);
-
-      // if success redirect to login pop up
-      alert("Account created successfully!");
 
       localStorage.setItem("token", response.data.object);
       localStorage.setItem("email", email);
@@ -253,7 +249,7 @@ const SignupPopUp = () => {
                   </p>
                 </div>
 
-                <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
+                {/* <div className="flex justify-between text-[#333] text-[12px] lg:text-[14px]">
                   <div className="flex items-center gap-2">
                     <input
                       type="checkbox"
@@ -267,7 +263,7 @@ const SignupPopUp = () => {
                     </label>
                   </div>
                   <div className="cursor-pointer">Forgot password?</div>
-                </div>
+                </div> */}
 
                 <button
                   onClick={handleSubmit}
