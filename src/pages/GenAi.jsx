@@ -41,11 +41,11 @@ const GenAi = () => {
 
       <GenAiHero />
 
-      <WhyGenAi />
       {/* <GenAiCourseOutline /> */}
       <div ref={sectionRef} id="genai-workshop">
-        <VideoWithCustomCover />
+        <WhyGenAi />
       </div>
+      <VideoWithCustomCover />
       <GenAiCurriculum />
       <GenAiTools />
       <GenAiInstructors />
