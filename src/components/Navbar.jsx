@@ -4,8 +4,9 @@ import profile from "../assets/profile.svg";
 import { RiArrowRightSFill } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ContactUsForm from "./ContactUsForm";
-import { useRecoilState } from "recoil";
+import { atom, useRecoilState } from "recoil";
 import {
+  authAtom,
   isOpenFormState,
   isOpenLogin,
   isOpenSignin,
@@ -35,7 +36,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);
 
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useRecoilState(authAtom);
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const toggleAuthDropdown = () => setIsAuthDropdownOpen(!isAuthDropdownOpen);
@@ -76,17 +77,22 @@ const Navbar = () => {
     localStorage.removeItem("email");
     setAuth(false);
     navigate("/");
-  }
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if(token) {
-      setAuth(true);
-    }
-    else {
-      setAuth(false);
-    }
+    const getToken = () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        setAuth(true);
+      } else {
+        setAuth(false);
+      }
+    };
 
+    getToken();
+  }, [setAuth]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const screenHeight = window.innerHeight;
@@ -247,44 +253,46 @@ const Navbar = () => {
               Contact Us
             </button>
 
-            {!auth ? <div className="relative group">
-              <div>
-                <img src={profile} alt="" className="h-6" />
-              </div>
-              <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
-                <button
-                  onClick={toggleLoginModal}
-                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
-                >
-                  Login
-                </button>
-                <button
-                  onClick={toggleSignupModal}
-                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
-                >
-                  Signup
-                </button>
-              </div>
-            </div> : (
+            {!auth ? (
               <div className="relative group">
-              <div>
-                <img src={profile} alt="" className="h-6" />
+                <div>
+                  <img src={profile} alt="" className="h-6" />
+                </div>
+                <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+                  <button
+                    onClick={toggleLoginModal}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Login
+                  </button>
+                  <button
+                    onClick={toggleSignupModal}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Signup
+                  </button>
+                </div>
               </div>
-              <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
-                <Link
-                to={"/user/profile"}
-                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
-                >
-                  Profile
-                </Link>
-                <button
-                  onClick={handleSignout}
-                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
-                >
-                  Logout
-                </button>
+            ) : (
+              <div className="relative group">
+                <div>
+                  <img src={profile} alt="" className="h-6" />
+                </div>
+                <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+                  <Link
+                    to={"/user/profile"}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleSignout}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Logout
+                  </button>
+                </div>
               </div>
-            </div>
             )}
           </div>
         </div>
@@ -348,8 +356,8 @@ const Navbar = () => {
           {isAuthDropdownOpen && (
             <div className="group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
               <button
-              onClick={toggleLoginModal}
-              className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                onClick={toggleLoginModal}
+                className="px-2 py-2 hover:bg-gray-100 rounded-md"
               >
                 Login
               </button>

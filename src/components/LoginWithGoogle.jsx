@@ -2,10 +2,16 @@ import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { useSetRecoilState } from "recoil";
-import { emailAtom } from "../atoms/modalState";
+import {
+  authAtom,
+  emailAtom,
+} from "../atoms/modalState";
+import { useNavigate } from "react-router-dom";
 
 const LoginWithGoogle = () => {
   const setEmailAtom = useSetRecoilState(emailAtom);
+  const setAuth = useSetRecoilState(authAtom);
+  const navigate = useNavigate();
 
   const handleGoogleLogin = async (credentialResponse) => {
     try {
@@ -13,7 +19,8 @@ const LoginWithGoogle = () => {
       console.log(decoded);
 
       const response = await axios.post(
-        "http://34.233.178.37:8081/swagger-ui/index.html#/auth-controller/authenticateWithGoogle",
+        // "http://34.233.178.37:8081/swagger-ui/index.html#/auth-controller/authenticateWithGoogle",
+        "http://localhost:8081/v1/api/auth/google",
         credentialResponse.credential,
         {
           headers: { "Content-Type": "application/json" },
@@ -21,18 +28,23 @@ const LoginWithGoogle = () => {
       );
 
       // when success
-      console.log(decoded.email)
+      console.log(decoded.email);
       setEmailAtom(decoded.email);
 
       console.log("Backend Response:", response.data);
 
-      // if response from backend is a success show this
-      alert("Logged in with google successfully");
+      const token = response.data.object;
+      localStorage.setItem("token", token);
+      localStorage.setItem("email", decoded.email);
+      setAuth(true);
+    
     } catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message
       );
+
+      alert("Login failed");
     }
   };
 

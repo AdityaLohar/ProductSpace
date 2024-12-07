@@ -55,3 +55,9 @@ export const emailAtom = atom({
   key: 'emailAtom',
   default: "",
 });
+
+// Auth Atom
+export const authAtom = atom({
+  key: 'authAtom',
+  default: "false",
+});

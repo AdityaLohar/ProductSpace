@@ -7,6 +7,7 @@ import {
   isOpenSignin,
   isVisibleLogin,
   isVisibleSignin,
+  authAtom
 } from "../atoms/modalState";
 import { useState } from "react";
 import axios from "axios";
@@ -31,8 +32,10 @@ const LoginPopUp = () => {
   const setIsLoginVisible = useSetRecoilState(isVisibleSignin);
   const setIsLoginOpen = useSetRecoilState(isOpenSignin);
 
-  const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user/login';
-  // const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user/login';
+  const [auth, setAuth] = useRecoilState(authAtom);
+
+  const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
+  const PRODUCT_SPACE_API = `${PRODUCT_SPACE_API_HOST}/v1/user/login`;
 
   const toggleModal = () => {
     if (!isOpen) {
@@ -100,21 +103,18 @@ const LoginPopUp = () => {
       const token = response.data.object;
 
       // if success from backend redirect to profile page
-      if(res.status === 'SUCCESS') {
+      if (res.status === "SUCCESS") {
         localStorage.setItem("token", token);
         localStorage.setItem("email", email);
         setEmailAtom(email);
         alert(res.message);
         toggleModal();
+        setAuth(true);
         navigate("/user/profile");
-      }
-      else {
+      } else {
         alert(res.message);
       }
-
-      // else show error
-    } 
-    catch (error) {
+    } catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message

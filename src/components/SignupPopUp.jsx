@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import eyeSlash from "../assets/eye-slash.svg";
 import {
+  authAtom,
   isOpenLogin,
   isOpenSignin,
   isVisibleLogin,
@@ -10,47 +11,7 @@ import {
 } from "../atoms/modalState";
 import axios from "axios";
 import LoginWithGoogle from "./LoginWithGoogle";
-
-// const SignupWithGoogle = memo(() => {
-//   const handleGoogleLogin = async (credentialResponse) => {
-//     try {
-//       const decoded = jwtDecode(credentialResponse.credential);
-//       console.log("decoded :: ", decoded);
-//       console.log("credentialResponse.credential :: ", credentialResponse.credential);
-//       // Data to send to the backend
-//       const data = {
-//         email: decoded.email, // Decoded email
-//       };
-
-//       const response = await axios.post(
-//         "http://localhost:8081/v1/api/auth/google",
-//         credentialResponse.credential,
-//         {
-//           headers: { "Content-Type": "application/json" },
-//         }
-//       );
-
-//       // if backend response is success show alert of signin
-
-//       console.log("Backend Response:", response.data);
-//     } catch (error) {
-//       console.error(
-//         "Error:",
-//         error.response ? error.response.data : error.message
-//       );
-//     }
-//   };
-
-//   return (
-//     <GoogleLogin
-//       onSuccess={handleGoogleLogin}
-//       onError={() => console.log("Login Failed")}
-//     />
-//   );
-// });
-
-// // Set display name for memoized component
-// SignupWithGoogle.displayName = "SignupWithGoogle";
+import { useNavigate } from "react-router-dom";
 
 const SignupPopUp = () => {
   const [isVisible, setIsVisible] = useRecoilState(isVisibleSignin);
@@ -65,6 +26,12 @@ const SignupPopUp = () => {
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
 
+  const [auth, setAuth] = useRecoilState(authAtom);
+
+  const navigate = useNavigate();
+
+  const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
+
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -73,12 +40,19 @@ const SignupPopUp = () => {
   const [matchPassword, setIsMatchPassword] = useState(true);
 
   const toggleModal = () => {
+    console.log("here");
     if (!isOpen) {
+      console.log("here 2");
       setIsOpen(true);
       setTimeout(() => setIsVisible(true), 10);
     } else {
+      console.log("here 1");
       setIsVisible(false);
       setTimeout(() => setIsOpen(false), 300);
+    }
+
+    if(auth) {
+      navigate("/user/profile");
     }
   };
 
@@ -147,8 +121,8 @@ const SignupPopUp = () => {
       password: password,
       mobile: phone,
     };
-    const PRODUCT_SPACE_API = 'http://18.234.212.47:8081/v1/user';
-    // const PRODUCT_SPACE_API = 'http://localhost:8081/v1/user';
+
+    const PRODUCT_SPACE_API = `${PRODUCT_SPACE_API_HOST}/v1/user`;
 
     try {
       const response = await axios.post(PRODUCT_SPACE_API, data, {
@@ -161,11 +135,11 @@ const SignupPopUp = () => {
 
       // if success redirect to login pop up
       alert("Account created successfully!");
-      toggleLogin();
+      setAuth(true);
+      toggleModal();
 
       // else show error
-    } 
-    catch (error) {
+    } catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message
