@@ -4,7 +4,6 @@ import greenBox from "../assets/green-box.svg";
 import smallCommitment from "../assets/small-commitment.svg";
 import genAiContent from "../data/GenAiContent";
 import tick from "../assets/tick-green.svg";
-import psVideo from "../assets/ps-youtube-video.png";
 import { useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 import DownloadCurriculumForm from "./DownloadCurriculumForm";
@@ -97,45 +96,6 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
             ))}
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-const VideoWithCustomCover = () => {
-  const [playVideo, setPlayVideo] = useState(false);
-
-  return (
-    <div className="flex flex-col gap-8 items-center mt-20">
-      <div className="text-[24px] lg:text-[32px] font-bold text-center text-[#24304C]">
-        Watch the Gen AI for PMs Event Recording
-      </div>
-      <div className="relative w-full sm:w-[95%] h-[210px] md:h-[400px] xl:h-[675px] bg-gray-800 rounded-xl">
-        {!playVideo && (
-          <div
-            className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 cursor-pointer"
-            onClick={() => setPlayVideo(true)}
-          >
-            <img
-              src={psVideo}
-              alt="Custom Cover"
-              className="w-full h-full object-cover rounded-xl"
-            />
-            <button className="absolute bg-transparent text-transparent px-4 py-2 rounded-lg font-semibold">
-              Play Video
-            </button>
-          </div>
-        )}
-        {playVideo && (
-          <iframe
-            className="absolute top-0 left-0 w-full h-full rounded-xl"
-            src="https://www.youtube.com/embed/V2yr4Z65D5Y?autoplay=1&rel=0"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        )}
       </div>
     </div>
   );
@@ -255,8 +215,6 @@ const GenAiCurriculum = () => {
           />
         ))}
       </div>
-
-      <VideoWithCustomCover />
 
       <div className="relative">
         {/* Modal */}

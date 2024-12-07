@@ -11,9 +11,9 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Transitions from "../components/Transitions";
 import CourseSnapshot from "../components/CourseSnapshot";
-import Curriculum1 from './../components/Curriculum1';
+import Curriculum1 from "./../components/Curriculum1";
 import FaqPmFellowship from "../components/FaqPmFellowship";
-import Faq from './../components/Faq';
+import Faq from "./../components/Faq";
 import StructureOfPmFellowship from "../components/StructureOfPmFellowship";
 import BottomBar from "../components/BottomBar";
 
@@ -31,8 +31,7 @@ const PmFellowship = () => {
   useEffect(() => {
     if (location.hash === "#reviews") {
       sectionRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
-    else {
+    } else {
       window.scrollTo(0, 0);
     }
   }, [location]);
@@ -42,7 +41,7 @@ const PmFellowship = () => {
       const scrollPosition = window.scrollY;
       const screenHeight = window.innerHeight;
 
-      if (scrollPosition > (4*screenHeight/5)) {
+      if (scrollPosition > (4 * screenHeight) / 5) {
         setShowBottomBar(true);
       } else {
         setShowBottomBar(false);
@@ -54,7 +53,7 @@ const PmFellowship = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  })
+  });
 
   return (
     <HelmetProvider>
@@ -65,7 +64,10 @@ const PmFellowship = () => {
             name="description"
             content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job."
           />
-          <link rel="canonical" href="https://theproductspace.in/pm-fellowship" />
+          <link
+            rel="canonical"
+            href="https://theproductspace.in/pm-fellowship"
+          />
         </Helmet>
 
         <div className="w-full max-w-screen-2xl">

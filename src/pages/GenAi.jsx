@@ -10,9 +10,24 @@ import GenAiFaq from "./../components/GenAiFaq";
 import GenAiKnowMore from "../components/GenAiKnowMore";
 import GenAiWhyEnroll from "../components/GenAiWhyEnroll";
 import GenAiWhyPeopleChoose from "../components/GenAiWhyPeopleChoose";
+import VideoWithCustomCover from "../components/VideoWithCustomCover";
 import { Helmet } from "react-helmet-async";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 const GenAi = () => {
+  const sectionRef = useRef(null);
+  const location = useLocation();
+
+  // Scroll to section if the URL has a hash
+  useEffect(() => {
+    if (location.hash === "#genai-workshop") {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <div className="w-full max-w-screen-2xl bg-white mx-auto">
       <Helmet>
@@ -29,6 +44,9 @@ const GenAi = () => {
       <WhyGenAi />
       {/* <GenAiCourseOutline /> */}
       <GenAiCurriculum />
+      <div ref={sectionRef} id="genai-workshop">
+        <VideoWithCustomCover />
+      </div>
       <GenAiTools />
       <GenAiInstructors />
       <GenAiIsCourseRight />
