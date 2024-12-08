@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --mode development",
+    "dev": "vite --mode production",
     "build": "vite build --mode production",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "staging": "vite build --mode staging"
   },
   "dependencies": {
     "@fontsource/hind-madurai": "^5.0.14",

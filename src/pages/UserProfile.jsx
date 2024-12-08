@@ -121,7 +121,7 @@ const UserProfile = () => {
               <span className="text-gray-800">{users.id}</span>
             </div>
             <div className="flex justify-between border-b pb-2 items-center">
-              <span className="text-gray-600 font-medium">Phone:</span>
+              <span className="text-gray-600 font-medium">Mobile:</span>
               {isEditing ? (
                 <div className="flex items-center gap-2">
                   <input
