@@ -92,7 +92,7 @@ const SignupPopUp = () => {
     }
 
     // Validate Phone number
-    if (phone.length < 10) {
+    if (phone.length != 10) {
       alert("Enter Valid Phone Number");
       return;
     }
