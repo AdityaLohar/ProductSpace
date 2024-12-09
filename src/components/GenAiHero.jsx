@@ -106,7 +106,7 @@ const GenAiHero = () => {
               </button>
 
               <button
-                className="flex w-4/5 lg:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#f3f3f3] border-2 text-black items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                className="flex w-4/5 lg:w-full gap-2 justify-center p-3 lg:p-4 lg:px-2 rounded-lg bg-[#f3f3f3] border-2 text-black items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                 onClick={toggleModal}
               >
                 <div>Download Curriculum</div>
@@ -141,13 +141,14 @@ const GenAiHero = () => {
                     40% off
                   </div>
                   <div className="text-[12px] lg:text-[20px] line-through">
-                  ₹24,999
+                    ₹24,999
                   </div>
                 </div>
               </div>
 
               <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
-                <span className="text-[#fec923]">⚠️</span> Offer valid till 10th Dec 24
+                <span className="text-[#fec923]">⚠️</span> Offer valid till 10th
+                Dec 24
               </div>
             </div>
 

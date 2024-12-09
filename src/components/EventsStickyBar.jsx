@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const endDate = "2024-12-09T23:59:59";
+const endDate = "2024-12-11T23:59:59";
 
 const EventsStickyBar = ({ togglePopup }) => {
   const [timeRemaining, setTimeRemaining] = useState({
@@ -38,7 +38,7 @@ const EventsStickyBar = ({ togglePopup }) => {
         <div className="flex gap-0 2xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
           <div className="hidden md:flex flex-col gap-1">
             <div className="text-[16px] text-[#969696]">
-              Tuesday, Dec 3, 2024
+              Tuesday, Dec 5, 2024
             </div>
             <div className="text-[20px] text-[#120D26] font-semibold">
               Gen AI PM Hackathon 2024
@@ -51,7 +51,7 @@ const EventsStickyBar = ({ togglePopup }) => {
             </div>
             <div className="text-[16px] text-[#120D26] font-semibold">
               {timeRemaining.isPast
-                ? "Wednesday, Dec 3, 2024"
+                ? "Thursday, Dec 5, 2024"
                 : `${timeRemaining.days}d: ${timeRemaining.hours}h: ${timeRemaining.minutes}m`}
             </div>
           </div>
@@ -77,7 +77,7 @@ const EventsStickyBar = ({ togglePopup }) => {
               </div>
               <div className="text-[20px] text-[#120D26] font-semibold">
                 {timeRemaining.isPast
-                  ? "Dec 3, 2024"
+                  ? "Dec 5, 2024"
                   : `${timeRemaining.days}d: ${timeRemaining.hours}h: ${timeRemaining.minutes}m`}
               </div>
             </div>

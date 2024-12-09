@@ -32,13 +32,13 @@ import EventsStickyBar from "../components/EventsStickyBar";
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/BYgkKSgFgSfDS1dgvWhh2I";
-const eventDate = new Date("2024-12-09T23:59:59");
+const eventDate = new Date("2024-12-11T23:59:59");
 
 const timelines = [
   {
     title: "Registration start",
-    desc: "3-9 Dec 24",
-    startDate: "3 Dec 24",
+    desc: "5 Dec 24",
+    startDate: "5 Dec 24",
     endDate: "9 Dec 24",
   },
   {
@@ -388,7 +388,7 @@ const Events = () => {
               <EventInfo
                 icon={calendarIcon}
                 title={"WHEN"}
-                desc={"Dec 3 - Dec 22, 2024"}
+                desc={"Dec 5 - Dec 22, 2024"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -654,7 +654,7 @@ const Events = () => {
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
                 <div className="flex gap-2 items-center">
                   <img src={timeIcon} alt="" className="h-5" />
-                  <p>Dec 3, 2024</p>
+                  <p>Dec 5, 2024</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <img src={locationIcon} alt="" className="h-5" />
