@@ -73,7 +73,7 @@ const EventsStickyBar = ({ togglePopup }) => {
 
             <div className="hidden md:flex flex-col gap-0">
               <div className="text-[16px] text-[#969696]">
-                {timeRemaining.isPast ? "STARTED ON" : "STARTS IN"}
+                {timeRemaining.isPast ? "STARTED ON" : "ENDS IN"}
               </div>
               <div className="text-[20px] text-[#120D26] font-semibold">
                 {timeRemaining.isPast
