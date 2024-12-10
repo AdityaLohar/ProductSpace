@@ -134,11 +134,11 @@ const GenAiHero = () => {
 
               <div className="flex items-center gap-2 px-4 lg:px-8">
                 <div className="text-[28px] lg:text-[44px] font-bold">
-                  ₹14,999
+                  ₹16,249
                 </div>
                 <div>
                   <div className="text-[#eb2c2f] font-semibold text-[12px] lg:text-[20px]">
-                    40% off
+                    35% off
                   </div>
                   <div className="text-[12px] lg:text-[20px] line-through">
                     ₹24,999
@@ -147,7 +147,7 @@ const GenAiHero = () => {
               </div>
 
               <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
-                <span className="text-[#fec923]">⚠️</span> Offer valid till 10th
+                <span className="text-[#fec923]">⚠️</span> Offer valid till 12th
                 Dec 24
               </div>
             </div>
