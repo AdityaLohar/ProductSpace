@@ -6,14 +6,15 @@ import "./index.css";
 // import { Analytics } from '@vercel/analytics/react'
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
+const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <GoogleOAuthProvider clientId="242134073475-f31ebcc25dac0s6t9v3b99pvtuoumi1d.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId={googleClientId}>
       <Router>
         {/* <Analytics /> */}
         <App />
       </Router>
     </GoogleOAuthProvider>
-    ;
   </StrictMode>
 );

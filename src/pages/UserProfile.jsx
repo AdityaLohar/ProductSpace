@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   UserCircleIcon,
   PencilIcon,
@@ -11,6 +12,7 @@ const UserProfile = () => {
   const [users, setUsers] = useState();
   const [isEditing, setIsEditing] = useState(false);
   const [newPhone, setNewPhone] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getEmail = localStorage.getItem("email");
@@ -18,30 +20,45 @@ const UserProfile = () => {
 
     const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
     const url = `${PRODUCT_SPACE_API_HOST}/v1/user/search?email=${encodedEmail}&isPaged=false&page=0&size=1&sort=string&matchingAny=true`;
+    const token = localStorage.getItem("token");
 
     const fetchUsers = async () => {
       try {
         const response = await axios.get(url, {
           headers: {
             "Content-Type": "application/json",
+            token: token,
           },
         });
 
         console.log("Backend Response:", response);
         const data = response.data.pageData.content;
-        setUsers(data[0]);
-      } catch (error) {
+
+        if (data && data.length > 0) {
+          setUsers(data[0]);
+        } 
+        else {
+          alert("user not found");
+          navigate("/"); // Redirect if no user data is found
+        }
+      } 
+      catch (error) {
         console.error(
           "Error:",
           error.response ? error.response.data : error.message
         );
 
-        alert("Error in logging into account!");
+        if (error.response?.status === 401) {
+          navigate("/"); // Redirect if status is 401
+        } 
+        else {
+          alert("Error in logging into account!");
+        }
       }
     };
 
     fetchUsers();
-  }, []);
+  }, [navigate]);
 
   const handleEdit = () => {
     setNewPhone(users?.mobile || "");
@@ -53,7 +70,6 @@ const UserProfile = () => {
   };
 
   const handleSave = async () => {
-    // Validate phone number (example validation: 10 digits)
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(newPhone)) {
       alert("Please enter a valid 10-digit phone number.");
@@ -77,9 +93,8 @@ const UserProfile = () => {
         }
       );
 
-      console.log("response aaya ", res);
+      console.log("response:", res);
 
-      // Update the UI after successful save
       setUsers((prev) => ({ ...prev, mobile: newPhone }));
       setIsEditing(false);
       alert("Phone number updated successfully!");
