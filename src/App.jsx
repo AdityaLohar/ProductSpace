@@ -51,6 +51,7 @@ import GenAiContactUsForm from "./components/GenAiContactUs";
 import BlogP1 from "./pages/PrivateBlogs/BlogP1";
 import BlogP2 from "./pages/PrivateBlogs/BlogP2";
 import OfflineEvent from "./pages/OfflineEvent";
+import ProductAnalytics from "./pages/ProductAnalytics";
 
 function App() {
   const location = useLocation();
@@ -77,6 +78,7 @@ function App() {
           <Route path="/ai-for-pm" element={<Event1 />} />
           <Route path="/product-meetups-offline" element={<OfflineEvent />} />
           <Route path="/gen-ai-for-pm" element={<GenAi />} />
+          <Route path="/product-analytics" element={<ProductAnalytics />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />
