@@ -81,21 +81,6 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
             </div>
           ))}
         </div>
-
-        <div className="space-y-3 rounded-2xl">
-          <div className="font-bold text-[16px]">Tools Learned</div>
-          <div className="flex flex-wrap gap-4 justify-around lg:justify-start">
-            {imgs.map((logo, index) => (
-              <div key={index}>
-                <img
-                  src={logo}
-                  alt=""
-                  className="object-contain w-18 h-12 lg:w-24 lg:h-16 rounded-md"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
