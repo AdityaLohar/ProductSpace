@@ -125,7 +125,10 @@ const SignupPopUp = () => {
       });
 
       console.log("Backend Response:", response.data);
-
+      if(response.data.status == 'FAILURE') {
+        alert("Something went wrong, User might already exist");
+        return;
+      }
       localStorage.setItem("token", response.data.object);
       localStorage.setItem("email", email);
       setAuth(true);
