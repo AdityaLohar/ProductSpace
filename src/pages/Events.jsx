@@ -32,7 +32,7 @@ import EventsStickyBar from "../components/EventsStickyBar";
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/BYgkKSgFgSfDS1dgvWhh2I";
-const eventDate = new Date("2024-12-11T23:59:59");
+const eventDate = new Date("2024-12-14T23:59:59");
 
 const timelines = [
   {

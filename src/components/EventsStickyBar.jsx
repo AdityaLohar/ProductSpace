@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const endDate = "2024-12-11T23:59:59";
+const endDate = "2024-12-14T23:59:59";
 
 const EventsStickyBar = ({ togglePopup }) => {
   const [timeRemaining, setTimeRemaining] = useState({
