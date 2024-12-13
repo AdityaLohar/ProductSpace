@@ -63,7 +63,7 @@ function App() {
   }, [location]);
 
   const isHomePage =
-    location.pathname === "/" || location.pathname === "/pm-fellowship";
+    location.pathname === "/" || location.pathname === "/pm-fellowship" || location.pathname === '/product-analytics';
 
   return (
     <RecoilRoot>
