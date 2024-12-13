@@ -232,7 +232,7 @@ const Navbar = () => {
             Events
           </a>
           {isDropdownOpen && (
-            <div className="flex flex-col bg-white shadow-lg space-y-0 rounded-md p-0 mt-2">
+            <div className="flex flex-col bg-white shadow-lg space-y-0 rounded-md p-0 mt-1">
               <a href="/product-analytics" className="px-4 py-2 hover:bg-gray-100 rounded-md">
                 Product Analytics
               </a>
