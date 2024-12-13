@@ -368,7 +368,7 @@ const ProductAnalytics = () => {
               <EventInfo
                 icon={clockIcon}
                 title={"Event Time"}
-                desc={"11 AM - 2 PM onwards"}
+                desc={"11 AM - 2 PM"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -520,7 +520,7 @@ const ProductAnalytics = () => {
                     <img src={magicbricks} alt="" className="bg-white p-2" />
                     <p className="font-bold text-sm md:text-lg">Pamit Anand</p>
                     <p className="text-gray-300 text-xs md:text-sm">
-                      Sr. VP of Product, Magicbricks
+                      Angel investor in ReachifyMe, Milkbasket, RecipeCup
                     </p>
                   </div>
                 </div>

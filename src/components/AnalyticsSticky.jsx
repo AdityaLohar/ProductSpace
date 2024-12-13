@@ -57,8 +57,8 @@ const AnalyticsSticky = ({ togglePopup }) => {
           </div> */}
 
           <div className="flex justify-between w-full md:hidden items-center gap-6">
-            <div className="flex flex-col items-end">
-              <div className="hidden md:flex text-[20px] text-[#FFA000] font-bold line-through">
+            <div className="flex flex-col items-start md:items-end">
+              <div className="flex text-[18px] md:text-[20px] text-[#FFA000] font-bold line-through">
                 1999
               </div>
 
