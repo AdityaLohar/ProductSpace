@@ -188,7 +188,7 @@ const ProgressBarWithDots = () => {
         {steps.map((step, index) => (
           <div
             className={`${
-              index <= currentStep
+              index <= currentStep || window.innerWidth < 768
                 ? "bg-gradient-to-r from-[#1eE7FF] via-[#00C1FD] to-[#00C1FD] shadow-[0px_4px_35.6px_0px_#7BD5FF] border border-[#00C1FD] text-white"
                 : "bg-transparent border-transparent text-black"
             } p-3 rounded-lg transition-all duration-100 ease-in-out font-bold py-12`}
