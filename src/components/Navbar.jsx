@@ -177,7 +177,7 @@ const Navbar = () => {
                   href="/pm-workshop"
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
                 >
-                  Product Analytics
+                  PM Workshop
                 </a>
                 <a
                   href="/product-meetups-offline"
@@ -249,7 +249,7 @@ const Navbar = () => {
                 href="/pm-workshop"
                 className="px-4 py-2 hover:bg-gray-100 rounded-md"
               >
-                Product Analytics
+                PM Workshop
               </a>
               <a
                 href="/product-meetups-offline"
