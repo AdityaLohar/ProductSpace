@@ -327,11 +327,7 @@ const OfflineEvent = () => {
                 title={"Location"}
                 desc={"Hyderabad"}
               />
-              <EventInfo
-                icon={rupeeIcon}
-                title={"Price"}
-                desc={"499"}
-              />
+              <EventInfo icon={rupeeIcon} title={"Price"} desc={"499"} />
             </div>
           </div>
 
@@ -345,7 +341,9 @@ const OfflineEvent = () => {
               <li>Building AI-Powered Products: From Concept to Market</li>
               <li>How to become an AI Powered Product Manager</li>
 
-              <li>The Future Landscape: AI's Impact on Digital Products & PM Role</li>
+              <li>
+                The Future Landscape: AI's Impact on Digital Products & PM Role
+              </li>
               <li>Ethical AI: Building Responsible and Trustworthy Products</li>
             </ul>
           </div>
