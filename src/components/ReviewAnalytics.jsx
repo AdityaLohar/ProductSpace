@@ -64,7 +64,7 @@ const ReviewCardSmall = ({
         w-[250px] 
         h-auto 
         md:w-[400px] 
-        md:h-[300px]
+        md:h-[250px]
         overflow-hidden
         shadow-[0_0_20px_rgba(0,0,0,0.1)]
         rounded-lg
@@ -104,7 +104,7 @@ const reviews = [
   {
     rating: 5,
     username: "Poorva",
-    desc: "Great Session! Thank you Product Space for the wonderful experience. I must say one of your USPs is the structured thinking that you foster among the participants. As a beginner, one needs simple tools and approaches to solve problems and you do really well in teaching those.",
+    desc: "Great Session! Thank you Product Space for the wonderful experience. I must say one of your USPs is the structured thinking that you foster among the participants.",
   },
   {
     rating: 5,
