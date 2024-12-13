@@ -20,8 +20,8 @@ import judge3 from "../assets/arun.svg";
 import liveSticker from "../assets/live-sticker.svg";
 import submissionImg1 from "../assets/submission1.svg";
 import submissionImg2 from "../assets/submission2.svg";
-import HackathonRegistrationForm from "../components/HackathonRegistrationForm";
-import ReviewOfflineEvent from "../components/ReviewOfflineEvent";
+import AnalyticsRegistrationForm from "../components/AnalyticsRegistrationForm";
+import ReviewAnalytics from "../components/ReviewAnalytics";
 import referIcon from "../assets/refer-and-earn.svg";
 import FaqAnalytics from "../components/FaqAnalytics";
 import AnalyticsCertificate from "./AnalyticsCertificate";
@@ -37,11 +37,11 @@ import aitool3 from "../assets/aitool3.svg";
 import sql from "../assets/sql.svg";
 import amplitude from "../assets/amplitude.svg";
 import mixpanel from "../assets/mixpanel.svg";
-import aitool4 from "../assets/aitool4.svg";
-import aitool5 from "../assets/aitool5.svg";
-import aitool6 from "../assets/aitool6.svg";
-import aitool7 from "../assets/aitool7.svg";
-import aitool8 from "../assets/aitool8.svg";
+
+import instagram from "../assets/instagram.svg";
+import linkedin from "../assets/linkedin.svg";
+import slack from "../assets/slack.svg";
+import twitter from "../assets/twitter.svg";
 
 import microsoft from "../assets/microsoft.svg";
 import magicbricks from "../assets/magicbricks-logo.png";
@@ -51,66 +51,8 @@ import AnalyticsSticky from "../components/AnalyticsSticky";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
-const whatsappInviteLink = "https://chat.whatsapp.com/BYgkKSgFgSfDS1dgvWhh2I";
-const eventDate = new Date("2024-12-14T23:59:59");
-
-const timelines = [
-  {
-    title: "Registration start",
-    desc: "5 Dec 24",
-    startDate: "5 Dec 24",
-    endDate: "9 Dec 24",
-  },
-  {
-    title: "Kickoff",
-    desc: "9 Dec 24",
-    startDate: "9 Dec 24",
-    endDate: "9 Dec 24",
-  },
-  {
-    title: "7 day streak ",
-    desc: "10 Dec 24",
-    startDate: "10 Dec 24",
-    endDate: "10 Dec 24",
-  },
-  {
-    title: "Doubt clearing",
-    desc: "10-14 Dec 24",
-    startDate: "10 Dec 24",
-    endDate: "14 Dec 24",
-  },
-  {
-    title: "Submission",
-    desc: "15 Dec 24",
-    startDate: "15 Dec 24",
-    endDate: "15 Dec 24",
-  },
-  {
-    title: "Phase 1 result with feedback  ",
-    desc: "17 Dec 24",
-    startDate: "17 Dec 24",
-    endDate: "17 Dec 24",
-  },
-  {
-    title: "Demo day",
-    desc: "22 Dec 24",
-    startDate: "22 Dec 24",
-    endDate: "22 Dec 24",
-  },
-];
-
-const submissions = [
-  {
-    title: "Croma Product Teardown",
-    image: submissionImg1,
-    url: "https://drive.google.com/file/d/10Ya0gDTQDjG_sQdc9kkMn71_qEJZkKKF/view",
-  },
-  {
-    title: "Improve Customer Purchase and Satisfaction",
-    image: submissionImg2,
-    url: "https://drive.google.com/file/d/1oiEX8ON6DVjotX20SeKLfoYE0mnyFNz-/view",
-  },
-];
+const whatsappInviteLink = "https://chat.whatsapp.com/BohDACWS79i7D42OO1iDT9";
+const eventDate = new Date("2024-12-21T23:59:59");
 
 const EventInfo = ({ icon, title, desc }) => {
   return (
@@ -123,91 +65,6 @@ const EventInfo = ({ icon, title, desc }) => {
         <div className="text-[16px] lg:text-[20px] text-[#120D26] font-semibold">
           {desc}
         </div>
-      </div>
-    </div>
-  );
-};
-
-const EventBenefit = ({ title, desc }) => {
-  return (
-    <div className="text-[16px] lg:text-[20px] font-semibold">
-      <div>
-        {title}: <span className="text-[#7f7f7f] font-normal">{desc}</span>
-      </div>
-    </div>
-  );
-};
-
-const TimelineCard = ({ title, desc, startDate, endDate, flag }) => {
-  // Create start and end date objects
-  const startDateTime = new Date(`${startDate}UTC`);
-  const endDateTime = new Date(`${endDate}UTC`);
-
-  const currentDate = new Date();
-  const isLive = currentDate >= startDateTime && currentDate <= endDateTime;
-
-  const startDateNumber = startDate.split(" ")[0];
-  const startDateMonth =
-    startDate.split(" ")[1] + " " + startDate.split(" ")[2];
-
-  return (
-    <div className="flex text-[#0A244B] gap-4">
-      <div className="flex flex-col gap-2">
-        <div>
-          <div className="bg-[#C3F1FF] font-semibold py-1 w-[60px] text-center rounded-t-xl text-[20px]">
-            {desc.split(" ")[0]}
-          </div>
-          <div className="bg-[#E1F8FF] py-1 w-[60px] text-center rounded-b-xl text-[12px] text-[#2A3B64]">
-            {startDateMonth}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 bg-white text-white h-full">
-          <div className={`${flag ? "border-r-2 border-[#0073E6]" : ""}`}>
-            18
-          </div>
-          <div>Oct</div>
-        </div>
-      </div>
-
-      <div className="flex justify-between items-center p-4 border border-[#E2E2E2] shadow shadow-md w-full rounded-xl text-[12px]">
-        <div className="text-[16px] md:text-[18px] font-semibold">{title}</div>
-
-        <div>
-          {isLive ? (
-            <div className="flex items-center gap-1 border border-[#E2E2E2] p-2 px-3 rounded-3xl">
-              <div className="h-2 w-2 bg-red-500 rounded-full"></div>
-              <div>Live</div>
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const PreviousSubmissionCard = ({ title, image, url }) => {
-  return (
-    <div className="flex flex-col justify-between gap-4 items-center">
-      <div className="flex flex-col gap-2">
-        <div>
-          <img src={image} alt="" />
-        </div>
-
-        <div className="text-18px] lg:text-[20px] font-semibold">{title}</div>
-      </div>
-
-      <div className="w-full">
-        <a
-          href={url}
-          target="_blank"
-          className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-white"
-        >
-          <p className="text-[14px] lg:text-[16px] font-bold">View more</p>
-          <img src={arrowIconDark} alt="icon" />
-        </a>
       </div>
     </div>
   );
@@ -227,7 +84,7 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
 
         <div className="flex flex-col gap-3 lg:w-3/4 justify-center">
           <div className="text-[20px] md:text-[24px] font-semibold">
-            You&apos;re Registered for the Product Management Hackathon!
+            You&apos;re Registered for the Product Analytics Event!
           </div>
           <div className="text-[14px] md:text-[16px]">
             Thank you for registering! You will receive event details on email
@@ -242,7 +99,7 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
             onClick={toggleSuccess}
             className="bg-[#24304C] text-white p-4 text-[16px] md:text-[18px] rounded-xl px-12"
           >
-            Join Hackathon Group
+            Join Event Group
           </a>
         </div>
       </div>
@@ -375,17 +232,33 @@ const ProductAnalytics = () => {
       case "whatsapp":
         shareUrl = `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
         break;
+      case "linkedin":
+        shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
+      case "twitter":
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+          currentUrl
+        )}&text=${encodeURIComponent("Check this out!")}`;
+        break;
+      case "slack":
+        shareUrl = `https://slack.com/intl/en-in/share?text=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
       case "copy":
         navigator.clipboard.writeText(currentUrl);
         setCopied(true);
-        break;
+        return;
       case "email":
         shareUrl = `mailto:?subject=Check this out&body=${encodeURIComponent(
           currentUrl
         )}`;
         break;
       default:
-        break;
+        alert("Unsupported platform.");
+        return;
     }
 
     if (shareUrl) {
@@ -461,7 +334,7 @@ const ProductAnalytics = () => {
     >
       {/* Hero Section */}
       <div className="flex px-4 lg:px-8 xl:px-28 lg:gap-8 2xl:gap-12">
-        <div className="w-full flex flex-col gap-8 lg:gap-16 rounded-xl sm:shadow-xl bg-white p-4 lg:p-8">
+        <div className="w-full flex flex-col gap-10 lg:gap-20 rounded-xl sm:shadow-xl bg-white p-4 lg:p-8">
           <div className="flex flex-col gap-8 md:gap-14">
             <div className="relative">
               <img
@@ -490,17 +363,17 @@ const ProductAnalytics = () => {
               <EventInfo
                 icon={calendarIcon}
                 title={"Event Date"}
-                desc={"Sat, Dec 07, 2024"}
+                desc={"Sat, Dec 21, 2024"}
               />
               <EventInfo
                 icon={clockIcon}
                 title={"Event Time"}
-                desc={"11 AM onwards"}
+                desc={"11 AM - 2 PM onwards"}
               />
               <EventInfo
                 icon={locationDarkIcon}
                 title={"Location"}
-                desc={"Hyderabad"}
+                desc={"Online"}
               />
               <button
                 onClick={togglePopup}
@@ -510,14 +383,17 @@ const ProductAnalytics = () => {
                 }`}
               >
                 <p className="text-[18px] lg:text-[20px] font-medium">
-                  Register Now
+                  Join Waitlist Now
                 </p>
                 <img src={arrowIcon} alt="icon" />
               </button>
             </div>
           </div>
+
           <ProgressBarWithDots />
+
           <AnalyticsCuricullum />
+
           {/* Premium Resources */}
           <div className="flex flex-col gap-4 lg:gap-5 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
@@ -562,7 +438,8 @@ const ProductAnalytics = () => {
                   <p>
                     Tools 101 :{" "}
                     <span className="font-normal text-[#7f7f7f]">
-                      Quick-start guides for SQL, PowerBI, and Mixpanel.
+                      Quick-start guides for SQL, ChatGPT, Google Analytics,
+                      Amplitude, Perplexity, VMO and Mixpanel.
                     </span>
                   </p>
                 </div>
@@ -597,6 +474,7 @@ const ProductAnalytics = () => {
               </div>
             </div>
           </div>
+
           {/* Mentors */}
           <div className="flex flex-col gap-4">
             <div className="text-[20px] lg:text-[28px] font-semibold text-center">
@@ -649,92 +527,34 @@ const ProductAnalytics = () => {
               </a>
             </div>
           </div>
+
           {/* Certificate */}
-          <AnalyticsCertificate />
+          <AnalyticsCertificate togglePopup={togglePopup} />
+
           {/* Reviews */}
-          <div>
-            <ReviewOfflineEvent />
-          </div>
-          {/* Refer and earn */}
-          <div className="flex flex-col items-center gap-4 my-8">
-            <div className="text-[20px] lg:text-[28px] w-full font-semibold text-start">
-              Refer & Earn exciting Rewards
-            </div>
+          <ReviewAnalytics />
 
-            <div>
-              <img
-                src={referIcon}
-                alt=""
-                className="h-60 w-80  lg:w-full lg:h-full"
-              />
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-4 w-full text-center">
-              <div className="flex flex-col gap-4 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] w-full py-6 lg:py-8 lg:px-20">
-                <div className="text-[18px] lg:text-[24px] font-semibold">
-                  Refer 1 friend
-                </div>
-
-                <div className="text-center text-[16px] lg:text-[20px] text-[#969696]">
-                  <div>Get Access to the Workshop Deck</div>
-                  <div>+</div>
-                  <div>Prompts Guide for PM use case</div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] w-full py-6 lg:py-8 lg:px-20">
-                <div className="text-[18px] lg:text-[24px] font-semibold">
-                  Refer 3 friends
-                </div>
-
-                <div className="text-center text-[16px] lg:text-[20px] text-[#969696]">
-                  <div>Reward for referring 1 friend</div>
-                  <div>+</div>
-                  <div>Full Recordings and deck</div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] w-full py-6 lg:py-8 lg:px-20">
-                <div className="text-[18px] lg:text-[24px] font-semibold">
-                  Refer 5 friends
-                </div>
-
-                <div className="text-center text-[16px] lg:text-[20px] text-[#969696]">
-                  <div>Reward for referring 3 friends</div>
-                  <div>+</div>
-                  <div>
-                    Access to 5 exclusive AI guides - tools case studies,
-                    interview prep and more!
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <a
-              href="https://pages.viral-loops.com/product-space-gen-ai-for-pms-bcp5e0e2"
-              target="_blank"
-              className={`flex w-full lg:w-1/3 gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ${
-                isPastEventDate ? "pointer-events-none opacity-70" : ""
-              }`}
-            >
-              <p className="text-[18px] md:text-[20px] font-medium">
-                Refer Now
-              </p>
-              <img src={arrowIcon} alt="icon" />
-            </a>
-          </div>
           {/* Share options */}
           <div className="flex flex-col gap-2">
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Share this event with your network!
             </div>
-            <div className="flex gap-2 lg:gap-3">
-              <button onClick={() => handleShare("email")}>
-                <img src={emailIcon} alt="" className="h-16 lg:h-24" />
+            <div className="flex gap-0 items-start">
+              <button onClick={() => handleShare("twitter")}>
+                <img src={twitter} alt="" className="h-16 lg:h-24" />
               </button>
-              <button onClick={() => handleShare("facebook")}>
-                <img src={facebookIcon} alt="" className="h-16 lg:h-24" />
+              <button onClick={() => handleShare("instagram")}>
+                <img src={instagram} alt="" className="h-16 lg:h-24" />
               </button>
-              <button onClick={() => handleShare("whatsapp")}>
-                <img src={whatsappIcon} alt="" className="h-16 lg:h-24" />
+              <button onClick={() => handleShare("linkedin")}>
+                <img
+                  src={linkedin}
+                  alt=""
+                  className="h-10 lg:h-16 mt-2 mx-3 md:mx-5"
+                />
+              </button>
+              <button onClick={() => handleShare("slack")}>
+                <img src={slack} alt="" className="h-16 lg:h-24" />
               </button>
             </div>
           </div>
@@ -745,12 +565,12 @@ const ProductAnalytics = () => {
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Tools being covered
             </div>
-            <div className="flex flex-wrap gap-6 lg:gap-12 items-center">
-              <img src={aitool2} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={aitool3} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={sql} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={amplitude} alt="" className="h-12 w-auto lg:h-16" />
-              <img src={mixpanel} alt="" className="h-6 w-auto lg:h-12" />
+            <div className="flex flex-wrap gap-6 lg:gap-10 items-center">
+              <img src={aitool2} alt="" className="h-10 w-auto lg:h-14" />
+              <img src={aitool3} alt="" className="h-10 w-auto lg:h-14" />
+              <img src={sql} alt="" className="h-10 w-auto lg:h-14" />
+              <img src={amplitude} alt="" className="h-12 w-auto lg:h-14" />
+              <img src={mixpanel} alt="" className="h-6 w-auto lg:h-10" />
             </div>
           </div>
           <div className="flex flex-col gap-6 text-[18px] lg:text-[20px] font-semibold">
@@ -772,7 +592,7 @@ const ProductAnalytics = () => {
       {/* Register Form */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
-          <HackathonRegistrationForm
+          <AnalyticsRegistrationForm
             togglePopup={togglePopup}
             setShowSuccess={setShowSuccess}
           />

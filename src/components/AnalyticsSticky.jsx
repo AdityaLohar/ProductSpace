@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const endDate = "2024-12-14T23:59:59";
+const endDate = "2024-12-21T23:59:59";
 
 const AnalyticsSticky = ({ togglePopup }) => {
   const [timeRemaining, setTimeRemaining] = useState({
@@ -45,7 +45,7 @@ const AnalyticsSticky = ({ togglePopup }) => {
             </div>
           </div>
 
-          <div className="flex md:hidden flex-col gap-0">
+          {/* <div className="flex md:hidden flex-col gap-0">
             <div className="text-[12px] text-[#969696]">
               {timeRemaining.isPast ? "STARTED ON" : "STARTS IN"}
             </div>
@@ -54,11 +54,36 @@ const AnalyticsSticky = ({ togglePopup }) => {
                 ? "Thursday, Dec 5, 2024"
                 : `${timeRemaining.days}d: ${timeRemaining.hours}h: ${timeRemaining.minutes}m`}
             </div>
+          </div> */}
+
+          <div className="flex justify-between w-full md:hidden items-center gap-6">
+            <div className="flex flex-col items-end">
+              <div className="hidden md:flex text-[20px] text-[#FFA000] font-bold line-through">
+                1999
+              </div>
+
+              <div>
+                <span className="font-bold">FREE</span> for first{" "}
+                <span className="font-bold">50</span> seats only
+              </div>
+            </div>
+
+            <div className="flex items-center">
+              <button
+                onClick={togglePopup}
+                disabled={timeRemaining.isPast}
+                className={`shimmer bg-[#FFA000] text-white py-2 px-4 2xl:px-8 rounded-lg font-semibold ${
+                  timeRemaining.isPast ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                Join Waitlist Now
+              </button>
+            </div>
           </div>
 
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex md:flex-col items-end">
-              <div className="text-[20px] text-[#FFA000] font-bold line-through">
+          <div className="hidden md:flex justify-between items-center gap-6">
+            <div className="flex flex-col items-end">
+              <div className="hidden md:flex text-[20px] text-[#FFA000] font-bold line-through">
                 1999
               </div>
 

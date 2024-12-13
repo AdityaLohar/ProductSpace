@@ -1,21 +1,10 @@
 import arrow from "../assets/right-arrow.svg";
 import certi from "../assets/certi.png";
 import { useState } from "react";
-// import GenAiDownloadCurriculumForm from "./GenAiDownloadCurriculumForm";
 
-const AnalyticsCertificate = () => {
+const AnalyticsCertificate = ({ togglePopup }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-
-  const toggleModal = () => {
-    if (!isOpen) {
-      setIsOpen(true);
-      setTimeout(() => setIsVisible(true), 10);
-    } else {
-      setIsVisible(false);
-      setTimeout(() => setIsOpen(false), 300);
-    }
-  };
 
   return (
     <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-xl px-4 md:px-10 xl:px-20 py-8 lg:py-12 flex flex-col lg:flex-row gap-8 items-center font-inter text-start text-[#110c26]">
@@ -30,10 +19,10 @@ const AnalyticsCertificate = () => {
 
         <div className="w-full md:w-[228px] flex justify-center bg-[#24304c] text-white gap-2 rounded-lg">
           <button
-            onClick={toggleModal}
+            onClick={togglePopup}
             className="flex flex items-center gap-2 p-2 py-4"
           >
-            <p>Download Curriculum</p>
+            <p>Join Waitlist Now</p>
             <img src={arrow} alt="" />
           </button>
         </div>
@@ -42,16 +31,6 @@ const AnalyticsCertificate = () => {
       <div>
         <img src={certi} alt="" />
       </div>
-
-      {/* <div className="relative">
-        <GenAiDownloadCurriculumForm
-          setIsOpen={setIsOpen}
-          isVisible={isVisible}
-          setIsVisible={setIsVisible}
-          isOpen={isOpen}
-          toggleModal={toggleModal}
-        />
-      </div> */}
     </div>
   );
 };
