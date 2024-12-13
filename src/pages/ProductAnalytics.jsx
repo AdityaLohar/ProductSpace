@@ -133,7 +133,7 @@ const ProgressBarWithDots = () => {
 
       {/* Progress Bar and Dots */}
       <div
-        className="grid"
+        className="hidden md:grid"
         style={{
           position: "relative",
           marginTop: "20px",
@@ -401,7 +401,7 @@ const ProductAnalytics = () => {
               Unlock premium resources like
             </div>
             <div className="font-semibold flex flex-col gap-3 lg:gap-5">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex items-start gap-2 lg:items-center">
                   <img
                     src={icon1}

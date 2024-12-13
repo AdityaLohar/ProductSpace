@@ -63,7 +63,9 @@ function App() {
   }, [location]);
 
   const isHomePage =
-    location.pathname === "/" || location.pathname === "/pm-fellowship" || location.pathname === '/product-analytics';
+    location.pathname === "/" ||
+    location.pathname === "/pm-fellowship" ||
+    location.pathname === "/pm-workshop";
 
   return (
     <RecoilRoot>
@@ -78,7 +80,7 @@ function App() {
           <Route path="/ai-for-pm" element={<Event1 />} />
           <Route path="/product-meetups-offline" element={<OfflineEvent />} />
           <Route path="/gen-ai-for-pm" element={<GenAi />} />
-          <Route path="/product-analytics" element={<ProductAnalytics />} />
+          <Route path="/pm-workshop" element={<ProductAnalytics />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />

@@ -98,7 +98,9 @@ const Navbar = () => {
       {showTopBar && (
         <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
           <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
-            <div className="text-black">NEXT PM FELLOWSHIP COHORT STARTS: 12th January, 2025</div>
+            <div className="text-black">
+              NEXT PM FELLOWSHIP COHORT STARTS: 12th January, 2025
+            </div>
             <Link to={"/pm-fellowship"} className="flex items-center">
               <button className="bg-[#130D00] px-2 py-1 rounded-md">
                 {daysToGo} DAYS TO GO
@@ -171,8 +173,18 @@ const Navbar = () => {
                 Events
               </a>
               <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
-                <a href="/product-analytics" className="px-4 py-2 hover:bg-gray-100 rounded-md">Product Analytics</a>
-                <a href="/product-meetups-offline" className="px-4 py-2 hover:bg-gray-100 rounded-md">Product Meet-ups (Offline)</a>
+                <a
+                  href="/pm-workshop"
+                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                >
+                  Product Analytics
+                </a>
+                <a
+                  href="/product-meetups-offline"
+                  className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                >
+                  Product Meet-ups (Offline)
+                </a>
                 <a
                   href="/ai-for-pm"
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
@@ -233,10 +245,16 @@ const Navbar = () => {
           </a>
           {isDropdownOpen && (
             <div className="flex flex-col bg-white shadow-lg space-y-0 rounded-md p-0 mt-1">
-              <a href="/product-analytics" className="px-4 py-2 hover:bg-gray-100 rounded-md">
+              <a
+                href="/pm-workshop"
+                className="px-4 py-2 hover:bg-gray-100 rounded-md"
+              >
                 Product Analytics
               </a>
-              <a href="/product-meetups-offline" className="px-4 py-2 hover:bg-gray-100 rounded-md">
+              <a
+                href="/product-meetups-offline"
+                className="px-4 py-2 hover:bg-gray-100 rounded-md"
+              >
                 Product Meet-ups (Offline)
               </a>
               <a
