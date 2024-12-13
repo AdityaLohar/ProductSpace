@@ -133,10 +133,10 @@ const ProgressBarWithDots = () => {
 
       {/* Progress Bar and Dots */}
       <div
+        className="hidden md:grid"
         style={{
           position: "relative",
           marginTop: "20px",
-          display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           alignItems: "center",
           width: "100%",
@@ -179,6 +179,7 @@ const ProgressBarWithDots = () => {
           />
         ))}
       </div>
+
       {/* Step Content */}
       <div
         className="grid grid-cols-1 md:grid-cols-4 space-y-3 md:space-y-0 md:space-x-3"
@@ -195,6 +196,54 @@ const ProgressBarWithDots = () => {
           >
             {step}
           </div>
+        ))}
+      </div>
+
+      <div
+        className="grid md:hidden"
+        style={{
+          position: "relative",
+          marginTop: "20px",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        {/* Progress Bar */}
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "calc(12.5% - 4px)", // Align with the first dot
+            width: "calc(75% + 4px)", // Extend between the first and last dots
+            height: "2px",
+            backgroundColor: "#d3d3d3",
+            zIndex: 0,
+          }}
+        >
+          <div
+            style={{
+              height: "100%",
+              width: `${(currentStep / (steps.length - 1)) * 100}%`,
+              backgroundColor: "#00C1FD",
+              transition: "width 0.5s ease-in-out",
+            }}
+          />
+        </div>
+
+        {/* Dots */}
+        {steps.map((_, index) => (
+          <div
+            key={index}
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+              backgroundColor: index <= currentStep ? "#00C1FD" : "#d3d3d3",
+              margin: "0 auto", // Centers the dot within its grid cell
+              zIndex: 1,
+            }}
+          />
         ))}
       </div>
     </div>
