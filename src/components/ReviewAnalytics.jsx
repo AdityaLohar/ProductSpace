@@ -132,7 +132,7 @@ const ReviewAnalytics = () => {
   return (
     <div className="flex flex-col pt-3 lg:pt-0 rounded-lg">
       <div className="py-5 lg:py-12">
-        <div className="text-[20px] lg:text-[28px] font-semibold">
+        <div className="text-[20px] lg:text-[28px] font-bold">
           Reviews from previous attendees
         </div>
 

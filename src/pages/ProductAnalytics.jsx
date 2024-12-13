@@ -127,13 +127,13 @@ const ProgressBarWithDots = () => {
 
   return (
     <div className="">
-      <div className="text-[20px] lg:text-[28px] font-semibold text-center lg:text-start text-[#24304C]">
+      <div className="text-[20px] lg:text-[28px] font-bold text-center lg:text-start text-[#24304C]">
         Why Attend?
       </div>
 
       {/* Progress Bar and Dots */}
       <div
-        className="hidden md:grid"
+        className="grid"
         style={{
           position: "relative",
           marginTop: "20px",
@@ -196,54 +196,6 @@ const ProgressBarWithDots = () => {
           >
             {step}
           </div>
-        ))}
-      </div>
-
-      <div
-        className="grid md:hidden"
-        style={{
-          position: "relative",
-          marginTop: "20px",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
-        {/* Progress Bar */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "calc(12.5% - 4px)", // Align with the first dot
-            width: "calc(75% + 4px)", // Extend between the first and last dots
-            height: "2px",
-            backgroundColor: "#d3d3d3",
-            zIndex: 0,
-          }}
-        >
-          <div
-            style={{
-              height: "100%",
-              width: `${(currentStep / (steps.length - 1)) * 100}%`,
-              backgroundColor: "#00C1FD",
-              transition: "width 0.5s ease-in-out",
-            }}
-          />
-        </div>
-
-        {/* Dots */}
-        {steps.map((_, index) => (
-          <div
-            key={index}
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-              backgroundColor: index <= currentStep ? "#00C1FD" : "#d3d3d3",
-              margin: "0 auto", // Centers the dot within its grid cell
-              zIndex: 1,
-            }}
-          />
         ))}
       </div>
     </div>
@@ -445,7 +397,7 @@ const ProductAnalytics = () => {
 
           {/* Premium Resources */}
           <div className="flex flex-col gap-4 lg:gap-5 text-[16px] lg:text-[20px]">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
+            <div className="text-[20px] lg:text-[28px] font-bold">
               Unlock premium resources like
             </div>
             <div className="font-semibold flex flex-col gap-3 lg:gap-5">
@@ -526,7 +478,7 @@ const ProductAnalytics = () => {
 
           {/* Mentors */}
           <div className="flex flex-col gap-4">
-            <div className="text-[20px] lg:text-[28px] font-semibold text-center">
+            <div className="text-[20px] lg:text-[28px] font-bold text-center">
               Meet the Experts Leading Your Analytics Journey
             </div>
             <div className="flex flex-col items-center md:flex-row md:justify-center gap-3 text-[12px] lg:text-[18px] lg:gap-8">
@@ -585,7 +537,7 @@ const ProductAnalytics = () => {
 
           {/* Share options */}
           <div className="flex flex-col gap-2">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
+            <div className="text-[20px] lg:text-[28px] font-bold">
               Share this event with your network!
             </div>
             <div className="flex gap-0 items-start">
@@ -611,7 +563,7 @@ const ProductAnalytics = () => {
           {/* Google Analytics, VWO. */}
           {/* Tools Covered */}
           <div className="flex flex-col gap-2">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
+            <div className="text-[20px] lg:text-[28px] font-bold">
               Tools being covered
             </div>
             <div className="flex flex-wrap gap-6 lg:gap-10 items-center">
@@ -654,7 +606,12 @@ const ProductAnalytics = () => {
         </div>
       )}
 
-      {showBottomBar && <AnalyticsSticky togglePopup={togglePopup} />}
+      {showBottomBar && (
+        <AnalyticsSticky
+          togglePopup={togglePopup}
+          toggleSharePopup={toggleSharePopup}
+        />
+      )}
 
       {/* Popup for sharing options */}
       {isShareOpen && (

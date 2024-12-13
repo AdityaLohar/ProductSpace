@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import shareIcon from "../assets/share.svg";
 
 const endDate = "2024-12-21T23:59:59";
 
-const AnalyticsSticky = ({ togglePopup }) => {
+const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
     hours: 0,
@@ -45,17 +46,6 @@ const AnalyticsSticky = ({ togglePopup }) => {
             </div>
           </div>
 
-          {/* <div className="flex md:hidden flex-col gap-0">
-            <div className="text-[12px] text-[#969696]">
-              {timeRemaining.isPast ? "STARTED ON" : "STARTS IN"}
-            </div>
-            <div className="text-[16px] text-[#120D26] font-semibold">
-              {timeRemaining.isPast
-                ? "Thursday, Dec 5, 2024"
-                : `${timeRemaining.days}d: ${timeRemaining.hours}h: ${timeRemaining.minutes}m`}
-            </div>
-          </div> */}
-
           <div className="flex justify-between w-full md:hidden items-center gap-6">
             <div className="flex flex-col items-start md:items-end">
               <div className="flex text-[18px] md:text-[20px] text-[#FFA000] font-bold line-through">
@@ -92,6 +82,13 @@ const AnalyticsSticky = ({ togglePopup }) => {
                 <span className="font-bold">50</span> seats only
               </div>
             </div>
+
+            <button
+                onClick={toggleSharePopup}
+              className="bg-white border border-[#FFA000] p-2 md:p-3 shadow-lg rounded-xl"
+            >
+              <img src={shareIcon} alt="Share Icon" className="" />
+            </button>
 
             <div className="flex items-center">
               <button
