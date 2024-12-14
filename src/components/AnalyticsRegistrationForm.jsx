@@ -71,8 +71,9 @@ const AnalyticsRegistrationForm = ({ togglePopup, setShowSuccess }) => {
   const handleSubmit = async () => {
     if (
       formData.name === "" ||
-      !formData.phoneNumber === "" ||
-      formData.email === ""
+      formData.phoneNumber === "" ||
+      formData.email === "" ||
+      formData.companyCollege === ""
     ) {
       setNotification({
         type: "error",
@@ -145,7 +146,7 @@ const AnalyticsRegistrationForm = ({ togglePopup, setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Email
+              Email*
             </label>
             <input
               type="text"
@@ -159,7 +160,7 @@ const AnalyticsRegistrationForm = ({ togglePopup, setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Phone Number
+              Phone Number*
             </label>
             <input
               type="text"
@@ -173,7 +174,7 @@ const AnalyticsRegistrationForm = ({ togglePopup, setShowSuccess }) => {
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Company/College
+              Company/College*
             </label>
             <input
               type="text"
