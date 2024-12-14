@@ -15,11 +15,11 @@ import greenTick from "../assets/tick-green.svg";
 import pmAnalyticsBanner from "../assets/pmAnalyticsBanner.svg";
 import eventsBg1 from "../assets/events-bg.png";
 import eventsBg2 from "../assets/events-bg.svg";
+import judge1 from "../assets/peeyush.jpeg";
 import judge2 from "../assets/pamit.svg";
 import judge3 from "../assets/arun.svg";
 import liveSticker from "../assets/live-sticker.svg";
-import submissionImg1 from "../assets/submission1.svg";
-import submissionImg2 from "../assets/submission2.svg";
+
 import AnalyticsRegistrationForm from "../components/AnalyticsRegistrationForm";
 import ReviewAnalytics from "../components/ReviewAnalytics";
 import referIcon from "../assets/refer-and-earn.svg";
@@ -43,6 +43,7 @@ import linkedin from "../assets/linkedin.svg";
 import slack from "../assets/slack.svg";
 import twitter from "../assets/twitter.svg";
 
+import moengage from "../assets/moengage-logo.png";
 import microsoft from "../assets/microsoft.svg";
 import magicbricks from "../assets/magicbricks-logo.png";
 import GenAiCurriculum from "../components/GenAiCurriculum";
@@ -501,6 +502,27 @@ const ProductAnalytics = () => {
                     </p>
                     <p className="text-gray-300 text-xs md:text-sm">
                       Sr. Product Manager, Microsoft
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/peeyush-vardhan/"
+                target="_blank"
+                className="relative flex flex-col items-center text-center font-semibold w-fit"
+              >
+                <div className="relative">
+                  <img
+                    src={judge1}
+                    alt=""
+                    className="h-64 md:h-80 rounded-xl object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
+                  <div className="absolute bottom-3 left-3 text-white text-start">
+                    <img src={moengage} alt="" className="bg-white p-0 w-36" />
+                    <p className="font-bold text-sm md:text-lg">Peeyush Vardhan</p>
+                    <p className="text-gray-300 text-xs md:text-sm">
+                      Sr. Product Manager, MoEngage
                     </p>
                   </div>
                 </div>
