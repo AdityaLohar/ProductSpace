@@ -44,6 +44,7 @@ import slack from "../assets/slack.svg";
 import twitter from "../assets/twitter.svg";
 
 import moengage from "../assets/moengage-logo.png";
+import reachifyMe from "../assets/reachify-me-logo.svg";
 import microsoft from "../assets/microsoft.svg";
 import magicbricks from "../assets/magicbricks-logo.png";
 import GenAiCurriculum from "../components/GenAiCurriculum";
@@ -484,6 +485,27 @@ const ProductAnalytics = () => {
             </div>
             <div className="flex flex-col items-center md:flex-row md:justify-center gap-3 text-[12px] lg:text-[18px] lg:gap-8">
               <a
+                href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in"
+                target="_blank"
+                className="relative flex flex-col items-center text-center font-semibold w-fit"
+              >
+                <div className="relative">
+                  <img
+                    src={judge2}
+                    alt=""
+                    className="h-64 md:h-80 rounded-xl object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
+                  <div className="absolute bottom-3 left-3 text-white text-start">
+                    <img src={reachifyMe} alt="" className="bg-white p-2 w-36" />
+                    <p className="font-bold text-sm md:text-lg">Pamit Anand</p>
+                    <p className="text-gray-300 text-xs md:text-sm">
+                      Angel investor in ReachifyMe, Milkbasket, RecipeCup
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a
                 href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in"
                 target="_blank"
                 className="relative flex flex-col items-center text-center font-semibold w-fit"
@@ -520,30 +542,11 @@ const ProductAnalytics = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
                   <div className="absolute bottom-3 left-3 text-white text-start">
                     <img src={moengage} alt="" className="bg-white p-0 w-36" />
-                    <p className="font-bold text-sm md:text-lg">Peeyush Vardhan</p>
+                    <p className="font-bold text-sm md:text-lg">
+                      Peeyush Vardhan
+                    </p>
                     <p className="text-gray-300 text-xs md:text-sm">
                       Sr. Product Manager, MoEngage
-                    </p>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in"
-                target="_blank"
-                className="relative flex flex-col items-center text-center font-semibold w-fit"
-              >
-                <div className="relative">
-                  <img
-                    src={judge2}
-                    alt=""
-                    className="h-64 md:h-80 rounded-xl object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-start">
-                    <img src={magicbricks} alt="" className="bg-white p-2" />
-                    <p className="font-bold text-sm md:text-lg">Pamit Anand</p>
-                    <p className="text-gray-300 text-xs md:text-sm">
-                      Angel investor in ReachifyMe, Milkbasket, RecipeCup
                     </p>
                   </div>
                 </div>
