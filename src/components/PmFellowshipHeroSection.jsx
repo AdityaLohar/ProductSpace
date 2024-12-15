@@ -16,7 +16,6 @@ import { useEffect, useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 import DownloadCurriculumForm from "./DownloadCurriculumForm";
 
-
 const PmFellowshipHeroSection = () => {
   const [bgImages, setBgImages] = useState([disco1, disco2, disco3]);
   const [opacity, setOpacity] = useState([1, 0, 0]);
@@ -66,9 +65,7 @@ const PmFellowshipHeroSection = () => {
   }, []);
 
   return (
-    <div
-      className="bg-transparent md:px-10 xl:px-28 md:py-8 lg:pt-20 lg:pb-20 font-hind"
-    >
+    <div className="bg-transparent md:px-10 xl:px-28 md:py-8 lg:pt-20 lg:pb-20 font-hind">
       <div className="bg-white relative flex flex-col lg:flex-row py-4 lg:py-8 items-center justify-between gap-6 md:gap-8 lg:gap-12 rounded-[24px] md:rounded-[32px] px-4 lg:px-8">
         <div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-[70%]">
           <div className="flex flex-col gap-4 lg:border-2 border-[#00B5CE] px-2 py-0 lg:p-8 rounded-3xl">
@@ -78,7 +75,9 @@ const PmFellowshipHeroSection = () => {
                   Product Management <br /> Fellowship Program
                 </h1>
               </div>
-              <div className="hidden lg:flex text-[18px]">Excel in Your Product Career</div>
+              <div className="hidden lg:flex text-[18px]">
+                Excel in Your Product Career
+              </div>
             </div>
 
             <div className="flex justify-around lg:justify-start gap-10 text-[16px]">
@@ -109,18 +108,20 @@ const PmFellowshipHeroSection = () => {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <span className="font-bold">25%</span> <br /> OFF
+            <span className="font-bold">20%</span> <br /> OFF
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px] hidden sm:block">
               👉🏻 Grab Early Bird Offer, Valid for first 8 seats
             </p>
             <p className="text-[14px] block sm:hidden">
-              👉🏻 Grab Early Bird Offer,<br /><span className="ml-5">Valid for first 8 seats</span>
+              👉🏻 Grab Early Bird Offer,
+              <br />
+              <span className="ml-5">Valid for first 8 seats</span>
             </p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
-                ₹22,499
+                ₹23,999
               </p>
               <p className="text-[18px] line-through pb-1">₹29,999</p>
             </div>
@@ -136,14 +137,11 @@ const PmFellowshipHeroSection = () => {
                 />
               </div>
               <div>
-                <p>Offer valid till 13th Dec 2024</p>
+                <p>Offer valid till 25th Dec 2024</p>
               </div>
             </div>
 
-            <p className="font-bold">
-              {" "}
-              ⏳Price rises to 40,000 in Feb 2025
-            </p>
+            <p className="font-bold"> ⏳Price rises to 40,000 in Feb 2025</p>
 
             <div className="font-semibold text-[14px]">Cohort seats: 60</div>
           </div>
@@ -170,7 +168,8 @@ const PmFellowshipHeroSection = () => {
           <div className="flex items-center gap-1 text-[14px] lg:text-[16px] mt-6">
             <img src={clock} alt="" className="pb-1" />
             <div>
-              Hurry! <span className="font-bold">60 people</span> enrolled in Nov Batch
+              Hurry! <span className="font-bold">60 people</span> enrolled in
+              Nov Batch
             </div>
           </div>
         </div>
@@ -382,7 +381,6 @@ const PmFellowshipHeroSection = () => {
             </div>
             <div className="text-gray-600">Notion</div>
           </div>
-          
         </div>
       </div>
     </div>
