@@ -59,7 +59,10 @@ const Navbar = () => {
 
     const calculateDaysLeft = () => {
       // Set the cohort start date
-      const cohortDate = new Date("2025-01-12"); // Adjust the year if needed
+      let cohortDate = new Date("2025-01-12"); // Adjust the year if needed
+      if (location.pathname === "/gen-ai-for-pm") {
+        cohortDate = new Date("2025-02-01");
+      }
       const today = new Date();
 
       // Calculate the difference in time (in milliseconds)
@@ -99,9 +102,18 @@ const Navbar = () => {
         <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
           <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
             <div className="text-black">
-              NEXT PM FELLOWSHIP COHORT STARTS: 12th January, 2025
+              {location.pathname === "/gen-ai-for-pm"
+                ? "NEXT GENAI FOR PM COURSE STARTS: 1st Feb 2025"
+                : "NEXT PM FELLOWSHIP COHORT STARTS: 12th January, 2025"}
             </div>
-            <Link to={"/pm-fellowship"} className="flex items-center">
+            <Link
+              to={
+                location.pathname === "/gen-ai-for-pm"
+                  ? "/gen-ai-for-pm"
+                  : "/pm-fellowship"
+              }
+              className="flex items-center"
+            >
               <button className="bg-[#130D00] px-2 py-1 rounded-md">
                 {daysToGo} DAYS TO GO
               </button>
