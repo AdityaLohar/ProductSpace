@@ -94,12 +94,12 @@ const GenAiHero = () => {
               </div>
             </div>
 
-            <div className="flex flex-col xl:flex-row gap-3 w-full cursor-pointer lg:w-4/5 text-center items-center">
+            <div className="flex flex-col xl:flex-row gap-3 w-full cursor-pointer lg:w-full text-center items-center">
               <button
                 onClick={toggleModalEnquire}
-                className="flex w-4/5 gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#ffa000] text-white items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#ffa000] text-white items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
               >
-                <p>Enroll Now</p>
+                <p>Join Waitlist Now</p>
                 <div>
                   <img src={arrow} alt="" />
                 </div>
@@ -147,8 +147,7 @@ const GenAiHero = () => {
               </div>
 
               <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
-                <span className="text-[#fec923]">⚠️</span> Offer valid till 12th
-                Dec 24
+                <span className="text-[#fec923]">⚠️</span> Admissions to be opened soon
               </div>
             </div>
 

@@ -1,13 +1,18 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
-import axios from 'axios';
+import axios from "axios";
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_GEN_AI_ENROLLMENT_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
-
-const GenAiEnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
+const GenAiEnrollmentForm = ({
+  isVisible,
+  setIsVisible,
+  setIsOpen,
+  isOpen,
+  toggleModal,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -22,28 +27,28 @@ const GenAiEnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggl
         {
           fields: {
             Name: name,
-            'Mobile Number': phoneNumber, // Make sure this matches exactly
-            'Email Id': email,           // Make sure this matches exactly
-            "Timestamp": currentTimestamp,
+            "Mobile Number": phoneNumber, // Make sure this matches exactly
+            "Email Id": email, // Make sure this matches exactly
+            Timestamp: currentTimestamp,
           },
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`, // Use the personal access token here
+            "Content-Type": "application/json",
           },
         }
       );
-      console.log('Data saved successfully:', response.data);
+      console.log("Data saved successfully:", response.data);
 
       setNotification({
         type: "success",
         title: "Details Submitted!",
-        description: "Our Expert Consultant will Call you back.",
+        description:
+          "You have been waitlisted, our admission counsellor will contact you soon",
       });
       setShowNotification(true);
-    } 
-    catch (error) {
+    } catch (error) {
       setNotification({
         type: "error",
         title: "Error",
@@ -53,10 +58,10 @@ const GenAiEnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggl
       setShowNotification(true);
       setTimeout(() => {
         setShowNotification(false);
-      }, 5000);
-      
-      console.error('Error saving data:', error);
-      
+      }, 6000);
+
+      // console.error("Error saving data:", error);
+
       return;
     }
   };
@@ -76,13 +81,13 @@ const GenAiEnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggl
       }, 5000);
       return;
     }
-    
+
     setLoading(true);
     const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
 
-    window.location.href = "https://rzp.io/rzp/join-genaicourse";
+    // window.location.href = "https://rzp.io/rzp/join-genaicourse";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -119,10 +124,11 @@ const GenAiEnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggl
               {/* Form */}
               <div>
                 <h2 className="text-[25px] md:text-[34px] font-extrabold mb-4 font-inter text-center">
-                Enroll in Gen AI for PM Program
+                  Enroll in Gen AI for PM Program
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
-                Excel in your Product Management Career with practical AI skills and 1:1 mentorship from industry experts.
+                  Excel in your Product Management Career with practical AI
+                  skills and 1:1 mentorship from industry experts.
                 </h3>
 
                 <div className="mb-4">
@@ -160,7 +166,7 @@ const GenAiEnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggl
                     onClick={handleSubmit}
                     className="text-[16px] lg:text-[20px] w-full bg-[#FFA000] text-black font-semibold px-2 md:px-6 py-3 rounded-lg transform hover:bg-[#FFAD1D]"
                   >
-                    {loading ? "Loading..." : "Secure your spot now"}
+                    {loading ? "Loading..." : "Join Waitlist Now"}
                   </button>
                   <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
                     <p>Get 1-1 mentorship via our Gen AI cohort</p>
@@ -196,7 +202,9 @@ const GenAiEnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggl
 
                   {/* Notification Content */}
                   <div className="flex flex-col">
-                    <span className="font-bold text-lg">{notification.title}</span>
+                    <span className="font-bold text-lg">
+                      {notification.title}
+                    </span>
                     <span className="text-sm">{notification.description}</span>
                   </div>
 

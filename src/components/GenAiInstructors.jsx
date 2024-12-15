@@ -88,7 +88,7 @@ const GenAiInstructors = () => {
           onClick={toggleModalEnquire}
           className="bg-[#FEB70F] text-white flex items-center gap-2 p-3 rounded-xl px-4 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
         >
-          <p>Enroll to learn from the best</p>
+          <p>Join Waitlist to learn from the best</p>
           <img src={arrow} alt="" />
         </button>
       </div>
