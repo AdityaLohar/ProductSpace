@@ -13,6 +13,7 @@ const NewsLetter = () => {
   const [email, setEmail] = useState("");
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_NEWSLETTER_URL;
   const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
@@ -23,27 +24,29 @@ const NewsLetter = () => {
         airtableBaseUrl,
         {
           fields: {
-            'Email Id': email,           // Make sure this matches exactly
-            "Timestamp": currentTimestamp,
+            "Email Id": email, // Make sure this matches exactly
+            Timestamp: currentTimestamp,
           },
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`, // Use the personal access token here
+            "Content-Type": "application/json",
           },
         }
       );
-      console.log('Data saved successfully:', response.data);
+      
+      setLoading(false);
+      console.log("Data saved successfully:", response.data);
 
       setNotification({
         type: "success",
         title: "Subscription Successful",
-        description: "Thank you for subscribing to our newsletter! Get ready for the latest insights and updates delivered right to your inbox. 🚀",
+        description:
+          "Thank you for subscribing to our newsletter! Get ready for the latest insights and updates delivered right to your inbox. 🚀",
       });
       setShowNotification(true);
-    } 
-    catch (error) {
+    } catch (error) {
       setNotification({
         type: "error",
         title: "Error",
@@ -54,15 +57,16 @@ const NewsLetter = () => {
       setTimeout(() => {
         setShowNotification(false);
       }, 5000);
-      
-      console.error('Error saving data:', error);
-      
+
+      console.error("Error saving data:", error);
+
       return;
     }
   };
 
   const handleSubmit = async () => {
     const result = schema.safeParse({ email });
+    setLoading(true);
 
     if (!result.success) {
       setNotification({
@@ -71,8 +75,7 @@ const NewsLetter = () => {
         description: "Invalid email address. Please try again.",
       });
       setShowNotification(true);
-    } 
-    else {
+    } else {
       const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
       const res = await saveUserData(email, currentTimestamp);
     }
@@ -117,7 +120,7 @@ const NewsLetter = () => {
               className="bg-black text-white py-3 px-3 lg:px-5 rounded-lg font-medium text-[16px] lg:text-base"
               onClick={handleSubmit}
             >
-              Subscribe
+              {loading ? "Loading..." : "Subscribe"}
             </button>
           </div>
         </div>

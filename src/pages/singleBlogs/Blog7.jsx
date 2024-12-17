@@ -1,7 +1,12 @@
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "../../components/NewsLetter";
 
 const Blog7 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -10,7 +15,10 @@ const Blog7 = () => {
           name="description"
           content="Explore the ultimate no-code guide for product managers. Learn how to leverage no-code tools to build, test, and launch products faster without needing a technical background."
         />
-        <link rel="canonical" href="https://theproductspace.in/blogs/the-ultimate-no-code-guide-for-product-managers" />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/the-ultimate-no-code-guide-for-product-managers"
+        />
       </Helmet>
 
       <div>

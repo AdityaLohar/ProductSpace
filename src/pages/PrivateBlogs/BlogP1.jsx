@@ -1,10 +1,16 @@
 import { Helmet } from "react-helmet-async";
 
 const BlogP1 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>
-        <title>Large Language Models (LLMs): A guide for Product&nbsp;Managers</title>
+        <title>
+          Large Language Models (LLMs): A guide for Product&nbsp;Managers
+        </title>
         <link
           rel="canonical"
           href="https://theproductspace.in/blogs/large-language-models-llms-a-guide-for-product-managers"

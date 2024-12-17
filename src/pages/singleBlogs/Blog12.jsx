@@ -1,7 +1,12 @@
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "../../components/NewsLetter";
 
 const Blog12 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>

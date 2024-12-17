@@ -1,22 +1,26 @@
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import NewsLetter from "../../components/NewsLetter";
 
 const Blog25 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
+      <Helmet>
+        <title>Understanding First Principles of Product&nbsp;Management</title>
+        <meta
+          name="description"
+          content="Understand the fundamentals of product analytics as a product manager. Learn how to track key metrics, analyze user behavior, and make data-driven decisions to improve your product."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/product-analytics-fundamentals-for-product-managers"
+        />
+      </Helmet>
       <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
-        <Helmet>
-          <title>
-          Understanding First Principles of Product&nbsp;Management
-          </title>
-          <meta
-            name="description"
-            content="Learn the first principles of product management to solve complex problems, innovate effectively, and make better decisions. A must-read guide for aspiring and experienced PMs."
-          />
-          <link
-            rel="canonical"
-            href="https://theproductspace.in/blogs/understanding-first-principles-of-product-management"
-          />
-        </Helmet>
         <div className="max-w-4xl w-full flex flex-col gap-8">
           {" "}
           <div className="flex flex-col gap-3">
@@ -758,6 +762,8 @@ const Blog25 = () => {
           </div>
         </div>
       </div>
+
+      <NewsLetter />
     </div>
   );
 };

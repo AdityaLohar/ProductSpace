@@ -1,7 +1,12 @@
-import NewsLetter from "../../components/NewsLetter";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import NewsLetter from "../../components/NewsLetter";
 
 const Blog4 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -10,7 +15,10 @@ const Blog4 = () => {
           name="description"
           content="Learn how to define and leverage a North Star Metric as a product manager. This guide helps you align your team’s focus, drive growth, and measure long-term success."
         />
-        <link rel="canonical" href="https://theproductspace.in/blogs/north-star-metric-a-guide-for-product-managers" />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/north-star-metric-a-guide-for-product-managers"
+        />
       </Helmet>
 
       <div>

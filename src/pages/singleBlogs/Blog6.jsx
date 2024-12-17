@@ -1,7 +1,12 @@
-import NewsLetter from "../../components/NewsLetter";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import NewsLetter from "../../components/NewsLetter";
 
 const Blog6 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -12,7 +17,10 @@ const Blog6 = () => {
           name="description"
           content="Master competitor analysis frameworks every product manager should know. Learn how to analyze market trends, identify opportunities, and build better products with these proven strategies."
         />
-        <link rel="canonical" href="https://theproductspace.in/blogs/competitor-analysis-frameworks-to-master-for-product-managers" />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/competitor-analysis-frameworks-to-master-for-product-managers"
+        />
       </Helmet>
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">

@@ -1,7 +1,12 @@
-import NewsLetter from "../../components/NewsLetter";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import NewsLetter from "../../components/NewsLetter";
 
 const Blog5 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -10,7 +15,10 @@ const Blog5 = () => {
           name="description"
           content="Discover what lean product management is and how to apply it to streamline development, reduce waste, and deliver value faster. A practical guide for product managers."
         />
-        <link rel="canonical" href="https://theproductspace.in/blogs/what-is-lean-product-management-and-how-to-apply-it" />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/what-is-lean-product-management-and-how-to-apply-it"
+        />
       </Helmet>
 
       <div>

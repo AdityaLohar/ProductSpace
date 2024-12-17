@@ -1,6 +1,10 @@
 import { Helmet } from "react-helmet-async";
 
 const BlogP2 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>

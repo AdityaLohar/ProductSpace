@@ -1,7 +1,12 @@
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "../../components/NewsLetter";
 
 const Blog9 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -10,7 +15,10 @@ const Blog9 = () => {
           name="description"
           content="The 5 WHYs Framework is a tool used by most product managers to peel back the layers of a problem and get to its root cause."
         />
-        <link rel="canonical" href="https://theproductspace.in/blogs/5-whys-framework-for-product-managers" />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/5-whys-framework-for-product-managers"
+        />
       </Helmet>
 
       <div>

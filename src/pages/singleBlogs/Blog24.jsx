@@ -1,22 +1,28 @@
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import NewsLetter from "../../components/NewsLetter";
 
 const Blog24 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
+      <Helmet>
+        <title>
+          Case Study: Decoding Flipkart’s Big Billion Days&nbsp;Strategy
+        </title>
+        <meta
+          name="description"
+          content="Discover how the drone industry achieved product-market fit in India. This case study explores key strategies, challenges, and innovations driving growth in this emerging sector."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/how-drones-industry-found-product-market-fit-in-india-a-case-study"
+        />
+      </Helmet>
       <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
-        <Helmet>
-          <title>
-            Case Study: Decoding Flipkart’s Big Billion Days&nbsp;Strategy
-          </title>
-          <meta
-            name="description"
-            content="Discover how the drone industry achieved product-market fit in India. This case study explores key strategies, challenges, and innovations driving growth in this emerging sector."
-          />
-          <link
-            rel="canonical"
-            href="https://theproductspace.in/blogs/how-drones-industry-found-product-market-fit-in-india-a-case-study"
-          />
-        </Helmet>
         <div className="max-w-4xl w-full flex flex-col gap-8">
           {" "}
           <div className="flex flex-col gap-3">
@@ -813,6 +819,8 @@ const Blog24 = () => {
           </div>
         </div>
       </div>
+
+      <NewsLetter />
     </div>
   );
 };

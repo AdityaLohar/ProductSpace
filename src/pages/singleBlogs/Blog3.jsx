@@ -1,16 +1,23 @@
-import NewsLetter from "../../components/NewsLetter";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import NewsLetter from "../../components/NewsLetter";
 
 const Blog3 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>What are PRDs and how to create&nbsp;them?</title>
-        <meta 
-  name="description" 
-  content="Learn what Product Requirement Documents (PRDs) are and how to create them effectively. This guide provides a step-by-step process to write clear, actionable PRDs for successful product development." 
-/>
-<link rel="canonical" href="https://theproductspace.in/blogs/what-are-prds-and-how-to-create-them" />
+        <meta
+          name="description"
+          content="Learn what Product Requirement Documents (PRDs) are and how to create them effectively. This guide provides a step-by-step process to write clear, actionable PRDs for successful product development."
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/what-are-prds-and-how-to-create-them"
+        />
       </Helmet>
 
       <div>
