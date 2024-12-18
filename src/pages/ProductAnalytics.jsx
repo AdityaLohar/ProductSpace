@@ -528,29 +528,7 @@ const ProductAnalytics = () => {
                   </div>
                 </div>
               </a>
-              <a
-                href="https://www.linkedin.com/in/peeyush-vardhan/"
-                target="_blank"
-                className="relative flex flex-col items-center text-center font-semibold w-fit"
-              >
-                <div className="relative">
-                  <img
-                    src={judge1}
-                    alt=""
-                    className="h-64 md:h-80 rounded-xl object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
-                  <div className="absolute bottom-3 left-3 text-white text-start">
-                    <img src={moengage} alt="" className="bg-white p-0 w-36" />
-                    <p className="font-bold text-sm md:text-lg">
-                      Peeyush Vardhan
-                    </p>
-                    <p className="text-gray-300 text-xs md:text-sm">
-                      Sr. Product Manager, MoEngage
-                    </p>
-                  </div>
-                </div>
-              </a>
+              
             </div>
           </div>
 
