@@ -55,6 +55,7 @@ import ProductAnalytics from "./pages/ProductAnalytics";
 import Blog26 from "./pages/singleBlogs/Blog26";
 import Blog27 from "./pages/singleBlogs/Blog27";
 import Blog28 from "./pages/singleBlogs/Blog28";
+import DemoBlog from "./pages/singleBlogs/DemoBlog";
 
 function App() {
   const location = useLocation();
@@ -198,7 +199,8 @@ function App() {
           />
           <Route
             path="/blogs/product-analytics-fundamentals-for-product-managers"
-            element={<Blog28 />}
+            // element={<Blog28 />}
+            element={<DemoBlog />}
           />
           <Route
             path="/blogs/large-language-models-llms-a-guide-for-product-managers"
