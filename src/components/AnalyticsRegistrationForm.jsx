@@ -192,7 +192,7 @@ const AnalyticsRegistrationForm = ({ togglePopup, setShowSuccess }) => {
               className="flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white"
             >
               <p className="text-[18px] md:text-[20px] font-medium">
-                {loading ? "Loading..." : "Join Waitlist Now"}
+                {loading ? "Loading..." : "Register Now"}
               </p>
               <img src={arrowIcon} alt="icon" />
             </button>

@@ -22,7 +22,7 @@ const AnalyticsCertificate = ({ togglePopup }) => {
             onClick={togglePopup}
             className="flex flex items-center gap-2 p-2 py-4"
           >
-            <p>Join Waitlist Now</p>
+            <p>Register Now</p>
             <img src={arrow} alt="" />
           </button>
         </div>

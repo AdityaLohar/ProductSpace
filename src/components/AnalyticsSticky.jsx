@@ -66,7 +66,7 @@ const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
                   timeRemaining.isPast ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
-                Join Waitlist Now
+                Register Now
               </button>
             </div>
           </div>
@@ -84,7 +84,7 @@ const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
             </div>
 
             <button
-                onClick={toggleSharePopup}
+              onClick={toggleSharePopup}
               className="bg-white border border-[#FFA000] p-2 md:p-3 shadow-lg rounded-xl"
             >
               <img src={shareIcon} alt="Share Icon" className="" />
@@ -98,7 +98,7 @@ const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
                   timeRemaining.isPast ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
-                Join Waitlist Now
+                Register Now
               </button>
             </div>
           </div>

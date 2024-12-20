@@ -386,7 +386,7 @@ const ProductAnalytics = () => {
                 }`}
               >
                 <p className="text-[18px] lg:text-[20px] font-medium">
-                  Join Waitlist Now
+                  Register Now
                 </p>
                 <img src={arrowIcon} alt="icon" />
               </button>
@@ -497,7 +497,11 @@ const ProductAnalytics = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
                   <div className="absolute bottom-3 left-3 text-white text-start">
-                    <img src={reachifyMe} alt="" className="bg-white p-2 w-36" />
+                    <img
+                      src={reachifyMe}
+                      alt=""
+                      className="bg-white p-2 w-36"
+                    />
                     <p className="font-bold text-sm md:text-lg">Pamit Anand</p>
                     <p className="text-gray-300 text-xs md:text-sm">
                       Angel investor in ReachifyMe, Milkbasket, RecipeCup
@@ -528,7 +532,6 @@ const ProductAnalytics = () => {
                   </div>
                 </div>
               </a>
-              
             </div>
           </div>
 
