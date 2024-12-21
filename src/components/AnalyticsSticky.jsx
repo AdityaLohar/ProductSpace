@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import shareIcon from "../assets/share.svg";
 
-const endDate = "2024-12-21T23:59:59";
+const endDate = "2024-12-20T23:59:59";
 
 const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
   const [timeRemaining, setTimeRemaining] = useState({

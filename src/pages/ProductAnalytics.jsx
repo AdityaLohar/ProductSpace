@@ -54,7 +54,7 @@ import AnalyticsSticky from "../components/AnalyticsSticky";
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/BohDACWS79i7D42OO1iDT9";
-const eventDate = new Date("2024-12-21T23:59:59");
+const eventDate = new Date("2024-12-20T23:59:59");
 
 const EventInfo = ({ icon, title, desc }) => {
   return (
