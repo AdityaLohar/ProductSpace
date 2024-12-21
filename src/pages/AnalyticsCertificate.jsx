@@ -17,10 +17,11 @@ const AnalyticsCertificate = ({ togglePopup }) => {
           <p>Get a certificate upon successful completion of the program.</p>
         </div>
 
-        <div className="w-full md:w-[228px] flex justify-center bg-[#24304c] text-white gap-2 rounded-lg">
+        <div disabled className="">
           <button
             onClick={togglePopup}
-            className="flex flex items-center gap-2 p-2 py-4"
+            className="flex flex w-full md:w-[228px] flex justify-center bg-[#24304c] text-white gap-2 rounded-lg opacity-70 cursor-not-allowed items-center gap-2 p-2 py-4"
+            disabled
           >
             <p>Register Now</p>
             <img src={arrow} alt="" />
