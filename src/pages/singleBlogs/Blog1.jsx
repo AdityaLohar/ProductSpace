@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "../../components/NewsLetter";
+import CommentSection from "../../components/CommentSection";
 
 const Blog1 = () => {
   const [isCommentOpen, setIsCommentOpen] = useState(false);
@@ -48,6 +49,8 @@ const Blog1 = () => {
           href="https://theproductspace.in/blogs/how-technical-product-manager-needs-to-be"
         />
       </Helmet>
+
+      {/* Content */}
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
           <div className="max-w-4xl w-full flex flex-col gap-8">
@@ -561,58 +564,14 @@ const Blog1 = () => {
           </div>
         </div>
       </div>
-
       <NewsLetter />
 
       {/* Comment Section */}
-      <div
-        className={`fixed font-inter ${
-          topbar ? "top-24" : "top-[58px]"
-        } right-0 h-[calc(100vh-4rem)] bg-gray-100 shadow-lg z-50 overflow-hidden transition-transform duration-300 ${
-          isCommentOpen
-            ? "translate-x-0 w-[300px] md:w-[400px]"
-            : "translate-x-full w-[300px] md:w-[400px]"
-        }`}
-      >
-        {/* Comments Content */}
-        {isCommentOpen && (
-          <div className="flex flex-col gap-8 p-4">
-            <div className="flex flex-col gap-4">
-              <h2 className="text-xl font-semibold">Responses (32)</h2>
-
-              <div className="flex items-center gap-4 p-4 border rounded-xl">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy4sWWcwWT5nhSoklq10yQVTiuROLMUeZf6RrLy_q0xOxu-LxkyWzmtg8PnSYmLkIvQPM&usqp=CAU"
-                  alt="profile"
-                  className="h-10 w-10 rounded-full"
-                />
-                <input
-                  type="text"
-                  placeholder="Ask a question or start a post"
-                  className="w-full p-2 px-4 border rounded-full outline-none"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <p className="bg-white p-2 rounded shadow">
-                This is a great blog!
-              </p>
-              <p className="bg-white p-2 rounded shadow">Very informative.</p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Toggle Button */}
-      <button
-        onClick={toggleCommentSidebar}
-        className={`fixed ${
-          topbar ? "top-[104px]" : "top-[64px]"
-        } right-4 bg-blue-600 text-white rounded-full p-2 px-3 shadow-md z-50 focus:outline-none`}
-      >
-        💬
-      </button>
+      <CommentSection
+        isCommentOpen={isCommentOpen}
+        toggleCommentSidebar={toggleCommentSidebar}
+        topbar={topbar}
+      />
     </div>
   );
 };
