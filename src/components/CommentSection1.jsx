@@ -56,7 +56,7 @@ const getFormattedDate = (createdAt) => {
   return formattedDate;
 };
 
-const Reply = ({ parentId, username, createdAt, content, postReply }) => {
+const Reply = ({ username, createdAt, content, submitReplyToComment }) => {
   const [liked, setLiked] = useState(false);
   const [isReplyInputVisible, setReplyInputVisible] = useState(false);
 
@@ -69,7 +69,7 @@ const Reply = ({ parentId, username, createdAt, content, postReply }) => {
   };
 
   const handleSubmitReply = (reply) => {
-    postReply(parentId, reply);
+    submitReplyToComment(reply);
     setReplyInputVisible(false);
   };
 
@@ -91,7 +91,6 @@ const Reply = ({ parentId, username, createdAt, content, postReply }) => {
             <div className="text-start font-bold">{username}</div>
             <div className="text-end text-[12px] text-gray-400">
               {getFormattedDate(createdAt)}
-              {/* Dec 22, 2024 */}
             </div>
           </div>
 
@@ -164,9 +163,8 @@ const Comment = ({
   replies,
   likesCount,
   createdAt,
-  setComments,
-  comments,
-  postReply,
+  setCommentData,
+  commentData,
 }) => {
   const [liked, setLiked] = useState(false);
   const [isReplyInputVisible, setReplyInputVisible] = useState(false);
@@ -176,13 +174,24 @@ const Comment = ({
   };
 
   const toggleReply = () => {
-    console.log("clicked");
     setReplyInputVisible(!isReplyInputVisible);
   };
 
   const handleSubmitReply = (reply) => {
-    postReply(id, reply);
-    setReplyInputVisible(!isReplyInputVisible);
+    alert("submitted reply");
+    // const currentTime = new Date().toISOString();
+
+    // // Update the demo object with the new comment data
+    // const newReply = {
+    //   ...demoReply,
+    //   content: reply,
+    //   createdAt: currentTime,
+    //   updatedAt: currentTime,
+    //   id: replies.length + 5,
+    // };
+
+    // setCommentData(commentData);
+    // setReplyInputVisible(false);
   };
 
   return (
@@ -201,9 +210,7 @@ const Comment = ({
         {/* Actual Comment */}
         <div className="flex flex-col gap-2 bg-gray-200 w-60 md:w-[328px] p-4 rounded-lg">
           <div className="flex justify-between items-center">
-            <div className="text-start font-bold">
-              {username || "anonymous"}
-            </div>
+            <div className="text-start font-bold">{username}</div>
             <div className="text-end text-[12px] text-gray-400">
               {getFormattedDate(createdAt)}
             </div>
@@ -236,10 +243,21 @@ const Comment = ({
           </div>
         </div>
       </div>
-
-      <div className="ml-8 md:ml-12 flex flex-col gap-2">
+      
+      {/* To get replies, we will fetch all comments for a blogId or title, that time we will store replies for each comment */}
+      {/* Replies */}
+      {/* <div className="ml-8 md:ml-12 flex flex-col gap-2">
         {isReplyInputVisible && <ReplyInput onSubmit={handleSubmitReply} />}
-      </div>
+        {replies.map((reply, id) => (
+          <Reply
+            key={id}
+            username={reply.author.username}
+            createdAt={reply.createdAt}
+            content={reply.content}
+            submitReplyToComment={handleSubmitReply}
+          />
+        ))}
+      </div> */}
     </div>
   );
 };
@@ -251,221 +269,65 @@ const CommentSection = ({
   toggleCommentSidebar,
   topbar,
 }) => {
-  const [commentInput, setCommentInput] = useState("");
-  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
+  const [commentData, setCommentData] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
-  // const getCommentURL = `http://localhost:8081/v1/comment/search?blogId=${id}&isPaged=true&page=0&size=1&sort=ASC&matchingAny=true`;
-  const getCommentURL = `http://localhost:8081/v1/comment`;
+  const commentUrl = `http://localhost:8081/v1/comment/search?blogId=${id}&isPaged=true&page=0&size=1&sort=ASC&matchingAny=true`;
 
-  const fetchComments = async () => {
-    try {
-      // Assuming getCommentsURL is the API endpoint to fetch comments
-      const response = await fetch(getCommentURL);
-      const data = await response.json();
-      console.log(data);
-
-      const commentsData = data.objectList;
-
-      const mainComments = [];
-      const replies = [];
-
-      // Segregate main comments and replies
-      commentsData.forEach((comment) => {
-        if (comment.parentId) {
-          replies.push(comment); // It's a reply
-        } else {
-          mainComments.push({ ...comment, replies: [] }); // It's a main comment
-        }
-      });
-
-      // Now, associate replies with their parent comments
-      mainComments.forEach((mainComment) => {
-        mainComment.replies = replies.filter(
-          (reply) => reply.parentId === mainComment.id
-        );
-      });
-
-      // Update the totalComments state
-      setTotalComments(mainComments.length + replies.length);
-
-      // Set the processed comments in state
-      setComments(mainComments);
-      console.log(mainComments);
-    } catch (error) {
-      console.error("Error fetching comments:", error);
-    }
+  const fetchComents = async () => {
+    const res = await axios.get(commentUrl);
+    const data = res.data.pageData.content;
+    console.log(data);
+    setCommentData(data);
   };
 
   useEffect(() => {
-    fetchComments();
-  }, [id]);
-
-  // useEffect(() => {
-  //   const fetchComments = async () => {
-  //     try {
-  //       // Assuming getCommentsURL is the API endpoint to fetch comments
-  //       const response = await fetch(getCommentURL);
-  //       const data = await response.json();
-  //       console.log(data);
-
-  //       // Check if data has the pageData and content structure
-  //       if (data && data.pageData && Array.isArray(data.pageData.content)) {
-  //         const commentsData = data.pageData.content;
-
-  //         const mainComments = [];
-  //         const replies = [];
-
-  //         // Segregate main comments and replies
-  //         commentsData.forEach((comment) => {
-  //           if (comment.parentId) {
-  //             replies.push(comment); // It's a reply
-  //           } else {
-  //             mainComments.push({ ...comment, replies: [] }); // It's a main comment
-  //           }
-  //         });
-
-  //         // Now, associate replies with their parent comments
-  //         mainComments.forEach((mainComment) => {
-  //           mainComment.replies = replies.filter(
-  //             (reply) => reply.parentId === mainComment.id
-  //           );
-  //         });
-
-  //         // Set the processed comments in state
-  //         setComments(mainComments);
-  //       }
-  //       else {
-  //         console.error("Invalid comment data:", data);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching comments:", error);
-  //     }
-  //   };
-
-  //   fetchComments();
-  // }, [id]);
+    fetchComents();
+  }, []);
 
   const handleCommentChange = (e) => {
-    setCommentInput(e.target.value);
+    setComment(e.target.value);
   };
 
-  // Working properly
   const postComment = async () => {
-    const payload = {
-      content: commentInput,
-      author: {
-        id: 1, // Replace with the actual logged-in user ID
-      },
-      blogId: id,
-    };
+    if (comment.trim() === "") return;
 
-    try {
-      const response = await fetch(postCommentURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Ensure the correct content type
-        },
-        body: JSON.stringify(payload), // Convert the payload to JSON
-      });
+    // const requestBody = {
+    //   content: comment,
+    //   author: {
+    //     id: 2, // Assuming you want to post with author id 2
+    //   },
+    //   blog: {
+    //     id: 3,
+    //   },
+    // };
 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
-      }
+    // try {
+    //   // Send a POST request to the backend API
+    //   const response = await fetch(postCommentURL, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(requestBody),
+    //   });
 
-      const newComment = await response.json();
-      console.log(newComment);
+    //   // Handle the response
+    //   if (response.ok) {
+    //     const result = await response.json();
+    //     console.log("Comment posted successfully:", result);
 
-      // Update the state with the new comment
-      setComments((prevComments) => [...prevComments, newComment]);
-      setCommentInput("");
-      fetchComments();
-    } catch (error) {
-      console.error("Error posting comment:", error);
-    }
+    //     setTotalComments((prev) => prev + 1);
+    //     fetchComents();
+    //     setComment("");
+    //   } else {
+    //     const error = await response.json();
+    //     console.error("Error posting comment:", error);
+    //   }
+    // } catch (error) {
+    //   console.error("Error during request:", error);
+    // }
   };
-
-  const postReply = async (parentId, reply) => {
-    const payload = {
-      content: reply,
-      author: {
-        id: 1, // Replace with the actual logged-in user ID
-      },
-      blogId: id,
-      parentId,
-    };
-
-    // Optimistic reply with default values
-    const optimisticReply = {
-      id: Date.now(), // Temporary ID until server response
-      parentId,
-      content: reply,
-      author: { username: "You" }, // Replace "You" with logged-in user's username
-      createdAt: new Date().toISOString(),
-    };
-
-    try {
-      // Optimistically update state
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment.id === parentId
-            ? { ...comment, replies: [...comment.replies, optimisticReply] }
-            : comment
-        )
-      );
-
-      // Send the request to the server
-      const response = await fetch(postCommentURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
-      }
-
-      const newReply = await response.json();
-      console.log(newReply);
-
-      // Update the state with the real reply from the server
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment.id === parentId
-            ? {
-                ...comment,
-                replies: comment.replies.map((reply) =>
-                  reply.id === optimisticReply.id ? newReply : reply
-                ),
-              }
-            : comment
-        )
-      );
-
-      fetchComments();
-    } catch (error) {
-      console.error("Error posting reply:", error);
-
-      // Rollback optimistic update in case of an error
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment.id === parentId
-            ? {
-                ...comment,
-                replies: comment.replies.filter(
-                  (reply) => reply.id !== optimisticReply.id
-                ),
-              }
-            : comment
-        )
-      );
-    }
-  };
-
-  useEffect(() => {
-    console.log(comments);
-  }, [comments]);
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -501,7 +363,7 @@ const CommentSection = ({
                   className="h-10 md:h-12 w-10 md:w-12 rounded-full border-2 border-blue-600 p-[2px]"
                 />
                 <input
-                  value={commentInput}
+                  value={comment}
                   onChange={handleCommentChange}
                   onKeyUp={handleKeyPress}
                   type="text"
@@ -510,7 +372,7 @@ const CommentSection = ({
                 />
               </div>
 
-              {commentInput !== "" ? (
+              {comment !== "" ? (
                 <div className="flex">
                   <button
                     className="bg-blue-700 p-2 px-4 rounded-lg text-white"
@@ -533,35 +395,18 @@ const CommentSection = ({
 
             {/* Scrollable Responses Section */}
             <div className="flex flex-col gap-2 mb-20 overflow-y-scroll pb-16 max-h-[calc(100vh-20rem)]">
-              {comments.map((comment) => (
-                <div key={comment.id}>
-                  <Comment
-                    id={comment.id}
-                    content={comment.content}
-                    username={comment.author?.username || "Anonymous"}
-                    likes={comment.likes}
-                    likesCount={comment.likesCount}
-                    createdAt={comment.createdAt}
-                    setComments={setComments}
-                    comments={comments}
-                    postReply={postReply}
-                  />
-
-                  {comment.replies?.length > 0 && (
-                    <div className="replies">
-                      {comment.replies.map((reply) => (
-                        <Reply
-                          key={reply.id}
-                          parentId={reply.parentId}
-                          username={reply.author?.username || "Anonymous"} // Default username
-                          createdAt={reply.createdAt}
-                          content={reply.content || "No content provided"}
-                          postReply={postReply}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
+              {commentData.map((comment, id) => (
+                <Comment
+                  key={id}
+                  id={id}
+                  content={comment.content}
+                  username={comment.author.username}
+                  likes={comment.likes}
+                  likesCount={comment.likesCount}
+                  createdAt={comment.createdAt}
+                  setCommentData={setCommentData}
+                  commentData={commentData}
+                />
               ))}
             </div>
           </div>
