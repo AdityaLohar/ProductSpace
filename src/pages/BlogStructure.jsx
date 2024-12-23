@@ -53,7 +53,7 @@ const BlogStructure = ({ id, slug, title, description, content }) => {
 
       {/* Comment Section */}
       <CommentSection
-        id={3}
+        id={2}
         title={title}
         isCommentOpen={isCommentOpen}
         toggleCommentSidebar={toggleCommentSidebar}
