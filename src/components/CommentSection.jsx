@@ -125,7 +125,7 @@ const Comment = ({
         });
 
         if (res.status == 401) {
-          alert("Unauthorized. PLease login");
+          alert("Redirecting to login");
           setIsLoginOpen(true);
           setIsLoginVisible(true);
           return;
@@ -146,7 +146,7 @@ const Comment = ({
         });
 
         if (res.status == 401) {
-          alert("Unauthorized. PLease login");
+          alert("Redirecting to login");
           setIsLoginOpen(true);
           setIsLoginVisible(true);
           return;
@@ -195,7 +195,7 @@ const Comment = ({
       });
 
       if (response.status == 401) {
-        alert("Unauthorized. PLease login");
+        alert("Redirecting to login");
         setIsLoginOpen(true);
         setIsLoginVisible(true);
       } else if (!response.ok) {
@@ -369,7 +369,7 @@ const CommentSection = ({
       });
 
       if (response.status == 401) {
-        alert("Unauthorized. PLease login");
+        alert("Redirecting to login");
         // login popup
         toggleLogin();
       } else if (!response.ok) {
