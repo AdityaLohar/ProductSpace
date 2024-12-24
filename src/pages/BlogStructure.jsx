@@ -7,7 +7,7 @@ import axios from "axios";
 const BlogStructure = ({ slug, title, description, content }) => {
   const [isCommentOpen, setIsCommentOpen] = useState(true);
   const [topbar, setShowTopbar] = useState(true);
-  const [id, setId] = useState();
+  const [id, setId] = useState(); 
 
   useEffect(() => {
     window.scrollTo(0, 0);
