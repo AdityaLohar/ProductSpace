@@ -471,14 +471,14 @@ const CommentSection = ({
       </div>
 
       {/* Toggle Button */}
-      <button
+      {/* <button
         onClick={toggleCommentSidebar}
         className={`fixed ${
           topbar ? "top-[114px]" : "top-[72px]"
         } right-4 bg-blue-600 text-white rounded-full p-2 px-3 shadow-md z-50 focus:outline-none`}
       >
         💬
-      </button>
+      </button> */}
     </>
   );
 };

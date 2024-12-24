@@ -5,7 +5,7 @@ import CommentSection from "../components/CommentSection";
 import axios from "axios";
 
 const BlogStructure = ({ slug, title, description, content }) => {
-  const [isCommentOpen, setIsCommentOpen] = useState(false);
+  const [isCommentOpen, setIsCommentOpen] = useState(true);
   const [topbar, setShowTopbar] = useState(true);
   const [id, setId] = useState();
 
@@ -56,7 +56,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
   }, []);
 
   const toggleCommentSidebar = () => {
-    setIsCommentOpen(!isCommentOpen);
+    setIsCommentOpen(isCommentOpen);
   };
 
   return (
