@@ -8,8 +8,8 @@ import { authAtom, isOpenLogin, isVisibleLogin } from "../atoms/modalState";
 
 const pic =
   "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-26.jpg";
-
-const postCommentURL = "http://localhost:8081/v1/comment"; // post comment
+const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
+const postCommentURL = `${PRODUCT_SPACE_API_HOST}/v1/comment`; // post comment
 
 // Format Date fetched from DB
 const getFormattedDate = (createdAt) => {
@@ -104,8 +104,10 @@ const Comment = ({
   const [showReply, setShowReply] = useState(false);
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
-  const likeURL = "http://localhost:8081/v1/like";
-  const getRepliesURL = `http://localhost:8081/v1/comment/search?parentId=${id}&blogId=${blogId}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
+
+  const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
+  const likeURL = `${PRODUCT_SPACE_API_HOST}/v1/like`;
+  const getRepliesURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?parentId=${id}&blogId=${blogId}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
 
   const toggleLike = async () => {
     const jwtToken = localStorage.getItem("token");
@@ -304,8 +306,8 @@ const CommentSection = ({
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
-  const getCommentURL = `http://localhost:8081/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
-  // const getCommentURL = `http://localhost:8081/v1/comment`;
+  const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
+  const getCommentURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
 
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);

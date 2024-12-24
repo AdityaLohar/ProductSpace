@@ -18,7 +18,8 @@ const BlogStructure = ({ slug, title, description, content }) => {
         const encodedTitle = encodeURIComponent(title);
 
         // Construct the URL with the encoded title
-        const url = `http://localhost:8081/v1/blog/search?title=${encodedTitle}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=true`;
+        const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
+        const url = `${PRODUCT_SPACE_API_HOST}/v1/blog/search?title=${encodedTitle}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=true`;
 
         // Make the API call using axios
         const response = await axios.get(url);
