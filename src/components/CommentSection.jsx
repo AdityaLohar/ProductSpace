@@ -20,11 +20,24 @@ const getFormattedDate = (createdAt) => {
   return formattedDate;
 };
 
-const Reply = ({ username, createdAt, content, likesCount, isLiked }) => {
+const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
   const [liked, setLiked] = useState(isLiked);
 
-  const toggleLike = () => {
-    setLiked(!liked);
+  const toggleLike = async () => {
+    try {
+      if (!liked) {
+        const res = await axios.post(likeURL, { commentId: id });
+        console.log(res.data);
+        setLiked(true);
+      } else {
+        console.log("deleting");
+        const res = await axios.delete(likeURL, { data: [{ commentId: id }] });
+        console.log(res.data);
+        setLiked(false);
+      }
+    } catch (err) {
+      console.log("error in liking the comment");
+    }
   };
 
   return (
@@ -51,7 +64,7 @@ const Reply = ({ username, createdAt, content, likesCount, isLiked }) => {
 
           <div className="text-[14px]">{content}</div>
 
-          <div className="flex gap-2 md:gap-3 justify-end text-gray-400 text-[12px]">
+          {/* <div className="flex gap-2 md:gap-3 justify-end text-gray-400 text-[12px]">
             <div
               className={`flex items-center gap-1 ${
                 liked ? "text-red-400 font-bold" : "text-gray-400"
@@ -64,9 +77,9 @@ const Reply = ({ username, createdAt, content, likesCount, isLiked }) => {
                   className="h-3"
                 />
               </button>
-              <p>{likesCount + liked}</p>
+              <p>{likesCount + liked - isLiked}</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -122,14 +135,27 @@ const Comment = ({
   const [replies, setReplies] = useState([]);
   const [showReply, setShowReply] = useState(false);
   const likeURL = "http://localhost:8081/v1/like";
-  const getRepliesURL = `http://localhost:8081/v1/comment/search?parentId=${id}&blogId=2&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
+  const getRepliesURL = `http://localhost:8081/v1/comment/search?parentId=${id}&blogId=${blogId}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
 
   const toggleLike = async () => {
-    setLiked(!liked);
+    try {
+      if (!liked) {
+        const res = await axios.post(likeURL, { commentId: id });
+        console.log(res.data);
+        setLiked(true);
+      } else {
+        console.log("deleting");
+        const res = await axios.delete(likeURL, { data: [{ commentId: id }] });
+        console.log(res.data);
+        setLiked(false);
+      }
+    } catch (err) {
+      console.log("error in liking the comment");
+    }
   };
 
   const toggleReply = () => {
-    console.log("clicked");
+    // console.log("clicked");
     setReplyInputVisible(!isReplyInputVisible);
   };
 
@@ -138,6 +164,7 @@ const Comment = ({
       const res = await axios.get(getRepliesURL);
       setReplies(res.data.pageData.content);
       console.log(res.data.pageData.content);
+      console.log(isLiked);
       setShowReply(!showReply);
     } catch (err) {
       console.log("error in getting replies");
@@ -166,7 +193,6 @@ const Comment = ({
       }
 
       const newReply = await response.json();
-      console.log(newReply);
       handleShowReplies();
       setShowReply(true);
       setReplyInputVisible(!isReplyInputVisible);
@@ -174,6 +200,10 @@ const Comment = ({
       console.error("Error posting comment:", error);
     }
   };
+
+  // useEffect(() => {
+  //   console.log(isLiked);
+  // }, []);
 
   return (
     <div className="flex flex-col gap-2">
@@ -214,7 +244,7 @@ const Comment = ({
                   className="h-3"
                 />
               </button>
-              <p>{likesCount + liked}</p>
+              <p>{likesCount ? likesCount + liked - isLiked : "0"}</p>
             </div>
 
             <div className="flex items-center gap-1 text-gray-400">
@@ -222,7 +252,6 @@ const Comment = ({
                 {/* {replies.length == 1 ? "Reply" : "Replies"} */}
                 <img src={comment} alt="" className="w-4" />
               </button>
-              {showReply && <p>{replies.length}</p>}
             </div>
 
             <div>
@@ -244,6 +273,7 @@ const Comment = ({
         <div className="ml-8 md:ml-12 flex flex-col gap-2">
           {replies.map((reply) => (
             <Reply
+              id={reply.id}
               key={reply.id}
               parentId={reply.parentId}
               username={reply.commentedUser?.username || "Anonymous"} // Default username
@@ -270,17 +300,17 @@ const CommentSection = ({
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
-  // const getCommentURL = `http://localhost:8081/v1/comment/search?blogId=${id}&isPaged=true&page=0&size=1&sort=ASC&matchingAny=true`;
-  const getCommentURL = `http://localhost:8081/v1/comment`;
+  const getCommentURL = `http://localhost:8081/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
+  // const getCommentURL = `http://localhost:8081/v1/comment`;
 
-  const fetchComments = async (blogId) => {
+  const fetchComments = async () => {
     try {
       // Assuming getCommentsURL is the API endpoint to fetch comments
-      const response = await fetch(getCommentURL);
-      const data = await response.json();
+      const response = await axios.get(getCommentURL);
+      const data = response.data;
+      console.log(data);
 
-      const commentsData = data.objectList;
-      console.log(commentsData);
+      const commentsData = data.pageData.content;
 
       // Filter out main comments (those without a parentId) and with the given blogId
       const mainComments = commentsData.filter(
@@ -292,7 +322,6 @@ const CommentSection = ({
 
       // Set only filtered main comments in state
       setComments(mainComments);
-      console.log(mainComments);
     } catch (error) {
       console.error("Error fetching comments:", error);
     }
@@ -338,10 +367,6 @@ const CommentSection = ({
       console.error("Error posting comment:", error);
     }
   };
-
-  useEffect(() => {
-    console.log(comments);
-  }, [comments]);
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -409,8 +434,8 @@ const CommentSection = ({
 
             {/* Scrollable Responses Section */}
             <div className="flex flex-col gap-2 mb-20 overflow-y-scroll pb-16 max-h-[calc(100vh-20rem)]">
-              {comments.map((comment) => (
-                <div key={comment.id}>
+              {comments.map((comment, _id) => (
+                <div key={_id}>
                   <Comment
                     id={comment.id}
                     blogId={id}

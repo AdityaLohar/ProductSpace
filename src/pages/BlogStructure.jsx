@@ -2,13 +2,36 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "../components/NewsLetter";
 import CommentSection from "../components/CommentSection";
+import axios from "axios";
 
-const BlogStructure = ({ id, slug, title, description, content }) => {
+const BlogStructure = ({ slug, title, description, content }) => {
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [topbar, setShowTopbar] = useState(true);
+  const [id, setId] = useState();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const getId = async () => {
+      try {
+        // Encode the title to handle spaces and special characters
+        const encodedTitle = encodeURIComponent(title);
+
+        // Construct the URL with the encoded title
+        const url = `http://localhost:8081/v1/blog/search?title=${encodedTitle}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=true`;
+
+        // Make the API call using axios
+        const response = await axios.get(url);
+        // console.log(response.data);
+
+        // Assuming the response contains an `id` field
+        setId(response.data.pageData.content[0].id);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    getId();
   }, []);
 
   useEffect(() => {
@@ -52,13 +75,15 @@ const BlogStructure = ({ id, slug, title, description, content }) => {
       <NewsLetter />
 
       {/* Comment Section */}
-      <CommentSection
-        id={2}
-        title={title}
-        isCommentOpen={isCommentOpen}
-        toggleCommentSidebar={toggleCommentSidebar}
-        topbar={topbar}
-      />
+      {id && (
+        <CommentSection
+          id={id}
+          title={title}
+          isCommentOpen={isCommentOpen}
+          toggleCommentSidebar={toggleCommentSidebar}
+          topbar={topbar}
+        />
+      )}
     </div>
   );
 };
