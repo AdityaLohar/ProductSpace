@@ -400,8 +400,8 @@ const CommentSection = ({
           topbar ? "top-[102px]" : "top-[61px]"
         } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-10 overflow-hidden transition-transform duration-300 ${
           isCommentOpen
-            ? "translate-x-0 w-[300px] md:w-[400px]"
-            : "translate-x-full w-[300px] md:w-[400px]"
+            ? "translate-x-0 w-[300px] md:w-[350px]"
+            : "translate-x-full w-[300px] md:w-[350px]"
         }`}
       >
         {/* Comments Content */}
