@@ -184,12 +184,13 @@ const Comment = ({
       blogId,
       parentId: id,
     };
-
+    const jwtToken = localStorage.getItem("token");
     try {
       const response = await fetch(postCommentURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Ensure the correct content type
+          token: jwtToken
         },
         body: JSON.stringify(payload), // Convert the payload to JSON
       });
