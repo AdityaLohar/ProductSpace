@@ -3,6 +3,8 @@ import likeOutline from "../assets/like-outline.svg";
 import likeFilled from "../assets/like-filled-red.svg";
 import comment from "../assets/bx-comment.svg";
 import axios from "axios";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { authAtom, isOpenLogin, isVisibleLogin } from "../atoms/modalState";
 
 const pic =
   "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-26.jpg";
@@ -22,23 +24,6 @@ const getFormattedDate = (createdAt) => {
 
 const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
   const [liked, setLiked] = useState(isLiked);
-
-  const toggleLike = async () => {
-    try {
-      if (!liked) {
-        const res = await axios.post(likeURL, { commentId: id });
-        console.log(res.data);
-        setLiked(true);
-      } else {
-        console.log("deleting");
-        const res = await axios.delete(likeURL, { data: [{ commentId: id }] });
-        console.log(res.data);
-        setLiked(false);
-      }
-    } catch (err) {
-      console.log("error in liking the comment");
-    }
-  };
 
   return (
     <div className="flex flex-col gap-2">
@@ -63,23 +48,6 @@ const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
           </div>
 
           <div className="text-[14px]">{content}</div>
-
-          {/* <div className="flex gap-2 md:gap-3 justify-end text-gray-400 text-[12px]">
-            <div
-              className={`flex items-center gap-1 ${
-                liked ? "text-red-400 font-bold" : "text-gray-400"
-              }`}
-            >
-              <button onClick={toggleLike}>
-                <img
-                  src={liked ? likeFilled : likeOutline}
-                  alt=""
-                  className="h-3"
-                />
-              </button>
-              <p>{likesCount + liked - isLiked}</p>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
@@ -134,19 +102,55 @@ const Comment = ({
   const [isReplyInputVisible, setReplyInputVisible] = useState(false);
   const [replies, setReplies] = useState([]);
   const [showReply, setShowReply] = useState(false);
+  const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
+  const setIsLoginOpen = useSetRecoilState(isOpenLogin);
   const likeURL = "http://localhost:8081/v1/like";
   const getRepliesURL = `http://localhost:8081/v1/comment/search?parentId=${id}&blogId=${blogId}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
 
   const toggleLike = async () => {
+    const jwtToken = localStorage.getItem("token");
+
     try {
       if (!liked) {
-        const res = await axios.post(likeURL, { commentId: id });
-        console.log(res.data);
+        // const res = await axios.post(likeURL, { commentId: id });
+        const res = await fetch(likeURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", // Ensure the correct content type
+            token: jwtToken,
+          },
+          body: JSON.stringify({ commentId: id }), // Convert the payload to JSON
+        });
+
+        if (res.status == 401) {
+          alert("Unauthorized. PLease login");
+          setIsLoginOpen(true);
+          setIsLoginVisible(true);
+          return;
+        }
+
+        // console.log(res.data);
         setLiked(true);
       } else {
         console.log("deleting");
-        const res = await axios.delete(likeURL, { data: [{ commentId: id }] });
-        console.log(res.data);
+        // const res = await axios.delete(likeURL, { data: [{ commentId: id }] });
+        const res = await fetch(likeURL, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json", // Ensure the correct content type
+            token: jwtToken,
+          },
+          body: JSON.stringify([{ commentId: id }]), // Convert the payload to JSON
+        });
+
+        if (res.status == 401) {
+          alert("Unauthorized. PLease login");
+          setIsLoginOpen(true);
+          setIsLoginVisible(true);
+          return;
+        }
+
+        // console.log(res.data);
         setLiked(false);
       }
     } catch (err) {
@@ -188,7 +192,11 @@ const Comment = ({
         body: JSON.stringify(payload), // Convert the payload to JSON
       });
 
-      if (!response.ok) {
+      if (response.status == 401) {
+        alert("Unauthorized. PLease login");
+        setIsLoginOpen(true);
+        setIsLoginVisible(true);
+      } else if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
 
@@ -200,10 +208,6 @@ const Comment = ({
       console.error("Error posting comment:", error);
     }
   };
-
-  // useEffect(() => {
-  //   console.log(isLiked);
-  // }, []);
 
   return (
     <div className="flex flex-col gap-2">
@@ -303,6 +307,14 @@ const CommentSection = ({
   const getCommentURL = `http://localhost:8081/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
   // const getCommentURL = `http://localhost:8081/v1/comment`;
 
+  const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
+  const setIsLoginOpen = useSetRecoilState(isOpenLogin);
+
+  const toggleLogin = () => {
+    setIsLoginOpen(true);
+    setIsLoginVisible(true);
+  };
+
   const fetchComments = async () => {
     try {
       // Assuming getCommentsURL is the API endpoint to fetch comments
@@ -335,7 +347,6 @@ const CommentSection = ({
     setCommentInput(e.target.value);
   };
 
-  // Working properly
   const postComment = async () => {
     const payload = {
       content: commentInput,
@@ -343,16 +354,23 @@ const CommentSection = ({
       blogId: id,
     };
 
+    const jwtToken = localStorage.getItem("token");
+
     try {
       const response = await fetch(postCommentURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Ensure the correct content type
+          token: jwtToken,
         },
         body: JSON.stringify(payload), // Convert the payload to JSON
       });
 
-      if (!response.ok) {
+      if (response.status == 401) {
+        alert("Unauthorized. PLease login");
+        // login popup
+        toggleLogin();
+      } else if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
 
@@ -380,7 +398,7 @@ const CommentSection = ({
       <div
         className={`fixed font-inter ${
           topbar ? "top-[102px]" : "top-[61px]"
-        } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-50 overflow-hidden transition-transform duration-300 ${
+        } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-10 overflow-hidden transition-transform duration-300 ${
           isCommentOpen
             ? "translate-x-0 w-[300px] md:w-[400px]"
             : "translate-x-full w-[300px] md:w-[400px]"
