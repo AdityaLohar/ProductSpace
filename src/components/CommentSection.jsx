@@ -121,9 +121,11 @@ const Comment = ({
         });
 
         if (res.status === 401) {
-          // alert("Redirecting to login");
           setIsLoginOpen(true);
           setIsLoginVisible(true);
+          return;
+        } else if (res.status == "FAILURE") {
+          alert("Operation failed, something went wrong");
           return;
         }
 
@@ -140,9 +142,11 @@ const Comment = ({
         });
 
         if (res.status === 401) {
-          // alert("Redirecting to login");
           setIsLoginOpen(true);
           setIsLoginVisible(true);
+          return;
+        } else if (res.status == "FAILURE") {
+          alert("Operation failed, something went wrong");
           return;
         }
 
@@ -440,33 +444,32 @@ const CommentSection = ({
 
             {/* Scrollable Responses Section */}
             <div className="flex flex-col gap-2 mb-20 overflow-y-scroll pb-16 max-h-[calc(100vh-20rem)]">
-              {comments.map((comment, _id) => (
-                <div key={_id}>
-                  <Comment
-                    id={comment.id}
-                    blogId={id}
-                    content={comment.content}
-                    username={comment.commentedUser?.username || "Anonymous"}
-                    isLiked={comment.isLiked}
-                    likesCount={comment.likesCount}
-                    createdAt={comment.createdAt}
-                  />
-                </div>
-              ))}
+              {comments.map((comment, _id) => {
+                // Check if likes is an array and if the current user has liked this comment
+                const isLiked =
+                  Array.isArray(comment.likes) &&
+                  comment.likes.some(
+                    (like) => like.userId === localStorage.getItem("userId")
+                  );
+
+                return (
+                  <div key={_id}>
+                    <Comment
+                      id={comment.id}
+                      blogId={id}
+                      content={comment.content}
+                      username={comment.commentedUser?.username || "Anonymous"}
+                      isLiked={isLiked}
+                      likesCount={comment.likesCount}
+                      createdAt={comment.createdAt}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
       </div>
-
-      {/* Toggle Button */}
-      {/* <button
-        onClick={toggleCommentSidebar}
-        className={`fixed ${
-          topbar ? "top-[114px]" : "top-[72px]"
-        } right-4 bg-blue-600 text-white rounded-full p-2 px-3 shadow-md z-50 focus:outline-none`}
-      >
-        💬
-      </button> */}
     </>
   );
 };
