@@ -15,15 +15,15 @@ const BlogStructure = ({ slug, title, description, content }) => {
     const getId = async () => {
       try {
         // Encode the title to handle spaces and special characters
-        const encodedTitle = encodeURIComponent(title);
+        // const encodedTitle = encodeURIComponent(title);
 
         // Construct the URL with the encoded title
         const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
-        const url = `${PRODUCT_SPACE_API_HOST}/v1/blog/search?title=${encodedTitle}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=true`;
+        const url = `${PRODUCT_SPACE_API_HOST}/v1/blog/search?title=${slug}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=true`;
 
         // Make the API call using axios
         const response = await axios.get(url);
-        // console.log(response.data);
+        console.log(response.data);
 
         // Assuming the response contains an `id` field
         setId(response.data.pageData.content[0].id);
@@ -75,7 +75,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
         />
       </Helmet>
 
-      <div className="flex relative justify-between">
+      <div className="flex flex-col lg:flex-row relative justify-between">
         <div className="flex-1">
           {/* Blogs */}
           <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -83,13 +83,13 @@ const BlogStructure = ({ slug, title, description, content }) => {
           <NewsLetter />
         </div>
 
-        <div className="w-[340px]">
+        <div className={`w-full lg:w-[340px] ${id ? "mt-8 md:mt-0" : ""}`}>
           {/* Comment Section */}
           {id && (
             <div
-              className={`sticky ${
-                topbar ? "top-[96px]" : "top-[64px]"
-              } max-h-[calc(100vh-4rem)] overflow-y-auto`}
+              className={`${
+                topbar ? "md:sticky md:top-[96px]" : "md:sticky md:top-[64px]"
+              } max-h-[calc(100vh-2rem)] md:overflow-y-hidden`}
             >
               <CommentSection
                 id={id}

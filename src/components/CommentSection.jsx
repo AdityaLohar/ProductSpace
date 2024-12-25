@@ -29,18 +29,14 @@ const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
     <div className="flex flex-col gap-2">
       <div className="flex justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div className="w-[12%]">
-          <img
-            src={pic}
-            className="h-6 md:h-8 w-6 md:w-8 rounded-full"
-            alt=""
-          />
+        <div className="w-[36px]">
+          <img src={pic} className="h-8 w-8 rounded-full" alt="" />
         </div>
 
         {/* Actual Reply */}
-        <div className="flex flex-col gap-2 bg-gray-200 w-[88%] p-2 md:p-3 rounded-lg">
+        <div className="flex flex-col gap-2 bg-gray-200 w-full p-3 rounded-lg">
           <div className="flex justify-between items-center">
-            <div className="text-start font-bold">{username}</div>
+            <div className="text-[14px] text-start font-bold">{username}</div>
             <div className="text-end text-[12px] text-gray-400">
               {getFormattedDate(createdAt)}
               {/* Dec 22, 2024 */}
@@ -99,7 +95,6 @@ const Comment = ({
   createdAt,
 }) => {
   const [liked, setLiked] = useState(isLiked);
-  const [likesCnt, setLikesCnt] = useState(likesCount);
   const [isReplyInputVisible, setReplyInputVisible] = useState(false);
   const [replies, setReplies] = useState([]);
   const [showReply, setShowReply] = useState(false);
@@ -115,48 +110,46 @@ const Comment = ({
 
     try {
       if (!liked) {
-        // const res = await axios.post(likeURL, { commentId: id });
+        // Like the comment
         const res = await fetch(likeURL, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json", // Ensure the correct content type
+            "Content-Type": "application/json",
             token: jwtToken,
           },
-          body: JSON.stringify({ commentId: id }), // Convert the payload to JSON
+          body: JSON.stringify({ commentId: id }),
         });
 
-        if (res.status == 401) {
-          alert("Redirecting to login");
+        if (res.status === 401) {
+          // alert("Redirecting to login");
           setIsLoginOpen(true);
           setIsLoginVisible(true);
           return;
         }
 
-        // console.log(res.data);
-        setLiked(true);
+        setLiked(true); // Update state to reflect liking the comment
       } else {
-        console.log("deleting");
+        // Unlike the comment
         const res = await fetch(likeURL, {
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json", // Ensure the correct content type
+            "Content-Type": "application/json",
             token: jwtToken,
           },
-          body: JSON.stringify([{ commentId: id }]), // Convert the payload to JSON
+          body: JSON.stringify([{ commentId: id }]), // Correct array format for backend
         });
 
-        if (res.status == 401) {
-          alert("Redirecting to login");
+        if (res.status === 401) {
+          // alert("Redirecting to login");
           setIsLoginOpen(true);
           setIsLoginVisible(true);
           return;
         }
 
-        // console.log(res.data);
-        setLiked(false);
+        setLiked(false); // Update state to reflect unliking the comment
       }
     } catch (err) {
-      console.log("error in liking the comment");
+      console.log("Error in liking the comment:", err);
     }
   };
 
@@ -197,7 +190,7 @@ const Comment = ({
       });
 
       if (response.status == 401) {
-        alert("Redirecting to login");
+        // alert("Redirecting to login");
         setIsLoginOpen(true);
         setIsLoginVisible(true);
       } else if (!response.ok) {
@@ -213,31 +206,19 @@ const Comment = ({
     }
   };
 
-  useEffect(() => {
-    if (liked) {
-      setLikesCnt((prev) => prev - 1);
-    } else {
-      setLikesCnt((prev) => prev + 1);
-    }
-  }, [liked]);
-
   return (
     <div className="flex flex-col gap-2">
       {/* Main Comment */}
-      <div className="flex justify-between items-start gap-2">
+      <div className="flex justify-start lg:justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div className="w-[12%]">
-          <img
-            src={pic}
-            className="h-6 md:h-8 w-6 md:w-8 rounded-full"
-            alt="Profile"
-          />
+        <div className="w-[36px]">
+          <img src={pic} className="h-8 w-8 rounded-full" alt="Profile" />
         </div>
 
         {/* Actual Comment */}
-        <div className="flex flex-col gap-2 bg-gray-200 w-[88%] p-4 rounded-lg">
+        <div className="flex flex-col gap-2 bg-gray-200 w-full p-4 rounded-lg">
           <div className="flex justify-between items-center">
-            <div className="text-start font-bold">
+            <div className="text-[14px] text-start font-bold">
               {username || "anonymous"}
             </div>
             <div className="text-end text-[12px] text-gray-400">
@@ -261,7 +242,9 @@ const Comment = ({
                 />
               </button>
               {/* <p>{likesCount ? likesCount + liked - isLiked : "0"}</p> */}
-              <p>{likesCount ? likesCnt : "0"}</p>
+              <p>
+                {likesCount + (liked ? (isLiked ? 0 : 1) : isLiked ? -1 : 0)}
+              </p>
             </div>
 
             <div className="flex items-center gap-1 text-gray-400">
@@ -380,7 +363,7 @@ const CommentSection = ({
       });
 
       if (response.status == 401) {
-        alert("Redirecting to login");
+        // alert("Redirecting to login");
         // login popup
         toggleLogin();
       } else if (!response.ok) {
