@@ -121,7 +121,7 @@ const UserProfile = () => {
           {/* User Information */}
           <div className="text-center">
             <h2 className="text-xl font-semibold text-gray-800">
-              {users.email ? users.email.split("@")[0] : "Username not set"}
+              {users.username ? users.username : "Username not set"}
             </h2>
             <p className="text-gray-500">{users.email}</p>
           </div>
