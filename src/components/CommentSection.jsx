@@ -29,7 +29,7 @@ const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
     <div className="flex flex-col gap-2">
       <div className="flex justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div>
+        <div className="w-[12%]">
           <img
             src={pic}
             className="h-6 md:h-8 w-6 md:w-8 rounded-full"
@@ -38,7 +38,7 @@ const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
         </div>
 
         {/* Actual Reply */}
-        <div className="flex flex-col gap-2 bg-gray-200 w-52 md:w-72 p-2 md:p-3 rounded-lg">
+        <div className="flex flex-col gap-2 bg-gray-200 w-[88%] p-2 md:p-3 rounded-lg">
           <div className="flex justify-between items-center">
             <div className="text-start font-bold">{username}</div>
             <div className="text-end text-[12px] text-gray-400">
@@ -99,6 +99,7 @@ const Comment = ({
   createdAt,
 }) => {
   const [liked, setLiked] = useState(isLiked);
+  const [likesCnt, setLikesCnt] = useState(likesCount);
   const [isReplyInputVisible, setReplyInputVisible] = useState(false);
   const [replies, setReplies] = useState([]);
   const [showReply, setShowReply] = useState(false);
@@ -135,7 +136,6 @@ const Comment = ({
         setLiked(true);
       } else {
         console.log("deleting");
-        // const res = await axios.delete(likeURL, { data: [{ commentId: id }] });
         const res = await fetch(likeURL, {
           method: "DELETE",
           headers: {
@@ -180,17 +180,18 @@ const Comment = ({
   const postReply = async (reply) => {
     const payload = {
       content: reply,
-      authorId: 1,
+      authorId: localStorage.getItem("userId"),
       blogId,
       parentId: id,
     };
     const jwtToken = localStorage.getItem("token");
+
     try {
       const response = await fetch(postCommentURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Ensure the correct content type
-          token: jwtToken
+          token: jwtToken,
         },
         body: JSON.stringify(payload), // Convert the payload to JSON
       });
@@ -212,12 +213,20 @@ const Comment = ({
     }
   };
 
+  useEffect(() => {
+    if (liked) {
+      setLikesCnt((prev) => prev - 1);
+    } else {
+      setLikesCnt((prev) => prev + 1);
+    }
+  }, [liked]);
+
   return (
     <div className="flex flex-col gap-2">
       {/* Main Comment */}
       <div className="flex justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div>
+        <div className="w-[12%]">
           <img
             src={pic}
             className="h-6 md:h-8 w-6 md:w-8 rounded-full"
@@ -226,7 +235,7 @@ const Comment = ({
         </div>
 
         {/* Actual Comment */}
-        <div className="flex flex-col gap-2 bg-gray-200 w-60 md:w-[328px] p-4 rounded-lg">
+        <div className="flex flex-col gap-2 bg-gray-200 w-[88%] p-4 rounded-lg">
           <div className="flex justify-between items-center">
             <div className="text-start font-bold">
               {username || "anonymous"}
@@ -251,7 +260,8 @@ const Comment = ({
                   className="h-3"
                 />
               </button>
-              <p>{likesCount ? likesCount + liked - isLiked : "0"}</p>
+              {/* <p>{likesCount ? likesCount + liked - isLiked : "0"}</p> */}
+              <p>{likesCount ? likesCnt : "0"}</p>
             </div>
 
             <div className="flex items-center gap-1 text-gray-400">
@@ -353,7 +363,7 @@ const CommentSection = ({
   const postComment = async () => {
     const payload = {
       content: commentInput,
-      authorId: 1,
+      authorId: localStorage.getItem("userId"),
       blogId: id,
     };
 
@@ -398,15 +408,7 @@ const CommentSection = ({
   return (
     <>
       {/* Comment Section */}
-      <div
-        className={`fixed font-inter ${
-          topbar ? "top-[102px]" : "top-[61px]"
-        } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-10 overflow-hidden transition-transform duration-300 ${
-          isCommentOpen
-            ? "translate-x-0 w-[300px] md:w-[350px]"
-            : "translate-x-full w-[300px] md:w-[350px]"
-        }`}
-      >
+      <div className={`font-inter bg-gray-100 shadow-lg`}>
         {/* Comments Content */}
         {isCommentOpen && (
           <div className="flex flex-col gap-8 p-4">

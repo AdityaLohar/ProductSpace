@@ -69,6 +69,32 @@ const LoginPopUp = () => {
     }
   };
 
+  const fetchUsers = async () => {
+    const getEmail = localStorage.getItem("email");
+    const encodedEmail = encodeURIComponent(getEmail);
+
+    const url = `${PRODUCT_SPACE_API_HOST}/v1/user/search?email=${encodedEmail}&isPaged=false&page=0&size=1&sort=string&matchingAny=true`;
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          "Content-Type": "application/json",
+          token: token,
+        },
+      });
+
+      console.log("Backend Response from users profile:", response);
+      const data = response.data.pageData.content;
+      localStorage.setItem("userId", data[0].id);
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
   const handleSubmit = async () => {
     // Email validation regex
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -106,6 +132,7 @@ const LoginPopUp = () => {
       if (res.status === "SUCCESS") {
         localStorage.setItem("token", token);
         localStorage.setItem("email", email);
+        fetchUsers();
         setEmailAtom(email);
         toggleModal();
         setAuth(true);

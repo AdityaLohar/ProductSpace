@@ -113,6 +113,7 @@ const SignupPopUp = () => {
       email: email,
       password: password,
       mobile: phone,
+      username: email.split("@")[0],
     };
 
     const PRODUCT_SPACE_API = `${PRODUCT_SPACE_API_HOST}/v1/user`;
@@ -130,7 +131,8 @@ const SignupPopUp = () => {
         return;
       }
       console.log(response.data);
-      localStorage.setItem("token", response.data.object);
+      // localStorage.setItem("token", response.data.object);
+      localStorage.setItem("userId", response.data.object.id);
       localStorage.setItem("email", email);
       setAuth(true);
       setIsOpen(false);

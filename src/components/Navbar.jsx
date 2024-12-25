@@ -77,6 +77,7 @@ const Navbar = () => {
   const handleSignout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("email");
+    localStorage.removeItem("userId");
     setAuth(false);
     navigate("/");
   };

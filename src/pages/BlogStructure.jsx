@@ -7,7 +7,7 @@ import axios from "axios";
 const BlogStructure = ({ slug, title, description, content }) => {
   const [isCommentOpen, setIsCommentOpen] = useState(true);
   const [topbar, setShowTopbar] = useState(true);
-  const [id, setId] = useState(); 
+  const [id, setId] = useState();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,6 +36,10 @@ const BlogStructure = ({ slug, title, description, content }) => {
   }, []);
 
   useEffect(() => {
+    console.log(id);
+  }, [id]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const screenHeight = window.innerHeight;
@@ -61,7 +65,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -71,20 +75,33 @@ const BlogStructure = ({ slug, title, description, content }) => {
         />
       </Helmet>
 
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="flex relative justify-between">
+        <div className="flex-1">
+          {/* Blogs */}
+          <div dangerouslySetInnerHTML={{ __html: content }} />
 
-      <NewsLetter />
+          <NewsLetter />
+        </div>
 
-      {/* Comment Section */}
-      {id && (
-        <CommentSection
-          id={id}
-          title={title}
-          isCommentOpen={isCommentOpen}
-          toggleCommentSidebar={toggleCommentSidebar}
-          topbar={topbar}
-        />
-      )}
+        <div className="w-[340px]">
+          {/* Comment Section */}
+          {id && (
+            <div
+              className={`sticky ${
+                topbar ? "top-[96px]" : "top-[64px]"
+              } max-h-[calc(100vh-4rem)] overflow-y-auto`}
+            >
+              <CommentSection
+                id={id}
+                title={title}
+                isCommentOpen={isCommentOpen}
+                toggleCommentSidebar={toggleCommentSidebar}
+                topbar={topbar}
+              />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

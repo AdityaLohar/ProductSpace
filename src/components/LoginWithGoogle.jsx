@@ -25,6 +25,32 @@ const LoginWithGoogle = () => {
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const PRODUCT_SPACE_API = `${PRODUCT_SPACE_API_HOST}/v1/api/auth/google`;
 
+  const fetchUsers = async () => {
+    const getEmail = localStorage.getItem("email");
+    const encodedEmail = encodeURIComponent(getEmail);
+
+    const url = `${PRODUCT_SPACE_API_HOST}/v1/user/search?email=${encodedEmail}&isPaged=false&page=0&size=1&sort=string&matchingAny=true`;
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          "Content-Type": "application/json",
+          token: token,
+        },
+      });
+
+      console.log("Backend Response from users profile:", response);
+      const data = response.data.pageData.content;
+      localStorage.setItem("userId", data[0].id);
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
   const handleGoogleLogin = async (credentialResponse) => {
     try {
       const decoded = jwtDecode(credentialResponse.credential);
@@ -47,6 +73,9 @@ const LoginWithGoogle = () => {
       const token = response.data.object;
       localStorage.setItem("token", token);
       localStorage.setItem("email", decoded.email);
+
+      fetchUsers();
+      
       setAuth(true);
       setIsOpen(false);
       setIsOpenLogin(false);
