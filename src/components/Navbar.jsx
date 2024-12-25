@@ -395,19 +395,38 @@ const Navbar = () => {
             <img src={profile} alt="" className="h-6" />
           </div>
           {isAuthDropdownOpen && (
-            <div className="group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
-              <button
-                onClick={toggleLoginModal}
-                className="px-2 py-2 hover:bg-gray-100 rounded-md"
-              >
-                Login
-              </button>
-              <button
-                onClick={toggleSignupModal}
-                className="px-2 py-2 hover:bg-gray-100 rounded-md"
-              >
-                Signup
-              </button>
+            <div className="group-hover:flex items-center bg-white shadow-lg rounded-md p-2">
+              {!auth ? (
+                <>
+                  <button
+                    onClick={toggleLoginModal}
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Login
+                  </button>
+                  <button
+                    onClick={toggleSignupModal}
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Signup
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/user/profile"
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleSignout}
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
             </div>
           )}
         </div>

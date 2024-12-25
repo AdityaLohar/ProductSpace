@@ -65,7 +65,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
   };
 
   return (
-    <div className="">
+    <div className="flex flex-col gap-4 lg:gap-8">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -80,7 +80,6 @@ const BlogStructure = ({ slug, title, description, content }) => {
           {/* Blogs */}
           <div dangerouslySetInnerHTML={{ __html: content }} />
 
-          <NewsLetter />
         </div>
 
         <div className={`w-full lg:w-[340px] ${id ? "mt-8 md:mt-0" : ""}`}>
@@ -89,7 +88,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
             <div
               className={`${
                 topbar ? "md:sticky md:top-[96px]" : "md:sticky md:top-[64px]"
-              } max-h-[calc(100vh-2rem)] md:overflow-y-hidden`}
+              } h-[calc(100vh-2rem)] md:overflow-y-hidden`}
             >
               <CommentSection
                 id={id}
@@ -102,6 +101,8 @@ const BlogStructure = ({ slug, title, description, content }) => {
           )}
         </div>
       </div>
+
+      <NewsLetter />
     </div>
   );
 };

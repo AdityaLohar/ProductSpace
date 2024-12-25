@@ -395,7 +395,7 @@ const CommentSection = ({
   return (
     <>
       {/* Comment Section */}
-      <div className={`font-inter bg-gray-100 shadow-lg`}>
+      <div className={`font-inter bg-gray-100 shadow-lg h-full`}>
         {/* Comments Content */}
         {isCommentOpen && (
           <div className="flex flex-col gap-8 p-4">
@@ -405,7 +405,7 @@ const CommentSection = ({
                 Responses ({totalComments})
               </h2>
 
-              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 border rounded-xl">
+              <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
                 <img
                   src={pic}
                   alt="profile"
@@ -416,8 +416,8 @@ const CommentSection = ({
                   onChange={handleCommentChange}
                   onKeyUp={handleKeyPress}
                   type="text"
-                  placeholder="Ask a question or start a post"
-                  className="w-full p-2 md:px-4 border rounded-full outline-none"
+                  placeholder="What are your thoughts?"
+                  className="w-full p-2 md:px-3 border rounded-full outline-none"
                 />
               </div>
 
