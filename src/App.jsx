@@ -55,6 +55,13 @@ import ProductAnalytics from "./pages/ProductAnalytics";
 import Blog26 from "./pages/singleBlogs/Blog26";
 import Blog27 from "./pages/singleBlogs/Blog27";
 import Blog28 from "./pages/singleBlogs/Blog28";
+import DemoBlog from "./pages/BlogStructure";
+import BlogsData from "./data/BlogsData";
+import BlogStructure from "./pages/BlogStructure";
+import PrivateRoute from "./components/PrivateRoute";
+import SignupPopUp from "./components/SignupPopUp";
+import LoginPopUp from "./components/LoginPopUp";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   const location = useLocation();
@@ -76,8 +83,20 @@ function App() {
         <Navbar />
         <ContactUsForm />
         <GenAiContactUsForm />
+        <SignupPopUp />
+        <LoginPopUp />
+
         {/* <Router> */}
         <Routes>
+          {/* Protected route */}
+          <Route
+            path="/user/profile"
+            element={
+              <PrivateRoute>
+                <UserProfile />
+              </PrivateRoute>
+            }
+          />
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/ai-for-pm" element={<Event1 />} />
@@ -88,7 +107,14 @@ function App() {
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
-          <Route
+          {BlogsData.map((blog) => (
+            <Route
+              key={blog.id}
+              path={`/blogs/${blog.slug}`}
+              element={<BlogStructure {...blog} />}
+            />
+          ))}
+          {/* <Route
             path="/blogs/how-technical-product-manager-needs-to-be"
             element={<Blog1 />}
           />
@@ -188,18 +214,14 @@ function App() {
             path="/blogs/understanding-first-principles-of-product-management"
             element={<Blog25 />}
           />
-          {/* <Route
+          <Route
             path="/blogs/ultimate-question-bank-of-product-management-interview-questions"
             element={<Blog26 />}
-            /> */}
+            />
           <Route
             path="/blogs/what-is-technical-debt-and-how-to-handle-it-as-a-product-manager"
             element={<Blog27 />}
-          />
-          <Route
-            path="/blogs/product-analytics-fundamentals-for-product-managers"
-            element={<Blog28 />}
-          />
+          /> */}
           <Route
             path="/blogs/large-language-models-llms-a-guide-for-product-managers"
             element={<BlogP1 />}
@@ -216,7 +238,6 @@ function App() {
         </div>
       </HelmetProvider>
     </RecoilRoot>
-    // strata scratch
   );
 }
 

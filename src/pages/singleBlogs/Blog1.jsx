@@ -1,14 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "../../components/NewsLetter";
+import CommentSection from "../../components/CommentSection";
 
 const Blog1 = () => {
+  const [isCommentOpen, setIsCommentOpen] = useState(false);
+  const [topbar, setShowTopbar] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const screenHeight = window.innerHeight;
+
+      const buffer = 20; // Adjust the buffer size if needed
+
+      if (scrollPosition < screenHeight - buffer) {
+        setShowTopbar(true);
+      } else if (scrollPosition > screenHeight + buffer) {
+        setShowTopbar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const toggleCommentSidebar = () => {
+    setIsCommentOpen(!isCommentOpen);
+  };
+
   return (
-    <div>
+    <div className="relative">
       <Helmet>
         <title>How technical a Product Manager needs to be?</title>
         <meta
@@ -20,6 +49,8 @@ const Blog1 = () => {
           href="https://theproductspace.in/blogs/how-technical-product-manager-needs-to-be"
         />
       </Helmet>
+
+      {/* Content */}
       <div>
         <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
           <div className="max-w-4xl w-full flex flex-col gap-8">
@@ -533,8 +564,14 @@ const Blog1 = () => {
           </div>
         </div>
       </div>
-
       <NewsLetter />
+
+      {/* Comment Section */}
+      <CommentSection
+        isCommentOpen={isCommentOpen}
+        toggleCommentSidebar={toggleCommentSidebar}
+        topbar={topbar}
+      />
     </div>
   );
 };
