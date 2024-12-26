@@ -108,7 +108,7 @@ const PmFellowshipHeroSection = () => {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <span className="font-bold">20%</span> <br /> OFF
+            <span className="font-bold">15%</span> <br /> OFF
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px] hidden sm:block">
@@ -121,7 +121,7 @@ const PmFellowshipHeroSection = () => {
             </p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
-                ₹23,999
+                ₹25,499
               </p>
               <p className="text-[18px] line-through pb-1">₹29,999</p>
             </div>
@@ -137,7 +137,7 @@ const PmFellowshipHeroSection = () => {
                 />
               </div>
               <div>
-                <p>Offer valid till 25th Dec 2024</p>
+                <p>Offer valid till 30th Dec 2024</p>
               </div>
             </div>
 
