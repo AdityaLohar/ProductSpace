@@ -94,7 +94,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
         )}
 
         {/* Button */}
-        {!isCommentOpen && (
+        {/* {!isCommentOpen && ( */}
           <>
             {/* For smaller screens (below lg) */}
             <div className="w-full flex lg:hidden justify-center font-inter fixed bottom-0 bg-white shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)]">
@@ -116,7 +116,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
               </button>
             </div>
           </>
-        )}
+        {/* )} */}
       {/* </div> */}
 
       <NewsLetter />

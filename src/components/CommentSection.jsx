@@ -537,9 +537,9 @@ const CommentSection = ({
       <div
         className={`fixed font-inter flex ${
           topbar ? "top-[96px]" : "top-[61px]"
-        } right-0 h-[calc(100vh)] bg-white shadow-xl z-10 overflow-hidden transition-transform duration-300 ${
+        } right-0 h-[calc(100vh)] bg-white shadow-[0px_4px_10px_6px_rgba(0,0,0,0.2)] lg:shadow-lg z-10 overflow-hidden transition-transform duration-300 rounded-t-2xl lg:rounded-t-sm ${
           isCommentOpen
-            ? "translate-y-0 md:translate-y-0 md:translate-x-0 w-full md:w-[350px]"
+            ? "translate-y-[5%] md:translate-y-0 md:translate-x-0 w-full md:w-[350px]"
             : "translate-y-full w-full md:translate-y-0 md:translate-x-full md:w-[350px]"
         }`}
       >

@@ -412,7 +412,7 @@ const Navbar = () => {
                   </button>
                 </div>
               ) : (
-                <>
+                <div className="flex flex-col">
                   <Link
                     to="/user/profile"
                     className="px-2 py-2 hover:bg-gray-100 rounded-md"
@@ -425,7 +425,7 @@ const Navbar = () => {
                   >
                     Logout
                   </button>
-                </>
+                </div>
               )}
             </div>
           )}
