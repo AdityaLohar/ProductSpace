@@ -395,9 +395,9 @@ const Navbar = () => {
             <img src={profile} alt="" className="h-6" />
           </div>
           {isAuthDropdownOpen && (
-            <div className="group-hover:flex items-center bg-white shadow-lg rounded-md p-2">
+            <div className="group-hover:flex items-start bg-white shadow-lg rounded-md p-2">
               {!auth ? (
-                <>
+                <div className="flex flex-col">
                   <button
                     onClick={toggleLoginModal}
                     className="px-2 py-2 hover:bg-gray-100 rounded-md"
@@ -410,7 +410,7 @@ const Navbar = () => {
                   >
                     Signup
                   </button>
-                </>
+                </div>
               ) : (
                 <>
                   <Link

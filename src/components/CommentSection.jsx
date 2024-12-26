@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import likeOutline from "../assets/like-outline.svg";
 import likeFilled from "../assets/like-filled-red.svg";
-import comment from "../assets/bx-comment.svg";
+import comment from "../assets/comment.svg";
 import axios from "axios";
+import avatars from "../data/Avatars";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { authAtom, isOpenLogin, isVisibleLogin } from "../atoms/modalState";
 
@@ -22,16 +23,23 @@ const getFormattedDate = (createdAt) => {
   return formattedDate;
 };
 
-const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
+const Reply = ({
+  id,
+  username,
+  createdAt,
+  content,
+  likesCount,
+  isLiked,
+  createdBy,
+}) => {
   const [liked, setLiked] = useState(isLiked);
+  const pic = avatars[createdBy % 4];
 
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div className="w-[36px]">
-          <img src={pic} className="h-8 w-8 rounded-full" alt="" />
-        </div>
+        <div className="w-[36px]">{pic}</div>
 
         {/* Actual Reply */}
         {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-3 rounded-lg"> */}
@@ -94,17 +102,26 @@ const Comment = ({
   isLiked,
   likesCount,
   createdAt,
+  createdBy,
+  repliesCount: initialRepliesCount,
 }) => {
   const [liked, setLiked] = useState(isLiked);
   const [isReplyInputVisible, setReplyInputVisible] = useState(false);
   const [replies, setReplies] = useState([]);
   const [showReply, setShowReply] = useState(false);
+  const [localRepliesCount, setLocalRepliesCount] =
+    useState(initialRepliesCount);
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
 
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const likeURL = `${PRODUCT_SPACE_API_HOST}/v1/like`;
   const getRepliesURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?parentId=${id}&blogId=${blogId}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
+  const pic = avatars[createdBy % 4];
+
+  useEffect(() => {
+    setLocalRepliesCount(initialRepliesCount);
+  }, [initialRepliesCount]);
 
   const toggleLike = async () => {
     const jwtToken = localStorage.getItem("token");
@@ -203,6 +220,7 @@ const Comment = ({
       }
 
       const newReply = await response.json();
+      setLocalRepliesCount((prevCount) => prevCount + 1);
       handleShowReplies();
       setShowReply(true);
       setReplyInputVisible(!isReplyInputVisible);
@@ -220,9 +238,7 @@ const Comment = ({
       {/* Main Comment */}
       <div className="flex justify-start lg:justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div className="w-[36px]">
-          <img src={pic} className="h-8 w-8 rounded-full" alt="Profile" />
-        </div>
+        <div className="w-[36px]">{pic}</div>
 
         {/* Actual Comment */}
         {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-4 rounded-lg"> */}
@@ -257,17 +273,34 @@ const Comment = ({
               </p>
             </div>
 
-            <div className="flex items-center gap-1 text-gray-400">
-              <button onClick={toggleReply}>
-                {/* {replies.length == 1 ? "Reply" : "Replies"} */}
-                <img src={comment} alt="" className="w-4" />
-              </button>
-            </div>
+            {localRepliesCount && (
+              <div className="flex items-center gap-1 text-gray-400">
+                {!showReply ? (
+                  <button
+                    onClick={handleShowReplies}
+                    className="flex items-end gap-1"
+                  >
+                    <img src={comment} alt="" className="w-4" />
+                    <p>{localRepliesCount}</p>
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleShowReplies}
+                    className="flex items-end gap-1"
+                  >
+                    <p>Hide replies</p>
+                  </button>
+                )}
+              </div>
+            )}
 
             <div>
-              <button onClick={handleShowReplies}>
-                {showReply ? "Hide" : "Show"} Replies
-              </button>
+              {localRepliesCount && (
+                <button onClick={toggleReply}>
+                  {/* {showReply ? "Hide" : "Show"} Replies */}
+                  Reply
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -288,6 +321,7 @@ const Comment = ({
               parentId={reply.parentId}
               username={reply.commentedUser?.username || "Anonymous"} // Default username
               createdAt={reply.createdAt}
+              createdBy={reply.createdBy}
               content={reply.content || "No content provided"}
               postReply={postReply}
               likesCount={likesCount}
@@ -312,6 +346,9 @@ const CommentSection = ({
   const [totalComments, setTotalComments] = useState(0);
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const getCommentURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
+  const pic = localStorage.getItem("userId")
+    ? avatars[localStorage.getItem("userId") % 4]
+    : avatars[4];
 
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
@@ -410,30 +447,39 @@ const CommentSection = ({
     <>
       {/* Comment Section */}
       <div
-        className={`fixed font-inter ${
+        className={`fixed font-inter flex ${
           topbar ? "top-[96px]" : "top-[61px]"
           // } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-10 overflow-hidden transition-transform duration-300 ${
-        } right-0 h-[calc(100vh-3rem)] bg-white shadow-xl z-10 overflow-hidden transition-transform duration-300 ${
+        } right-0 h-[calc(100vh)] bg-white shadow-xl z-10 overflow-hidden transition-transform duration-300 ${
           isCommentOpen
-            ? "translate-x-0 w-[300px] md:w-[350px]"
-            : "translate-x-full w-[300px] md:w-[350px]"
+            ? "translate-x-0 w-full md:w-[350px]"
+            : "translate-x-full w-full md:w-[350px]"
         }`}
       >
         {/* Comments Content */}
         {isCommentOpen && (
-          <div className="flex flex-col gap-8 p-4">
+          <div className="flex w-full flex-col gap-8 p-4">
             {/* User inputs */}
             <div className="flex flex-col gap-4">
-              <h2 className="text-xl font-semibold">
-                Responses ({totalComments})
-              </h2>
+              <div className="flex justify-between items-center">
+                <h2 className="text-xl font-semibold">
+                  Responses ({totalComments})
+                </h2>
+
+                <button className="text-2xl" onClick={toggleCommentSidebar}>
+                  ×
+                </button>
+              </div>
 
               <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
-                <img
+                {/* <img
                   src={pic}
                   alt="profile"
                   className="h-10 md:h-12 w-10 md:w-12 rounded-full border-2 border-blue-600 p-[2px]"
-                />
+                /> */}
+                <div className=" rounded-full border-2 border-blue-600 p-[2px] flex items-center justify-center bg-white">
+                  {pic}
+                </div>
                 <input
                   value={commentInput}
                   onChange={handleCommentChange}
@@ -477,7 +523,9 @@ const CommentSection = ({
                       username={comment.commentedUser?.username || "Anonymous"}
                       isLiked={comment.isLiked}
                       likesCount={comment.likesCount}
+                      repliesCount={comment.repliesCount}
                       createdAt={comment.createdAt}
+                      createdBy={comment.createdBy}
                     />
                   </div>
                 );
@@ -488,14 +536,14 @@ const CommentSection = ({
       </div>
 
       {/* Toggle Button */}
-      <button
+      {/* <button
         onClick={toggleCommentSidebar}
         className={`fixed ${
           topbar ? "top-[114px]" : "top-[72px]"
         } right-4 bg-blue-600 text-white rounded-full p-2 px-3 shadow-md z-50 focus:outline-none`}
       >
         💬
-      </button>
+      </button> */}
     </>
   );
 };

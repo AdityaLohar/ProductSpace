@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import NewsLetter from "../components/NewsLetter";
 import CommentSection from "../components/CommentSection";
 import axios from "axios";
+import commentIcon from "../assets/comment.svg";
 
 const BlogStructure = ({ slug, title, description, content }) => {
   const [isCommentOpen, setIsCommentOpen] = useState(true);
@@ -14,18 +15,12 @@ const BlogStructure = ({ slug, title, description, content }) => {
 
     const getId = async () => {
       try {
-        // Encode the title to handle spaces and special characters
-        // const encodedTitle = encodeURIComponent(title);
-
-        // Construct the URL with the encoded title
         const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
         const url = `${PRODUCT_SPACE_API_HOST}/v1/blog/search?title=${slug}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=true`;
 
-        // Make the API call using axios
         const response = await axios.get(url);
         console.log(response.data);
 
-        // Assuming the response contains an `id` field
         setId(response.data.pageData.content[0].id);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -44,7 +39,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
       const scrollPosition = window.scrollY;
       const screenHeight = window.innerHeight;
 
-      const buffer = 20; // Adjust the buffer size if needed
+      const buffer = 20;
 
       if (scrollPosition < screenHeight - buffer) {
         setShowTopbar(true);
@@ -75,8 +70,13 @@ const BlogStructure = ({ slug, title, description, content }) => {
         />
       </Helmet>
 
-      <div className="flex justify-between">
-        <div dangerouslySetInnerHTML={{ __html: content }} className="lg:px-24" />
+      {/* Main content */}
+      <div className="relative flex justify-between">
+        <div
+          dangerouslySetInnerHTML={{ __html: content }}
+          className="lg:px-24"
+        />
+
         {/* Comment Section */}
         {id && (
           <div>
@@ -89,9 +89,15 @@ const BlogStructure = ({ slug, title, description, content }) => {
             />
           </div>
         )}
-      </div>
-      
 
+        {/* Button */}
+        {!isCommentOpen && <button
+          className="absolute right-80 top-40 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600"
+          onClick={toggleCommentSidebar}
+        >
+          Toggle Comments
+        </button>}
+      </div>
 
       <NewsLetter />
     </div>

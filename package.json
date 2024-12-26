@@ -23,6 +23,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "axios": "^1.7.7",
     "body-parser": "^1.20.3",
+    "boring-avatars": "^1.11.2",
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "framer-motion": "^11.5.6",
