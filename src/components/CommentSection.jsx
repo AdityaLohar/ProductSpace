@@ -38,7 +38,63 @@ const Reply = ({
   createdBy,
 }) => {
   const [liked, setLiked] = useState(isLiked);
+  const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
+  const setIsLoginOpen = useSetRecoilState(isOpenLogin);
   const pic = avatars[createdBy % 4];
+  const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
+  const likeURL = `${PRODUCT_SPACE_API_HOST}/v1/like`;
+
+  const toggleLike = async () => {
+    const jwtToken = localStorage.getItem("token");
+
+    try {
+      if (!liked) {
+        // Like the comment
+        const res = await fetch(likeURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: jwtToken,
+          },
+          body: JSON.stringify({ commentId: id }),
+        });
+
+        if (res.status === 401) {
+          setIsLoginOpen(true);
+          setIsLoginVisible(true);
+          return;
+        } else if (res.status == "FAILURE") {
+          alert("Operation failed, something went wrong");
+          return;
+        }
+
+        setLiked(true); // Update state to reflect liking the comment
+      } else {
+        // Unlike the comment
+        const res = await fetch(likeURL, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            token: jwtToken,
+          },
+          body: JSON.stringify([{ commentId: id }]), // Correct array format for backend
+        });
+
+        if (res.status === 401) {
+          setIsLoginOpen(true);
+          setIsLoginVisible(true);
+          return;
+        } else if (res.status == "FAILURE") {
+          alert("Operation failed, something went wrong");
+          return;
+        }
+
+        setLiked(false); // Update state to reflect unliking the comment
+      }
+    } catch (err) {
+      console.log("Error in liking the comment:", err);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-2">
@@ -58,6 +114,22 @@ const Reply = ({
           </div>
 
           <div className="text-[14px]">{content}</div>
+
+          <div
+            className={`text-[12px] flex justify-end items-center gap-1 ${
+              liked ? "text-red-400" : "text-gray-400"
+            }`}
+          >
+            <button onClick={toggleLike}>
+              <img
+                src={liked ? likeFilled : likeOutline}
+                alt=""
+                className="h-3"
+              />
+            </button>
+            {/* <p>{likesCount ? likesCount + liked - isLiked : "0"}</p> */}
+            <p>{likesCount + (liked ? (isLiked ? 0 : 1) : isLiked ? -1 : 0)}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -187,7 +259,11 @@ const Comment = ({
 
   const handleShowReplies = async () => {
     try {
-      const res = await axios.get(getRepliesURL);
+      const res = await axios.get(getRepliesURL, {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      });
       setReplies(res.data.pageData.content);
       console.log(res.data.pageData.content);
       console.log(isLiked);
@@ -327,8 +403,8 @@ const Comment = ({
               createdBy={reply.createdBy}
               content={reply.content || "No content provided"}
               postReply={postReply}
-              likesCount={likesCount}
-              isLiked={isLiked}
+              likesCount={reply.likesCount}
+              isLiked={reply.isLiked}
             />
           ))}
         </div>
