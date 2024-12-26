@@ -7,12 +7,14 @@ import {
   CheckIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
+import avatars from "../data/Avatars";
 
 const UserProfile = () => {
   const [users, setUsers] = useState();
   const [isEditing, setIsEditing] = useState(false);
   const [newPhone, setNewPhone] = useState("");
   const navigate = useNavigate();
+  const profilePic = avatars[localStorage.getItem("userId") % 4];
 
   useEffect(() => {
     const getEmail = localStorage.getItem("email");
@@ -114,7 +116,7 @@ const UserProfile = () => {
                 className="w-24 h-24 rounded-full object-cover border-2 border-gray-300"
               />
             ) : (
-              <UserCircleIcon className="w-24 h-24 text-gray-400" />
+              <div>{profilePic}</div>
             )}
           </div>
 

@@ -4,9 +4,12 @@ import NewsLetter from "../components/NewsLetter";
 import CommentSection from "../components/CommentSection";
 import axios from "axios";
 import commentIcon from "../assets/comment.svg";
+import { useRecoilValue } from "recoil";
+import { totalCommentsAtom } from "../atoms/modalState";
 
 const BlogStructure = ({ slug, title, description, content }) => {
   const [isCommentOpen, setIsCommentOpen] = useState(true);
+  const totalComments = useRecoilValue(totalCommentsAtom);
   const [topbar, setShowTopbar] = useState(true);
   const [id, setId] = useState();
 
@@ -91,12 +94,20 @@ const BlogStructure = ({ slug, title, description, content }) => {
         )}
 
         {/* Button */}
-        {!isCommentOpen && <button
-          className="absolute right-80 top-40 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600"
-          onClick={toggleCommentSidebar}
-        >
-          Toggle Comments
-        </button>}
+        {!isCommentOpen && (
+          <>
+            {/* For smaller screens (below lg) */}
+            <div className="font-inter fixed bottom-4 left-1/2 transform -translate-x-1/2">
+              <button
+                className="flex gap-1 h-[40px] items-center text-black px-2 py-2 rounded-lg shadow-xl bg-white"
+                onClick={toggleCommentSidebar}
+              >
+                <img src={commentIcon} alt="comment icon" />
+                <p>{totalComments} comments</p>
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
       <NewsLetter />

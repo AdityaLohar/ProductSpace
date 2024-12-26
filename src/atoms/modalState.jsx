@@ -59,3 +59,9 @@ export const authAtom = atom({
   key: "authAtom",
   default: "false",
 });
+
+// Total Comments for a blog Atom
+export const totalCommentsAtom = atom({
+  key: "totalCommentsAtom",
+  default: 0,
+});

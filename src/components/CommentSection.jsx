@@ -5,7 +5,12 @@ import comment from "../assets/comment.svg";
 import axios from "axios";
 import avatars from "../data/Avatars";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { authAtom, isOpenLogin, isVisibleLogin } from "../atoms/modalState";
+import {
+  authAtom,
+  isOpenLogin,
+  isVisibleLogin,
+  totalCommentsAtom,
+} from "../atoms/modalState";
 
 const pic =
   "https://icon-library.com/images/no-user-image-icon/no-user-image-icon-26.jpg";
@@ -273,34 +278,32 @@ const Comment = ({
               </p>
             </div>
 
-            {localRepliesCount && (
-              <div className="flex items-center gap-1 text-gray-400">
-                {!showReply ? (
-                  <button
-                    onClick={handleShowReplies}
-                    className="flex items-end gap-1"
-                  >
-                    <img src={comment} alt="" className="w-4" />
-                    <p>{localRepliesCount}</p>
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleShowReplies}
-                    className="flex items-end gap-1"
-                  >
-                    <p>Hide replies</p>
-                  </button>
-                )}
-              </div>
-            )}
-
-            <div>
-              {localRepliesCount && (
-                <button onClick={toggleReply}>
-                  {/* {showReply ? "Hide" : "Show"} Replies */}
-                  Reply
+            <div className="flex items-center gap-1 text-gray-400">
+              {!showReply ? (
+                <button
+                  onClick={localRepliesCount === 0 ? null : handleShowReplies}
+                  className={`${
+                    localRepliesCount === 0 ? "disabled cursor-not-allowed" : ""
+                  } flex items-end gap-1`}
+                >
+                  <img src={comment} alt="" className="w-4" />
+                  <p>{localRepliesCount}</p>
+                </button>
+              ) : (
+                <button
+                  onClick={handleShowReplies}
+                  className="flex items-end gap-1"
+                >
+                  <p>Hide replies</p>
                 </button>
               )}
+            </div>
+
+            <div>
+              <button onClick={toggleReply}>
+                {/* {showReply ? "Hide" : "Show"} Replies */}
+                Reply
+              </button>
             </div>
           </div>
         </div>
@@ -344,6 +347,7 @@ const CommentSection = ({
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
+  const setUniversalTotalComments = useSetRecoilState(totalCommentsAtom);
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const getCommentURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
   const pic = localStorage.getItem("userId")
@@ -393,6 +397,10 @@ const CommentSection = ({
   useEffect(() => {
     fetchComments();
   }, [id]);
+
+  useEffect(() => {
+    setUniversalTotalComments(comments.length);
+  }, [comments]);
 
   const handleCommentChange = (e) => {
     setCommentInput(e.target.value);
@@ -452,8 +460,8 @@ const CommentSection = ({
           // } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-10 overflow-hidden transition-transform duration-300 ${
         } right-0 h-[calc(100vh)] bg-white shadow-xl z-10 overflow-hidden transition-transform duration-300 ${
           isCommentOpen
-            ? "translate-x-0 w-full md:w-[350px]"
-            : "translate-x-full w-full md:w-[350px]"
+            ? "translate-x-0 w-full md:w-[400px]"
+            : "translate-x-full w-full md:w-[400px]"
         }`}
       >
         {/* Comments Content */}
@@ -471,29 +479,45 @@ const CommentSection = ({
                 </button>
               </div>
 
-              <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
-                {/* <img
-                  src={pic}
-                  alt="profile"
-                  className="h-10 md:h-12 w-10 md:w-12 rounded-full border-2 border-blue-600 p-[2px]"
-                /> */}
-                <div className=" rounded-full border-2 border-blue-600 p-[2px] flex items-center justify-center bg-white">
-                  {pic}
+              {localStorage.getItem("token") ? (
+                <div className="flex flex-col items-start gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <div className=" rounded-full border-2 border-blue-600 p-[2px] flex items-center justify-center bg-white">
+                      {pic}
+                    </div>
+                    <div className="font-bold">
+                      {localStorage.getItem("email").split("@")[0]}
+                    </div>
+                  </div>
+                  <textarea
+                    value={commentInput}
+                    onChange={handleCommentChange}
+                    onKeyUp={handleKeyPress}
+                    type="text"
+                    placeholder="What are your thoughts?"
+                    className="resize-none h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                  />
                 </div>
-                <input
-                  value={commentInput}
-                  onChange={handleCommentChange}
-                  onKeyUp={handleKeyPress}
-                  type="text"
-                  placeholder="What are your thoughts?"
-                  className="w-full p-2 md:px-3 border rounded-full outline-none bg-[#F3F3F3] placeholder-[#565973]"
-                />
-              </div>
+              ) : (
+                <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
+                  <div className=" rounded-full border-2 border-blue-600 p-[2px] flex items-center justify-center bg-white">
+                    {pic}
+                  </div>
+                  <input
+                    value={commentInput}
+                    onChange={handleCommentChange}
+                    onKeyUp={handleKeyPress}
+                    type="text"
+                    placeholder="What are your thoughts?"
+                    className="w-full p-2 md:px-3 border rounded-full outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                  />
+                </div>
+              )}
 
               {commentInput !== "" ? (
-                <div className="flex">
+                <div className="flex justify-end">
                   <button
-                    className="bg-[#107BEF] rounded-full text-white p-2 px-4"
+                    className="bg-[#107BEF] text-[14px] rounded-full text-white p-2 px-4"
                     onClick={postComment}
                   >
                     Post
@@ -504,7 +528,7 @@ const CommentSection = ({
               )}
             </div>
 
-            <hr />
+            <hr className="border-[#444]" />
 
             <div className="flex justify-between">
               <div>All Responses ({totalComments})</div>
