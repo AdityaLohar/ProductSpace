@@ -75,48 +75,49 @@ const BlogStructure = ({ slug, title, description, content }) => {
 
       {/* Main content */}
       {/* <div className="relative flex justify-between"> */}
-        <div
-          dangerouslySetInnerHTML={{ __html: content }}
-          className="lg:px-24"
-        />
+      <div dangerouslySetInnerHTML={{ __html: content }} className="lg:px-24" />
 
-        {/* Comment Section */}
-        {id && (
-          <div>
-            <CommentSection
-              id={id}
-              title={title}
-              isCommentOpen={isCommentOpen}
-              toggleCommentSidebar={toggleCommentSidebar}
-              topbar={topbar}
-            />
-          </div>
-        )}
+      {/* Comment Section */}
+      {id && (
+        <div>
+          <CommentSection
+            id={id}
+            title={title}
+            isCommentOpen={isCommentOpen}
+            toggleCommentSidebar={toggleCommentSidebar}
+            topbar={topbar}
+          />
+        </div>
+      )}
 
-        {/* Button */}
-        {/* {!isCommentOpen && ( */}
-          <>
-            {/* For smaller screens (below lg) */}
-            <div className="w-full flex lg:hidden justify-center font-inter fixed bottom-0 bg-white shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)]">
-              <button
-                className="flex gap-1 h-[40px] items-center text-black px-2 py-6 rounded-lg"
-                onClick={toggleCommentSidebar}
-              >
-                <img src={commentIcon} alt="comment icon" />
-                <p>{totalComments} comments</p>
-              </button>
-            </div>
-            <div className="hidden lg:flex font-inter fixed bottom-6 right-0 mr-7">
-              <button
-                className="flex gap-1 h-[40px] items-center text-black px-2 py-2 rounded-lg shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] bg-white"
-                onClick={toggleCommentSidebar}
-              >
-                <img src={commentIcon} alt="comment icon" />
-                <p>{totalComments} {totalComments > 1 ? "comments" : "comment"}</p>
-              </button>
-            </div>
-          </>
-        {/* )} */}
+      {/* Button */}
+      {/* {!isCommentOpen && ( */}
+      <>
+        {/* For smaller screens (below lg) */}
+        <div className="w-full flex lg:hidden justify-center font-inter fixed bottom-0 bg-white shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)]">
+          <button
+            className="flex gap-1 h-[40px] items-center text-black px-2 py-6 rounded-lg"
+            onClick={toggleCommentSidebar}
+          >
+            <img src={commentIcon} alt="comment icon" />
+            <p>
+              {totalComments || ""} {totalComments > 1 ? "comments" : "comment"}
+            </p>
+          </button>
+        </div>
+        <div className="hidden lg:flex font-inter fixed bottom-6 right-0 mr-7">
+          <button
+            className="flex gap-1 h-[40px] items-center text-black px-3 py-2 rounded-lg shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] bg-white"
+            onClick={toggleCommentSidebar}
+          >
+            <img src={commentIcon} alt="comment icon" />
+            <p>
+              {totalComments || ""} {totalComments > 1 ? "comments" : "comment"}
+            </p>
+          </button>
+        </div>
+      </>
+      {/* )} */}
       {/* </div> */}
 
       <NewsLetter />
