@@ -565,7 +565,7 @@ const CommentSection = ({
                       {pic}
                     </div>
                     <div className="font-bold">
-                      {localStorage.getItem("email").split("@")[0]}
+                      {localStorage.getItem("username")}
                     </div>
                   </div>
                   <textarea

@@ -70,12 +70,14 @@ const LoginWithGoogle = () => {
 
       console.log("Backend Response:", response.data);
 
-      const token = response.data.object;
+      const token = response.data.object.token;
+      const username = response.data.object.username;
       localStorage.setItem("token", token);
+      localStorage.setItem("username", username);
       localStorage.setItem("email", decoded.email);
 
       fetchUsers();
-      
+
       setAuth(true);
       setIsOpen(false);
       setIsOpenLogin(false);

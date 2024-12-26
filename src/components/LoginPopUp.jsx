@@ -126,11 +126,13 @@ const LoginPopUp = () => {
       console.log("Backend Response:", response.data);
 
       const res = response.data;
-      const token = response.data.object;
+      const token = response.data.object.token;
+      const username = response.data.object.username;
 
       // if success from backend redirect to profile page
       if (res.status === "SUCCESS") {
         localStorage.setItem("token", token);
+        localStorage.setItem("username", username);
         localStorage.setItem("email", email);
         fetchUsers();
         setEmailAtom(email);
