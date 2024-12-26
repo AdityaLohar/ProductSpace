@@ -99,7 +99,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
             {/* For smaller screens (below lg) */}
             <div className="font-inter fixed bottom-4 left-1/2 transform -translate-x-1/2">
               <button
-                className="flex gap-1 h-[40px] items-center text-black px-2 py-2 rounded-lg shadow-xl bg-white"
+                className="flex gap-1 h-[40px] items-center text-black px-2 py-2 rounded-lg shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] bg-white"
                 onClick={toggleCommentSidebar}
               >
                 <img src={commentIcon} alt="comment icon" />
