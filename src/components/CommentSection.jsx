@@ -318,11 +318,18 @@ const CommentSection = ({
   const fetchComments = async () => {
     try {
       // Assuming getCommentsURL is the API endpoint to fetch comments
-      const response = await axios.get(getCommentURL);
-      const data = response.data;
-      console.log(data);
+      const jwtToken = localStorage.getItem("token");
+      const response = await fetch(getCommentURL, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json", // Ensure the correct content type
+          token: jwtToken,
+        }
+      });
+      // const response = await axios.get(getCommentURL);
+      const result = await response.json();      
 
-      const commentsData = data.pageData.content;
+      const commentsData = result.pageData.content;
 
       // Filter out main comments (those without a parentId) and with the given blogId
       const mainComments = commentsData.filter(
