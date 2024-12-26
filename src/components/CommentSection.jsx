@@ -128,7 +128,10 @@ const Reply = ({
               />
             </button>
             {/* <p>{likesCount ? likesCount + liked - isLiked : "0"}</p> */}
-            <p>{likesCount + (liked ? (isLiked ? 0 : 1) : isLiked ? -1 : 0)}</p>
+            <p>
+              {likesCount + (liked ? (isLiked ? 0 : 1) : isLiked ? -1 : 0) ||
+                ""}
+            </p>
           </div>
         </div>
       </div>
@@ -350,7 +353,8 @@ const Comment = ({
               </button>
               {/* <p>{likesCount ? likesCount + liked - isLiked : "0"}</p> */}
               <p>
-                {likesCount + (liked ? (isLiked ? 0 : 1) : isLiked ? -1 : 0)}
+                {likesCount + (liked ? (isLiked ? 0 : 1) : isLiked ? -1 : 0) ||
+                  ""}
               </p>
             </div>
 
@@ -363,7 +367,7 @@ const Comment = ({
                   } flex items-end gap-1`}
                 >
                   <img src={comment} alt="" className="w-4" />
-                  <p>{localRepliesCount}</p>
+                  <p>{localRepliesCount || ""}</p>
                 </button>
               ) : (
                 <button
@@ -533,11 +537,10 @@ const CommentSection = ({
       <div
         className={`fixed font-inter flex ${
           topbar ? "top-[96px]" : "top-[61px]"
-          // } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-10 overflow-hidden transition-transform duration-300 ${
         } right-0 h-[calc(100vh)] bg-white shadow-xl z-10 overflow-hidden transition-transform duration-300 ${
           isCommentOpen
-            ? "translate-x-0 w-full md:w-[400px]"
-            : "translate-x-full w-full md:w-[400px]"
+            ? "translate-y-0 md:translate-y-0 md:translate-x-0 w-full md:w-[350px]"
+            : "translate-y-full w-full md:translate-y-0 md:translate-x-full md:w-[350px]"
         }`}
       >
         {/* Comments Content */}
