@@ -112,7 +112,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
                 onClick={toggleCommentSidebar}
               >
                 <img src={commentIcon} alt="comment icon" />
-                <p>{totalComments} comments</p>
+                <p>{totalComments} {totalComments > 1 ? "comments" : "comment"}</p>
               </button>
             </div>
           </>
