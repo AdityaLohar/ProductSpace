@@ -128,10 +128,10 @@ const UserProfile = () => {
 
           {/* Additional Details */}
           <div className="w-full flex flex-col gap-4">
-            <div className="flex justify-between border-b pb-2">
+            {/* <div className="flex justify-between border-b pb-2">
               <span className="text-gray-600 font-medium">User ID:</span>
               <span className="text-gray-800">{users.id}</span>
-            </div>
+            </div> */}
             <div className="flex justify-between border-b pb-2 items-center">
               <span className="text-gray-600 font-medium">Mobile:</span>
               {isEditing ? (

@@ -34,7 +34,8 @@ const Reply = ({ id, username, createdAt, content, likesCount, isLiked }) => {
         </div>
 
         {/* Actual Reply */}
-        <div className="flex flex-col gap-2 bg-gray-200 w-full p-3 rounded-lg">
+        {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-3 rounded-lg"> */}
+        <div className="flex flex-col gap-2 bg-[#EFF2FC] w-full p-3 rounded-lg">
           <div className="flex justify-between items-center">
             <div className="text-[14px] text-start font-bold">{username}</div>
             <div className="text-end text-[12px] text-gray-400">
@@ -66,18 +67,18 @@ const ReplyInput = ({ postReply }) => {
   };
 
   return (
-    <div className="flex flex-row items-center gap-2 text-[14px]">
+    <div className="flex flex-row items-center gap-2 text-[14px] bg-[#F3F3F3] p-2 rounded-full">
       <input
         type="text"
         value={reply}
         onChange={(e) => setReply(e.target.value)}
         onKeyUp={handleKeyPress}
         placeholder="Write your reply..."
-        className="flex-1 p-2 border rounded-lg outline-none w-full"
+        className="flex-1 rounded-xl px-1 outline-none w-full bg-[#F3F3F3] placeholder-[#565973]"
       />
       <button
         onClick={handleSubmit}
-        className="bg-blue-600 text-white p-2 rounded-lg"
+        className="bg-[#107BEF] rounded-full text-white p-2 px-4"
       >
         Post
       </button>
@@ -210,6 +211,10 @@ const Comment = ({
     }
   };
 
+  useEffect(() => {
+    console.log(isLiked);
+  }, []);
+
   return (
     <div className="flex flex-col gap-2">
       {/* Main Comment */}
@@ -220,7 +225,8 @@ const Comment = ({
         </div>
 
         {/* Actual Comment */}
-        <div className="flex flex-col gap-2 bg-gray-200 w-full p-4 rounded-lg">
+        {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-4 rounded-lg"> */}
+        <div className="flex flex-col gap-2 bg-[#EFF2FC] w-full p-4 rounded-lg">
           <div className="flex justify-between items-center">
             <div className="text-[14px] text-start font-bold">
               {username || "anonymous"}
@@ -230,7 +236,7 @@ const Comment = ({
             </div>
           </div>
 
-          <div className="text-[14px]">{content}</div>
+          <div className="text-[14px] text-[#0B0F19]">{content}</div>
 
           <div className="flex gap-3 justify-end text-gray-400 text-[12px]">
             <div
@@ -316,9 +322,17 @@ const CommentSection = ({
   };
 
   const fetchComments = async () => {
+    const jwtToken = localStorage.getItem("token");
+
     try {
       // Assuming getCommentsURL is the API endpoint to fetch comments
-      const response = await axios.get(getCommentURL);
+      const response = await axios.get(getCommentURL, {
+        headers: {
+          token: jwtToken,
+        },
+      });
+      console.log("sending token also", jwtToken);
+
       const data = response.data;
       console.log(data);
 
@@ -395,7 +409,16 @@ const CommentSection = ({
   return (
     <>
       {/* Comment Section */}
-      <div className={`font-inter bg-gray-100 shadow-lg h-full`}>
+      <div
+        className={`fixed font-inter ${
+          topbar ? "top-[96px]" : "top-[61px]"
+          // } right-0 h-[calc(100vh-3rem)] bg-gray-100 shadow-lg z-10 overflow-hidden transition-transform duration-300 ${
+        } right-0 h-[calc(100vh-3rem)] bg-white shadow-xl z-10 overflow-hidden transition-transform duration-300 ${
+          isCommentOpen
+            ? "translate-x-0 w-[300px] md:w-[350px]"
+            : "translate-x-full w-[300px] md:w-[350px]"
+        }`}
+      >
         {/* Comments Content */}
         {isCommentOpen && (
           <div className="flex flex-col gap-8 p-4">
@@ -417,7 +440,7 @@ const CommentSection = ({
                   onKeyUp={handleKeyPress}
                   type="text"
                   placeholder="What are your thoughts?"
-                  className="w-full p-2 md:px-3 border rounded-full outline-none"
+                  className="w-full p-2 md:px-3 border rounded-full outline-none bg-[#F3F3F3] placeholder-[#565973]"
                 />
               </div>
 
@@ -445,13 +468,6 @@ const CommentSection = ({
             {/* Scrollable Responses Section */}
             <div className="flex flex-col gap-2 mb-20 overflow-y-scroll pb-16 max-h-[calc(100vh-20rem)]">
               {comments.map((comment, _id) => {
-                // Check if likes is an array and if the current user has liked this comment
-                const isLiked =
-                  Array.isArray(comment.likes) &&
-                  comment.likes.some(
-                    (like) => like.userId === localStorage.getItem("userId")
-                  );
-
                 return (
                   <div key={_id}>
                     <Comment
@@ -459,7 +475,7 @@ const CommentSection = ({
                       blogId={id}
                       content={comment.content}
                       username={comment.commentedUser?.username || "Anonymous"}
-                      isLiked={isLiked}
+                      isLiked={comment.isLiked}
                       likesCount={comment.likesCount}
                       createdAt={comment.createdAt}
                     />
@@ -470,6 +486,16 @@ const CommentSection = ({
           </div>
         )}
       </div>
+
+      {/* Toggle Button */}
+      <button
+        onClick={toggleCommentSidebar}
+        className={`fixed ${
+          topbar ? "top-[114px]" : "top-[72px]"
+        } right-4 bg-blue-600 text-white rounded-full p-2 px-3 shadow-md z-50 focus:outline-none`}
+      >
+        💬
+      </button>
     </>
   );
 };

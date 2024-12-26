@@ -61,11 +61,11 @@ const BlogStructure = ({ slug, title, description, content }) => {
   }, []);
 
   const toggleCommentSidebar = () => {
-    setIsCommentOpen(isCommentOpen);
+    setIsCommentOpen(!isCommentOpen);
   };
 
   return (
-    <div className="flex flex-col gap-4 lg:gap-8">
+    <div className="relative flex flex-col gap-8">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -75,32 +75,23 @@ const BlogStructure = ({ slug, title, description, content }) => {
         />
       </Helmet>
 
-      <div className="flex flex-col lg:flex-row relative justify-between">
-        <div className="flex-1">
-          {/* Blogs */}
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-
-        </div>
-
-        <div className={`w-full lg:w-[340px] ${id ? "mt-8 md:mt-0" : ""}`}>
-          {/* Comment Section */}
-          {id && (
-            <div
-              className={`${
-                topbar ? "md:sticky md:top-[96px]" : "md:sticky md:top-[64px]"
-              } h-[calc(100vh-2rem)] md:overflow-y-hidden`}
-            >
-              <CommentSection
-                id={id}
-                title={title}
-                isCommentOpen={isCommentOpen}
-                toggleCommentSidebar={toggleCommentSidebar}
-                topbar={topbar}
-              />
-            </div>
-          )}
-        </div>
+      <div className="flex justify-between">
+        <div dangerouslySetInnerHTML={{ __html: content }} className="lg:px-24" />
+        {/* Comment Section */}
+        {id && (
+          <div>
+            <CommentSection
+              id={id}
+              title={title}
+              isCommentOpen={isCommentOpen}
+              toggleCommentSidebar={toggleCommentSidebar}
+              topbar={topbar}
+            />
+          </div>
+        )}
       </div>
+      
+
 
       <NewsLetter />
     </div>
