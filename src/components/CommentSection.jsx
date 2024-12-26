@@ -493,7 +493,7 @@ const CommentSection = ({
               {commentInput !== "" ? (
                 <div className="flex">
                   <button
-                    className="bg-blue-700 p-2 px-4 rounded-lg text-white"
+                    className="bg-[#107BEF] rounded-full text-white p-2 px-4"
                     onClick={postComment}
                   >
                     Post
