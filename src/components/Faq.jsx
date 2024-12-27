@@ -129,7 +129,7 @@ const Faq = () => {
         <div className="flex">
           <button
             onClick={toggleModal}
-            className="flex items-center gap-2 justify-center text-[18px] w-1/2 lg:w-[170px] text-white font-semibold p-4 rounded-full border border-[#42AAFF] shadow-[0px_0px_13px_0px_#0062B4]"
+            className="flex items-center gap-2 justify-center text-[18px] lg:text-[24px] w-1/2 lg:w-[230px] text-white font-bold p-4 rounded-full border border-[#42AAFF] shadow-[0px_0px_13px_0px_#0062B4]"
           >
             Contact Us
           </button>

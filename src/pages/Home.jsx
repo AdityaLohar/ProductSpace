@@ -15,6 +15,7 @@ import CourseSnapshot from "../components/CourseSnapshot";
 import Partnerships from "../components/Partnerships";
 import HelpSucceed from "../components/HelpSucceed";
 import Alumni from "../components/Alumni";
+import MeetMentorsRevamped from "../components/MeetMentorsRevamped";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -57,6 +58,7 @@ const Home = () => {
         <HelpSucceed />
         <Companies />
         <Alumni />
+        <MeetMentorsRevamped />
         <Faq />
       </div>
     </div>
