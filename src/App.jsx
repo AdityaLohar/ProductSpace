@@ -55,13 +55,8 @@ import ProductAnalytics from "./pages/ProductAnalytics";
 import Blog26 from "./pages/singleBlogs/Blog26";
 import Blog27 from "./pages/singleBlogs/Blog27";
 import Blog28 from "./pages/singleBlogs/Blog28";
-import DemoBlog from "./pages/BlogStructure";
 import BlogsData from "./data/BlogsData";
 import BlogStructure from "./pages/BlogStructure";
-import PrivateRoute from "./components/PrivateRoute";
-import SignupPopUp from "./components/SignupPopUp";
-import LoginPopUp from "./components/LoginPopUp";
-import UserProfile from "./pages/UserProfile";
 
 function App() {
   const location = useLocation();
@@ -83,20 +78,9 @@ function App() {
         <Navbar />
         <ContactUsForm />
         <GenAiContactUsForm />
-        <SignupPopUp />
-        <LoginPopUp />
 
         {/* <Router> */}
         <Routes>
-          {/* Protected route */}
-          <Route
-            path="/user/profile"
-            element={
-              <PrivateRoute>
-                <UserProfile />
-              </PrivateRoute>
-            }
-          />
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/ai-for-pm" element={<Event1 />} />
