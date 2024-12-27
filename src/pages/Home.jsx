@@ -12,6 +12,8 @@ import BottomBar from "./../components/BottomBar";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 import CourseSnapshot from "../components/CourseSnapshot";
+import Partnerships from "../components/Partnerships";
+import HelpSucceed from "../components/HelpSucceed";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -38,7 +40,10 @@ const Home = () => {
   return (
     <div className="font-hind xl:flex xl:flex-col items-center">
       <Helmet>
-        <title>Product Space | The Only Personalized Product Management Course for Your Unique Journey</title>
+        <title>
+          Product Space | The Only Personalized Product Management Course for
+          Your Unique Journey
+        </title>
         <meta
           name="description"
           content="Join our PM Fellowship cohort to upskill and excel into product management roles from any background. Get access to industry live projects, 1-1 expert mentorship, and placement support to thrive in your PM job."
@@ -46,30 +51,8 @@ const Home = () => {
         <link rel="canonical" href="https://theproductspace.in/" />
       </Helmet>
 
-      <div className="bg-transparent py-2 max-w-screen-xl lg:py-16">
-        <HomeHeroSection />
-      </div>
-
-      <div className="w-full max-w-screen-2xl">
-        <Benefits bgColor={"#F5F5F5"} />
-        <Companies />
-      </div>
-
-      <hr className="w-full max-w-screen-xl border-t-2" />
-
-      <div className="w-full max-w-screen-2xl space-y-10 md:space-y-0">
-        <Results />
-        <Alumini />
-        <MeetMentors bgColor={"#F5F5F5"} />
-        <CaseStudies1 />
-        <NewsLetter />
-      </div>
-
-      {/* <div className="w-full bg-black lg:pb-16 max-w-screen-2xl">
-          <Footer />
-        </div> */}
-
-      {showBottomBar && <BottomBar />}
+      <Partnerships />
+      <HelpSucceed />
     </div>
   );
 };

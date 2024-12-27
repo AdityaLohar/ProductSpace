@@ -1,12 +1,12 @@
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  @layer components {
-    .active {
-      height: 335px !important;
-    }
+@layer components {
+  .active {
+    height: 335px !important;
   }
+}
 
 :root {
   font-synthesis: none;
@@ -23,7 +23,7 @@ body {
   background-position: top 0% left 0%;
   background-size: auto;
   background-repeat: no-repeat;
-  background-attachment:scroll;
+  background-attachment: scroll;
 }
 
 @media (max-width: 768px) {
@@ -44,12 +44,16 @@ body {
 }
 
 .pm-hero-gradient-bg {
-  background: linear-gradient(to bottom, white 67%, #D7F5FF 60%);
+  background: linear-gradient(to bottom, white 67%, #d7f5ff 60%);
 }
 
 @media (min-width: 1024px) {
   .pm-hero-gradient-bg {
-    background: linear-gradient(to bottom, white 57%, #D7F5FF 50%); /* Adjust as needed */
+    background: linear-gradient(
+      to bottom,
+      white 57%,
+      #d7f5ff 50%
+    ); /* Adjust as needed */
   }
 }
 
@@ -78,7 +82,10 @@ body {
   width: calc(100% * 4); /* Adjust width based on the number of repetitions */
   animation: scrollHorizontal linear infinite;
   animation-duration: 70s; /* Adjust based on content length */
-  animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
+  animation-play-state: var(
+    --scroll-animation-play-state,
+    running
+  ); /* Use CSS variable to control animation */
 }
 
 /* GenAi page */
@@ -87,16 +94,21 @@ body {
   width: calc(100% * 2); /* Adjust width based on the number of repetitions */
   animation: scrollHorizontal linear infinite;
   animation-duration: 70s; /* Adjust based on content length */
-  animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
+  animation-play-state: var(
+    --scroll-animation-play-state,
+    running
+  ); /* Use CSS variable to control animation */
 }
 .scroll-wrapper-4 {
   display: flex;
   width: calc(100% * 3); /* Adjust width based on the number of repetitions */
   animation: scrollHorizontal linear infinite;
   animation-duration: 80s; /* Adjust based on content length */
-  animation-play-state: var(--scroll-animation-play-state, running); /* Use CSS variable to control animation */
+  animation-play-state: var(
+    --scroll-animation-play-state,
+    running
+  ); /* Use CSS variable to control animation */
 }
-
 
 @keyframes scrollHorizontal {
   0% {
@@ -138,7 +150,9 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-72%); /* Scroll half the width to create an infinite loop */
+    transform: translateX(
+      -72%
+    ); /* Scroll half the width to create an infinite loop */
   }
 }
 
@@ -199,7 +213,13 @@ body {
 }
 
 .shimmer {
-  -webkit-mask: linear-gradient(-60deg, #000 40%, rgba(0, 0, 0, 0.688) 45%, #000 60%) right/250% 100%;
+  -webkit-mask: linear-gradient(
+      -60deg,
+      #000 40%,
+      rgba(0, 0, 0, 0.688) 45%,
+      #000 60%
+    )
+    right/250% 100%;
   background-repeat: no-repeat;
   animation: shimmer 1.5s infinite linear; /* Adjusted duration and added 'linear' for smooth, continuous motion */
 }
@@ -208,4 +228,19 @@ body {
   100% {
     -webkit-mask-position: left;
   }
+}
+
+/* HOME PAGE Revamp */
+/* Partnership section */
+@keyframes slide-left-infinite {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-left-infinite {
+  animation: slide-left-infinite 20s linear infinite; /* Adjust time for slower/faster speed */
 }
