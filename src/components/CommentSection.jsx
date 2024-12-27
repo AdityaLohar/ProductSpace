@@ -268,8 +268,8 @@ const Comment = ({
         },
       });
       setReplies(res.data.pageData.content);
-      console.log(res.data.pageData.content);
-      console.log(isLiked);
+      // console.log(res.data.pageData.content);
+      // console.log(isLiked);
       setShowReply(!showReply);
     } catch (err) {
       console.log("error in getting replies");
@@ -313,9 +313,9 @@ const Comment = ({
     }
   };
 
-  useEffect(() => {
-    console.log(isLiked);
-  }, []);
+  // useEffect(() => {
+  //   console.log(isLiked);
+  // }, []);
 
   return (
     <div className="flex flex-col gap-2">
@@ -452,10 +452,10 @@ const CommentSection = ({
           token: jwtToken,
         },
       });
-      console.log("sending token also", jwtToken);
+      // console.log("sending token also", jwtToken);
 
       const data = response.data;
-      console.log(data);
+      // console.log(data);
 
       const commentsData = data.pageData.content;
 
@@ -514,7 +514,7 @@ const CommentSection = ({
       }
 
       const newComment = await response.json();
-      console.log(newComment);
+      // console.log(newComment);
 
       // Update the state with the new comment
       setComments((prevComments) => [...prevComments, newComment]);
