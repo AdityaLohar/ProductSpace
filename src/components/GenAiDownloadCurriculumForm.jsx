@@ -2,12 +2,19 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
-import axios from 'axios';
+import axios from "axios";
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_GEN_AI_DOWNLOAD_CURRICULUM_URL;
+const airtableBaseUrl = import.meta.env
+  .VITE_AIRTABLE_GEN_AI_DOWNLOAD_CURRICULUM_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
-const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
+const GenAiDownloadCurriculumForm = ({
+  isVisible,
+  setIsVisible,
+  setIsOpen,
+  isOpen,
+  toggleModal,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -22,15 +29,15 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
         {
           fields: {
             Name: name,
-            'Mobile Number': phoneNumber, // Make sure this matches exactly
-            'Email Id': email,           // Make sure this matches exactly
-            "Timestamp": currentTimestamp,
+            "Mobile Number": phoneNumber, // Make sure this matches exactly
+            "Email Id": email, // Make sure this matches exactly
+            Timestamp: currentTimestamp,
           },
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`, // Use the personal access token here
+            "Content-Type": "application/json",
           },
         }
       );
@@ -41,10 +48,9 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
         description: "Our Expert Consultant will Call you back.",
       });
       setShowNotification(true);
-    } 
-    catch (error) {
+    } catch (error) {
       console.log(error);
-      
+
       setNotification({
         type: "error",
         title: "Error",
@@ -55,9 +61,9 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
       setTimeout(() => {
         setShowNotification(false);
       }, 5000);
-      
-      console.error('Error saving data:', error);
-      
+
+      console.error("Error saving data:", error);
+
       return;
     }
   };
@@ -77,13 +83,14 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
       }, 5000);
       return;
     }
-    
+
     setLoading(true);
     const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
- 
-    window.location.href = "https://drive.google.com/file/d/1ubbbKfT3U92eOqPBHUF8wQFk2vt6UAXu/view?usp=sharing";
+
+    window.location.href =
+      "https://drive.google.com/file/d/1DCEZQLvPNvXE0HIj0CV16TDNm-HDo1cZ/view?usp=sharing";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -123,7 +130,8 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
                   Download Detailed Curriculum
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
-                  Excel in your Product Management Career with practical AI skills and 1:1 mentorship from industry experts.
+                  Excel in your Product Management Career with practical AI
+                  skills and 1:1 mentorship from industry experts.
                 </h3>
 
                 <div className="mb-4">
@@ -197,7 +205,9 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
 
                   {/* Notification Content */}
                   <div className="flex flex-col">
-                    <span className="font-bold text-lg">{notification.title}</span>
+                    <span className="font-bold text-lg">
+                      {notification.title}
+                    </span>
                     <span className="text-sm">{notification.description}</span>
                   </div>
 
