@@ -232,15 +232,4 @@ body {
 
 /* HOME PAGE Revamp */
 /* Partnership section */
-@keyframes slide-left-infinite {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
 
-.animate-slide-left-infinite {
-  animation: slide-left-infinite 20s linear infinite; /* Adjust time for slower/faster speed */
-}

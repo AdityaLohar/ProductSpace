@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet-async";
 import CourseSnapshot from "../components/CourseSnapshot";
 import Partnerships from "../components/Partnerships";
 import HelpSucceed from "../components/HelpSucceed";
+import Alumni from "../components/Alumni";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -51,8 +52,13 @@ const Home = () => {
         <link rel="canonical" href="https://theproductspace.in/" />
       </Helmet>
 
-      <Partnerships />
-      <HelpSucceed />
+      <div className="w-full max-w-screen-2xl">
+        <Partnerships />
+        <HelpSucceed />
+        <Companies />
+        <Alumni />
+        <Faq />
+      </div>
     </div>
   );
 };

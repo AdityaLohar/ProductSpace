@@ -73,7 +73,7 @@ function App() {
   }, [location]);
 
   const isHomePage =
-    location.pathname === "/" ||
+    // location.pathname === "/" ||
     location.pathname === "/pm-fellowship" ||
     location.pathname === "/pm-workshop";
 
