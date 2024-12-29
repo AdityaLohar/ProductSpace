@@ -22,12 +22,13 @@ const CaseStudies = () => {
 
   return (
     <div className="flex flex-col bg-[#F1E6FF] mb-10 lg:mb-20 rounded-3xl pb-10 px-4 md:px-10 lg:px-20">
-      <div className="py-8">
-        <div className="text-[28px] lg:text-[44px] font-bold text-center">
-          Unlock Real-World Insights
+      <div className="">
+        <div className="text-[24px] lg:text-[40px] font-bold text-[#1D1F3D]">
+          Student Case Studies
         </div>
-        <div className="text-[14px] lg:text-sm text-center text-gray-700 font-medium">
-          Dive into Case Studies that Drive Product Innovation
+        <div className="text-[14px] lg:text-[24px] text-center text-[#A3A7B6]">
+          Explore the innovative AI projects our students have crafted,
+          showcasing their creativity and technical skills.
         </div>
       </div>
 

@@ -1,11 +1,131 @@
 import { useState } from "react";
-import netflix from "../assets/netflix-logo.jpg";
-import primeVideo from "../assets/prime-video.svg";
 import miro from "../assets/miro-logo.png";
-import canva from "../assets/canva.svg";
+import shareIcon from "../assets/share.svg";
+import arrowIcon from "../assets/right-arrow-dark.svg";
+import ShareOptions from "../components/ShareOptions";
 
 const magicBricks =
   "https://apps.odoo.com/web/image/loempia.module/143981/icon_image?unique=d4b6f04";
+
+const Card = ({ image, desc, url, tags }) => {
+  const [isShareOpen, setIsShareOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const toggleSharePopup = () => {
+    setCopied(false);
+    setIsShareOpen(!isShareOpen);
+  };
+
+  const currentUrl = url;
+
+  const handleShare = (platform) => {
+    switch (platform) {
+      case "facebook":
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
+      case "instagram":
+        // Instagram doesn't allow direct sharing via URL; users have to share manually on their app
+        alert("Please share this link manually on Instagram.");
+        return;
+      case "whatsapp":
+        url = `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
+        break;
+      case "linkedin":
+        url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
+      case "twitter":
+        url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+          currentUrl
+        )}&text=${encodeURIComponent("Check this out!")}`;
+        break;
+      case "slack":
+        url = `https://slack.com/intl/en-in/share?text=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
+      case "copy":
+        navigator.clipboard.writeText(currentUrl);
+        setCopied(true);
+        return;
+      case "email":
+        url = `mailto:?subject=Check this out&body=${encodeURIComponent(
+          currentUrl
+        )}`;
+        break;
+      default:
+        alert("Unsupported platform.");
+        return;
+    }
+
+    if (url) {
+      window.open(url, "_blank");
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-5 min-w-[345px] lg:min-w-[446px]">
+      <div className="relative shadow-md rounded-2xl">
+        <img
+          src={image}
+          alt="case-study"
+          className=" rounded-2xl w-full h-[334px] lg:h-[438px]"
+        />
+
+        <a
+          href={url}
+          target="_blank"
+          className="flex gap-1 bg-white rounded-lg text-black text-[10px] items-center absolute bottom-4 right-4 p-2"
+        >
+          <p>Read more</p>
+          <img src={arrowIcon} alt="" className="h-3" />
+        </a>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <div className="flex justify-between items-start text-[18px] font-semibold">
+          <div>{desc}</div>
+          <a href={url} target="_blank">
+            <img src={arrowIcon} alt="btn" className="h-4" />
+          </a>
+        </div>
+
+        <div className="text-[12px] text-[#667085]">
+          A sneak peek into what you will learn in our 10-week curriculum.
+        </div>
+
+        <div className="flex justify-between items-start">
+          <div className="flex gap-2 text-[9px]">
+            <div className="bg-[#E7F7FC] border border-[#013B4D3D] p-1 rounded-md">
+              Prototype Testing
+            </div>
+            <div className="bg-[#E7F7FC] border border-[#013B4D3D] p-1 rounded-md">
+              News
+            </div>
+          </div>
+
+          <button
+            className="bg-[#FCFCFC] rounded-md p-1"
+            onClick={toggleSharePopup}
+          >
+            <img src={shareIcon} alt="share" className="h-4" />
+          </button>
+        </div>
+      </div>
+
+      {isShareOpen && (
+        <ShareOptions
+          handleShare={handleShare}
+          toggleSharePopup={toggleSharePopup}
+          copied={copied}
+        />
+      )}
+    </div>
+  );
+};
 
 const CaseStudies1 = () => {
   const [selectedBox, setSelectedBox] = useState(0); // Change to null initially
@@ -67,178 +187,27 @@ const CaseStudies1 = () => {
   ];
 
   return (
-    <div className="flex flex-col bg-white lg:pt-6 md:pb-16 px-4 md:px-10 xl:px-20">
-      <div className="pb-8 lg:py-8">
-        <div className="text-[24px] lg:text-[40px] font-bold text-center font-sans">
-          Product Tear-down & Case Studies
+    <div className="flex flex-col gap-6 lg:gap-12 font-inter pt-16 pb-12 lg:pt-20 lg:pb-16 px-4 md:px-10 xl:px-20">
+      <div className="flex flex-col gap-2">
+        <div className="text-[20px] lg:text-[40px] font-bold text-[#1D1F3D]">
+          Student case studies
         </div>
-        <div className="text-[14px] lg:text-[16px] text-center text-gray-700 font-medium py-2">
-          Dive into Case Studies that Drive Product Innovation
-        </div>
-      </div>
-
-      <div className="hidden lg:grid grid-cols-5 grid-rows-2 gap-4 lg:gap-7 w-full p-4 relative hover:cursor-pointer overflow-hidden">
-        {/* First Box: Always shows the selected one */}
-        <div
-          key="selected"
-          className="col-span-2 row-span-2 h-full w-full rounded-2xl shadow-[0px_4px_17px_rgba(0,0,0,0.4)] flex flex-col justify-between font-semibold bg-white overflow-hidden items-start"
-          style={{
-            backgroundImage: `url(${boxes[selectedBox]?.image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            position: "relative",
-            flexShrink: 0,
-            boxSizing: "border-box",
-            transition:
-              "background-image 0.4s ease-in-out, opacity 0.4s ease-in-out",
-          }}
-        >
-          <div className="m-2 p-1 px-2 bg-[#FFF1D4] rounded-2xl text-[12px] xl:text-sm w-contain">
-            {boxes[selectedBox]?.title}
-          </div>
-
-          {/* Display additional content for the selected box */}
-          <div
-            className="w-full h-1/2 flex items-end justify-center"
-            style={{
-              opacity: 1,
-              transition:
-                "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
-            }}
-          >
-            <a href={boxes[selectedBox]?.url} target="_blank">
-              <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-4">
-                <div className="text-[24px] md:text-[18px] xl:text-[24px] pr-4">
-                  {boxes[selectedBox]?.desc}
-                </div>
-                <div className="text-[16px] md:text-[14px] xl:text-[16px] font-normal pr-4">
-                  A sneak peek into what you will learn in our 10-week
-                  curriculum.
-                </div>
-                <div className="flex justify-end">
-                  <div className="text-[12px] md:text-[10px] xl:text-[12px] font-normal">
-                    Published on: 25th May 24
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        {/* Other boxes */}
-        {boxes.map((box, index) => {
-          if (index === selectedBox) return null;
-
-          return (
-            <div
-              key={index}
-              onClick={() => {
-                const newBoxes = [...boxes];
-                [newBoxes[selectedBox], newBoxes[index]] = [
-                  newBoxes[index],
-                  newBoxes[selectedBox],
-                ];
-                setSelectedBox(index);
-                
-                window.open(boxes[index].url, '_blank', 'noopener, noreferrer');
-              }}
-              className="col-span-1 row-span-1 hover:shadow-[1px_5px_10px_rgba(0,0,0,0.4)] 
-                custom-5:h-[170px] custom-5:w-[170px] 
-                custom-6:h-[180px] custom-6:w-[180px] 
-                custom-8:h-[200px] custom-8:w-[200px] 
-                2xl:h-[245px] 2xl:w-[245px] 
-                rounded-lg flex flex-col font-semibold bg-white 
-                overflow-hidden items-start justify-end 
-                transition-transform duration-300 ease-in-out 
-                transform hover:scale-105"
-              style={{
-                backgroundImage: `url(${box.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                flexShrink: 0,
-                boxSizing: "border-box",
-                transition:
-                  "transform 0.3s ease-in-out, background-image 0.5s ease-in-out, opacity 0.5s ease-in-out",
-              }}
-            >
-              <div className="m-2 p-1 px-2 bg-[#FFF1D4] rounded-2xl text-[12px] xl:text-sm w-contain">
-                {box.title}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* <div className="hidden lg:flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-6">
-        <button>Check out more Case Studies</button>
-      </div> */}
-
-      <div className="lg:hidden">
-        {/* Display the Selected Box */}
-        {selectedBox !== null && (
-          <div
-            className="mx-auto w-full h-[300px] custom-1:h-[300px] custom-2:h-[450px] custom-3:h-[510px] custom-3:w-[520px] mb-4 bg-white rounded-2xl flex flex-col items-start justify-between overflow-hidden transition-all duration-500 ease-in-out"
-            style={{
-              backgroundImage: `url(${boxes[selectedBox].image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            <div>
-              <div className="bg-[#FFF1D4] rounded-2xl text-[10px] md:text-sm px-2 py-1 m-2">
-                {boxes[selectedBox].title}
-              </div>
-            </div>
-            <a href={boxes[selectedBox]?.url} target="_blank">
-              <div className="bg-[rgba(0,0,0,0.7)] border border-2 border-white rounded-2xl text-white p-3 m-3 font-hind space-y-2">
-                <div className="text-[20px] md:text-[24px] font-semibold pr-4">
-                  Improving {boxes[selectedBox].title} Viewing Experience
-                </div>
-                <div className="text-[14px] md:text-[16px] font-normal pr-4">
-                  A sneak peek into what you will learn in our 10-week curriculum.
-                </div>
-                <div className="flex justify-end">
-                  <div className="text-[10px] md:text-[12px] font-normal">
-                    Published on: 25th May 24
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        )}
-
-        {/* Non-Selected Boxes */}
-        <div className="flex overflow-x-auto space-x-3 py-2 pb-8 pl-2 items-center h-[150px]">
-          {boxes.map((box, index) => (
-            <div
-              key={index}
-              onClick={() => setSelectedBox(index)}
-              className={`flex-shrink-0 transition-all duration-500 ease-in-out h-[100px] w-[100px] md:h-[120px] md:w-[120px] bg-white rounded-xl flex items-end justify-start ${
-                index === selectedBox
-                  ? "border-2 border-white h-[110px] w-[110px] scale-110 shadow-[0_6px_1px_rgba(0,0,0,0.7)]"
-                  : ""
-              }`}
-              style={{
-                backgroundImage: `url(${box.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="bg-[#FFF1D4] rounded-2xl text-[10px] md:text-[12px] px-2 py-1 m-2">
-                {box.title}
-              </div>
-            </div>
-          ))}
+        <div className="text-[14px] lg:text-[24px] text-[#A3A7B6] w-full xl:w-1/2">
+          Explore the innovative AI projects our students have crafted,
+          showcasing their creativity and technical skills.
         </div>
       </div>
 
-      {/* <div className="lg:hidden flex justify-center text-[16px] text-[#FF559E] font-semibold underline my-3 mt-12">
-        <button>Check out more Case Studies</button>
-      </div> */}
+      <div className="flex gap-8 overflow-x-scroll mentor-scrollbar">
+        {boxes.map((item, index) => (
+          <Card
+            key={index}
+            image={item.image}
+            desc={item.desc}
+            url={item.url}
+          />
+        ))}
+      </div>
     </div>
   );
 };

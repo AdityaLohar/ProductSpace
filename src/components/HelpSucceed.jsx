@@ -1,11 +1,13 @@
 import React from "react";
 import tick from "../assets/Tick1.svg";
+import star from "../assets/star-blue.svg";
+import wallet from "../assets/wallet-blue.svg";
 
-const Icon = ({ img, title, desc }) => {
+const Icon = ({ img, title, desc, size }) => {
   return (
     <div className="flex flex-col gap-4 px-8 lg:px-8 py-6 lg:py-12 w-auto lg:w-[250px]">
       <div>
-        <img src={img} alt="" className="w-14 lg:w-20" />
+        <img src={img} alt="" className={`h-[50px] lg:h-[${size}px] w-auto`} />
       </div>
       <div className="w-full">
         <div className="text-[24px] lg:text-[40px] font-bold">{title}</div>
@@ -17,22 +19,27 @@ const Icon = ({ img, title, desc }) => {
 
 const HelpSucceed = () => {
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-6 lg:gap-10 text-[#1D1F3D] px-10 lg:px-32 py-10 lg:py-28">
-      <div className="order-2 lg:order-1 flex">
-        <div>
-          <div className="border-r border-b flex justify-center items-center">
-            <Icon img={tick} title={"90%"} desc={"Graduation Rate"} />
+    <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-6 lg:gap-10 text-[#1D1F3D] px-4 lg:px-32 py-10 lg:py-28">
+      <div className="order-2 lg:order-1 flex flex-col">
+        <div className="flex">
+          <div className="border-r border-b w-1/2">
+            <Icon img={tick} title={"90%"} desc={"Graduation Rate"} size={70} />
           </div>
-          <div className="border-r">
-            <Icon img={tick} title={"90%"} desc={"Graduation Rate"} />
+          <div className="border-b w-1/2">
+            <Icon img={star} title={"80%"} desc={"Placement Rate"} size={70} />
           </div>
         </div>
-        <div>
-          <div className="border-b">
-            <Icon img={tick} title={"90%"} desc={"Graduation Rate"} />
+        <div className="flex">
+          <div className="border-r w-1/2">
+            <Icon
+              img={wallet}
+              title={"₹57 LPA"}
+              desc={"Median Graduate Salary"}
+              size={70}
+            />
           </div>
-          <div>
-            <Icon img={tick} title={"90%"} desc={"Graduation Rate"} />
+          <div className="w-1/2">
+            <Icon img={tick} title={"90%"} desc={"Graduation Rate"} size={70} />
           </div>
         </div>
       </div>

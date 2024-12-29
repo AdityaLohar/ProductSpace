@@ -37,83 +37,82 @@ const Card = ({ name, profile, title, desc, company, curCompany }) => {
 
 const Alumni = () => {
   return (
-    <div className="bg-white pt-16 pb-10 font-inter text-[#1D1F3D]">
-      <div className="flex flex-col py-12 lg:py-24 mx-auto items-between justify-between text-center gap-6">
-        <div className="text-[24px] lg:text-[40px] font-bold px-2">
-          <h2>Real Success, Real Impact</h2>
-        </div>
+    <div className="flex flex-col py-12 lg:py-24 mx-auto bg-white font-inter text-[#1D1F3D] items-between justify-between text-center gap-6 lg:gap-12">
+      <div className="text-[20px] lg:text-[40px] font-bold px-2">
+        <h2>Real Success, Real Impact</h2>
+      </div>
 
-        <div className="flex flex-col gap-8">
-          <div className="overflow-x-scroll mentor-scrollbar p-4">
-            <div
-              className={`scroll-wrapper-3 flex gap-6 animate hover:cursor-default`}
-              onMouseEnter={() =>
-                document.documentElement.style.setProperty(
-                  "--scroll-animation-play-state",
-                  "paused"
-                )
-              }
-              onMouseLeave={() =>
-                document.documentElement.style.setProperty(
-                  "--scroll-animation-play-state",
-                  "running"
-                )
-              }
-            >
-              {[...Array(20)].map((_, i) =>
-                alumni
-                  .slice(0, Math.ceil(alumni.length / 2))
-                  .map((alum, index) => (
-                    <Card
-                      key={`${alum.id}-${index}-${i}`}
-                      name={alum.name}
-                      profile={alum.profile}
-                      title={alum.curPost}
-                      desc={alum.testimonial}
-                      company={alum.company}
-                      curCompany={alum.curCompany}
-                    />
-                  ))
-              )}
-            </div>
-          </div>
-
-          <div className="overflow-x-scroll mentor-scrollbar py-4">
-            <div
-              className={`scroll-wrapper-4 flex gap-6 animate hover:cursor-default`}
-              onMouseEnter={() =>
-                document.documentElement.style.setProperty(
-                  "--scroll-animation-play-state",
-                  "paused"
-                )
-              }
-              onMouseLeave={() =>
-                document.documentElement.style.setProperty(
-                  "--scroll-animation-play-state",
-                  "running"
-                )
-              }
-            >
-              {[...Array(20)].map((_, i) =>
-                alumni
-                  .slice(Math.ceil(alumni.length / 2))
-                  .map((alum, index) => (
-                    <Card
-                      key={`${alum.id}-${index}-${i}`}
-                      name={alum.name}
-                      profile={alum.profile}
-                      title={alum.curPost}
-                      desc={alum.testimonial}
-                      company={alum.company}
-                      curCompany={alum.curCompany}
-                    />
-                  ))
-              )}
-            </div>
+      <div className="flex flex-col gap-0 lg:gap-8">
+        <div className="overflow-x-scroll mentor-scrollbar p-4">
+          <div
+            className={`scroll-wrapper-3 flex gap-6 animate hover:cursor-default`}
+            onMouseEnter={() =>
+              document.documentElement.style.setProperty(
+                "--scroll-animation-play-state",
+                "paused"
+              )
+            }
+            onMouseLeave={() =>
+              document.documentElement.style.setProperty(
+                "--scroll-animation-play-state",
+                "running"
+              )
+            }
+          >
+            {[...Array(20)].map((_, i) =>
+              alumni
+                .slice(0, Math.ceil(alumni.length / 2))
+                .map((alum, index) => (
+                  <Card
+                    key={`${alum.id}-${index}-${i}`}
+                    name={alum.name}
+                    profile={alum.profile}
+                    title={alum.curPost}
+                    desc={alum.testimonial}
+                    company={alum.company}
+                    curCompany={alum.curCompany}
+                  />
+                ))
+            )}
           </div>
         </div>
 
-        {/* <div className="pt-4 flex justify-center">
+        <div className="overflow-x-scroll mentor-scrollbar py-4">
+          <div
+            className={`scroll-wrapper-4 flex gap-6 animate hover:cursor-default`}
+            onMouseEnter={() =>
+              document.documentElement.style.setProperty(
+                "--scroll-animation-play-state",
+                "paused"
+              )
+            }
+            onMouseLeave={() =>
+              document.documentElement.style.setProperty(
+                "--scroll-animation-play-state",
+                "running"
+              )
+            }
+          >
+            {[...Array(20)].map((_, i) =>
+              alumni
+                .slice(Math.ceil(alumni.length / 2))
+                .map((alum, index) => (
+                  <Card
+                    key={`${alum.id}-${index}-${i}`}
+                    name={alum.name}
+                    profile={alum.profile}
+                    title={alum.curPost}
+                    desc={alum.testimonial}
+                    company={alum.company}
+                    curCompany={alum.curCompany}
+                  />
+                ))
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="pt-4 flex justify-center">
           <a
             href="https://topmate.io/propel/1232054"
             target="_blank"
@@ -123,7 +122,6 @@ const Alumni = () => {
             <img src={arrow} alt="" />
           </a>
         </div> */}
-      </div>
     </div>
   );
 };

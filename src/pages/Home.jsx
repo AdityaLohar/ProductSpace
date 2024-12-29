@@ -16,6 +16,9 @@ import Partnerships from "../components/Partnerships";
 import HelpSucceed from "../components/HelpSucceed";
 import Alumni from "../components/Alumni";
 import MeetMentorsRevamped from "../components/MeetMentorsRevamped";
+import CaseStudies from "../components/CaseStudies";
+import ProgramsWeOffer from "../components/ProgramsWeOffer";
+import WhyProductSpace from "../assets/WhyProductSpace";
 
 const Home = () => {
   const [showBottomBar, setShowBottomBar] = useState(false);
@@ -40,7 +43,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="font-hind xl:flex xl:flex-col items-center">
+    <div className="font-inter xl:flex xl:flex-col items-center">
       <Helmet>
         <title>
           Product Space | The Only Personalized Product Management Course for
@@ -54,9 +57,13 @@ const Home = () => {
       </Helmet>
 
       <div className="w-full max-w-screen-2xl">
+        <HomeHeroSection />
         <Partnerships />
         <HelpSucceed />
         <Companies />
+        <WhyProductSpace />
+        <ProgramsWeOffer />
+        <CaseStudies1 />
         <Alumni />
         <MeetMentorsRevamped />
         <Faq />

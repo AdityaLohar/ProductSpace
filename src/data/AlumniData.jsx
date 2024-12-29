@@ -12,6 +12,7 @@ import aryanJaiswal from "../assets/aryan-jaiswal.png";
 import mrigajNirvanGoradia from "../assets/mrigaj.jpeg";
 import jaydeepPraajapati from "../assets/jaydeep.jpeg";
 import vihalRotti from "../assets/vihal.jpg";
+import gaddamPranay from "../assets/gaddam-pranay.png";
 
 const alumni = [
   {
@@ -31,8 +32,7 @@ const alumni = [
   },
   {
     id: 2,
-    profile:
-    likeshKumar,
+    profile: likeshKumar,
     name: "Likesh Kumar Tangudu",
     // prevCompany: "Droame",
     prevCompany:
@@ -64,8 +64,7 @@ const alumni = [
   },
   {
     id: 4,
-    profile:
-    aryanJaiswal,
+    profile: aryanJaiswal,
     name: "Aryan Jaiswal ",
     prevCompany:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFFp2CH07jaVbj04vCi9L4suN2hJBbtH93Yw&s",
@@ -161,8 +160,7 @@ const alumni = [
   },
   {
     id: 11,
-    profile:
-    mrigajNirvanGoradia,
+    profile: mrigajNirvanGoradia,
     name: "Mrigaj Nirvan Goradia",
     // prevCompany: "BSE Ebix InsurTech",
     prevCompany:
@@ -178,8 +176,7 @@ const alumni = [
   },
   {
     id: 12,
-    profile:
-    jaydeepPraajapati,
+    profile: jaydeepPraajapati,
     name: "Jaydeep Prajapati",
     // prevCompany: "PharmEasy",
     prevCompany:
@@ -195,8 +192,7 @@ const alumni = [
   },
   {
     id: 13,
-    profile:
-    vihalRotti,
+    profile: vihalRotti,
     name: "Vihal J Rotti",
     // prevCompany: "Folks",
     prevCompany:
@@ -212,8 +208,7 @@ const alumni = [
   },
   {
     id: 14,
-    profile:
-      "https://media.licdn.com/dms/image/v2/D5603AQGTWvA7LLGNHg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727371385878?e=1733356800&v=beta&t=54ZzT83NAOBnQRUHESKx_acyOAF2tijD9KI4apyZ5FQ",
+    profile: gaddamPranay,
     name: "Gaddam Pranay",
     // prevCompany: "HealMeRight",
     prevCompany:
@@ -229,8 +224,7 @@ const alumni = [
   },
   {
     id: 15,
-    profile:
-    kritiGoel,
+    profile: kritiGoel,
     name: "Kriti Goel",
     // prevCompany: "United Airlines",
     prevCompany:
@@ -246,8 +240,7 @@ const alumni = [
   },
   {
     id: 16,
-    profile:
-    nousheenFahmedha,
+    profile: nousheenFahmedha,
     name: "Nousheen Fahmedha",
     // prevCompany: "TCS",
     prevCompany:

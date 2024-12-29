@@ -118,7 +118,7 @@ const Faq = () => {
       }}
     >
       <div className="flex flex-col gap-6 w-full">
-        <div className="text-[32px] lg:text-[40px] font-bold text-start font-sans bg-gradient-to-b from-[#FFF] via-[#FFF] to-[#999] bg-clip-text text-transparent">
+        <div className="text-[24px] lg:text-[40px] font-bold text-start font-sans bg-gradient-to-b from-[#FFF] via-[#FFF] to-[#999] bg-clip-text text-transparent">
           Frequently Asked <br /> Questions
         </div>
 
@@ -127,11 +127,24 @@ const Faq = () => {
         </div>
 
         <div className="flex">
-          <button
+          {/* <button
             onClick={toggleModal}
             className="flex items-center gap-2 justify-center text-[18px] lg:text-[24px] w-1/2 lg:w-[230px] text-white font-bold p-4 rounded-full border border-[#42AAFF] shadow-[0px_0px_13px_0px_#0062B4]"
           >
             Contact Us
+          </button> */}
+          <button
+            className="relative overflow-hidden px-8 lg:px-20 py-6 lg:py-8 text-[18px] lg:text-[24px] w-1/2 lg:w-[230px] text-white font-bold rounded-full border border-[#42AAFF] shadow-[0px_0px_10px_1px_#0061B4]"
+            onClick={toggleModal}
+          >
+            <span className="absolute inset-[2px] z-10 flex items-center justify-center rounded-full bg-[#081228]">
+              Contact Us
+            </span>
+
+            <span
+              aria-hidden
+              className="absolute inset-0 z-0 scale-x-[2.0] blur before:absolute before:inset-0 before:top-1/2 before:aspect-square before:animate-disco before:bg-gradient-conic before:from-[#42AAFF] before:via-[#081228] before:to-[#081228]"
+            />
           </button>
         </div>
       </div>

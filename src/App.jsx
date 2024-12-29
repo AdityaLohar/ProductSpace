@@ -62,6 +62,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import SignupPopUp from "./components/SignupPopUp";
 import LoginPopUp from "./components/LoginPopUp";
 import UserProfile from "./pages/UserProfile";
+import NavbarRevamped from "./components/NavbarReamped";
 
 function App() {
   const location = useLocation();
@@ -80,7 +81,7 @@ function App() {
   return (
     <RecoilRoot>
       <HelmetProvider>
-        <Navbar />
+        {isHomePage ? <NavbarRevamped /> : <NavbarRevamped />}
         <ContactUsForm />
         <GenAiContactUsForm />
         <SignupPopUp />

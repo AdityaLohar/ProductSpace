@@ -5,25 +5,26 @@ import fedex from "../assets/fedex.svg";
 import reliance from "../assets/reliance.svg";
 import inmobi from "../assets/inmobi.svg";
 import sonia from "../assets/sonia.svg";
-import lalith from "../assets/lalith.jpeg";
-import shilpi from "../assets/shilpi.jpeg";
-import kanishk from "../assets/kanishk.jpeg";
+import pamit from "../assets/pamit1.svg";
+import lalith from "../assets/lalith.svg";
+import shilpi from "../assets/shilpi.svg";
+import kanishk from "../assets/kanishk.svg";
 import arun from "../assets/arun1.svg";
 import MentorCard1 from "./MentorCard1";
 import { useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 
 const mentors = [
-  {
-    id: 1,
-    profile: sonia,
-    name: "Sonia Vora",
-    company: "Narayana Health",
-    post: "Head of Product",
-    linkedIn:
-      "https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in",
-    img: narayana,
-  },
+  // {
+  //   id: 1,
+  //   profile: sonia,
+  //   name: "Sonia Vora",
+  //   company: "Narayana Health",
+  //   post: "Head of Product",
+  //   linkedIn:
+  //     "https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in",
+  //   img: narayana,
+  // },
   {
     id: 2,
     profile: arun,
@@ -61,26 +62,26 @@ const mentors = [
     linkedIn: "https://www.linkedin.com/in/kanishkm/",
     img: inmobi,
   },
-  // {
-  //   id: 6,
-  //   profile:
-  //     "https://www.productleadership.com/wp-content/uploads/elementor/thumbs/PamitAnand-qmxkokvkzv0bog8m181ixmu3wadbnidfy2jnbc5xc0.png",
-  //   name: "Pamit Anand",
-  //   company: "Magicbricks",
-  //   post: "VP of Product",
-  //   linkedIn: "https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in",
-  //   img: magicbricks,
-  // },
+  {
+    id: 6,
+    profile: pamit,
+    name: "Pamit Anand",
+    company: "Magicbricks",
+    post: "VP of Product",
+    linkedIn: "https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in",
+    img: magicbricks,
+  },
 ];
 
 const MentorCard = ({ profile, company, name, post }) => {
   return (
-    <div className="relative w-[265px] h-[395px] text-white border border-[#42AAFF] shadow-[0px_0px_13px_0px_#0062B4] rounded-xl overflow-hidden">
+    <div className="relative w-[265px] h-[395px] text-white border-[1.5px] border-[#42AAFF] shadow-[0px_0px_10px_0px_#0062B4] rounded-xl overflow-hidden">
+      {/* <div className="relative w-[265px] h-[395px] text-white border-2 border-[#42AAFF] shadow-md shadow-[#0062B4] rounded-xl overflow-hidden"> */}
       {/* Mentor Image as Background */}
       <img
         src={profile}
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
 
@@ -115,36 +116,65 @@ const MeetMentorsRevamped = () => {
 
   return (
     <div
-      className={`flex flex-col gap-20 py-12 lg:py-20 bg-gradient-to-b from-[#1F3F6F] via-[#081228] to-[#081228]`}
+      className={`flex flex-col gap-8 lg:gap-20 py-12 lg:py-20 bg-gradient-to-b from-[#1F3F6F] via-[#081228] to-[#081228] px-4 lg:px-24`}
     >
       <div className="text-center">
-        <div className="text-[40px] font-bold bg-gradient-to-b from-[#FFF] via-[#FFF] to-[#999] bg-clip-text text-transparent">
+        <div className="text-[20px] lg:text-[40px] font-bold bg-gradient-to-b from-[#FFF] via-[#FFF] to-[#999] bg-clip-text text-transparent">
           Learn from the Best
         </div>
-        <div className="text-[24px] bg-gradient-to-r from-[#585859] via-[#DCDCDC] to-[#585859] bg-clip-text text-transparent">
+        <div className="text-[16px] lg:text-[24px] bg-gradient-to-r from-[#585859] via-[#DCDCDC] to-[#585859] bg-clip-text text-transparent">
           Fast track your journey into product management and emerge into your
           dream role as PM
         </div>
       </div>
 
-      <div className="flex gap-6">
-        {mentors.map((mentor, id) => (
-          <MentorCard
-            key={id}
-            profile={mentor.profile}
-            company={mentor.img}
-            name={mentor.name}
-            post={mentor.post}
-          />
-        ))}
+      <div className="flex gap-8 overflow-hidden [mask-image:_linear-gradient(to_right,transparent_10px,_black_100px,_black_calc(100%-100px),transparent_100%)]">
+        <div className="flex gap-8 animate-infinite-scroll py-3">
+          {mentors.map((mentor, id) => (
+            <MentorCard
+              key={id}
+              profile={mentor.profile}
+              company={mentor.img}
+              name={mentor.name}
+              post={mentor.post}
+            />
+          ))}
+        </div>
+        <div
+          className="flex gap-8 animate-infinite-scroll py-3"
+          aria-hidden="true"
+        >
+          {mentors.map((mentor, id) => (
+            <MentorCard
+              key={id}
+              profile={mentor.profile}
+              company={mentor.img}
+              name={mentor.name}
+              post={mentor.post}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="flex justify-center">
-        <button
+        {/* <button
           onClick={toggleModal}
           className="text-[18px] lg:text-[24px] w-[270px] text-white font-bold p-4 rounded-full border border-[#42AAFF] shadow-[0px_0px_13px_0px_#0062B4]"
         >
           Become a Mentor
+        </button> */}
+        <button
+          className="relative overflow-hidden px-8 lg:px-20 py-6 lg:py-8 text-[18px] lg:text-[24px] w-[200px] lg:w-[270px] text-white font-semibold rounded-full border border-[#42AAFF] shadow-[0px_0px_10px_1px_#0061B4]"
+          onClick={toggleModal}
+        >
+          <span className="absolute inset-[2px] z-10 flex items-center justify-center rounded-full bg-[#081228]">
+            Become a Mentor
+          </span>
+
+          <span
+            aria-hidden
+            className="absolute inset-0 z-0 scale-x-[2.0] blur before:absolute before:inset-0 before:top-1/2 before:aspect-square before:animate-disco before:bg-gradient-conic before:from-[#42AAFF] before:via-[#081228] before:to-[#081228]"
+          />
         </button>
       </div>
 

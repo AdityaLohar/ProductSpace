@@ -8,16 +8,29 @@ export default {
         hind: ["Hind Madurai", "sans-serif"],
         satoshi: ["Satoshi", "sans-serif"],
         inter: ["Inter", "sans-serif"],
-        libre: ['Libre Baskerville', 'serif'],
+        libre: ["Libre Baskerville", "serif"],
         serif: ["sans-serif"],
       },
       animation: {
-        "loop-scroll": "loop-scroll 200s linear infinite",
+        "loop-scroll": "loop-scroll 280s linear infinite",
+        "infinite-scroll": "infinite-scroll 35s linear infinite",
+        disco: "disco 1.5s linear infinite",
+      },
+      backgroundImage: {
+        "gradient-conic": "conic-gradient(var(--tw-gradient-stops))",
       },
       keyframes: {
         "loop-scroll": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
+        },
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        disco: {
+          "0%": { transform: "translateY(-50%) rotate(0deg)" },
+          "100%": { transform: "translateY(-50%) rotate(360deg)" },
         },
       },
       screens: {
@@ -38,7 +51,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };
