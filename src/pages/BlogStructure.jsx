@@ -34,10 +34,6 @@ const BlogStructure = ({ slug, title, description, content }) => {
   }, []);
 
   useEffect(() => {
-    console.log(id);
-  }, [id]);
-
-  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const screenHeight = window.innerHeight;
@@ -51,19 +47,59 @@ const BlogStructure = ({ slug, title, description, content }) => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsCommentOpen(true);
+      } else {
+        setIsCommentOpen(false);
+      }
+    };
 
+    handleScroll();
+    handleResize();
+
+    // Add event listeners
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup listeners on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const handleScrollLock = () => {
+      const isSmallScreen = window.innerWidth < 1024; // Tailwind's "lg" breakpoint is 1024px
+      if (isCommentOpen && isSmallScreen) {
+        document.body.style.overflow = "hidden"; // Disable scrolling
+      } else {
+        document.body.style.overflow = ""; // Enable scrolling
+      }
+    };
+
+    handleScrollLock();
+
+    window.addEventListener("resize", handleScrollLock);
+
+    return () => {
+      window.removeEventListener("resize", handleScrollLock);
+    };
+  }, [isCommentOpen]);
 
   const toggleCommentSidebar = () => {
     setIsCommentOpen(!isCommentOpen);
   };
 
   return (
-    <div className="relative flex flex-col gap-8">
+    <div
+      className={`relative flex flex-col gap-8 transition-all duration-700 ${
+        isCommentOpen
+          ? "lg:pl-20 lg:pr-[350px]"
+          : "lg:pl-20 pr-0"
+      }`}
+    >
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -73,9 +109,16 @@ const BlogStructure = ({ slug, title, description, content }) => {
         />
       </Helmet>
 
+      {/* Full-screen Background Overlay */}
+      {isCommentOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-10 z-30"></div>
+      )}
+
       {/* Main content */}
-      {/* <div className="relative flex justify-between"> */}
-      <div dangerouslySetInnerHTML={{ __html: content }} className="lg:px-24" />
+      <div
+        dangerouslySetInnerHTML={{ __html: content }}
+        className="transition-all duration-500"
+      />
 
       {/* Comment Section */}
       {id && (
@@ -91,10 +134,13 @@ const BlogStructure = ({ slug, title, description, content }) => {
       )}
 
       {/* Button */}
-      {/* {!isCommentOpen && ( */}
       <>
         {/* For smaller screens (below lg) */}
-        <div className="w-full flex lg:hidden justify-center font-inter fixed bottom-0 bg-white shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)]">
+        <div
+          className={`w-full flex lg:hidden justify-center font-inter fixed bottom-0 bg-white shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] transition-opacity duration-1000 ${
+            isCommentOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
           <button
             className="flex gap-1 h-[40px] items-center text-black px-2 py-6 rounded-lg"
             onClick={toggleCommentSidebar}
