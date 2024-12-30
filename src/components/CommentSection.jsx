@@ -463,7 +463,7 @@ const CommentSection = ({
     ? username.split(" ").length > 1
       ? username.split(" ")[0][0] + username.split(" ")[1][0]
       : username.split(" ")[0][0] + username.split(" ")[0][1]
-    : "US";
+    : "";
   const profileBg = colors[localStorage.getItem("userId") % colors.length];
 
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
