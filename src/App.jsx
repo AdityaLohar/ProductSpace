@@ -205,6 +205,10 @@ function App() {
           <Route
             path="/blogs/what-is-technical-debt-and-how-to-handle-it-as-a-product-manager"
             element={<Blog27 />}
+          />
+          <Route
+            path="/blogs/product-analytics-fundamentals-for-product-managers"
+            element={<Blog28 />}
           /> */}
           <Route
             path="/blogs/large-language-models-llms-a-guide-for-product-managers"
