@@ -29,7 +29,6 @@ const BlogStructure = ({ slug, title, description, content }) => {
         console.error("Error fetching data:", error);
       }
     };
-    
 
     getId();
   }, []);
@@ -49,10 +48,13 @@ const BlogStructure = ({ slug, title, description, content }) => {
     };
 
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsCommentOpen(true);
-      } else {
+      const isSmallScreen = window.innerWidth < 1024;
+
+      // Only adjust `isCommentOpen` if the screen width changes, not the height
+      if (isSmallScreen && isCommentOpen !== false) {
         setIsCommentOpen(false);
+      } else if (!isSmallScreen && isCommentOpen !== true) {
+        setIsCommentOpen(true);
       }
     };
 
@@ -61,12 +63,12 @@ const BlogStructure = ({ slug, title, description, content }) => {
 
     // Add event listeners
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
+    // window.addEventListener("resize", handleResize);
 
     // Cleanup listeners on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
+      // window.removeEventListener("resize", handleResize);
     };
   }, []);
 

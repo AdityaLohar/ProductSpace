@@ -669,7 +669,7 @@ const CommentSection = ({
           </div>
 
           {/* Scrollable Responses Section */}
-          <div className="flex flex-col gap-5 pb-40 lg:pb-8">
+          <div className="flex flex-col gap-5 pb-[70%] lg:pb-8">
             {comments.map((comment, _id) => {
               return (
                 <div key={_id}>
