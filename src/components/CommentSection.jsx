@@ -424,7 +424,7 @@ const Comment = ({
       )}
 
       {showReply && (
-        <div className="ml-8 md:ml-12 flex flex-col gap-5">
+        <div className="ml-10 pl-2 flex flex-col gap-5 border-l-2">
           {replies.map((reply) => (
             <Reply
               id={reply.id}
