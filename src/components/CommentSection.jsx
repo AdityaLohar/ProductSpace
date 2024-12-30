@@ -119,7 +119,7 @@ const Reply = ({
       <div className="flex justify-between items-start gap-2">
         {/* Profile Photo */}
         <div
-          className={`w-[36px] aspect-square text-white rounded-full flex justify-center items-center text-[13px] font-bold`}
+          className={`w-[36px] flex-shrink-0 aspect-square text-white rounded-full flex justify-center items-center text-[13px] font-bold`}
           style={{ backgroundColor: profileBg }}
         >
           {pic.toUpperCase()}
@@ -127,7 +127,10 @@ const Reply = ({
 
         {/* Actual Reply */}
         {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-3 rounded-lg"> */}
-        <div className="flex flex-col gap-2 bg-[#EFF2FC] w-full p-3 rounded-lg">
+        <div
+          className="flex flex-col gap-2 bg-[#EFF2FC] w-full p-3 rounded-lg"
+          style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
+        >
           <div className="flex justify-between items-center">
             <div className="text-[14px] text-start font-bold">{username}</div>
             <div className="text-end text-[12px] text-gray-400">
@@ -343,10 +346,10 @@ const Comment = ({
   return (
     <div className="flex flex-col gap-4">
       {/* Main Comment */}
-      <div className="flex justify-start lg:justify-between items-start gap-2">
+      <div className="flex justify-start lg:justify-between items-start gap-2 break-words">
         {/* Profile Photo */}
         <div
-          className={`w-[36px] aspect-square text-white rounded-full flex justify-center items-center text-[13px] font-bold`}
+          className={`w-[36px] aspect-square text-white flex-shrink-0 rounded-full flex justify-center items-center text-[13px] font-bold`}
           style={{ backgroundColor: profileBg }}
         >
           {pic.toUpperCase()}
@@ -354,7 +357,10 @@ const Comment = ({
 
         {/* Actual Comment */}
         {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-4 rounded-lg"> */}
-        <div className="flex flex-col gap-2 bg-[#EFF2FC] w-full p-4 rounded-lg">
+        <div
+          className="flex flex-col gap-2 bg-[#EFF2FC] w-full p-4 rounded-lg break-words"
+          style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
+        >
           <div className="flex justify-between items-center">
             <div className="text-[14px] text-start font-bold">
               {username || "anonymous"}
