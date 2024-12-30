@@ -14246,7 +14246,7 @@ const BlogsData = [
   },
   {
     id: 25,
-    slug: "product-analytics-fundamentals-for-product-managers",
+    slug: "understanding-first-principles-of-product-management",
     title: "Understanding First Principles of Product Management",
     description:
       "Understand the fundamentals of product analytics as a product manager. Learn how to track key metrics, analyze user behavior, and make data-driven decisions to improve your product.",
@@ -16742,7 +16742,7 @@ const BlogsData = [
   },
   {
     id: 28,
-    slug: "understanding-first-principles-of-product-management",
+    slug: "product-analytics-fundamentals-for-product-managers",
     title: "Product Analytics Fundamentals For Product Managers",
     description:
       "Learn the first principles of product management to solve complex problems, innovate effectively, and make better decisions. A must-read guide for aspiring and experienced PMs.",
