@@ -29,6 +29,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
         console.error("Error fetching data:", error);
       }
     };
+    
 
     getId();
   }, []);

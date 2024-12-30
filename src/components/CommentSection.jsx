@@ -122,7 +122,7 @@ const Reply = ({
           className={`w-[36px] aspect-square text-white rounded-full flex justify-center items-center text-[13px] font-bold`}
           style={{ backgroundColor: profileBg }}
         >
-          {pic}
+          {pic.toUpperCase()}
         </div>
 
         {/* Actual Reply */}
@@ -349,7 +349,7 @@ const Comment = ({
           className={`w-[36px] aspect-square text-white rounded-full flex justify-center items-center text-[13px] font-bold`}
           style={{ backgroundColor: profileBg }}
         >
-          {pic}
+          {pic.toUpperCase()}
         </div>
 
         {/* Actual Comment */}
@@ -598,7 +598,7 @@ const CommentSection = ({
                       className={`w-6 h-6 rounded-full border-1 border-white p-[4px] text-white flex justify-center items-center text-[13px] font-bold`}
                       style={{ backgroundColor: profileBg }}
                     >
-                      {pic}
+                      {pic.toUpperCase()}
                     </div>
                   </div>
                   <div className="font-bold">
@@ -621,7 +621,7 @@ const CommentSection = ({
                     className={`w-6 h-6 rounded-full border-1 border-white p-[4px] text-white flex justify-center items-center text-[13px] font-bold`}
                     style={{ backgroundColor: profileBg }}
                   >
-                    {pic}
+                    {pic.toUpperCase()}
                   </div>
                 </div>
                 <input
