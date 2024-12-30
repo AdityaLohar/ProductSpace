@@ -22,7 +22,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
         const url = `${PRODUCT_SPACE_API_HOST}/v1/blog/search?title=${slug}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=true`;
 
         const response = await axios.get(url);
-        console.log(response.data);
+        // console.log(response.data);
 
         setId(response.data.pageData.content[0].id);
       } catch (error) {
@@ -95,9 +95,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
   return (
     <div
       className={`relative flex flex-col gap-8 transition-all duration-700 ${
-        isCommentOpen
-          ? "lg:pl-20 lg:pr-[350px]"
-          : "lg:pl-20 pr-0"
+        isCommentOpen ? "lg:pl-20 lg:pr-[350px]" : "lg:pl-0 pr-0"
       }`}
     >
       <Helmet>
@@ -111,7 +109,10 @@ const BlogStructure = ({ slug, title, description, content }) => {
 
       {/* Full-screen Background Overlay */}
       {isCommentOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-10 z-30"></div>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-10 z-30"
+          onClick={() => setIsCommentOpen(false)}
+        ></div>
       )}
 
       {/* Main content */}
