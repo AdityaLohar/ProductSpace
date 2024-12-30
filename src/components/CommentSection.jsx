@@ -459,10 +459,11 @@ const CommentSection = ({
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const getCommentURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
   const username = localStorage.getItem("username");
-  const pic =
-    username.split(" ").length > 1
+  const pic = username
+    ? username.split(" ").length > 1
       ? username.split(" ")[0][0] + username.split(" ")[1][0]
-      : username.split(" ")[0][0] + username.split(" ")[0][1];
+      : username.split(" ")[0][0] + username.split(" ")[0][1]
+    : "US";
   const profileBg = colors[localStorage.getItem("userId") % colors.length];
 
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
