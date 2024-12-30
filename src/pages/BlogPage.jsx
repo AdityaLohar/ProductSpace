@@ -219,7 +219,10 @@ const BlogCard = ({
 const BlogCardSmall = ({ post, formatDate, tag }) => {
   return (
     <div className="w-full overflow-hidden font-inter border-b border-[#24304C1A] py-6 lg:py-4">
-      <Link to={`/blogs/${post.slug}`} className="flex lg:justify-between gap-4">
+      <Link
+        to={`/blogs/${post.slug}`}
+        className="flex lg:justify-between gap-4"
+      >
         <div className="min-w-[100px] lg:w-1/4">
           <img
             src={post.jetpack_featured_media_url || missingImg}
@@ -349,8 +352,15 @@ const BlogPage = () => {
           const data = await response.json();
           if (data.length === 0) break;
 
+          // Filter out the specific post by slug
+          const filteredData = data.filter(
+            (post) =>
+              post.slug !==
+              "ultimate-question-bank-of-product-management-interview-questions"
+          );
+
           // Assign a random likes count to each post
-          data.forEach((post) => {
+          filteredData.forEach((post) => {
             initialLikes[post.id] =
               Math.floor(Math.random() * (300 - 200 + 1)) + 200;
 
@@ -362,7 +372,7 @@ const BlogPage = () => {
           });
 
           page++;
-          allPosts = [...allPosts, ...data]; // Add new posts to allPosts
+          allPosts = [...allPosts, ...filteredData]; // Add filtered posts to allPosts
         }
 
         setPosts(allPosts); // Update posts with collected data
@@ -508,11 +518,10 @@ const BlogPage = () => {
         <link rel="canonical" href="https://theproductspace.in/blogs" />
       </Helmet>
 
-
       <div className="px-4 lg:px-28 pt-2 lg:pt-12">
         <div className="py-8 text-start md:text-center space-y-4">
           <h1 className="text-[28px] lg:text-[40px] font-sans font-bold">
-          The Best Product Management Resources for You
+            The Best Product Management Resources for You
           </h1>
           <p className="text-[17px]">
             Here is your go to resource curated by Product Leaders.

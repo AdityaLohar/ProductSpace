@@ -12,7 +12,6 @@ const BlogStructure = ({ slug, title, description, content }) => {
   const totalComments = useRecoilValue(totalCommentsAtom);
   const [topbar, setShowTopbar] = useState(true);
   const [id, setId] = useState();
-
   useEffect(() => {
     window.scrollTo(0, 0);
 
