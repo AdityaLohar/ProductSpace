@@ -14,7 +14,21 @@ const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [newPhone, setNewPhone] = useState("");
   const navigate = useNavigate();
-  const profilePic = avatars[localStorage.getItem("userId") % 4];
+  const username = localStorage.getItem("username");
+  const colors = [
+    "#0D49C3",
+    "#1C99B8",
+    "#1B7850",
+    "#FB8B18",
+    "#DE3112",
+    "#4939A2",
+    "#142546",
+  ];
+  const pic =
+    username.split(" ").length > 1
+      ? username.split(" ")[0][0] + username.split(" ")[1][0]
+      : username.split(" ")[0][0] + username.split(" ")[0][1];
+  const profileBg = colors[localStorage.getItem("userId") % colors.length];
 
   useEffect(() => {
     const getEmail = localStorage.getItem("email");
@@ -116,7 +130,12 @@ const UserProfile = () => {
                 className="w-24 h-24 rounded-full object-cover border-2 border-gray-300"
               />
             ) : (
-              <div>{profilePic}</div>
+              <div
+                className={`flex items-center justify-center h-20 w-20 text-[32px] rounded-full text-white`}
+                style={{ backgroundColor: profileBg }}
+              >
+                {pic}
+              </div>
             )}
           </div>
 

@@ -17,6 +17,16 @@ const pic =
 const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
 const postCommentURL = `${PRODUCT_SPACE_API_HOST}/v1/comment`; // post comment
 
+const colors = [
+  "#0D49C3",
+  "#1C99B8",
+  "#1B7850",
+  "#FB8B18",
+  "#DE3112",
+  "#4939A2",
+  "#142546",
+];
+
 // Format Date fetched from DB
 const getFormattedDate = (createdAt) => {
   const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
@@ -40,9 +50,13 @@ const Reply = ({
   const [liked, setLiked] = useState(isLiked);
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
-  const pic = avatars[createdBy % 4];
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const likeURL = `${PRODUCT_SPACE_API_HOST}/v1/like`;
+  const pic =
+    username.split(" ").length > 1
+      ? username.split(" ")[0][0] + username.split(" ")[1][0]
+      : username.split(" ")[0][0] + username.split(" ")[0][1];
+  const profileBg = colors[createdBy % colors.length];
 
   const toggleLike = async () => {
     const jwtToken = localStorage.getItem("token");
@@ -96,11 +110,20 @@ const Reply = ({
     }
   };
 
+  useEffect(() => {
+    console.log(profileBg);
+  }, []);
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div className="w-[36px]">{pic}</div>
+        <div
+          className={`w-[36px] aspect-square text-white rounded-full flex justify-center items-center text-[13px] font-bold`}
+          style={{ backgroundColor: profileBg }}
+        >
+          {pic}
+        </div>
 
         {/* Actual Reply */}
         {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-3 rounded-lg"> */}
@@ -197,7 +220,11 @@ const Comment = ({
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const likeURL = `${PRODUCT_SPACE_API_HOST}/v1/like`;
   const getRepliesURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?parentId=${id}&blogId=${blogId}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
-  const pic = avatars[createdBy % 4];
+  const pic =
+    username.split(" ").length > 1
+      ? username.split(" ")[0][0] + username.split(" ")[1][0]
+      : username.split(" ")[0][0] + username.split(" ")[0][1];
+  const profileBg = colors[createdBy % colors.length];
 
   useEffect(() => {
     setLocalRepliesCount(initialRepliesCount);
@@ -268,8 +295,8 @@ const Comment = ({
         },
       });
       setReplies(res.data.pageData.content);
-      console.log(res.data.pageData.content);
-      console.log(isLiked);
+      // console.log(res.data.pageData.content);
+      // console.log(isLiked);
       setShowReply(!showReply);
     } catch (err) {
       console.log("error in getting replies");
@@ -313,16 +340,17 @@ const Comment = ({
     }
   };
 
-  useEffect(() => {
-    console.log(isLiked);
-  }, []);
-
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4">
       {/* Main Comment */}
       <div className="flex justify-start lg:justify-between items-start gap-2">
         {/* Profile Photo */}
-        <div className="w-[36px]">{pic}</div>
+        <div
+          className={`w-[36px] aspect-square text-white rounded-full flex justify-center items-center text-[13px] font-bold`}
+          style={{ backgroundColor: profileBg }}
+        >
+          {pic}
+        </div>
 
         {/* Actual Comment */}
         {/* <div className="flex flex-col gap-2 bg-gray-200 w-full p-4 rounded-lg"> */}
@@ -396,7 +424,7 @@ const Comment = ({
       )}
 
       {showReply && (
-        <div className="ml-8 md:ml-12 flex flex-col gap-2">
+        <div className="ml-10 pl-2 flex flex-col gap-5 border-l-2">
           {replies.map((reply) => (
             <Reply
               id={reply.id}
@@ -430,9 +458,12 @@ const CommentSection = ({
   const setUniversalTotalComments = useSetRecoilState(totalCommentsAtom);
   const PRODUCT_SPACE_API_HOST = import.meta.env.VITE_PRODUCT_SPACE_API;
   const getCommentURL = `${PRODUCT_SPACE_API_HOST}/v1/comment/search?blogId=${id}&isPaged=false&page=0&size=1&sort=ASC&matchingAny=false`;
-  const pic = localStorage.getItem("userId")
-    ? avatars[localStorage.getItem("userId") % 4]
-    : avatars[4];
+  const username = localStorage.getItem("username");
+  const pic =
+    username.split(" ").length > 1
+      ? username.split(" ")[0][0] + username.split(" ")[1][0]
+      : username.split(" ")[0][0] + username.split(" ")[0][1];
+  const profileBg = colors[localStorage.getItem("userId") % colors.length];
 
   const setIsLoginVisible = useSetRecoilState(isVisibleLogin);
   const setIsLoginOpen = useSetRecoilState(isOpenLogin);
@@ -452,10 +483,10 @@ const CommentSection = ({
           token: jwtToken,
         },
       });
-      console.log("sending token also", jwtToken);
+      // console.log("sending token also", jwtToken);
 
       const data = response.data;
-      console.log(data);
+      // console.log(data);
 
       const commentsData = data.pageData.content;
 
@@ -514,7 +545,7 @@ const CommentSection = ({
       }
 
       const newComment = await response.json();
-      console.log(newComment);
+      // console.log(newComment);
 
       // Update the state with the new comment
       setComments((prevComments) => [...prevComments, newComment]);
@@ -535,65 +566,76 @@ const CommentSection = ({
     <>
       {/* Comment Section */}
       <div
-        className={`fixed font-inter flex ${
-          topbar ? "top-[96px]" : "top-[61px]"
-        } right-0 h-[calc(100vh)] bg-white shadow-[0px_4px_10px_6px_rgba(0,0,0,0.2)] lg:shadow-lg z-10 overflow-hidden transition-transform duration-300 rounded-t-2xl lg:rounded-t-sm ${
+        className={`fixed font-inter flex pt-0 lg:pt-4 z-30 top-0 right-0 h-[calc(100vh)] bg-white shadow-[0px_4px_10px_6px_rgba(0,0,0,0.2)] lg:shadow-lg z-10 overflow-scroll transition-transform duration-700 ease-in-out rounded-t-2xl lg:rounded-t-sm ${
           isCommentOpen
-            ? "translate-y-[5%] md:translate-y-0 md:translate-x-0 w-full md:w-[350px]"
-            : "translate-y-full w-full md:translate-y-0 md:translate-x-full md:w-[350px]"
+            ? "translate-y-[15%] lg:translate-y-0 lg:translate-x-0 w-full lg:w-[350px]"
+            : "translate-y-full w-full lg:translate-y-0 lg:translate-x-full lg:w-[350px]"
         }`}
       >
         {/* Comments Content */}
-        {isCommentOpen && (
-          <div className="flex w-full flex-col gap-8 p-4">
-            {/* User inputs */}
-            <div className="flex flex-col gap-4">
-              <div className="flex justify-between items-center">
-                <h2 className="text-xl font-semibold">
-                  Responses ({totalComments})
-                </h2>
+        <div
+          className={`flex w-full flex-col gap-8 p-4 transition-opacity duration-1000 ${
+            isCommentOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          {/* User inputs */}
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-semibold">
+                Responses ({totalComments})
+              </h2>
 
-                <button className="text-2xl" onClick={toggleCommentSidebar}>
-                  ×
-                </button>
-              </div>
+              <button className="text-2xl" onClick={toggleCommentSidebar}>
+                ×
+              </button>
+            </div>
 
-              {localStorage.getItem("token") ? (
-                <div className="flex flex-col items-start gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
-                  <div className="flex items-center gap-2">
-                    <div className=" rounded-full border-2 border-blue-600 p-[2px] flex items-center justify-center bg-white">
+            {localStorage.getItem("token") ? (
+              <div className="flex flex-col items-start gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full p-[2px] border-2 border-blue-600">
+                    <div
+                      className={`w-6 h-6 rounded-full border-1 border-white p-[4px] text-white flex justify-center items-center text-[13px] font-bold`}
+                      style={{ backgroundColor: profileBg }}
+                    >
                       {pic}
                     </div>
-                    <div className="font-bold">
-                      {localStorage.getItem("username")}
-                    </div>
                   </div>
-                  <textarea
-                    value={commentInput}
-                    onChange={handleCommentChange}
-                    onKeyUp={handleKeyPress}
-                    type="text"
-                    placeholder="What are your thoughts?"
-                    className="resize-none h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
-                  />
+                  <div className="font-bold">
+                    {localStorage.getItem("username")}
+                  </div>
                 </div>
-              ) : (
-                <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
-                  <div className=" rounded-full border-2 border-blue-600 p-[2px] flex items-center justify-center bg-white">
+                <textarea
+                  value={commentInput}
+                  onChange={handleCommentChange}
+                  onKeyUp={handleKeyPress}
+                  type="text"
+                  placeholder="What are your thoughts?"
+                  className="resize-none h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                />
+              </div>
+            ) : (
+              <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
+                <div className="w-8 h-8 rounded-full p-[2px] border-2 border-blue-600">
+                  <div
+                    className={`w-6 h-6 rounded-full border-1 border-white p-[4px] text-white flex justify-center items-center text-[13px] font-bold`}
+                    style={{ backgroundColor: profileBg }}
+                  >
                     {pic}
                   </div>
-                  <input
-                    value={commentInput}
-                    onChange={handleCommentChange}
-                    onKeyUp={handleKeyPress}
-                    type="text"
-                    placeholder="What are your thoughts?"
-                    className="w-full p-2 md:px-3 border rounded-full outline-none bg-[#F3F3F3] placeholder-[#565973]"
-                  />
                 </div>
-              )}
+                <input
+                  value={commentInput}
+                  onChange={handleCommentChange}
+                  onKeyUp={handleKeyPress}
+                  type="text"
+                  placeholder="What are your thoughts?"
+                  className="w-full p-2 md:px-3 border rounded-full outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                />
+              </div>
+            )}
 
-              {commentInput !== "" ? (
+            {/* {commentInput !== "" ? (
                 <div className="flex justify-end">
                   <button
                     className="bg-[#107BEF] text-[14px] rounded-full text-white p-2 px-4"
@@ -604,38 +646,48 @@ const CommentSection = ({
                 </div>
               ) : (
                 ""
-              )}
-            </div>
-
-            <hr className="border-[#444]" />
-
-            <div className="flex justify-between">
-              <div>All Responses ({totalComments})</div>
-              {/* <div className="">Most relevant</div> */}
-            </div>
-
-            {/* Scrollable Responses Section */}
-            <div className="flex flex-col gap-2 mb-20 overflow-y-scroll pb-16 max-h-[calc(100vh-20rem)]">
-              {comments.map((comment, _id) => {
-                return (
-                  <div key={_id}>
-                    <Comment
-                      id={comment.id}
-                      blogId={id}
-                      content={comment.content}
-                      username={comment.commentedUser?.username || "Anonymous"}
-                      isLiked={comment.isLiked}
-                      likesCount={comment.likesCount}
-                      repliesCount={comment.repliesCount}
-                      createdAt={comment.createdAt}
-                      createdBy={comment.createdBy}
-                    />
-                  </div>
-                );
-              })}
+              )} */}
+            <div className="flex justify-end">
+              <button
+                className={`bg-[#107BEF] text-[14px] rounded-full text-white p-2 px-4 ${
+                  commentInput == "" ? "opacity-50" : ""
+                }`}
+                onClick={postComment}
+                disabled={commentInput == ""}
+              >
+                Post
+              </button>
             </div>
           </div>
-        )}
+
+          <hr className="border-[#444]" />
+
+          <div className="flex justify-between">
+            <div>All Responses ({totalComments})</div>
+            {/* <div className="">Most relevant</div> */}
+          </div>
+
+          {/* Scrollable Responses Section */}
+          <div className="flex flex-col gap-5 pb-40 lg:pb-8">
+            {comments.map((comment, _id) => {
+              return (
+                <div key={_id}>
+                  <Comment
+                    id={comment.id}
+                    blogId={id}
+                    content={comment.content}
+                    username={comment.commentedUser?.username || "Anonymous"}
+                    isLiked={comment.isLiked}
+                    likesCount={comment.likesCount}
+                    repliesCount={comment.repliesCount}
+                    createdAt={comment.createdAt}
+                    createdBy={comment.createdBy}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Toggle Button */}

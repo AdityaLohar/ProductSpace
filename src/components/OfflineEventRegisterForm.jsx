@@ -6,10 +6,11 @@ import { useState } from "react";
 import upiImage from "../assets/upi-akhil.jpg";
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_OFFLINE_EVENT_URL;
-const airtablePrePaymentBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_OFFLINE_EVENT_PRE_PAYMENT_URL;
+const airtablePrePaymentBaseUrl = import.meta.env
+  .VITE_AIRTABLE_BASE_OFFLINE_EVENT_PRE_PAYMENT_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
-const OfflineEventRegisterForm = ({ setShowSuccess }) => {
+const OfflineEventRegisterForm = ({ setShowSuccess, isPastEventDate }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -51,8 +52,8 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
             "Mobile Number": phoneNumber, // Make sure this matches exactly
             "Unique Id": currentTimestamp.toString(),
             "Company/College": companyCollege,
-            "Designation": designation,
-            "Linkedin": linkedin,
+            Designation: designation,
+            Linkedin: linkedin,
             Timestamp: formattedTimestamp,
             ...(!isPrePayment && { "Payment Screenshot": paymentScreenshot }), // Conditionally add the field
           },
@@ -64,12 +65,11 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
           },
         }
       );
-      if(!isPrePayment) {
+      if (!isPrePayment) {
         setShowSuccess(true);
         setPopupVisible(false);
-      // alert("You are registered successfully!");
+        // alert("You are registered successfully!");
       }
-      
     } catch (error) {
       setNotification({
         type: "error",
@@ -115,8 +115,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
         setShowNotification(false);
       }, 5000);
       return;
-    } 
-    else if (!phoneNumberRegex.test(formData.phoneNumber)) {
+    } else if (!phoneNumberRegex.test(formData.phoneNumber)) {
       setNotification({
         type: "error",
         title: "Error",
@@ -127,8 +126,11 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
         setShowNotification(false);
       }, 5000);
       return;
-    }
-    else if (formData.companyCollege === "" || formData.designation === "" || formData.linkedin === "") {
+    } else if (
+      formData.companyCollege === "" ||
+      formData.designation === "" ||
+      formData.linkedin === ""
+    ) {
       setNotification({
         type: "error",
         title: "Error",
@@ -140,7 +142,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       }, 5000);
       return;
     }
-    
+
     // else if (formData.status == "Select an option") {
     //   setNotification({
     //     type: "error",
@@ -173,12 +175,11 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       formData.companyCollege,
       formData.designation,
       formData.linkedin,
-      '',
+      "",
       currentTimestamp,
       formattedTimestamp
     );
     setLoading(false);
-  
 
     setPopupVisible(true);
   };
@@ -198,7 +199,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
       "https://api.cloudinary.com/v1_1/dvhebnqvp/image/upload";
     const cloudRes = await axios.post(cloudinaryApi, cloudData);
     const cloudUrl = cloudRes.data.url;
-    
+
     setLoading(true);
 
     const formDataToSend = new FormData();
@@ -306,9 +307,7 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
                 className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none"
               />
             </div>
-
           </div>
-
 
           <div className="relative">
             <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
@@ -338,32 +337,12 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
             />
           </div>
 
-          {/* <div className="relative">
-            <label className="absolute -top-2 left-3 bg-white px-1 text-[12px] text-[#525966]">
-              Status of Education / Employment
-            </label>
-            <select
-              name="status"
-              value={formData.status}
-              onChange={handleChange}
-              className="border border-[#C1C1C1] rounded-md px-3 py-3 w-full md:w-[80%] outline-none bg-white"
-              required
-            >
-              <option value="">Select an option</option>
-              <option value="Students">Students</option>
-              <option value="PMs (0 to 3 Yr exp.)">PMs (0 to 3 Yr exp.)</option>
-              <option value="PMs (3+ Yrs exp.)">PMs (3+ Yrs exp.)</option>
-              <option value="Non Product Professional">
-                Non Product Professional
-              </option>
-              <option value="Others">Others</option>
-            </select>
-          </div> */}
-
           <div>
             <button
               onClick={handleSubmit}
-              className="flex w-full md:w-[300px] gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white"
+              disabled={isPastEventDate}
+              className={`flex w-full md:w-[300px] gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white
+                ${isPastEventDate ? "opacity-70 cursor-not-allowed" : ""}`}
             >
               <p className="text-[18px] md:text-[20px] font-medium">
                 {loading ? "Loading..." : "Register Now"}
@@ -418,7 +397,11 @@ const OfflineEventRegisterForm = ({ setShowSuccess }) => {
         <div className="z-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
             <h3 className="text-xl font-bold mb-4">Payment Details</h3>
-            <p className="mb-4">To make a payment of <span className="text-lg font-medium text-gray-700">INR 499</span>, scan the QR code below.</p>
+            <p className="mb-4">
+              To make a payment of{" "}
+              <span className="text-lg font-medium text-gray-700">INR 499</span>
+              , scan the QR code below.
+            </p>
             <div className="flex justify-center mb-4">
               <img src={upiImage} alt="QR Code" className="w-60 h-60" />
             </div>

@@ -51,10 +51,12 @@ import GenAiCurriculum from "../components/GenAiCurriculum";
 import AnalyticsCuricullum from "../components/AnalyticsCuricullum";
 import AnalyticsSticky from "../components/AnalyticsSticky";
 
+import videoThumbnail from "../assets/pm-workshop-thumbnail.svg";
+
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/BohDACWS79i7D42OO1iDT9";
-const eventDate = new Date("2024-12-21T23:59:59");
+const eventDate = new Date("2024-12-20T23:59:59");
 
 const EventInfo = ({ icon, title, desc }) => {
   return (
@@ -199,6 +201,81 @@ const ProgressBarWithDots = () => {
             {step}
           </div>
         ))}
+      </div>
+    </div>
+  );
+};
+
+// import psVideo from "../assets/youtube-thumbnail.svg";
+
+const VideoComponent = () => {
+  const [playVideo, setPlayVideo] = useState(false);
+  const [videoSrc, setVideoSrc] = useState(
+    "https://www.youtube.com/embed/IUPVhnNojYE?si=ryIkf6HMDH4CaWf4&autoplay=0&rel=0"
+  );
+
+  useEffect(() => {
+    const videoSchema = {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: "Generative AI for Product Managers Workshop",
+      description: "",
+      thumbnailUrl: ["https://example.com/thumbnail.jpg"],
+      uploadDate: "2024-12-01T08:00:00+00:00",
+      embedUrl: "https://www.youtube.com/embed/IUPVhnNojYE?si=ryIkf6HMDH4CaWf4",
+      contentUrl:
+        "https://www.youtube.com/embed/IUPVhnNojYE?si=ryIkf6HMDH4CaWf4",
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(videoSchema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  const handlePlay = () => {
+    setPlayVideo(true);
+    setVideoSrc(
+      "https://www.youtube.com/embed/IUPVhnNojYE?si=ryIkf6HMDH4CaWf4&autoplay=1&rel=0"
+    );
+  };
+
+  return (
+    <div className="flex flex-col gap-8 items-center my-6 md:my-12 md:px-20 font-inter">
+      <div
+        className="relative w-full sm:w-[95%] bg-gray-800 rounded-xl overflow-hidden"
+        style={{ paddingTop: "56.25%" }}
+      >
+        {/* Video iframe always present */}
+        <iframe
+          className="absolute top-0 left-0 w-full h-full rounded-xl"
+          src={videoSrc}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+
+        {/* Custom Thumbnail and Play Button */}
+        {!playVideo && (
+          <div
+            className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 cursor-pointer"
+            onClick={handlePlay}
+          >
+            <img
+              src={videoThumbnail}
+              alt="Custom Thumbnail"
+              className="absolute inset-0 w-full h-full object-cover rounded-xl"
+            />
+            <div className="relative flex items-center justify-center w-16 md:w-24 h-10 md:h-16 bg-red-600 rounded-lg md:rounded-2xl shadow-md">
+              <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-[4px]" />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -386,7 +463,7 @@ const ProductAnalytics = () => {
                 }`}
               >
                 <p className="text-[18px] lg:text-[20px] font-medium">
-                  Join Waitlist Now
+                  Register Now
                 </p>
                 <img src={arrowIcon} alt="icon" />
               </button>
@@ -394,6 +471,8 @@ const ProductAnalytics = () => {
           </div>
 
           <ProgressBarWithDots />
+
+          <VideoComponent />
 
           <AnalyticsCuricullum />
 
@@ -497,7 +576,11 @@ const ProductAnalytics = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent rounded-xl"></div>
                   <div className="absolute bottom-3 left-3 text-white text-start">
-                    <img src={reachifyMe} alt="" className="bg-white p-2 w-36" />
+                    <img
+                      src={reachifyMe}
+                      alt=""
+                      className="bg-white p-2 w-36"
+                    />
                     <p className="font-bold text-sm md:text-lg">Pamit Anand</p>
                     <p className="text-gray-300 text-xs md:text-sm">
                       Angel investor in ReachifyMe, Milkbasket, RecipeCup
@@ -528,7 +611,6 @@ const ProductAnalytics = () => {
                   </div>
                 </div>
               </a>
-              
             </div>
           </div>
 

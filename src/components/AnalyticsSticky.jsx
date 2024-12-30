@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import shareIcon from "../assets/share.svg";
 
-const endDate = "2024-12-21T23:59:59";
+const endDate = "2024-12-20T23:59:59";
 
 const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
   const [timeRemaining, setTimeRemaining] = useState({
@@ -66,7 +66,7 @@ const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
                   timeRemaining.isPast ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
-                Join Waitlist Now
+                Register Now
               </button>
             </div>
           </div>
@@ -84,7 +84,7 @@ const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
             </div>
 
             <button
-                onClick={toggleSharePopup}
+              onClick={toggleSharePopup}
               className="bg-white border border-[#FFA000] p-2 md:p-3 shadow-lg rounded-xl"
             >
               <img src={shareIcon} alt="Share Icon" className="" />
@@ -98,7 +98,7 @@ const AnalyticsSticky = ({ togglePopup, toggleSharePopup }) => {
                   timeRemaining.isPast ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
-                Join Waitlist Now
+                Register Now
               </button>
             </div>
           </div>

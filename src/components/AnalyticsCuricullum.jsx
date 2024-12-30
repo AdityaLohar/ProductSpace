@@ -128,7 +128,7 @@ const AnalyticsCuricullum = () => {
 
   return (
     <div className="flex flex-col pt-2 pb-6 lg:pb-10 lg:pt-0 font-inter">
-      <div className="text-[20px] lg:text-[28px] font-semibold text-center lg:text-start text-[#24304C]">
+      <div className="text-[20px] lg:text-[28px] font-bold text-center lg:text-start text-[#24304C]">
         What will you learn in the workshop
       </div>
 

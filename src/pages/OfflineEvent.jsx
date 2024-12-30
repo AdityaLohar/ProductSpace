@@ -450,7 +450,7 @@ const OfflineEvent = () => {
           </div>
 
           <div ref={sectionRef} id="register-form">
-            <OfflineEventRegisterForm setShowSuccess={setShowSuccess} />
+            <OfflineEventRegisterForm setShowSuccess={setShowSuccess} isPastEventDate={isPastEventDate} />
           </div>
 
           {/* Past Events */}
