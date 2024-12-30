@@ -209,6 +209,10 @@ function App() {
           <Route
             path="/blogs/product-analytics-fundamentals-for-product-managers"
             element={<Blog28 />}
+          />
+          <Route
+            path="/blogs/quick-commerce-in-e-pharma-how-speed-and-convenience-are-redefining-healthcare"
+            element={<Blog29 />}
           /> */}
           <Route
             path="/blogs/large-language-models-llms-a-guide-for-product-managers"
