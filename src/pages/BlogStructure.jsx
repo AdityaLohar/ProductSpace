@@ -112,7 +112,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
       {/* Full-screen Background Overlay */}
       {isCommentOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-10 z-30"
+          className="fixed inset-0 bg-gray-200 bg-opacity-10 z-30"
           onClick={() => setIsCommentOpen(false)}
         ></div>
       )}
