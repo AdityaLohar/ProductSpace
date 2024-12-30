@@ -96,7 +96,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
 
   return (
     <div
-      className={`relative flex flex-col gap-8 transition-all duration-700 ${
+      className={`relative flex flex-col gap-8 transition-all duration-200 ${
         isCommentOpen ? "lg:pl-20 lg:pr-[350px]" : "lg:pl-0 pr-0"
       }`}
     >
