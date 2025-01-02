@@ -137,7 +137,7 @@ const PmFellowshipHeroSection = () => {
                 />
               </div>
               <div>
-                <p>Offer valid till 4th Jan 2024</p>
+                <p>Offer valid till 4th Jan 2025</p>
               </div>
             </div>
 
