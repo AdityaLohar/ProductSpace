@@ -92,7 +92,7 @@ const EnrollmentForm = ({
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
 
-    window.location.href = "https://pages.razorpay.com/exclusivepricing";
+    window.location.href = "https://rzp.io/l/getintoPM";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
