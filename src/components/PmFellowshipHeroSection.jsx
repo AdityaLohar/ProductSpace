@@ -112,12 +112,12 @@ const PmFellowshipHeroSection = () => {
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px] hidden sm:block">
-              👉🏻 Grab Early Bird Offer, Valid for next 5 seats
+              👉🏻 Grab Early Bird Offer, Valid for next 2 seats
             </p>
             <p className="text-[14px] block sm:hidden">
               👉🏻 Grab Early Bird Offer,
               <br />
-              <span className="ml-5">Valid for next 5 seats</span>
+              <span className="ml-5">Valid for next 2 seats</span>
             </p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
