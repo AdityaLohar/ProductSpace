@@ -112,10 +112,10 @@ const PmFellowshipHeroSection = () => {
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px] hidden sm:block">
-              👉🏻 Grab Early Bird Offer, Valid for next 2 seats
+              👉🏻 New Year Discount, Valid for next 2 seats
             </p>
             <p className="text-[14px] block sm:hidden">
-              👉🏻 Grab Early Bird Offer,
+              👉🏻 New Year Discount,
               <br />
               <span className="ml-5">Valid for next 2 seats</span>
             </p>
