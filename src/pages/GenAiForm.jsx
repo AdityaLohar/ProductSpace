@@ -213,6 +213,7 @@ const GenAiForm = () => {
     }
 
     // If no errors, log the form data
+    setLoading(true);
     const currentTimestamp = new Date().toLocaleString();
     const totalEntries = await getEntryCount();
     const res = await saveUserData(
