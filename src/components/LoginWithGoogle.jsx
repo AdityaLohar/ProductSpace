@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 const LoginWithGoogle = () => {
   const setEmailAtom = useSetRecoilState(emailAtom);
   const setAuth = useSetRecoilState(authAtom);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const setIsVisible = useSetRecoilState(isVisibleSignin);
   const setIsOpen = useSetRecoilState(isOpenSignin);
