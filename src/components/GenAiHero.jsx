@@ -11,6 +11,8 @@ import offer from "../assets/offer-valid.svg";
 import { useEffect, useState } from "react";
 import GenAiEnrollmentForm from "./GenAiEnrollmentForm";
 import GenAiDownloadCurriculumForm from "./GenAiDownloadCurriculumForm";
+import { Link } from "react-router-dom";
+import GEN_AI_FOR_PM_DETAILS from "../constants/GenAiDetails";
 
 const GenAiHero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +97,7 @@ const GenAiHero = () => {
             </div>
 
             <div className="flex flex-col xl:flex-row gap-3 w-full cursor-pointer lg:w-full text-center items-center">
-              <button
+              {/* <button
                 onClick={toggleModalEnquire}
                 className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#ffa000] text-white items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
               >
@@ -103,7 +105,16 @@ const GenAiHero = () => {
                 <div>
                   <img src={arrow} alt="" />
                 </div>
-              </button>
+              </button> */}
+              <Link
+                to={"/gen-ai-form"}
+                className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#ffa000] text-white items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+              >
+                <p>Join Waitlist Now</p>
+                <div>
+                  <img src={arrow} alt="" />
+                </div>
+              </Link>
 
               <button
                 className="flex w-4/5 lg:w-full gap-2 justify-center p-3 lg:p-4 lg:px-2 rounded-lg bg-[#f3f3f3] border-2 text-black items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
@@ -134,20 +145,26 @@ const GenAiHero = () => {
 
               <div className="flex items-center gap-2 px-4 lg:px-8">
                 <div className="text-[28px] lg:text-[44px] font-bold">
-                  ₹17,499
+                  ₹
+                  {Math.round(
+                    (GEN_AI_FOR_PM_DETAILS.price *
+                      (100 - GEN_AI_FOR_PM_DETAILS.discount)) /
+                      100
+                  ).toLocaleString()}
                 </div>
                 <div>
                   <div className="text-[#eb2c2f] font-semibold text-[12px] lg:text-[20px]">
-                    30% off
+                    {GEN_AI_FOR_PM_DETAILS.discount}% off
                   </div>
                   <div className="text-[12px] lg:text-[20px] line-through">
-                    ₹24,999
+                    {GEN_AI_FOR_PM_DETAILS.price.toLocaleString()}
                   </div>
                 </div>
               </div>
 
               <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
-                <span className="text-[#fec923]">⚠️</span> Admissions to be opened soon
+                <span className="text-[#fec923]">⚠️</span> Offer valid till{" "}
+                {GEN_AI_FOR_PM_DETAILS.valid}
               </div>
             </div>
 
@@ -207,22 +224,3 @@ const GenAiHero = () => {
 };
 
 export default GenAiHero;
-
-{
-  /* <button
-            onClick={toggleModalEnquire}
-            className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex  items-center justify-center text-[20px] shadow-[5px_5px_0_rgba(0,0,0)] "
-          >
-            <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
-              Enroll Now
-            </div>
-            <div className="ml-2 text-xl">→</div>
-          </button>
-
-          <button
-            onClick={toggleModal}
-            className="w-full bg-white border border-black text-[20px] text-black font-semibold py-3 rounded-full mt-4 flex justify-center gap-2"
-          >
-            Download Curriculum
-          </button> */
-}

@@ -7,6 +7,7 @@ import inmobi from "../assets/inmobi.svg";
 import arrow from "../assets/right-arrow.svg";
 import { useState } from "react";
 import GenAiEnrollmentForm from "./GenAiEnrollmentForm";
+import { Link } from "react-router-dom";
 
 const Card = ({ name, profile, title, desc, company }) => {
   return (
@@ -84,13 +85,20 @@ const GenAiInstructors = () => {
       </div>
 
       <div className="flex justify-center">
-        <button
+        {/* <button
           onClick={toggleModalEnquire}
           className="bg-[#FEB70F] text-white flex items-center gap-2 p-3 rounded-xl px-4 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
         >
           <p>Join Waitlist to learn from the best</p>
           <img src={arrow} alt="" />
-        </button>
+        </button> */}
+        <Link
+          to={"/gen-ai-form"}
+          className="bg-[#FEB70F] text-white flex items-center gap-2 p-3 rounded-xl px-4 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+        >
+          <p>Join Waitlist to learn from the best</p>
+          <img src={arrow} alt="" />
+        </Link>
       </div>
 
       <div className="relative">
