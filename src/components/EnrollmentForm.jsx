@@ -2,12 +2,8 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
-// import { z } from "zod";
 import axios from "axios";
-
-// const schema = z.object({
-//   email: z.string().email("Invalid email address"),
-// });
+import PM_FELLOWSHIP_DETAILS from "../constants/PmFellowshipDetails.jsx";
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_ENROLLMENT_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
@@ -92,7 +88,7 @@ const EnrollmentForm = ({
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
 
-    window.location.href = "https://rzp.io/l/getintoPM";
+    window.location.href = PM_FELLOWSHIP_DETAILS.paymentLink;
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {

@@ -16,6 +16,8 @@ import { useEffect, useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 import DownloadCurriculumForm from "./DownloadCurriculumForm";
 
+import PM_FELLOWSHIP_DETAILS from "../constants/PmFellowshipDetails.jsx";
+
 const PmFellowshipHeroSection = () => {
   const [bgImages, setBgImages] = useState([disco1, disco2, disco3]);
   const [opacity, setOpacity] = useState([1, 0, 0]);
@@ -83,11 +85,15 @@ const PmFellowshipHeroSection = () => {
             <div className="flex justify-around lg:justify-start gap-10 text-[16px]">
               <div>
                 <div className="text-[16px]">Start Date</div>
-                <div className="font-semibold text-[#00B5CE]">Jan 12, 2025</div>
+                <div className="font-semibold text-[#00B5CE]">
+                  {PM_FELLOWSHIP_DETAILS.startDate}
+                </div>
               </div>
               <div>
                 <div className="text-[16px]">Duration</div>
-                <div className="font-semibold text-[#00B5CE]">10 Weeks</div>
+                <div className="font-semibold text-[#00B5CE]">
+                  {PM_FELLOWSHIP_DETAILS.duration}
+                </div>
               </div>
             </div>
           </div>
@@ -108,7 +114,8 @@ const PmFellowshipHeroSection = () => {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <span className="font-bold">15%</span> <br /> OFF
+            <span className="font-bold">{PM_FELLOWSHIP_DETAILS.discount}%</span>{" "}
+            <br /> OFF
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px] hidden sm:block">
@@ -121,9 +128,16 @@ const PmFellowshipHeroSection = () => {
             </p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
-                ₹25,499
+                ₹
+                {Math.round(
+                  (PM_FELLOWSHIP_DETAILS.price *
+                    (100 - PM_FELLOWSHIP_DETAILS.discount)) /
+                    100
+                ).toLocaleString()}
               </p>
-              <p className="text-[18px] line-through pb-1">₹29,999</p>
+              <p className="text-[18px] line-through pb-1">
+                ₹{PM_FELLOWSHIP_DETAILS.price.toLocaleString()}
+              </p>
             </div>
           </div>
 
@@ -137,13 +151,15 @@ const PmFellowshipHeroSection = () => {
                 />
               </div>
               <div>
-                <p>Offer valid till 4th Jan 2025</p>
+                <p>Offer valid till {PM_FELLOWSHIP_DETAILS.valid}</p>
               </div>
             </div>
 
             <p className="font-bold"> ⏳Price rises to 40,000 in Feb 2025</p>
 
-            <div className="font-semibold text-[14px]">Cohort seats: 60</div>
+            <div className="font-semibold text-[14px]">
+              Cohort seats: {PM_FELLOWSHIP_DETAILS.seats}
+            </div>
           </div>
 
           <button
@@ -155,8 +171,6 @@ const PmFellowshipHeroSection = () => {
             </div>
             <div className="ml-2 text-xl">→</div>
           </button>
-          {/* <a href="https://pages.razorpay.com/getintoPM" target="_blank">
-          </a> */}
 
           <button
             onClick={toggleModal}
