@@ -600,7 +600,7 @@ const CommentSection = ({
             </div>
 
             {localStorage.getItem("token") ? (
-              <div className="flex flex-col items-start gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
+              <div className="flex flex-col items-start gap-2 md:gap-2 p-3 md:p-4 rounded-xl">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full p-[2px] border-2 border-blue-600">
                     <div
@@ -620,11 +620,11 @@ const CommentSection = ({
                   onKeyUp={handleKeyPress}
                   type="text"
                   placeholder="What are your thoughts?"
-                  className="min-h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                  className="min-h-[100px] w-full p-2 md:px-3 rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
                 />
               </div>
             ) : (
-              <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
+              <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 rounded-xl">
                 <textarea
                   value={commentInput}
                   onChange={handleCommentChange}
