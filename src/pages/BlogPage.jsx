@@ -119,31 +119,11 @@ const BlogCard = ({
                 {formatDate(post.date)}
               </div>
             </div>
-            <div className="flex justify-between gap-4">
-              <div className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
-                <img
-                  onClick={() => toggleLike(post.id)}
-                  src={likesStatus[post.id] ? likeFilledIcon : likeIcon}
-                  alt=""
-                  className="cursor-pointer"
-                />
-                {/* <p>{Math.floor(Math.random() * (300 - 200 + 1)) + 200}</p> */}
-                <p>{likes}</p>
-              </div>
-              <div className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center">
-                <img
-                  onClick={() => toggleBookmark(post.id)}
-                  src={
-                    bookmarkStatus[post.id] ? bookmarkFilledIcon : bookmarkIcon
-                  }
-                  alt=""
-                  className="cursor-pointer"
-                />
-                <p>{bookmarks}</p>
-              </div>
+            
+            <div className="flex justify-end gap-4">
               <button
                 onClick={togglePopup}
-                className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl w-full justify-center"
+                className="flex items-center gap-2 text-[16px] border border-[#013B4D3D] lg:border-0 py-3 px-5 lg:px-2 lg:py-0 rounded-xl justify-center"
               >
                 <img src={shareIcon} alt="" />
               </button>
