@@ -91,7 +91,8 @@ function App() {
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/gen-ai-form" element={<GenAiForm />} />
+          <Route path="/gen-ai-form" element={<GenAiForm />} /> 
+          
           <Route path="/blogs/:id" element={<Blog />} />
           {BlogsData.map((blog) => (
             <Route
