@@ -620,7 +620,7 @@ const CommentSection = ({
                   onKeyUp={handleKeyPress}
                   type="text"
                   placeholder="What are your thoughts?"
-                  className="h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                  className="min-h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
                 />
               </div>
             ) : (
@@ -631,7 +631,7 @@ const CommentSection = ({
                   onKeyUp={handleKeyPress}
                   type="text"
                   placeholder="What are your thoughts?"
-                  className="h-[37px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                  className="h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
                 />
               </div>
             )}
