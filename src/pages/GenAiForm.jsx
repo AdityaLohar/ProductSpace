@@ -91,6 +91,8 @@ const GenAiForm = () => {
     contact: "",
     linkedin: "",
     reason: "",
+    productExperience: "",
+    yearsExperience: "",
   });
   const [errors, setErrors] = useState({});
   const [notification, setNotification] = useState(null);
@@ -196,10 +198,18 @@ const GenAiForm = () => {
     }
   };
 
+  const handleProductExperienceChange = (value) => {
+    setFormData((prev) => ({
+      ...prev,
+      productExperience: value,
+      yearsExperience: value === "no" ? "" : prev.yearsExperience,
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate fields
+    // Validate required fields: name, email, contact
     const newErrors = {};
     ["name", "email", "contact"].forEach((field) => {
       if (!formData[field].trim()) {
@@ -207,6 +217,15 @@ const GenAiForm = () => {
       }
     });
 
+    // Validate yearsExperience if productExperience is "yes"
+    if (
+      formData.productExperience === "yes" &&
+      !formData.yearsExperience.trim()
+    ) {
+      newErrors.yearsExperience = true;
+    }
+
+    // Set errors and return if there are any
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
@@ -231,7 +250,7 @@ const GenAiForm = () => {
     <div className="flex justify-center items-center font-inter text-[#222] p-8">
       <div className="flex flex-col gap-4 w-full max-w-[700px] bg-white rounded-lg p-0 lg:p-6">
         <div className="text-[22px] lg:text-[32px] font-bold text-center">
-          Complete your application for GenAI for PM Cohort
+          Complete your application for GenAI for PM Course
         </div>
 
         <form
@@ -247,6 +266,7 @@ const GenAiForm = () => {
               value={formData.name}
               onChange={handleChange}
               error={errors.name}
+              disabled={loading}
             />
             <FormField
               label="Email"
@@ -256,6 +276,7 @@ const GenAiForm = () => {
               value={formData.email}
               onChange={handleChange}
               error={errors.email}
+              disabled={loading}
             />
             <FormField
               label="Contact"
@@ -265,6 +286,7 @@ const GenAiForm = () => {
               value={formData.contact}
               onChange={handleChange}
               error={errors.contact}
+              disabled={loading}
             />
             <FormField
               label="LinkedIn Profile"
@@ -274,6 +296,7 @@ const GenAiForm = () => {
               value={formData.linkedin}
               onChange={handleChange}
               error={errors.linkedin}
+              disabled={loading}
             />
           </div>
           <div className="flex flex-col w-full gap-1">
@@ -293,17 +316,81 @@ const GenAiForm = () => {
             ></textarea>
           </div>
 
+          {/* New Section for Product Experience */}
+          <div className="flex flex-col gap-2 text-[12px] lg:text-[16px]">
+            <label className="font-medium">
+              Do you have any product experience?
+            </label>
+            <div className="flex gap-4">
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="productExperience"
+                  value="yes"
+                  onChange={(e) =>
+                    handleProductExperienceChange(e.target.value)
+                  }
+                  className="form-radio"
+                  disabled={loading}
+                />
+                Yes
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="productExperience"
+                  value="no"
+                  onChange={(e) =>
+                    handleProductExperienceChange(e.target.value)
+                  }
+                  className="form-radio"
+                  disabled={loading}
+                />
+                No
+              </label>
+            </div>
+          </div>
+
+          {formData.productExperience === "yes" && (
+            <div className="flex flex-col gap-1">
+              <label
+                htmlFor="yearsExperience"
+                className="text-[12px] lg:text-[16px] font-medium"
+              >
+                How many years of experience?
+              </label>
+              <input
+                type="text"
+                id="yearsExperience"
+                name="yearsExperience"
+                value={formData.yearsExperience || ""}
+                onChange={handleChange}
+                min="0"
+                className={`border rounded-md px-3 py-2 text-[12px] lg:text-[16px] focus:outline-none ${
+                  errors.yearsExperience
+                    ? "border-red-500 focus:ring-red-200"
+                    : "focus:ring-blue-200"
+                }`}
+              />
+              {errors.yearsExperience && (
+                <span className="text-red-500 text-[10px] lg:text-[12px]">
+                  Years of experience is required
+                </span>
+              )}
+            </div>
+          )}
+
           <div className="text-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white px-6 py-3 rounded-md text-[12px] lg:text-[16px] font-medium hover:bg-blue-600 transition duration-300"
+              className="bg-black text-white px-6 py-3 rounded-md text-[12px] lg:text-[16px] font-medium transition duration-300"
             >
               {loading ? "Loading..." : "Submit"}
             </button>
           </div>
         </form>
 
-        <div className="p-4 lg:px-8 lg:py-6 border rounded-md text-[12px] lg:text-[16px]">
+        {/* <div className="p-4 lg:px-8 lg:py-6 border rounded-md text-[12px] lg:text-[16px]">
           Not sure if the program is the right fit for you? Or got some other
           questions? <br /> Feel free to send us an email to{" "}
           <a
@@ -323,7 +410,7 @@ const GenAiForm = () => {
               on WhatsApp
             </a>
           </span>
-        </div>
+        </div> */}
       </div>
 
       <Notification

@@ -1,4 +1,4 @@
-import arrow from "../assets/right-arrow.svg";
+import arrow from "../assets/right-arrow-dark.svg";
 import download from "../assets/download.svg";
 import geoLines from "../assets/geolines.png";
 import priceTag from "../assets/bitcoin-icons_tag-filled.svg";
@@ -73,11 +73,11 @@ const GenAiHero = () => {
           <img src={rock} alt="Left Bottom" className="w-full h-full" />
         </div>
 
-        <div className="flex flex-col items-center lg:flex-row gap-4 lg:gap-16 my-4 lg:my-12 px-4 lg:px-16 pb-6 lg:py-12 bg-gradient-to-b from-[#F6FCFE] to-[#D8F4FD] rounded-3xl opacity-85">
+        <div className="flex flex-col items-center lg:flex-row gap-4 lg:gap-16 my-4 lg:my-12 px-4 lg:px-16 pb-6 lg:py-12 bg-gradient-to-b from-[#F6FCFE] to-[#D8F4FD] rounded-3xl opacity-100">
           <div className="flex flex-col gap-7 w-full lg:w-1/2 bg-transparent py-8 lg:py-12 text-center lg:text-start">
             <div className="flex flex-col gap-2">
               <div className="text-[28px] lg:text-[44px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#001F32] to-[#0074C2]">
-                Gen AI for Product Management Course
+                AI for Product Management Course
               </div>
               <div className="text-[16px] lg:text-[20px]">
                 Become an AI Powered Product Manager and future proof your
@@ -97,20 +97,11 @@ const GenAiHero = () => {
             </div>
 
             <div className="flex flex-col xl:flex-row gap-3 w-full cursor-pointer lg:w-full text-center items-center">
-              {/* <button
-                onClick={toggleModalEnquire}
-                className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#ffa000] text-white items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-              >
-                <p>Join Waitlist Now</p>
-                <div>
-                  <img src={arrow} alt="" />
-                </div>
-              </button> */}
               <Link
                 to={"/gen-ai-form"}
-                className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#ffa000] text-white items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#FACC14] text-black items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
               >
-                <p>Join Waitlist Now</p>
+                <p>Apply Now</p>
                 <div>
                   <img src={arrow} alt="" />
                 </div>
@@ -162,9 +153,9 @@ const GenAiHero = () => {
                 </div>
               </div>
 
-              <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
-                <span className="text-[#fec923]">⚠️</span> Offer valid till{" "}
-                {GEN_AI_FOR_PM_DETAILS.valid}
+              <div className="flex justify-start items-center px-4 lg:px-8 gap-1 text-[14px] lg:text-[16px] text-black py-3 rounded-b-lg">
+                <img src={offer} alt="" className="h-4" />
+                <p>Offer valid till {GEN_AI_FOR_PM_DETAILS.valid} </p>
               </div>
             </div>
 
