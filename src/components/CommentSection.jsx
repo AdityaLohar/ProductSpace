@@ -522,6 +522,8 @@ const CommentSection = ({
 
   const handleCommentChange = (e) => {
     setCommentInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = `${e.target.scrollHeight}px`;
   };
 
   const postComment = async () => {
@@ -618,26 +620,18 @@ const CommentSection = ({
                   onKeyUp={handleKeyPress}
                   type="text"
                   placeholder="What are your thoughts?"
-                  className="resize-none h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                  className="h-[100px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
                 />
               </div>
             ) : (
               <div className="flex items-center gap-2 md:gap-2 p-3 md:p-4 border rounded-xl">
-                <div className="w-8 h-8 rounded-full p-[2px] border-2 border-blue-600">
-                  <div
-                    className={`w-6 h-6 rounded-full border-1 border-white p-[4px] text-white flex justify-center items-center text-[13px] font-bold`}
-                    style={{ backgroundColor: profileBg }}
-                  >
-                    {pic.toUpperCase()}
-                  </div>
-                </div>
-                <input
+                <textarea
                   value={commentInput}
                   onChange={handleCommentChange}
                   onKeyUp={handleKeyPress}
                   type="text"
                   placeholder="What are your thoughts?"
-                  className="w-full p-2 md:px-3 border rounded-full outline-none bg-[#F3F3F3] placeholder-[#565973]"
+                  className="h-[37px] w-full p-2 md:px-3 border rounded-lg outline-none bg-[#F3F3F3] placeholder-[#565973]"
                 />
               </div>
             )}
@@ -667,7 +661,7 @@ const CommentSection = ({
             </div>
           </div>
 
-          <hr className="border-[#444]" />
+          <hr className="border-1" />
 
           <div className="flex justify-between">
             <div>All Responses ({totalComments})</div>
