@@ -599,7 +599,7 @@ const CommentSection = ({
               </button>
             </div>
 
-            {localStorage.getItem("token") ? (
+            {localStorage.getItem("token") && pic !== "" ? (
               <div className="flex flex-col items-start gap-2 md:gap-2 p-3 md:p-4 rounded-xl">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full p-[2px] border-2 border-blue-600">
