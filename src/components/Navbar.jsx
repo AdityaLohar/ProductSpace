@@ -2,8 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import logo from "../assets/ps-logo-dark.svg";
 import { RiArrowRightSFill } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import ContactUsForm from "./ContactUsForm";
+import profile from "../assets/profile.svg";
 import { useRecoilState } from "recoil";
-import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
+import {
+  authAtom,
+  isOpenFormState,
+  isOpenLogin,
+  isOpenSignin,
+  isVisibleformState,
+  isVisibleLogin,
+  isVisibleSignin,
+} from "../atoms/modalState";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -20,6 +30,28 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  const [isLoginVisible, setIsLoginVisible] = useRecoilState(isVisibleLogin); // Recoil for visibility
+  const [isLoginOpen, setIsLoginOpen] = useRecoilState(isOpenLogin);
+
+  const [isSignupVisible, setIsSignupVisible] = useRecoilState(isVisibleSignin); // Recoil for visibility
+  const [isSignupOpen, setIsSignupOpen] = useRecoilState(isOpenSignin);
+
+  const [isAuthDropdownOpen, setIsAuthDropdownOpen] = useState(false);
+
+  const [auth, setAuth] = useRecoilState(authAtom);
+
+  const toggleAuthDropdown = () => setIsAuthDropdownOpen(!isAuthDropdownOpen);
+
+  const toggleLoginModal = () => {
+    setIsLoginOpen(true);
+    setTimeout(() => setIsLoginVisible(true), 10);
+  };
+
+  const toggleSignupModal = () => {
+    setIsSignupOpen(true);
+    setTimeout(() => setIsSignupVisible(true), 10);
+  };
 
   const toggleModal = () => {
     if (!isOpenForm) {
@@ -41,6 +73,27 @@ const Navbar = () => {
       navigate("/pm-fellowship#reviews");
     }
   };
+
+  const handleSignout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("userId");
+    setAuth(false);
+    navigate("/");
+  };
+
+  useEffect(() => {
+    const getToken = () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        setAuth(true);
+      } else {
+        setAuth(false);
+      }
+    };
+
+    getToken();
+  }, [setAuth]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -228,6 +281,48 @@ const Navbar = () => {
             >
               Contact Us
             </button>
+
+            {!auth ? (
+              <div className="relative group">
+                <div>
+                  <img src={profile} alt="" className="h-6" />
+                </div>
+                <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+                  <button
+                    onClick={toggleLoginModal}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Login
+                  </button>
+                  <button
+                    onClick={toggleSignupModal}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Signup
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="relative group">
+                <div>
+                  <img src={profile} alt="" className="h-6" />
+                </div>
+                <div className="absolute hidden group-hover:flex flex-col bg-white shadow-lg space-y-1 rounded-md p-2">
+                  <Link
+                    to={"/user/profile"}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleSignout}
+                    className="px-4 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -295,6 +390,46 @@ const Navbar = () => {
         >
           Contact Us
         </a>
+        <div className="relative group">
+          <div onClick={toggleAuthDropdown}>
+            <img src={profile} alt="" className="h-6" />
+          </div>
+          {isAuthDropdownOpen && (
+            <div className="group-hover:flex items-start bg-white shadow-lg rounded-md p-2">
+              {!auth ? (
+                <div className="flex flex-col">
+                  <button
+                    onClick={toggleLoginModal}
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Login
+                  </button>
+                  <button
+                    onClick={toggleSignupModal}
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Signup
+                  </button>
+                </div>
+              ) : (
+                <div className="flex flex-col">
+                  <Link
+                    to="/user/profile"
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleSignout}
+                    className="px-2 py-2 hover:bg-gray-100 rounded-md"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
