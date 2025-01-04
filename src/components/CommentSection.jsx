@@ -602,9 +602,9 @@ const CommentSection = ({
             {localStorage.getItem("token") && pic !== "" ? (
               <div className="flex flex-col items-start gap-2 md:gap-2 p-3 md:p-4 rounded-xl">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full p-[2px] border-2 border-blue-600">
+                  <div className="rounded-full p-[2px] border-2 border-blue-600">
                     <div
-                      className={`w-6 h-6 rounded-full border-1 border-white p-[4px] text-white flex justify-center items-center text-[13px] font-bold`}
+                      className={`w-[36px] aspect-square rounded-full border-1 border-white p-[4px] text-white flex justify-center items-center text-[13px] font-bold`}
                       style={{ backgroundColor: profileBg }}
                     >
                       {pic.toUpperCase()}

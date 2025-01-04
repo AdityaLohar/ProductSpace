@@ -248,7 +248,7 @@ const LoginPopUp = () => {
               <div className="w-full text-start text-[12px] lg:text-[14px] text-[#737373]">
                 Don&apos;t have an account?{" "}
                 <button onClick={toggleSignup} className="underline text-black">
-                  Create
+                  Sign up
                 </button>
               </div>
             </div>
