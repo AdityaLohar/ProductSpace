@@ -8,10 +8,11 @@ import { useRecoilValue } from "recoil";
 import { totalCommentsAtom } from "../atoms/modalState";
 
 const BlogStructure = ({ slug, title, description, content }) => {
-  const [isCommentOpen, setIsCommentOpen] = useState(true);
+  const [isCommentOpen, setIsCommentOpen] = useState(false);
   const totalComments = useRecoilValue(totalCommentsAtom);
   const [topbar, setShowTopbar] = useState(true);
-  const [id, setId] = useState();
+  const [id, setId] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -49,11 +50,13 @@ const BlogStructure = ({ slug, title, description, content }) => {
     const handleResize = () => {
       const isSmallScreen = window.innerWidth < 1024;
 
-      // Only adjust `isCommentOpen` if the screen width changes, not the height
-      if (isSmallScreen && isCommentOpen !== false) {
-        setIsCommentOpen(false);
-      } else if (!isSmallScreen && isCommentOpen !== true) {
-        setIsCommentOpen(true);
+      if (id) {
+        // Only adjust `isCommentOpen` if the screen width changes, not the height
+        if (isSmallScreen && isCommentOpen !== false) {
+          setIsCommentOpen(false);
+        } else if (!isSmallScreen && isCommentOpen !== true) {
+          setIsCommentOpen(true);
+        }
       }
     };
 
@@ -69,7 +72,7 @@ const BlogStructure = ({ slug, title, description, content }) => {
       window.removeEventListener("scroll", handleScroll);
       // window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const handleScrollLock = () => {
@@ -137,37 +140,39 @@ const BlogStructure = ({ slug, title, description, content }) => {
       )}
 
       {/* Button */}
-      <>
-        {/* For smaller screens (below lg) */}
-        <div
-          className={`w-full flex lg:hidden justify-center font-inter fixed bottom-0 bg-white shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] transition-opacity duration-1000 ${
-            isCommentOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-        >
-          <button
-            className="flex gap-1 h-[40px] items-center text-black px-2 py-6 rounded-lg"
-            onClick={toggleCommentSidebar}
+      {id && (
+        <>
+          {/* For smaller screens (below lg) */}
+          <div
+            className={`w-full flex lg:hidden justify-center font-inter fixed bottom-0 bg-white shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] transition-opacity duration-1000 ${
+              isCommentOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
           >
-            <img src={commentIcon} alt="comment icon" />
-            <p>
-              {totalComments || ""} {totalComments > 1 ? "comments" : "comment"}
-            </p>
-          </button>
-        </div>
-        <div className="hidden lg:flex font-inter fixed bottom-6 right-0 mr-7">
-          <button
-            className="flex gap-1 h-[40px] items-center text-black px-3 py-2 rounded-lg shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] bg-white"
-            onClick={toggleCommentSidebar}
-          >
-            <img src={commentIcon} alt="comment icon" />
-            <p>
-              {totalComments || ""} {totalComments > 1 ? "comments" : "comment"}
-            </p>
-          </button>
-        </div>
-      </>
-      {/* )} */}
-      {/* </div> */}
+            <button
+              className="flex gap-1 h-[40px] items-center text-black px-2 py-6 rounded-lg"
+              onClick={toggleCommentSidebar}
+            >
+              <img src={commentIcon} alt="comment icon" />
+              <p>
+                {totalComments || ""}{" "}
+                {totalComments > 1 ? "comments" : "comment"}
+              </p>
+            </button>
+          </div>
+          <div className="hidden lg:flex font-inter fixed bottom-6 right-0 mr-7">
+            <button
+              className="flex gap-1 h-[40px] items-center text-black px-3 py-2 rounded-lg shadow-[0px_3px_6px_6px_rgba(0,0,0,0.1)] bg-white"
+              onClick={toggleCommentSidebar}
+            >
+              <img src={commentIcon} alt="comment icon" />
+              <p>
+                {totalComments || ""}{" "}
+                {totalComments > 1 ? "comments" : "comment"}
+              </p>
+            </button>
+          </div>
+        </>
+      )}
 
       <NewsLetter />
     </div>
