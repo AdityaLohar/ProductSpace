@@ -2,8 +2,12 @@ import arrow from "../assets/right-arrow.svg";
 import faqBg from "../assets/faqBg.svg";
 import faqBg1 from "../assets/faqBg1.svg";
 import { useRecoilState } from "recoil";
-import { isOpenGenAiFormState, isVisibleGenAiformState } from "../atoms/modalState";
+import {
+  isOpenGenAiFormState,
+  isVisibleGenAiformState,
+} from "../atoms/modalState";
 import { useState } from "react";
+import GEN_AI_FOR_PM_DETAILS from "../constants/GenAiDetails";
 
 const DropdownItemGenAi = ({ question, content, isOpen, onClick }) => {
   return (
@@ -53,6 +57,11 @@ const DropdownItemGenAi = ({ question, content, isOpen, onClick }) => {
 const DropdownListGenAi = ({ len, flag }) => {
   const [visibleCount, setVisibleCount] = useState(len);
   const [openIndex, setOpenIndex] = useState(null);
+  const price = GEN_AI_FOR_PM_DETAILS.price.toLocaleString();
+  const discount = GEN_AI_FOR_PM_DETAILS.discount;
+  const priceAfterDiscount = Math.round(
+    (GEN_AI_FOR_PM_DETAILS.price * (100 - GEN_AI_FOR_PM_DETAILS.discount)) / 100
+  ).toLocaleString();
 
   const questions = [
     "Who is this workshop for? ",
@@ -60,14 +69,13 @@ const DropdownListGenAi = ({ len, flag }) => {
     "Are there any prerequisites for this workshop?",
     "What is the cost of the workshop?",
   ];
-  
+
   const contents = [
     "This workshop is ideal for current and aspiring Product Managers who want to integrate AI into their existing products & daily work.",
     "Yes, all participants who share their learnings on gen will receive a certificate of participation.",
     "No prior AI experience is required.",
-    "The workshop is valued at ₹24,999, but we're offering a 30% discount as a special new course discount. Join waitlist now and get access for just ₹17,499!"
+    `The workshop is valued at ₹${price}, but we're offering a ${discount}% discount as a special new course discount. Join waitlist now and get access for just ₹${priceAfterDiscount}!`,
   ];
-  
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -97,7 +105,7 @@ const GenAiFaq = () => {
       setIsOpenForm(true);
       setTimeout(() => setIsVisible(true), 10);
     } else {
-      console.log("enter")
+      console.log("enter");
       setIsVisible(false);
       setTimeout(() => setIsOpenForm(false), 300);
     }
@@ -122,13 +130,13 @@ const GenAiFaq = () => {
         </div>
 
         <div className="flex">
-            <button
-              onClick={toggleModal}
-              className="flex items-center gap-2 justify-center text-[16px] w-1/2 lg:w-[164px] bg-[#24304c] text-white p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-            >
-              <p>Contact Us</p>
-              <img src={arrow} alt="" />
-            </button>
+          <button
+            onClick={toggleModal}
+            className="flex items-center gap-2 justify-center text-[16px] w-1/2 lg:w-[164px] bg-[#24304c] text-white p-4 rounded-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          >
+            <p>Contact Us</p>
+            <img src={arrow} alt="" />
+          </button>
         </div>
       </div>
 
@@ -139,4 +147,3 @@ const GenAiFaq = () => {
   );
 };
 export default GenAiFaq;
-

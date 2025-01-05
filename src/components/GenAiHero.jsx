@@ -1,4 +1,4 @@
-import arrow from "../assets/right-arrow.svg";
+import arrow from "../assets/right-arrow-dark.svg";
 import download from "../assets/download.svg";
 import geoLines from "../assets/geolines.png";
 import priceTag from "../assets/bitcoin-icons_tag-filled.svg";
@@ -11,6 +11,8 @@ import offer from "../assets/offer-valid.svg";
 import { useEffect, useState } from "react";
 import GenAiEnrollmentForm from "./GenAiEnrollmentForm";
 import GenAiDownloadCurriculumForm from "./GenAiDownloadCurriculumForm";
+import { Link } from "react-router-dom";
+import GEN_AI_FOR_PM_DETAILS from "../constants/GenAiDetails";
 
 const GenAiHero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,11 +73,11 @@ const GenAiHero = () => {
           <img src={rock} alt="Left Bottom" className="w-full h-full" />
         </div>
 
-        <div className="flex flex-col items-center lg:flex-row gap-4 lg:gap-16 my-4 lg:my-12 px-4 lg:px-16 pb-6 lg:py-12 bg-gradient-to-b from-[#F6FCFE] to-[#D8F4FD] rounded-3xl opacity-85">
+        <div className="flex flex-col items-center lg:flex-row gap-4 lg:gap-16 my-4 lg:my-12 px-4 lg:px-16 pb-6 lg:py-12 bg-gradient-to-b from-[#F6FCFE] to-[#D8F4FD] rounded-3xl opacity-100">
           <div className="flex flex-col gap-7 w-full lg:w-1/2 bg-transparent py-8 lg:py-12 text-center lg:text-start">
             <div className="flex flex-col gap-2">
               <div className="text-[28px] lg:text-[44px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#001F32] to-[#0074C2]">
-                Gen AI for Product Management Course
+                AI for Product Management Course
               </div>
               <div className="text-[16px] lg:text-[20px]">
                 Become an AI Powered Product Manager and future proof your
@@ -95,15 +97,15 @@ const GenAiHero = () => {
             </div>
 
             <div className="flex flex-col xl:flex-row gap-3 w-full cursor-pointer lg:w-full text-center items-center">
-              <button
-                onClick={toggleModalEnquire}
-                className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#ffa000] text-white items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+              <Link
+                to={"/gen-ai-form"}
+                className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#FACC14] text-black items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
               >
-                <p>Join Waitlist Now</p>
+                <p>Apply Now</p>
                 <div>
                   <img src={arrow} alt="" />
                 </div>
-              </button>
+              </Link>
 
               <button
                 className="flex w-4/5 lg:w-full gap-2 justify-center p-3 lg:p-4 lg:px-2 rounded-lg bg-[#f3f3f3] border-2 text-black items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
@@ -134,14 +136,19 @@ const GenAiHero = () => {
 
               <div className="flex items-center gap-2 px-4 lg:px-8">
                 <div className="text-[28px] lg:text-[44px] font-bold">
-                  ₹17,499
+                  ₹
+                  {Math.round(
+                    (GEN_AI_FOR_PM_DETAILS.price *
+                      (100 - GEN_AI_FOR_PM_DETAILS.discount)) /
+                      100
+                  ).toLocaleString()}
                 </div>
                 <div>
                   <div className="text-[#eb2c2f] font-semibold text-[12px] lg:text-[20px]">
-                    30% off
+                    {GEN_AI_FOR_PM_DETAILS.discount}% off
                   </div>
                   <div className="text-[12px] lg:text-[20px] line-through">
-                    ₹24,999
+                    {GEN_AI_FOR_PM_DETAILS.price.toLocaleString()}
                   </div>
                 </div>
               </div>
@@ -207,22 +214,3 @@ const GenAiHero = () => {
 };
 
 export default GenAiHero;
-
-{
-  /* <button
-            onClick={toggleModalEnquire}
-            className="flex w-full bg-yellow-400 hover:bg-yellow-500 text-black p-2 px-6 md:p-3 md:px-8 rounded-full mt-6 flex  items-center justify-center text-[20px] shadow-[5px_5px_0_rgba(0,0,0)] "
-          >
-            <div className="flex flex-col gap-0 md:gap-1 text-start font-semibold">
-              Enroll Now
-            </div>
-            <div className="ml-2 text-xl">→</div>
-          </button>
-
-          <button
-            onClick={toggleModal}
-            className="w-full bg-white border border-black text-[20px] text-black font-semibold py-3 rounded-full mt-4 flex justify-center gap-2"
-          >
-            Download Curriculum
-          </button> */
-}
