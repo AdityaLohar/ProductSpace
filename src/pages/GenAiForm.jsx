@@ -155,10 +155,16 @@ const GenAiForm = () => {
       setNotification({
         type: "success",
         title: "Application Submitted!",
-        description: `Thank you for applying! Due to high demand, you’ve been added to the waitlist. 📋 Your Waitlist Number: #${
-          50 + Math.abs(totalEntries - 70)
-        }. Within 24 hours, our admission team will reach out to you.`,
+        description: (
+          <>
+            <p>Thank you for applying!</p>
+            <p>Due to high demand, you’ve been added to the waitlist. 📋</p>
+            <p>Your Waitlist Number: #{50 + Math.abs(totalEntries - 70)}.</p>
+            <p>Within 24 hours, our admission team will reach out to you.</p>
+          </>
+        ),
       });
+
       setLoading(false);
       setShowNotification(true);
       setTimeout(() => {
@@ -214,7 +220,14 @@ const GenAiForm = () => {
 
     // Validate required fields: name, email, contact
     const newErrors = {};
-    ["name", "email", "contact"].forEach((field) => {
+    [
+      "name",
+      "email",
+      "contact",
+      "linkedin",
+      "reason",
+      "productExperience",
+    ].forEach((field) => {
       if (!formData[field].trim()) {
         newErrors[field] = true;
       }
@@ -317,8 +330,17 @@ const GenAiForm = () => {
               name="reason"
               value={formData.reason}
               onChange={handleChange}
-              className="border rounded-md px-3 py-2 text-[12px] lg:text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className={`border rounded-md px-3 py-2 text-[12px] lg:text-[16px] focus:outline-none ${
+                errors.reason
+                  ? "border-red-500 focus:ring-red-200"
+                  : "focus:ring-blue-200"
+              }`}
             ></textarea>
+            {errors.reason && (
+              <span className="text-red-500 text-[10px] lg:text-[12px]">
+                This field is required
+              </span>
+            )}
           </div>
 
           {/* New Section for Product Experience */}
@@ -332,9 +354,7 @@ const GenAiForm = () => {
                   type="radio"
                   name="productExperience"
                   value="yes"
-                  onChange={(e) =>
-                    handleProductExperienceChange(e.target.value)
-                  }
+                  onChange={handleChange}
                   className="form-radio"
                   disabled={loading}
                 />
@@ -345,15 +365,18 @@ const GenAiForm = () => {
                   type="radio"
                   name="productExperience"
                   value="no"
-                  onChange={(e) =>
-                    handleProductExperienceChange(e.target.value)
-                  }
+                  onChange={handleChange}
                   className="form-radio"
                   disabled={loading}
                 />
                 No
               </label>
             </div>
+            {errors.productExperience && (
+              <span className="text-red-500 text-[10px] lg:text-[12px]">
+                This field is required
+              </span>
+            )}
           </div>
 
           {formData.productExperience === "yes" && (
