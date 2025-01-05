@@ -40,14 +40,11 @@ const Notification = ({
   }
 
   return (
-    // <div
-    //   className={`fixed left-1/2 transform -translate-x-1/2 ${
-    //     showNotification ? "bottom-4 opacity-100" : "-bottom-20 opacity-0"
-    //   } transition-all duration-500 ease-in-out z-50 max-w-[340px] md:max-w-[400px] w-full`}
-    // >
     <div
-      className={`fixed top-12 transform translate-y-12 ${
-        showNotification ? "right-4 opacity-100" : "-right-20 opacity-0"
+      className={`fixed left-1/2 top-1/3 transform -translate-x-1/2 ${
+        showNotification
+          ? "translate-y-1/3 opacity-100"
+          : "translate-y-full opacity-0"
       } transition-all duration-500 ease-in-out z-50 max-w-[340px] md:max-w-[400px] w-full`}
     >
       <div
@@ -127,6 +124,8 @@ const GenAiForm = () => {
     email,
     phoneNumber,
     linkedin,
+    reason,
+    yearsExperience,
     currentTimestamp,
     totalEntries
   ) => {
@@ -140,6 +139,8 @@ const GenAiForm = () => {
             "Mobile Number": phoneNumber,
             "Email Id": email,
             Linkedin: linkedin,
+            "Product Experience": yearsExperience,
+            Reason: reason,
             Timestamp: currentTimestamp,
           },
         },
@@ -154,15 +155,17 @@ const GenAiForm = () => {
       setNotification({
         type: "success",
         title: "Application Submitted!",
-        description: `You are in waitlist ${
-          80 + 2 * Math.abs(totalEntries - 70)
-        }`,
+        description: `Thank you for applying! Due to high demand, you’ve been added to the waitlist. 📋 Your Waitlist Number: #${
+          50 + Math.abs(totalEntries - 70)
+        }. Within 24 hours, our admission team will reach out to you.`,
       });
       setLoading(false);
       setShowNotification(true);
       setTimeout(() => {
+        window.location.href =
+          "https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i";
         setShowNotification(false);
-      }, 5000);
+      }, 8000);
     } catch (error) {
       console.log(error);
       setNotification({
@@ -240,6 +243,8 @@ const GenAiForm = () => {
       formData.email,
       formData.number,
       formData.linkedin,
+      formData.reason,
+      formData.yearsExperience,
       currentTimestamp,
       totalEntries
     );
