@@ -10,6 +10,7 @@ const FormField = ({ label, type, id, name, value, onChange, error }) => {
         className="text-[12px] lg:text-[16px] font-medium mb-1"
       >
         {label}
+        <span className="text-red-500"> *</span>
       </label>
       <input
         type={type}
@@ -207,14 +208,6 @@ const GenAiForm = () => {
     }
   };
 
-  const handleProductExperienceChange = (value) => {
-    setFormData((prev) => ({
-      ...prev,
-      productExperience: value,
-      yearsExperience: value === "no" ? "" : prev.yearsExperience,
-    }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -232,6 +225,13 @@ const GenAiForm = () => {
         newErrors[field] = true;
       }
     });
+
+    // Validate LinkedIn URL specifically
+    const linkedinRegex =
+      /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/;
+    if (formData.linkedin && !linkedinRegex.test(formData.linkedin)) {
+      newErrors.linkedin = "Please provide a valid LinkedIn URL";
+    }
 
     // Validate yearsExperience if productExperience is "yes"
     if (
@@ -323,6 +323,7 @@ const GenAiForm = () => {
               className="text-[12px] lg:text-[16px] font-medium mb-1"
             >
               Why do you think this program is the right fit for you?
+              <span className="text-red-500"> *</span>
             </label>
             <textarea
               id="reason"
@@ -347,6 +348,7 @@ const GenAiForm = () => {
           <div className="flex flex-col gap-2 text-[12px] lg:text-[16px]">
             <label className="font-medium">
               Do you have any product experience?
+              <span className="text-red-500"> *</span>
             </label>
             <div className="flex gap-4">
               <label className="flex items-center gap-2">
