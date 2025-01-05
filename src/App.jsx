@@ -62,6 +62,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import SignupPopUp from "./components/SignupPopUp";
 import LoginPopUp from "./components/LoginPopUp";
 import UserProfile from "./pages/UserProfile";
+import ForgetPassword from "./pages/ForgetPassword";
 
 function App() {
   const location = useLocation();
@@ -107,6 +108,7 @@ function App() {
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/:id" element={<Blog />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
           {BlogsData.map((blog) => (
             <Route
               key={blog.id}
