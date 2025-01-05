@@ -227,8 +227,8 @@ const GenAiForm = () => {
     });
 
     // Validate LinkedIn URL specifically
-    const linkedinRegex =
-      /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/;
+    const linkedinRegex = /^(https?:\/\/)?(www\.)?linkedin\.com\/.*/;
+
     if (formData.linkedin && !linkedinRegex.test(formData.linkedin)) {
       newErrors.linkedin = "Please provide a valid LinkedIn URL";
     }
