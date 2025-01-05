@@ -172,7 +172,7 @@ const GenAiForm = () => {
         window.location.href =
           "https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i";
         setShowNotification(false);
-      }, 8000);
+      }, 6000);
     } catch (error) {
       console.log(error);
       setNotification({
