@@ -158,8 +158,8 @@ const GenAiForm = () => {
         description: (
           <>
             <p>Thank you for applying!</p>
-            <p>Due to high demand, you’ve been added to the waitlist. 📋</p>
-            <p>Your Waitlist Number: #{50 + Math.abs(totalEntries - 70)}.</p>
+            <p>Due to high demand, you’ve been added to the waitlist.</p>
+            <p>📋 Your Waitlist Number: #{50 + Math.abs(totalEntries - 70)}.</p>
             <p>Within 24 hours, our admission team will reach out to you.</p>
           </>
         ),
