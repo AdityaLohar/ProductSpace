@@ -2,18 +2,19 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
-// import { z } from "zod";
-import axios from 'axios';
-
-// const schema = z.object({
-//   email: z.string().email("Invalid email address"),
-// });
+import axios from "axios";
+import PM_FELLOWSHIP_DETAILS from "../constants/PmFellowshipDetails.jsx";
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_ENROLLMENT_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
-
-const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
+const EnrollmentForm = ({
+  isVisible,
+  setIsVisible,
+  setIsOpen,
+  isOpen,
+  toggleModal,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -28,19 +29,19 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
         {
           fields: {
             Name: name,
-            'Mobile Number': phoneNumber, // Make sure this matches exactly
-            'Email Id': email,           // Make sure this matches exactly
-            "Timestamp": currentTimestamp,
+            "Mobile Number": phoneNumber, // Make sure this matches exactly
+            "Email Id": email, // Make sure this matches exactly
+            Timestamp: currentTimestamp,
           },
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`, // Use the personal access token here
+            "Content-Type": "application/json",
           },
         }
       );
-      console.log('Data saved successfully:', response.data);
+      console.log("Data saved successfully:", response.data);
 
       setNotification({
         type: "success",
@@ -48,8 +49,7 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
         description: "Our Expert Consultant will Call you back.",
       });
       setShowNotification(true);
-    } 
-    catch (error) {
+    } catch (error) {
       setNotification({
         type: "error",
         title: "Error",
@@ -60,9 +60,9 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
       setTimeout(() => {
         setShowNotification(false);
       }, 5000);
-      
-      console.error('Error saving data:', error);
-      
+
+      console.error("Error saving data:", error);
+
       return;
     }
   };
@@ -82,13 +82,13 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
       }, 5000);
       return;
     }
-    
+
     setLoading(true);
     const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
 
-    window.location.href = "https://rzp.io/l/getintoPM";
+    window.location.href = PM_FELLOWSHIP_DETAILS.paymentLink;
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -125,10 +125,11 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
               {/* Form */}
               <div>
                 <h2 className="text-[25px] md:text-[34px] font-bold mb-4 font-sans text-center">
-                Enroll in the PM Fellowship Program
+                  Enroll in the PM Fellowship Program
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
-                Excel in Your Product Management Career with practical learning, 1-1 mentorship and placement assistance.
+                  Excel in Your Product Management Career with practical
+                  learning, 1-1 mentorship and placement assistance.
                 </h3>
 
                 <div className="mb-4">
@@ -202,7 +203,9 @@ const EnrollmentForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModa
 
                   {/* Notification Content */}
                   <div className="flex flex-col">
-                    <span className="font-bold text-lg">{notification.title}</span>
+                    <span className="font-bold text-lg">
+                      {notification.title}
+                    </span>
                     <span className="text-sm">{notification.description}</span>
                   </div>
 

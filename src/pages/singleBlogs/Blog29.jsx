@@ -1,8 +1,23 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blog29 = () => {
   return (
     <div>
+      <Helmet>
+        <title>
+          Quick commerce in e-pharma: How speed and convenience are
+          redefining&nbsp;healthcare
+        </title>
+        <meta
+          name="description"
+          content="Quick commerce in e-pharma: How speed and convenience are redefining&nbsp;healthcare"
+        />
+        <link
+          rel="canonical"
+          href="https://theproductspace.in/blogs/quick-commerce-in-e-pharma-how-speed-and-convenience-are-redefining-healthcare"
+        />
+      </Helmet>
       <div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
         <div className="max-w-4xl w-full flex flex-col gap-8">
           {" "}

@@ -119,7 +119,7 @@ const GenAiHero = () => {
 
           <div className="flex flex-col gap-4 w-full lg:w-1/2 bg-transparent rounded-lg">
             <div
-              className="flex flex-col gap-2 lg:gap-4 bg-[#f5f5f5] rounded-lg pt-4 lg:pt-8"
+              className="flex flex-col gap-2 lg:gap-4 bg-[#f5f5f5] rounded-lg p-4 lg:p-8"
               style={{
                 backgroundImage: `url(${curveBg})`,
                 backgroundPosition: "top right",
@@ -146,9 +146,9 @@ const GenAiHero = () => {
                 </div>
               </div>
 
-              <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
+              {/* <div className="text-center text-[14px] lg:text-[16px] bg-black text-white py-3 rounded-b-lg">
                 <span className="text-[#fec923]">⚠️</span> Admissions to be opened soon
-              </div>
+              </div> */}
             </div>
 
             {/* <div className="bg-[#f5f5f5] rounded-lg">
