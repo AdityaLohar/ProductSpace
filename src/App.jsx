@@ -62,6 +62,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import SignupPopUp from "./components/SignupPopUp";
 import LoginPopUp from "./components/LoginPopUp";
 import UserProfile from "./pages/UserProfile";
+import GenAiForm from "./pages/GenAiForm";
 
 function App() {
   const location = useLocation();
@@ -106,6 +107,8 @@ function App() {
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/gen-ai-form" element={<GenAiForm />} /> 
+          
           <Route path="/blogs/:id" element={<Blog />} />
           {BlogsData.map((blog) => (
             <Route

@@ -2,6 +2,7 @@ import { useState } from "react";
 import curveBg from "../assets/curves.svg";
 import arrow from "../assets/right-arrow.svg";
 import GenAiEnrollmentForm from "./GenAiEnrollmentForm";
+import { Link } from "react-router-dom";
 
 const GenAiWhyEnroll = () => {
   const [isOpenEnquire, setIsOpenEnquire] = useState(false);
@@ -31,15 +32,18 @@ const GenAiWhyEnroll = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-5">
-        <div className="flex flex-col gap-2 lg:gap-4 w-full lg:w-1/2 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tl-xl rounded-tr-[100px] rounded-bl-[100px] rounded-br-xl text-start"
-            style={{
-                backgroundImage: `url(${curveBg})`,
-                backgroundPosition: 'top right',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-            }}
+        <div
+          className="flex flex-col gap-2 lg:gap-4 w-full lg:w-1/2 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tl-xl rounded-tr-[100px] rounded-bl-[100px] rounded-br-xl text-start"
+          style={{
+            backgroundImage: `url(${curveBg})`,
+            backgroundPosition: "top right",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+          }}
         >
-          <div className="text-[#00c0fc] text-[40px] lg:text-[52px] font-bold">54%</div>
+          <div className="text-[#00c0fc] text-[40px] lg:text-[52px] font-bold">
+            54%
+          </div>
 
           <div className="flex flex-col gap-3">
             <div className="text-[#24304c] text-[18px] lg:text-[20px] font-semibold">
@@ -52,16 +56,19 @@ const GenAiWhyEnroll = () => {
             </div>
           </div>
         </div>
-        
-        <div className="flex flex-col gap-2 lg:gap-4 w-full lg:w-1/2 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tr-xl rounded-tl-[100px] rounded-br-[100px] rounded-bl-xl text-start"
-            style={{
-                backgroundImage: `url(${curveBg})`,
-                backgroundPosition: 'top right',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-            }}
+
+        <div
+          className="flex flex-col gap-2 lg:gap-4 w-full lg:w-1/2 bg-[#E9F9FE] p-12 lg:pt-16 rounded-tr-xl rounded-tl-[100px] rounded-br-[100px] rounded-bl-xl text-start"
+          style={{
+            backgroundImage: `url(${curveBg})`,
+            backgroundPosition: "top right",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+          }}
         >
-          <div className="text-[#00c0fc] text-[40px] lg:text-[52px] font-bold">₹40.3 Lakhs</div>
+          <div className="text-[#00c0fc] text-[40px] lg:text-[52px] font-bold">
+            ₹40.3 Lakhs
+          </div>
 
           <div className="flex flex-col gap-3">
             <div className="text-[#24304c] text-[18px] lg:text-[20px] font-semibold">
@@ -76,10 +83,17 @@ const GenAiWhyEnroll = () => {
       </div>
 
       <div className="flex justify-center">
-        <button onClick={toggleModalEnquire} className="bg-[#FEB70F] text-white flex items-center gap-2 p-3 rounded-xl px-4 transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+        {/* <button onClick={toggleModalEnquire} className="bg-[#FEB70F] text-white flex items-center gap-2 p-3 rounded-xl px-4 transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <p>Take the Next Step</p>
             <img src={arrow} alt="" />
-        </button>
+        </button> */}
+        <Link
+          to={"/gen-ai-form"}
+          className="bg-[#FEB70F] text-white flex items-center gap-2 p-3 rounded-xl px-4 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+        >
+          <p>Take the Next Step</p>
+          <img src={arrow} alt="" />
+        </Link>
       </div>
 
       <div className="relative">
