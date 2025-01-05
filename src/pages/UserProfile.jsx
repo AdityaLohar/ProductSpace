@@ -62,11 +62,7 @@ const UserProfile = () => {
           error.response ? error.response.data : error.message
         );
 
-        if (error.response?.status === 401) {
-          navigate("/"); // Redirect if status is 401
-        } else {
-          alert("Error in logging into account!");
-        }
+        navigate("/");
       }
     };
 
