@@ -5,7 +5,8 @@ import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
 import axios from "axios";
 import PM_FELLOWSHIP_DETAILS from "../constants/PmFellowshipDetails.jsx";
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_ENROLLMENT_URL;
+// const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_ENROLLMENT_URL;
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_PM_FELLOWSHIP_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 const EnrollmentForm = ({
@@ -32,6 +33,7 @@ const EnrollmentForm = ({
             "Mobile Number": phoneNumber, // Make sure this matches exactly
             "Email Id": email, // Make sure this matches exactly
             Timestamp: currentTimestamp,
+            Source: "Enroll Now",
           },
         },
         {
@@ -84,7 +86,15 @@ const EnrollmentForm = ({
     }
 
     setLoading(true);
-    const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+    const currentTimestamp = new Date().toLocaleString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false, // Ensures 24-hour format
+    }); // e.g., "10/7/2024, 12:34:56 PM"
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
 

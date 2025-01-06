@@ -35,7 +35,7 @@ const NewsLetter = () => {
           },
         }
       );
-      
+
       setLoading(false);
       console.log("Data saved successfully:", response.data);
 
@@ -76,7 +76,15 @@ const NewsLetter = () => {
       });
       setShowNotification(true);
     } else {
-      const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+      const currentTimestamp = new Date().toLocaleString("en-GB", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false, // Ensures 24-hour format
+      }); // e.g., "10/7/2024, 12:34:56 PM"
       const res = await saveUserData(email, currentTimestamp);
     }
 

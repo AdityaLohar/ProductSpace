@@ -97,7 +97,7 @@ const GenAiForm = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_GEN_AI_ENROLLMENT_URL;
+  const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_AI_FOR_PM_URL;
   const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
   useEffect(() => {
@@ -143,6 +143,7 @@ const GenAiForm = () => {
             "Product Experience": yearsExperience,
             Reason: reason,
             Timestamp: currentTimestamp,
+            Source: "Enroll Now",
           },
         },
         {
@@ -160,7 +161,7 @@ const GenAiForm = () => {
           <>
             <p>Thank you for applying!</p>
             <p>Due to high demand, you’ve been added to the waitlist.</p>
-            <p>📋 Your Waitlist Number: #{50 + Math.abs(totalEntries - 70)}.</p>
+            <p>📋 Your Waitlist Number: #{51 + totalEntries}.</p>
             <p>Within 24 hours, our admission team will reach out to you.</p>
           </>
         ),
@@ -208,6 +209,11 @@ const GenAiForm = () => {
     }
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(formData);
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -249,12 +255,23 @@ const GenAiForm = () => {
 
     // If no errors, log the form data
     setLoading(true);
-    const currentTimestamp = new Date().toLocaleString();
+    const currentTimestamp = new Date().toLocaleString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false, // Ensures 24-hour format
+    });
+
     const totalEntries = await getEntryCount();
+    console.log(formData);
+
     const res = await saveUserData(
       formData.name,
       formData.email,
-      formData.number,
+      formData.contact,
       formData.linkedin,
       formData.reason,
       formData.yearsExperience,

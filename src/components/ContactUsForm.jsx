@@ -2,13 +2,12 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
-import axios from 'axios';
+import axios from "axios";
 import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
 import { useRecoilState } from "recoil";
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_CONTACT_US_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
-
 
 const ContactUsForm = () => {
   const [name, setName] = useState("");
@@ -25,26 +24,31 @@ const ContactUsForm = () => {
   const toggleModal = () => {
     setIsVisible(false);
     setIsOpen(false);
-  }
+  };
 
-  const saveUserData = async (name, email, phoneNumber, query, currentTimestamp) => {
+  const saveUserData = async (
+    name,
+    email,
+    phoneNumber,
+    query,
+    currentTimestamp
+  ) => {
     try {
       const response = await axios.post(
         airtableBaseUrl,
         {
           fields: {
             Name: name,
-            'Mobile Number': phoneNumber, // Make sure this matches exactly
-            'Email Id': email,           // Make sure this matches exactly
-            'Query': query,
-            "Timestamp": currentTimestamp,
-
+            "Mobile Number": phoneNumber, // Make sure this matches exactly
+            "Email Id": email, // Make sure this matches exactly
+            Query: query,
+            Timestamp: currentTimestamp,
           },
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`, // Use the personal access token here
+            "Content-Type": "application/json",
           },
         }
       );
@@ -55,8 +59,7 @@ const ContactUsForm = () => {
         description: "Our Mentors will reach out to you soon.",
       });
       setShowNotification(true);
-    } 
-    catch (error) {
+    } catch (error) {
       setNotification({
         type: "error",
         title: "Error",
@@ -67,15 +70,14 @@ const ContactUsForm = () => {
       setTimeout(() => {
         setShowNotification(false);
       }, 5000);
-      
-      console.error('Error saving data:', error);
-      
+
+      console.error("Error saving data:", error);
+
       return;
     }
   };
 
   const handleSubmit = async () => {
-
     if (name === "" || !number || email === "") {
       setNotification({
         type: "error",
@@ -88,10 +90,24 @@ const ContactUsForm = () => {
       }, 5000);
       return;
     }
-    
+
     setLoading(true);
-    const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
-    const res = await saveUserData(name, email, number, query, currentTimestamp);
+    const currentTimestamp = new Date().toLocaleString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false, // Ensures 24-hour format
+    }); // e.g., "10/7/2024, 12:34:56 PM"
+    const res = await saveUserData(
+      name,
+      email,
+      number,
+      query,
+      currentTimestamp
+    );
     setLoading(false);
 
     // Automatically hide notification after 10 seconds
@@ -164,7 +180,7 @@ const ContactUsForm = () => {
                     onChange={(e) => setNumber(e.target.value)}
                   />
                 </div>
-                
+
                 <div className="mb-4">
                   <input
                     type="text"
@@ -216,7 +232,9 @@ const ContactUsForm = () => {
 
                   {/* Notification Content */}
                   <div className="flex flex-col">
-                    <span className="font-bold text-lg">{notification.title}</span>
+                    <span className="font-bold text-lg">
+                      {notification.title}
+                    </span>
                     <span className="text-sm">{notification.description}</span>
                   </div>
 

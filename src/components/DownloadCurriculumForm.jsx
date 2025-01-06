@@ -2,13 +2,19 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
-import axios from 'axios';
+import axios from "axios";
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_DOWNLOAD_CURRICULUM_URL;
+// const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_DOWNLOAD_CURRICULUM_URL;
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_PM_FELLOWSHIP_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
-
-const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, toggleModal }) => {
+const DownloadCurriculumForm = ({
+  isVisible,
+  setIsVisible,
+  setIsOpen,
+  isOpen,
+  toggleModal,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -18,21 +24,21 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
 
   const saveUserData = async (name, email, phoneNumber, currentTimestamp) => {
     try {
-
       const response = await axios.post(
         airtableBaseUrl,
         {
           fields: {
             Name: name,
-            'Mobile Number': phoneNumber, // Make sure this matches exactly
-            'Email Id': email,           // Make sure this matches exactly
-            "Timestamp": currentTimestamp,
+            "Mobile Number": phoneNumber, // Make sure this matches exactly
+            "Email Id": email, // Make sure this matches exactly
+            Timestamp: currentTimestamp,
+            Source: "Download Curriculum",
           },
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,  // Use the personal access token here
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`, // Use the personal access token here
+            "Content-Type": "application/json",
           },
         }
       );
@@ -43,8 +49,7 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
         description: "Our Expert Consultant will Call you back.",
       });
       setShowNotification(true);
-    } 
-    catch (error) {
+    } catch (error) {
       setNotification({
         type: "error",
         title: "Error",
@@ -55,9 +60,9 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
       setTimeout(() => {
         setShowNotification(false);
       }, 5000);
-      
-      console.error('Error saving data:', error);
-      
+
+      console.error("Error saving data:", error);
+
       return;
     }
   };
@@ -77,13 +82,22 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
       }, 5000);
       return;
     }
-    
+
     setLoading(true);
-    const currentTimestamp = new Date().toLocaleString(); // e.g., "10/7/2024, 12:34:56 PM"
+    const currentTimestamp = new Date().toLocaleString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false, // Ensures 24-hour format
+    }); // e.g., "10/7/2024, 12:34:56 PM"
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
- 
-    window.location.href = "https://drive.google.com/file/d/1lKVH1HGKchPYV6nDRfdTgBuAXCLWGSfz/view";
+
+    window.location.href =
+      "https://drive.google.com/file/d/1lKVH1HGKchPYV6nDRfdTgBuAXCLWGSfz/view";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -123,7 +137,8 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
                   Download Detailed Curriculum
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
-                Personalized Guidance | Interview Preparation | Industry Focus Content | Job Placements Support -{" "}
+                  Personalized Guidance | Interview Preparation | Industry Focus
+                  Content | Job Placements Support -{" "}
                   <span className="font-bold">All at one place</span>
                 </h3>
 
@@ -198,7 +213,9 @@ const DownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpen, to
 
                   {/* Notification Content */}
                   <div className="flex flex-col">
-                    <span className="font-bold text-lg">{notification.title}</span>
+                    <span className="font-bold text-lg">
+                      {notification.title}
+                    </span>
                     <span className="text-sm">{notification.description}</span>
                   </div>
 
