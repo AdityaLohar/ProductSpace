@@ -8,7 +8,7 @@ const WhyGenAi = () => {
     <div className="md:px-10 xl:px-28 md:py-8 flex flex-col gap-8 font-inter">
       <div className="text-center flex flex-col items-center gap-2">
         <h1 className="text-[24px] lg:text-[32px] font-bold text-[#24304C]">
-          Why Gen AI for PM ?
+          Why AI for PM ?
         </h1>
         <div className="text-[16px] text-[#24304C] w-3/4">
           <p>

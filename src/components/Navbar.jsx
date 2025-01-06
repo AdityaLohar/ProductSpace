@@ -176,7 +176,7 @@ const Navbar = () => {
               href="/gen-ai-for-pm"
               className="hover:underline flex items-center gap-1"
             >
-              Gen AI for PM
+              AI for PM
             </a>
             {/* Events Dropdown */}
             <div className="relative group">
@@ -244,7 +244,7 @@ const Navbar = () => {
           href="/gen-ai-for-pm"
           className="hover:underline flex items-center gap-1"
         >
-          Gen AI for PM
+          AI for PM
         </a>
         {/* Events Dropdown for Mobile */}
         <div className="relative">

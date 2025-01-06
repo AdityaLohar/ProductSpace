@@ -124,7 +124,7 @@ const GenAiEnrollmentForm = ({
               {/* Form */}
               <div>
                 <h2 className="text-[25px] md:text-[34px] font-extrabold mb-4 font-inter text-center">
-                  Enroll in Gen AI for PM Program
+                  Enroll in AI for PM Program
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
                   Excel in your Product Management Career with practical AI

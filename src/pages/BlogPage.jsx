@@ -119,7 +119,7 @@ const BlogCard = ({
                 {formatDate(post.date)}
               </div>
             </div>
-            
+
             <div className="flex justify-end gap-4">
               <button
                 onClick={togglePopup}
@@ -199,7 +199,10 @@ const BlogCard = ({
 const BlogCardSmall = ({ post, formatDate, tag }) => {
   return (
     <div className="w-full overflow-hidden font-inter border-b border-[#24304C1A] py-6 lg:py-4">
-      <Link to={`/blogs/${post.slug}`} className="flex lg:justify-between gap-4">
+      <Link
+        to={`/blogs/${post.slug}`}
+        className="flex lg:justify-between gap-4"
+      >
         <div className="min-w-[100px] lg:w-1/4">
           <img
             src={post.jetpack_featured_media_url || missingImg}
@@ -481,18 +484,14 @@ const BlogPage = () => {
     >
       <Helmet>
         <title>Blogs Page - Product Space</title>
-        <meta
-          name="description"
-          content="Join our Gen AI for PM Fellowship course and excel in your Product Management Career with practical AI skills and 1:1 mentorship from industry experts."
-        />
+        <meta name="description" content="" />
         <link rel="canonical" href="https://theproductspace.in/blogs" />
       </Helmet>
-
 
       <div className="px-4 lg:px-28 pt-2 lg:pt-12">
         <div className="py-8 text-start md:text-center space-y-4">
           <h1 className="text-[28px] lg:text-[40px] font-sans font-bold">
-          The Best Product Management Resources for You
+            The Best Product Management Resources for You
           </h1>
           <p className="text-[17px]">
             Here is your go to resource curated by Product Leaders.

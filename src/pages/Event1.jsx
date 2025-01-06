@@ -76,7 +76,7 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
 
         <div className="flex flex-col gap-3 lg:w-3/4 justify-center">
           <div className="text-[20px] lg:text-[24px] font-semibold">
-            You&apos;ve successfully registered for Gen AI for PMs
+            You&apos;ve successfully registered for AI for PMs
             workshop
           </div>
           <div className="text-[14px] lg:text-[16px]">
