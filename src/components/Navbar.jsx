@@ -4,6 +4,8 @@ import { RiArrowRightSFill } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
+import GEN_AI_FOR_PM_DETAILS from "../constants/GenAiDetails.jsx";
+import PM_FELLOWSHIP_DETAILS from "../constants/PmFellowshipDetails.jsx";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -58,9 +60,10 @@ const Navbar = () => {
 
     const calculateDaysLeft = () => {
       // Set the cohort start date
-      let cohortDate = new Date("2025-01-12"); // Adjust the year if needed
+      // let cohortDate = new Date("2025-01-12"); // Adjust the year if needed
+      let cohortDate = new Date(PM_FELLOWSHIP_DETAILS.startDate); // Adjust the year if needed
       if (location.pathname === "/ai-for-pm") {
-        cohortDate = new Date("2025-02-01");
+        cohortDate = new Date(GEN_AI_FOR_PM_DETAILS.startDate);
       }
       const today = new Date();
 
@@ -102,8 +105,8 @@ const Navbar = () => {
           <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
             <div className="text-black">
               {location.pathname === "/ai-for-pm"
-                ? "NEXT AI FOR PM COURSE STARTS: 1st Feb 2025"
-                : "NEXT PM FELLOWSHIP COHORT STARTS: 12th January, 2025"}
+                ? `NEXT AI FOR PM COURSE STARTS: ${GEN_AI_FOR_PM_DETAILS.startDateText}`
+                : `NEXT PM FELLOWSHIP COHORT STARTS: ${PM_FELLOWSHIP_DETAILS.startDateText}`}
             </div>
             <Link
               to={

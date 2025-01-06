@@ -3,7 +3,8 @@ const PM_FELLOWSHIP_DETAILS = {
   discount: 15,
   valid: "6th Jan 2025",
   paymentLink: "https://rzp.io/l/getintoPM",
-  startDate: "Jan 12, 2025",
+  startDate: "2025-01-12",
+  startDateText: "Jan 12, 2025",
   duration: "10 Weeks",
   seats: 60,
 };
