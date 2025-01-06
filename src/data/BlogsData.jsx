@@ -18353,7 +18353,7 @@ const BlogsData = [
     description: "",
     content: `<div class="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
         <div class="max-w-4xl w-full flex flex-col gap-8">
-          {" "}
+          
           <div class="flex flex-col gap-3">
             <h1 class="text-[24px] lg:text-[36px] font-sans font-bold">
               Large Language Models (LLMs): A guide for Product&nbsp;Managers
@@ -18361,7 +18361,7 @@ const BlogsData = [
             <div class="text-[16px] text-[#667085]">November 21, 2024</div>
             <div class="flex flex-wrap gap-1">
               <p class="bg-[#E7F7FC] border border-[#013B4D3D] text-black p-2 rounded-lg">
-                Product Management{" "}
+                Product Management
               </p>
             </div>
           </div>
@@ -18414,13 +18414,13 @@ const BlogsData = [
 
             <p>
               Some models handle images and other media along with text. These
-              are often referred to as{" "}
+              are often referred to as
               <strong>multimodal language models.</strong>
             </p>
 
             <p>
               Data used to train the LLMs is the most important element of LLM
-              setup. Data can be <strong>structured</strong> tabular data;{" "}
+              setup. Data can be <strong>structured</strong> tabular data;
               <strong>semistructured</strong> data from IoT devices, weblogs,
               and other sources; or <strong>unstructured</strong> data, such as
               image files and PDF documents.
@@ -18450,7 +18450,7 @@ const BlogsData = [
 
               <li>
                 <strong>
-                  LLMs for text retrieval, summarization, and search:{" "}
+                  LLMs for text retrieval, summarization, and search:
                 </strong>
                 LLMs are pretrained on vast amounts of text data, allowing them
                 to grasp the nuances of language and comprehend the meaning of
@@ -18553,7 +18553,7 @@ const BlogsData = [
                 complex data sets. By representing these data sets in vector
                 form, where words are represented by numbers in a
                 multidimensional space, it becomes easier for the LLM models to
-                compare and analyze information.{" "}
+                compare and analyze information.
                 <strong>Vector databases </strong>store data as mathematical
                 representations that can be easily parsed by ML models.
               </li>
@@ -18720,8 +18720,8 @@ const BlogsData = [
 
             <p>
               Fine-tuning allows you to adjust a model’s parameters to achieve
-              better results.{" "}
-              <strong>Reinforcement learning from human feedback (RLHF)</strong>{" "}
+              better results.
+              <strong>Reinforcement learning from human feedback (RLHF)</strong>
               is a form of fine-tuning that you can use to guide the learning
               process and further enhance the performance and behavior of your
               model, with the goal of improving its responses over time.
@@ -18747,7 +18747,7 @@ const BlogsData = [
                     <strong>Mobile apps </strong>tailored to specific devices,
                     such as tablets and smartphones, offer a more immersive and
                     engaging experience for users. They can take advantage of
-                    the unique aspects of each platform and can{" "}
+                    the unique aspects of each platform and can
                     <strong>cache data for offline use.</strong>
                   </li>
 
@@ -18778,7 +18778,7 @@ const BlogsData = [
                 <strong>Optimize LLM Performance</strong>
                 <strong> –</strong> For applications that run on LLMs ensuring
                 that response to user queries is in-depth, latest, fast and
-                accurate can be achieved if we follow the below{" "}
+                accurate can be achieved if we follow the below
                 <strong>FIL</strong> implementation method;
                 <ol class="wp-block-list">
                   <li>
@@ -18818,11 +18818,11 @@ const BlogsData = [
 
                   <li>
                     <strong>PRO TIP </strong>– Paying for a set amount of
-                    storage and computing power, commonly known as{" "}
+                    storage and computing power, commonly known as
                     <strong>subscription-based pricing (NO), </strong>can cause
                     you to incur significant costs and requires regular
                     management. To ensure that you don’t pay for more capacity
-                    than you need, your cloud data platform should offer{" "}
+                    than you need, your cloud data platform should offer
                     <strong>usage-based pricing(YES),</strong> with billing in
                     per-second increments.
                   </li>
@@ -18836,14 +18836,14 @@ const BlogsData = [
 
             <ul class="wp-block-list">
               <li>
-                <strong>GPT-4:</strong> Best for creative{" "}
+                <strong>GPT-4:</strong> Best for creative
                 <strong>content generation, </strong>chatbots, and applications
                 requiring high levels of language generation capabilities.
               </li>
 
               <li>
                 <strong>BERT: </strong>Ideal for tasks needing deep
-                understanding of context such as{" "}
+                understanding of context such as
                 <strong>sentiment analysis</strong> or named entity recognition.
               </li>
 
@@ -18855,7 +18855,7 @@ const BlogsData = [
 
               <li>
                 <strong>PaLM</strong>: Recommended for complex reasoning tasks
-                or specialized applications in fields like{" "}
+                or specialized applications in fields like
                 <strong>healthcare or cybersecurity.</strong>
               </li>
 
@@ -19041,22 +19041,22 @@ const BlogsData = [
     slug: "genai-101-a-guide-for-product-managers",
     title: "GenAI 101: A Guide for Product&nbsp;Managers",
     description: "",
-    content: `<div className="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
-        <div className="max-w-4xl w-full flex flex-col gap-8">
-          {" "}
-          <div className="flex flex-col gap-3">
-            <h1 className="text-[24px] lg:text-[36px] font-sans font-bold">
+    content: `<div class="px-4 flex flex-col items-center pt-4 lg:pt-16 pb-8 lg:pb-16 font-inter bg-white">
+        <div class="max-w-4xl w-full flex flex-col gap-8">
+          
+          <div class="flex flex-col gap-3">
+            <h1 class="text-[24px] lg:text-[36px] font-sans font-bold">
               GenAI 101: A Guide for Product&nbsp;Managers
             </h1>
-            <div className="text-[16px] text-[#667085]">November 21, 2024</div>
-            <div className="flex flex-wrap gap-1">
-              <p className="bg-[#E7F7FC] border border-[#013B4D3D] text-black p-2 rounded-lg">
-                Guides &amp; Frameworks{" "}
+            <div class="text-[16px] text-[#667085]">November 21, 2024</div>
+            <div class="flex flex-wrap gap-1">
+              <p class="bg-[#E7F7FC] border border-[#013B4D3D] text-black p-2 rounded-lg">
+                Guides &amp; Frameworks
               </p>
             </div>
           </div>
-          <div className="prose prose-lg text-[16px] lg:text-[18px] max-w-4xl mx-auto">
-            <h3 className="wp-block-heading">Traditional vs Gen-AI</h3>
+          <div class="prose prose-lg text-[16px] lg:text-[18px] max-w-4xl mx-auto">
+            <h3 class="wp-block-heading">Traditional vs Gen-AI</h3>
 
             <p>
               Traditional AI, often referred to as machine learning (ML), has
@@ -19072,10 +19072,10 @@ const BlogsData = [
               simplifies tasks, and enhances productivity for our community.
             </p>
 
-            <h3 className="wp-block-heading">History of AI</h3>
+            <h3 class="wp-block-heading">History of AI</h3>
 
             <p>
-              Gen AI is a type of artificial intelligence that uses{" "}
+              Gen AI is a type of artificial intelligence that uses
               <strong>neural networks and deep learning algorithms </strong>to
               identify patterns within existing data as a basis for generating
               original content.
@@ -19085,7 +19085,7 @@ const BlogsData = [
               <strong>Milestones</strong>
             </p>
 
-            <ul className="wp-block-list">
+            <ul class="wp-block-list">
               <li>
                 1950s – 1980s – Saw emergence of rules based engines. The 1980s
                 saw rise of <strong>neural networks – </strong>inspired by the
@@ -19105,12 +19105,12 @@ const BlogsData = [
               </li>
 
               <li>
-                2017- 2020s – Google Brain team introduced the{" "}
+                2017- 2020s – Google Brain team introduced the
                 <strong>transformer</strong> architecture, a deep learning model
                 that replaced traditional recurrent and convolutional
                 structures. Best-known example is OpenAI’s Chat
-                <strong>GPT</strong>, which stands for chatbot{" "}
-                <strong>G</strong>-generative <strong>P</strong>– pretrained{" "}
+                <strong>GPT</strong>, which stands for chatbot
+                <strong>G</strong>-generative <strong>P</strong>– pretrained
                 <strong>T-</strong>transformer.
               </li>
             </ul>
@@ -19119,7 +19119,7 @@ const BlogsData = [
               <strong>Type of Neural Networks:</strong>
             </p>
 
-            <ul className="wp-block-list">
+            <ul class="wp-block-list">
               <li>
                 Convolutional neural networks (CNNs) proved themselves to be
                 particularly successful at computer vision tasks, while
@@ -19131,9 +19131,9 @@ const BlogsData = [
               </li>
             </ul>
 
-            <h4 className="wp-block-heading">Tech enablers of Gen-AI</h4>
+            <h4 class="wp-block-heading">Tech enablers of Gen-AI</h4>
 
-            <ul className="wp-block-list">
+            <ul class="wp-block-list">
               <li>
                 <strong>GPUs – </strong>Graphics processing units; Transformers
                 use GPUs to process multiple threads of information, leading to
@@ -19149,8 +19149,8 @@ const BlogsData = [
               </li>
             </ul>
 
-            <figure className="wp-block-table is-style-stripes">
-              <table className="has-fixed-layout">
+            <figure class="wp-block-table is-style-stripes">
+              <table class="has-fixed-layout">
                 <tbody>
                   <tr>
                     <td>
@@ -19184,13 +19184,13 @@ const BlogsData = [
               </table>
             </figure>
 
-            <ul className="wp-block-list">
+            <ul class="wp-block-list">
               <li>
                 <strong>Vector Embeddings</strong> – LLMs deal with large and
                 complex data sets. By representing these data sets in vector
                 form, where words are represented by numbers in a
                 multidimensional space, it becomes easier for the LLM models to
-                compare and analyze information.{" "}
+                compare and analyze information.
                 <strong>Vector databases </strong>store data as mathematical
                 representations that can be easily parsed by ML models.
               </li>
@@ -19219,14 +19219,14 @@ const BlogsData = [
               </li>
             </ul>
 
-            <h3 className="wp-block-heading">Concepts of Gen-AI</h3>
+            <h3 class="wp-block-heading">Concepts of Gen-AI</h3>
 
-            <ul className="wp-block-list">
+            <ul class="wp-block-list">
               <li>
                 <strong>Concept 1</strong>: <strong>Prompt</strong> – The text
                 you provide to a language model is called a prompt. The prompt
                 is given to the model, which then generates an answer. The
-                result produced by the model is known as a{" "}
+                result produced by the model is known as a
                 <strong>completion</strong>, and the process of using the model
                 to generate text is called <strong>inference</strong>.
               </li>
@@ -19237,13 +19237,13 @@ const BlogsData = [
               MLs based on CNNs/RNNs –
             </p>
 
-            <ul className="wp-block-list">
+            <ul class="wp-block-list">
               <li>
                 <strong>Concept 2: RLHF </strong>– users can influence the
                 learning process by providing well-crafted prompts or by using
-                techniques such as{" "}
+                techniques such as
                 <strong>
-                  reinforcement learning with human feedback (RLHF){" "}
+                  reinforcement learning with human feedback (RLHF)
                 </strong>
                 to guide the model’s output.
               </li>
@@ -19265,7 +19265,7 @@ const BlogsData = [
               </li>
 
               <li>
-                <strong>Concept 5:</strong>{" "}
+                <strong>Concept 5:</strong>
                 <strong>Retrieval-augmented generation (RAG)</strong> -RAG
                 accesses up-to-date information by retrieving relevant data
                 stored as vectors, such as current news, to bring the model up
@@ -19274,7 +19274,7 @@ const BlogsData = [
               </li>
 
               <li>
-                <strong>Concept 6:</strong>{" "}
+                <strong>Concept 6:</strong>
                 <strong>Generative Models (GANs) </strong>– These are algorithms
                 designed to generate new data instances that resemble the
                 training data. Common types include Generative Adversarial
@@ -19285,7 +19285,7 @@ const BlogsData = [
               </li>
 
               <li>
-                <strong>Concept 7:</strong>{" "}
+                <strong>Concept 7:</strong>
                 <strong>Synthetic Data Generation (SDG) </strong>– Generative AI
                 can create synthetic datasets that mimic real-world data without
                 compromising privacy. This is particularly useful when real data
@@ -19293,7 +19293,7 @@ const BlogsData = [
               </li>
 
               <li>
-                <strong>Concept 8:</strong>{" "}
+                <strong>Concept 8:</strong>
                 <strong>Natural Language Processing (NLP)</strong> – Generative
                 AI plays a crucial role in NLP by enabling machines to
                 understand and generate human language. This includes tasks like
@@ -19301,12 +19301,12 @@ const BlogsData = [
               </li>
             </ul>
 
-            <h3 className="wp-block-heading">
+            <h3 class="wp-block-heading">
               <strong>What makes a good prompt?</strong>
             </h3>
 
-            <figure className="wp-block-table is-style-stripes">
-              <table className="has-fixed-layout">
+            <figure class="wp-block-table is-style-stripes">
+              <table class="has-fixed-layout">
                 <tbody>
                   <tr>
                     <td>
@@ -19363,12 +19363,12 @@ const BlogsData = [
               </table>
             </figure>
 
-            <h3 className="wp-block-heading">
+            <h3 class="wp-block-heading">
               Use cases and prompts for Product Managers
             </h3>
 
-            <figure className="wp-block-table is-style-stripes">
-              <table className="has-fixed-layout">
+            <figure class="wp-block-table is-style-stripes">
+              <table class="has-fixed-layout">
                 <tbody>
                   <tr>
                     <td>
@@ -19540,12 +19540,12 @@ const BlogsData = [
               </table>
             </figure>
 
-            <h3 className="wp-block-heading">
+            <h3 class="wp-block-heading">
               Some interesting B2B business use cases of Gen-AI
             </h3>
 
-            <figure className="wp-block-table is-style-stripes">
-              <table className="has-fixed-layout">
+            <figure class="wp-block-table is-style-stripes">
+              <table class="has-fixed-layout">
                 <tbody>
                   <tr>
                     <td>
@@ -19657,14 +19657,14 @@ const BlogsData = [
               </table>
             </figure>
 
-            <h3 className="wp-block-heading">What is Responsible AI (RAI)?</h3>
+            <h3 class="wp-block-heading">What is Responsible AI (RAI)?</h3>
 
             <p>
               Responsible AI refers to the ethical and legal frameworks guiding
               the development, deployment, and use of artificial intelligence
               systems. The goal is to ensure that AI technologies are designed
               and implemented in ways that are fair, transparent, accountable,
-              and beneficial to society.{" "}
+              and beneficial to society.
             </p>
 
             <p>
@@ -19672,8 +19672,8 @@ const BlogsData = [
               outcomes for individuals and communities.
             </p>
 
-            <figure className="wp-block-table">
-              <table className="has-fixed-layout">
+            <figure class="wp-block-table">
+              <table class="has-fixed-layout">
                 <tbody>
                   <tr>
                     <td>
@@ -19710,12 +19710,12 @@ const BlogsData = [
               </table>
             </figure>
 
-            <h3 className="wp-block-heading">
+            <h3 class="wp-block-heading">
               Some companies leading the RAI race
             </h3>
 
-            <figure className="wp-block-table is-style-stripes">
-              <table className="has-fixed-layout">
+            <figure class="wp-block-table is-style-stripes">
+              <table class="has-fixed-layout">
                 <tbody>
                   <tr>
                     <td>
