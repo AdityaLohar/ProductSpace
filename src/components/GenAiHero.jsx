@@ -88,7 +88,7 @@ const GenAiHero = () => {
             <div className="flex justify-around lg:justify-between w-full md:w-5/6 xl:w-1/2 text-[16px] lg:text-[18px]">
               <div>
                 <div>Start Date</div>
-                <div>Feb 01, 2025</div>
+                <div>{GEN_AI_FOR_PM_DETAILS.startDateText}</div>
               </div>
               <div>
                 <div>Duration</div>

@@ -55,8 +55,13 @@ import ProductAnalytics from "./pages/ProductAnalytics";
 import Blog26 from "./pages/singleBlogs/Blog26";
 import Blog27 from "./pages/singleBlogs/Blog27";
 import Blog28 from "./pages/singleBlogs/Blog28";
+import DemoBlog from "./pages/BlogStructure";
 import BlogsData from "./data/BlogsData";
 import BlogStructure from "./pages/BlogStructure";
+import PrivateRoute from "./components/PrivateRoute";
+import SignupPopUp from "./components/SignupPopUp";
+import LoginPopUp from "./components/LoginPopUp";
+import UserProfile from "./pages/UserProfile";
 import GenAiForm from "./pages/GenAiForm";
 
 function App() {
@@ -79,9 +84,20 @@ function App() {
         <Navbar />
         <ContactUsForm />
         <GenAiContactUsForm />
+        <SignupPopUp />
+        <LoginPopUp />
 
         {/* <Router> */}
         <Routes>
+          {/* Protected route */}
+          <Route
+            path="/user/profile"
+            element={
+              <PrivateRoute>
+                <UserProfile />
+              </PrivateRoute>
+            }
+          />
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/events/ai-for-pm" element={<Event1 />} />
@@ -208,14 +224,6 @@ function App() {
           <Route
             path="/blogs/what-is-technical-debt-and-how-to-handle-it-as-a-product-manager"
             element={<Blog27 />}
-          />
-          <Route
-            path="/blogs/product-analytics-fundamentals-for-product-managers"
-            element={<Blog28 />}
-          />
-          <Route
-            path="/blogs/quick-commerce-in-e-pharma-how-speed-and-convenience-are-redefining-healthcare"
-            element={<Blog29 />}
           /> */}
           <Route
             path="/blogs/large-language-models-llms-a-guide-for-product-managers"

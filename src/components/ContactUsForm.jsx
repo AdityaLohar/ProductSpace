@@ -6,7 +6,7 @@ import axios from "axios";
 import { isOpenFormState, isVisibleformState } from "../atoms/modalState";
 import { useRecoilState } from "recoil";
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_BASE_CONTACT_US_URL;
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_PM_FELLOWSHIP_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 const ContactUsForm = () => {
@@ -43,6 +43,7 @@ const ContactUsForm = () => {
             "Email Id": email, // Make sure this matches exactly
             Query: query,
             Timestamp: currentTimestamp,
+            Source: "Contact Us",
           },
         },
         {

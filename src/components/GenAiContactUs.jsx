@@ -8,7 +8,7 @@ import {
 } from "../atoms/modalState";
 import { useRecoilState } from "recoil";
 
-const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_GEN_AI_CONTACT_US_URL;
+const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_AI_FOR_PM_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
 const GenAiContactUsForm = () => {
@@ -45,6 +45,7 @@ const GenAiContactUsForm = () => {
             "Email Id": email, // Make sure this matches exactly
             Query: query,
             Timestamp: currentTimestamp,
+            Source: "Contact Us",
           },
         },
         {

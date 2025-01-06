@@ -86,7 +86,7 @@ const PmFellowshipHeroSection = () => {
               <div>
                 <div className="text-[16px]">Start Date</div>
                 <div className="font-semibold text-[#00B5CE]">
-                  {PM_FELLOWSHIP_DETAILS.startDate}
+                  {PM_FELLOWSHIP_DETAILS.startDateText}
                 </div>
               </div>
               <div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
 import axios from "axios";
+import GEN_AI_FOR_PM_DETAILS from "../constants/GenAiDetails.jsx";
 
 const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_AI_FOR_PM_URL;
 const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
@@ -64,6 +65,8 @@ const GenAiDownloadCurriculumForm = ({
 
       console.error("Error saving data:", error);
 
+      console.error("Error saving data:", error);
+
       return;
     }
   };
@@ -97,8 +100,7 @@ const GenAiDownloadCurriculumForm = ({
     const res = await saveUserData(name, email, number, currentTimestamp);
     setLoading(false);
 
-    window.location.href =
-      "https://drive.google.com/file/d/1ubbbKfT3U92eOqPBHUF8wQFk2vt6UAXu/view?usp=sharing";
+    window.location.href = GEN_AI_FOR_PM_DETAILS.brochureDriveLink;
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
@@ -139,7 +141,9 @@ const GenAiDownloadCurriculumForm = ({
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
                   Excel in your Product Management Career with practical AI
-                  skills and 1:1 mentorship from industry experts.
+                  skills and 1:1 mentorship from industry experts. Excel in your
+                  Product Management Career with practical AI skills and 1:1
+                  mentorship from industry experts.
                 </h3>
 
                 <div className="mb-4">
@@ -213,6 +217,9 @@ const GenAiDownloadCurriculumForm = ({
 
                   {/* Notification Content */}
                   <div className="flex flex-col">
+                    <span className="font-bold text-lg">
+                      {notification.title}
+                    </span>
                     <span className="font-bold text-lg">
                       {notification.title}
                     </span>
