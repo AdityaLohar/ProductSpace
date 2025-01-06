@@ -1,5 +1,5 @@
 import arrow from "../assets/right-arrow.svg";
-import certi from "../assets/certi.png";
+import certi from "../assets/AI-certi.svg";
 import { useState } from "react";
 import GenAiDownloadCurriculumForm from "./GenAiDownloadCurriculumForm";
 

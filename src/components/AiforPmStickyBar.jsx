@@ -41,7 +41,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
               Saturday, Nov 16, 2024
             </div>
             <div className="text-[20px] text-[#120D26] font-semibold">
-              AI for PM 2024
+              Gen AI for PM 2024
             </div>
           </div>
 

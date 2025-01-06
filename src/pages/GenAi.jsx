@@ -36,7 +36,7 @@ const GenAi = () => {
           name="description"
           content="Join our AI for PM Fellowship course and excel in your Product Management Career with practical AI skills and 1:1 mentorship from industry experts."
         />
-        <link rel="canonical" href="https://theproductspace.in/gen-ai-for-pm" />
+        <link rel="canonical" href="https://theproductspace.in/ai-for-pm" />
       </Helmet>
 
       <GenAiHero />
