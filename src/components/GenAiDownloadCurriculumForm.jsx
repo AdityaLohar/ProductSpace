@@ -164,7 +164,7 @@ const GenAiDownloadCurriculumForm = ({ isVisible, setIsVisible, setIsOpen, isOpe
                     {loading ? "Loading..." : "Submit"}
                   </button>
                   <div className="text-[12px] md:text-[16px] p-2 py-3 font-semibold">
-                    <p>Get 1-1 mentorship via our Gen AI cohort</p>
+                    <p>Get 1-1 mentorship via our AI cohort</p>
                   </div>
                 </div>
               </div>

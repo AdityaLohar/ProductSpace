@@ -7,7 +7,7 @@ const GenAiKnowMore = () => {
         className="hidden lg:flex bg-black text-white flex-col py-12 lg:py-20 px-4 lg:px-16 rounded-2xl max-w-[1280px] mx-auto items-between justify-between text-start gap-3"
       >
         <div className="text-[24px] lg:text-[32px] font-normal font-['Georgia']">
-          Want to Know More About Gen AI for PM ?
+          Want to Know More About AI for PM ?
         </div>
 
         <div className="text-[16px] text-[#FFFFFFa5] font-light">
@@ -31,7 +31,7 @@ const GenAiKnowMore = () => {
 
       <div className="lg:hidden bg-black text-white flex flex-col py-24 px-4 rounded-2xl max-w-[1180px] mx-auto items-between justify-between text-center gap-8">
         <div className="text-[24px] lg:text-[40px] font-bold px-2 font-sans">
-          Want to Know More About Gen AI for PM ?
+          Want to Know More About AI for PM ?
         </div>
 
         <div className="text-[16px] text-[#FFFFFFE5] font-light px-4">

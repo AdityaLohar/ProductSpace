@@ -14,6 +14,8 @@ import {
   isVisibleLogin,
   isVisibleSignin,
 } from "../atoms/modalState";
+import GEN_AI_FOR_PM_DETAILS from "../constants/GenAiDetails.jsx";
+import PM_FELLOWSHIP_DETAILS from "../constants/PmFellowshipDetails.jsx";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -111,9 +113,10 @@ const Navbar = () => {
 
     const calculateDaysLeft = () => {
       // Set the cohort start date
-      let cohortDate = new Date("2025-01-12"); // Adjust the year if needed
-      if (location.pathname === "/gen-ai-for-pm") {
-        cohortDate = new Date("2025-02-01");
+      // let cohortDate = new Date("2025-01-12"); // Adjust the year if needed
+      let cohortDate = new Date(PM_FELLOWSHIP_DETAILS.startDate); // Adjust the year if needed
+      if (location.pathname === "/ai-for-pm") {
+        cohortDate = new Date(GEN_AI_FOR_PM_DETAILS.startDate);
       }
       const today = new Date();
 
@@ -154,14 +157,14 @@ const Navbar = () => {
         <div className="text-white py-2 font-semibold items-center text-center bg-[#AEECFF]">
           <div className="container mx-auto flex items-center justify-center text-yellow-500 gap-1 lg:gap-2 text-[10px] lg:text-[14px] ">
             <div className="text-black">
-              {location.pathname === "/gen-ai-for-pm"
-                ? "NEXT GENAI FOR PM COURSE STARTS: 1st Feb 2025"
-                : "NEXT PM FELLOWSHIP COHORT STARTS: 12th January, 2025"}
+              {location.pathname === "/ai-for-pm"
+                ? `NEXT AI FOR PM COURSE STARTS: ${GEN_AI_FOR_PM_DETAILS.startDateText}`
+                : `NEXT PM FELLOWSHIP COHORT STARTS: ${PM_FELLOWSHIP_DETAILS.startDateText}`}
             </div>
             <Link
               to={
-                location.pathname === "/gen-ai-for-pm"
-                  ? "/gen-ai-for-pm"
+                location.pathname === "/ai-for-pm"
+                  ? "/ai-for-pm"
                   : "/pm-fellowship"
               }
               className="flex items-center"
@@ -226,10 +229,10 @@ const Navbar = () => {
               PM Fellowship
             </a>
             <a
-              href="/gen-ai-for-pm"
+              href="/ai-for-pm"
               className="hover:underline flex items-center gap-1"
             >
-              Gen AI for PM
+              AI for PM
             </a>
             {/* Events Dropdown */}
             <div className="relative group">
@@ -250,7 +253,7 @@ const Navbar = () => {
                   Product Meet-ups (Offline)
                 </a>
                 <a
-                  href="/ai-for-pm"
+                  href="/events/ai-for-pm"
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
                 >
                   Gen AI for PM
@@ -336,10 +339,10 @@ const Navbar = () => {
           PM Fellowship
         </a>
         <a
-          href="/gen-ai-for-pm"
+          href="/ai-for-pm"
           className="hover:underline flex items-center gap-1"
         >
-          Gen AI for PM
+          AI for PM
         </a>
         {/* Events Dropdown for Mobile */}
         <div className="relative">
@@ -364,7 +367,7 @@ const Navbar = () => {
                 Product Meet-ups (Offline)
               </a>
               <a
-                href="/ai-for-pm"
+                href="/events/ai-for-pm"
                 className="px-4 py-2 hover:bg-gray-100 rounded-md"
               >
                 Gen AI for PM

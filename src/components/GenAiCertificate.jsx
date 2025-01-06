@@ -1,5 +1,5 @@
 import arrow from "../assets/right-arrow.svg";
-import certi from "../assets/certi.png";
+import certi from "../assets/AI-certi.svg";
 import { useState } from "react";
 import GenAiDownloadCurriculumForm from "./GenAiDownloadCurriculumForm";
 
@@ -22,7 +22,7 @@ const GenAiCertificate = () => {
       <div className="flex flex-col w-full lg:w-[60%] gap-6 lg:gap-12">
         <div className="flex flex-col gap-3">
           <h2 className="text-[24px] lg:text-[32px] font-bold">
-            Get GenAI certified from Product Space
+            Get AI certified from Product Space
           </h2>
         </div>
 

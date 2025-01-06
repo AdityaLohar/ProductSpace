@@ -22,7 +22,7 @@ const GenAiWhyEnroll = () => {
     <div className="px-4 md:px-10 xl:px-32 py-16 lg:py-20 flex flex-col gap-8 items-center font-inter text-center">
       <div className="flex flex-col gap-2 text-[#24304C]">
         <h2 className="text-[24px] lg:text-[32px] font-bold">
-          Why Enroll in Gen AI for PM?
+          Why Enroll in AI for PM?
         </h2>
 
         <p className="text-center text-[#969696] text-[16px]">
