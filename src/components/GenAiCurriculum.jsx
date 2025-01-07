@@ -87,7 +87,7 @@ const CurriculumMaterial = ({ title, desc, imgs, isOpen, onClick }) => {
 };
 
 const GenAiCurriculum = () => {
-  const [openIndex, setOpenIndex] = useState([0, 8]);
+  const [openIndex, setOpenIndex] = useState([0, genAiContent.length]);
 
   const [isOpenEnquire, setIsOpenEnquire] = useState(false);
   const [isVisibleEnquire, setIsVisibleEnquire] = useState(false);
