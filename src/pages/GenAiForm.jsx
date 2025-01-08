@@ -66,7 +66,9 @@ const Notification = ({
         {/* Notification Content */}
         <div className="flex flex-col">
           <span className="font-bold text-lg">{notification.title}</span>
-          <span className="text-sm">{notification.description}</span>
+          <span className="text-[12px] lg:text-[16px]">
+            {notification.description}
+          </span>
         </div>
 
         {/* Close button */}
@@ -87,9 +89,8 @@ const GenAiForm = () => {
     email: "",
     contact: "",
     linkedin: "",
-    reason: "",
-    productExperience: "",
-    yearsExperience: "",
+    userType: "",
+    role: "",
   });
   const [errors, setErrors] = useState({});
   const [notification, setNotification] = useState(null);
@@ -124,8 +125,8 @@ const GenAiForm = () => {
     email,
     phoneNumber,
     linkedin,
-    reason,
-    yearsExperience,
+    userType,
+    role,
     currentTimestamp,
     totalEntries
   ) => {
@@ -139,10 +140,10 @@ const GenAiForm = () => {
             "Mobile Number": phoneNumber,
             "Email Id": email,
             Linkedin: linkedin,
-            "Product Experience": yearsExperience,
-            Reason: reason,
             Timestamp: currentTimestamp,
             Source: "Enroll Now",
+            "Student/Working": userType,
+            Role: role,
           },
         },
         {
@@ -208,33 +209,16 @@ const GenAiForm = () => {
     }
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate required fields: name, email, contact
     const newErrors = {};
-    [
-      "name",
-      "email",
-      "contact",
-    ].forEach((field) => {
+    ["name", "email", "contact"].forEach((field) => {
       if (!formData[field].trim()) {
         newErrors[field] = true;
       }
     });
-
-    // Validate yearsExperience if productExperience is "yes"
-    if (
-      formData.productExperience === "yes" &&
-      !formData.yearsExperience.trim()
-    ) {
-      newErrors.yearsExperience = true;
-    }
 
     // Set errors and return if there are any
     if (Object.keys(newErrors).length > 0) {
@@ -262,8 +246,8 @@ const GenAiForm = () => {
       formData.email,
       formData.contact,
       formData.linkedin,
-      formData.reason,
-      formData.yearsExperience,
+      formData.userType,
+      formData.role,
       currentTimestamp,
       totalEntries
     );
@@ -323,98 +307,70 @@ const GenAiForm = () => {
               disabled={loading}
             />
           </div>
-          <div className="flex flex-col w-full gap-1">
+
+          <div>
             <label
-              htmlFor="reason"
-              className="text-[12px] lg:text-[16px] font-medium mb-1"
+              htmlFor="userType"
+              className="block text-[12px] lg:text-[16px] font-medium text-gray-700"
             >
-              Why do you think this program is the right fit for you?
-              
+              What best describes you?
             </label>
-            <textarea
-              id="reason"
-              rows="4"
-              name="reason"
-              value={formData.reason}
+            <select
+              id="userType"
+              name="userType"
+              value={formData.userType}
               onChange={handleChange}
-              className={`border rounded-md px-3 py-2 text-[12px] lg:text-[16px] focus:outline-none ${
-                errors.reason
-                  ? "border-red-500 focus:ring-red-200"
-                  : "focus:ring-blue-200"
-              }`}
-            ></textarea>
-            {errors.reason && (
-              <span className="text-red-500 text-[10px] lg:text-[12px]">
-                This field is required
-              </span>
+              disabled={loading}
+              className="mt-2 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-200 focus:border-blue-200 text-[12px] lg:text-[16px]"
+            >
+              <option value="">Select an option</option>
+              <option value="Student">Student</option>
+              <option value="Working Professional">Working Professional</option>
+            </select>
+            {errors.userType && (
+              <p className="text-red-500 text-[12px] lg:text-[16px]">
+                {errors.userType}
+              </p>
             )}
           </div>
 
-          {/* New Section for Product Experience */}
-          <div className="flex flex-col gap-2 text-[12px] lg:text-[16px]">
-            <label className="font-medium">
-              Do you have any product experience?
-              
+          <div>
+            <label
+              htmlFor="role"
+              className="block text-[12px] lg:text-[16px] font-medium text-gray-700"
+            >
+              What best describes your role?
             </label>
-            <div className="flex gap-4">
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="productExperience"
-                  value="yes"
-                  onChange={handleChange}
-                  className="form-radio"
-                  disabled={loading}
-                />
-                Yes
-              </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="productExperience"
-                  value="no"
-                  onChange={handleChange}
-                  className="form-radio"
-                  disabled={loading}
-                />
-                No
-              </label>
-            </div>
-            {errors.productExperience && (
-              <span className="text-red-500 text-[10px] lg:text-[12px]">
-                This field is required
-              </span>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              disabled={loading || !formData.userType}
+              className="mt-2 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-black focus:border-black text-[12px] lg:text-[16px]"
+            >
+              <option value="">Select an option</option>
+              {formData.userType === "Student" ? (
+                <>
+                  <option value="Final Year">Final Year</option>
+                  <option value="Pre Final Year">Pre-Final Year</option>
+                </>
+              ) : formData.userType === "Working Professional" ? (
+                <>
+                  <option value="Product">Product</option>
+                  <option value="Tech">Tech</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Design">Design</option>
+                  <option value="Other">Other</option>
+                </>
+              ) : null}
+            </select>
+            {errors.role && (
+              <p className="text-red-500 text-[12px] lg:text-[16px]">
+                {errors.role}
+              </p>
             )}
           </div>
-
-          {formData.productExperience === "yes" && (
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="yearsExperience"
-                className="text-[12px] lg:text-[16px] font-medium"
-              >
-                How many years of experience?
-              </label>
-              <input
-                type="text"
-                id="yearsExperience"
-                name="yearsExperience"
-                value={formData.yearsExperience || ""}
-                onChange={handleChange}
-                min="0"
-                className={`border rounded-md px-3 py-2 text-[12px] lg:text-[16px] focus:outline-none ${
-                  errors.yearsExperience
-                    ? "border-red-500 focus:ring-red-200"
-                    : "focus:ring-blue-200"
-                }`}
-              />
-              {errors.yearsExperience && (
-                <span className="text-red-500 text-[10px] lg:text-[12px]">
-                  Years of experience is required
-                </span>
-              )}
-            </div>
-          )}
 
           <div className="text-center">
             <button
@@ -425,28 +381,6 @@ const GenAiForm = () => {
             </button>
           </div>
         </form>
-
-        {/* <div className="p-4 lg:px-8 lg:py-6 border rounded-md text-[12px] lg:text-[16px]">
-          Not sure if the program is the right fit for you? Or got some other
-          questions? <br /> Feel free to send us an email to{" "}
-          <a
-            href="mailto:info@theproductspace.in"
-            className="font-bold text-blue-500"
-          >
-            info@theproductspace.in
-          </a>{" "}
-          or send a message{" "}
-          <span>
-            <a
-              href="https://wa.me/+919611232575"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-blue-500"
-            >
-              on WhatsApp
-            </a>
-          </span>
-        </div> */}
       </div>
 
       <Notification
