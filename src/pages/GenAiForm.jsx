@@ -10,7 +10,6 @@ const FormField = ({ label, type, id, name, value, onChange, error }) => {
         className="text-[12px] lg:text-[16px] font-medium mb-1"
       >
         {label}
-        <span className="text-red-500"> *</span>
       </label>
       <input
         type={type}
@@ -223,21 +222,11 @@ const GenAiForm = () => {
       "name",
       "email",
       "contact",
-      "linkedin",
-      "reason",
-      "productExperience",
     ].forEach((field) => {
       if (!formData[field].trim()) {
         newErrors[field] = true;
       }
     });
-
-    // Validate LinkedIn URL specifically
-    const linkedinRegex = /^(https?:\/\/)?(www\.)?linkedin\.com\/.*/;
-
-    if (formData.linkedin && !linkedinRegex.test(formData.linkedin)) {
-      newErrors.linkedin = "Please provide a valid LinkedIn URL";
-    }
 
     // Validate yearsExperience if productExperience is "yes"
     if (
@@ -340,7 +329,7 @@ const GenAiForm = () => {
               className="text-[12px] lg:text-[16px] font-medium mb-1"
             >
               Why do you think this program is the right fit for you?
-              <span className="text-red-500"> *</span>
+              
             </label>
             <textarea
               id="reason"
@@ -365,7 +354,7 @@ const GenAiForm = () => {
           <div className="flex flex-col gap-2 text-[12px] lg:text-[16px]">
             <label className="font-medium">
               Do you have any product experience?
-              <span className="text-red-500"> *</span>
+              
             </label>
             <div className="flex gap-4">
               <label className="flex items-center gap-2">
