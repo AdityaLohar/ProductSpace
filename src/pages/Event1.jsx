@@ -10,6 +10,7 @@ import locationDarkIcon from "../assets/location-dark.svg";
 import timeIcon from "../assets/access-time.svg";
 import shareIcon from "../assets/share.svg";
 import calendarIcon from "../assets/calendar.svg";
+import calendarIcon1 from "../assets/calendar1.svg";
 import linkedInIcon from "../assets/linkedin-circle.svg";
 import substackIcon from "../assets/substack-logo.svg";
 import greenTick from "../assets/tick-green.svg";
@@ -34,6 +35,8 @@ import aitool4 from "../assets/aitool4.svg";
 import aitool5 from "../assets/aitool5.svg";
 import aitool6 from "../assets/aitool6.svg";
 import aitool7 from "../assets/aitool7.svg";
+import inmobi from "../assets/inmobi.svg";
+import rumit from "../assets/rumitProfile.png";
 
 import GenAiForPMRegisteration from "../components/GenAiForPMRegisteration";
 import FaqAiForPm from "../components/FaqAiForPm";
@@ -45,6 +48,37 @@ const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
 const whatsappInviteLink = "https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i";
 const eventDate = new Date("2025-01-18T23:59:59");
+
+const Speakers = ({ title, name, desc, company, profile }) => {
+  return (
+    <div className="flex flex-col max-w-[440px] justify-between bg-[#00C1FD1A] text-[#00C1FD] text-[16px] md:text-[22px] rounded-xl">
+      <div className="p-6 pb-0">
+        {title[0]} <span className="font-bold">{title[1]}</span> {title[2]}
+      </div>
+
+      <div className="flex pl-6 items-center justify-between">
+        <div className="flex flex-col gap-1 text-[10px] text-[#24304C]">
+          <div className="text-[16px] font-black">{name}</div>
+          <div>
+            <div className="text-[14px]">{desc[0]}</div>
+            <div className="text-[14px]">{desc[1]}</div>
+          </div>
+          <div>
+            <img src={company} alt="" className="h-3 lg:h-4" />
+          </div>
+        </div>
+
+        <div className="overflow-hidden relative rounded-xl">
+          <img
+            src={profile}
+            alt=""
+            className="h-32 lg:h-52 w-full scale-115 relative top-4"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const EventInfo = ({ icon, title, desc }) => {
   return (
@@ -215,7 +249,8 @@ const Event1 = () => {
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4 lg:px-16">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          Start your AI Journey in Product Management with Us
+          Turbo charge your career with AI Skills{" "}
+          <span className="text-black">⚡🚀</span>
         </h1>
       </div>
 
@@ -245,16 +280,16 @@ const Event1 = () => {
               </div> */}
             </div>
 
-            <div className="text-[20px] lg:text-[26px] text-[#24304C] font-bold">
-              3 hours extensive session to help you transform your PM career
-              with AI
-            </div>
+            {/* <div className="text-[20px] lg:text-[26px] text-[#24304C] font-bold">
+              2 days extensive session to help you transform your PM career with
+              AI
+            </div> */}
 
-            <div className="flex flex-col lg:flex-row justify-between gap-3">
+            <div className="flex lg:hidden flex-col lg:flex-row justify-between gap-3">
               <EventInfo
                 icon={calendarIcon}
                 title={"When"}
-                desc={"Sat, Jan 18, 2025 (11 AM - 2 PM)"}
+                desc={"Jan 18 - 19, 2025 (11 AM - 1 PM)"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -264,7 +299,7 @@ const Event1 = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 lg:gap-4 text-[16px] lg:text-[20px]">
+          {/* <div className="flex flex-col gap-2 lg:gap-4 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Description
             </div>
@@ -273,11 +308,11 @@ const Event1 = () => {
               workshop that provides the foundational AI knowledge and practical
               skills to navigate the evolving product landscape.
             </div>
-          </div>
+          </div> */}
 
           <div className="flex flex-col gap-3 lg:gap-4 text-[16px] lg:text-[20px]">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Who Should Attend
+              Who should attend
             </div>
             <ul className="font-normal text-[#7f7f7f] list-disc ml-4 flex flex-col gap-2 lg:gap-4">
               <li>
@@ -291,7 +326,7 @@ const Event1 = () => {
               </li>
               <li>
                 Tech enthusiasts interested in the concepts & applications of
-                Gen AI.
+                AI.
               </li>
             </ul>
           </div>
@@ -308,9 +343,8 @@ const Event1 = () => {
                   className="w-12 h-12 md:w-14 md:h-14 bg-[#E7E8EB] p-2 rounded-lg"
                 />
                 <p>
-                  AI fundamentals & classification:{" "}
                   <span className="font-normal text-[#7f7f7f]">
-                    ML, NLP, Computer Vision, more.
+                    Explore ML, NLP, Computer Vision, and more.
                   </span>
                 </p>
               </div>
@@ -322,9 +356,9 @@ const Event1 = () => {
                   className="w-12 h-12 md:w-14 md:h-14 bg-[#E7E8EB] p-2 rounded-lg"
                 />
                 <p>
-                  Hands-on project:{" "}
                   <span className="font-normal text-[#7f7f7f]">
-                    Create a website from scratch using AI tools.
+                    Work on Hands-On Project from scratch using AI-powered
+                    tools.
                   </span>
                 </p>
               </div>
@@ -336,9 +370,9 @@ const Event1 = () => {
                   className="w-12 h-12 md:w-14 md:h-14 bg-[#E7E8EB] p-2 rounded-lg"
                 />
                 <p>
-                  Basics of GPT:{" "}
                   <span className="font-normal text-[#7f7f7f]">
-                    Tokens, Contexts, Parameters & OpenAI Playground.
+                    Understand tokens, contexts, parameters, and navigate the
+                    OpenAI Playground.
                   </span>
                 </p>
               </div>
@@ -350,9 +384,9 @@ const Event1 = () => {
                   className="w-12 h-12 md:w-14 md:h-14 bg-[#E7E8EB] p-2 rounded-lg"
                 />
                 <p>
-                  Solving real-world Case studies:{" "}
                   <span className="font-normal text-[#7f7f7f]">
-                    Use cutting edge AI.
+                    Tackle real-world case studies using advanced AI techniques
+                    and tools.
                   </span>
                 </p>
               </div>
@@ -364,9 +398,8 @@ const Event1 = () => {
                   className="w-12 h-12 md:w-14 md:h-14 bg-[#E7E8EB] p-2 rounded-lg"
                 />
                 <p>
-                  NPD on steroids using AI:{" "}
                   <span className="font-normal text-[#7f7f7f]">
-                    Prototyping and PRD writing.
+                    Learn to prototype and write PRDs efficiently with AI tools.
                   </span>
                 </p>
               </div>
@@ -378,9 +411,9 @@ const Event1 = () => {
               Speaker
             </div>
 
-            <div className="flex flex-col gap-10 lg:gap-12">
+            <div className="flex">
               {/* Speaker 1 */}
-              <div className="flex flex-col gap-3">
+              {/* <div className="flex flex-col gap-3">
                 <div className="flex gap-3 text-[18px] lg:text-[24px] items-center justify-between">
                   <div className="flex items-center gap-4 w-4/5">
                     <img
@@ -391,7 +424,7 @@ const Event1 = () => {
                     <div className="flex flex-col gap-1 md:gap-2">
                       <p className="font-semibold">Rumit Anand</p>
                       <p className="text-[#4B5563] text-[16px] lg:text-[20px]">
-                        VP of Product, InMobi
+                        VP of Gen AI Product, InMobi
                       </p>
                     </div>
                   </div>
@@ -420,90 +453,18 @@ const Event1 = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
-
-              {/* Speaker 3 */}
-              {/* <div className="flex flex-col gap-3">
-                <div className="flex gap-3 text-[18px] lg:text-[24px] items-center justify-between">
-                  <div className="flex items-center gap-4 w-4/5">
-                    <img
-                      src={judge3}
-                      alt="Arun Nandewal"
-                      className="h-16 lg:h-28 rounded-full"
-                    />
-                    <div className="flex flex-col gap-1 md:gap-2">
-                      <p className="font-semibold">Arun Nandewal</p>
-                      <p className="text-[#4B5563] text-[16px] lg:text-[20px]">
-                        Sr. PM at Microsoft
-                      </p>
-                    </div>
-                  </div>
-                  <a
-                    href="https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in"
-                    target="_blank"
-                    className="flex flex-col items-center text-center gap-3 font-semibold"
-                  >
-                    <img
-                      src={linkedInIcon}
-                      alt="LinkedIn"
-                      className="h-8 lg:h-12"
-                    />
-                  </a>
-                </div>
-                <div className="text-[#7f7f7f] text-[16px] lg:text-[20px]">
-                  <ul className="list-disc ml-5 space-y-2">
-                    <li>
-                      Formerly led Mobile App development with <b>Myntra</b>.
-                    </li>
-                    <li>
-                      Covered by <b>Times of India</b> for contributions to
-                      academia & learning at IIM-Ahmedabad.
-                    </li>
-                  </ul>
-                </div>
               </div> */}
-
-              {/* Speaker 2 */}
-              {/* <div className="flex flex-col gap-3">
-                <div className="flex gap-3 text-[18px] lg:text-[24px] items-center justify-between">
-                  <div className="flex items-center gap-4 w-4/5">
-                    <img
-                      src={judge2}
-                      alt="Pamit Anand"
-                      className="h-16 lg:h-28 rounded-full"
-                    />
-                    <div className="flex flex-col gap-1 md:gap-2">
-                      <p className="font-semibold">Pamit Anand</p>
-                      <p className="text-[#4B5563] text-[16px] lg:text-[20px]">
-                        Product Head, MagicBricks
-                      </p>
-                    </div>
-                  </div>
-                  <a
-                    href="https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in"
-                    target="_blank"
-                    className="flex flex-col items-center text-center gap-3 font-semibold"
-                  >
-                    <img
-                      src={linkedInIcon}
-                      alt="LinkedIn"
-                      className="h-8 lg:h-12"
-                    />
-                  </a>
-                </div>
-                <div className="text-[#7f7f7f] text-[16px] lg:text-[20px]">
-                  <ul className="list-disc ml-5 space-y-2">
-                    <li>
-                      Winner of IAMAI's Product Leadership Award for{" "}
-                      <b>Shaadi.com</b> App.
-                    </li>
-                    <li>
-                      <b>Ex-OLA</b> with 15+ years in AI-based Recommendation
-                      Systems.
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
+              <Speakers
+                title={[
+                  "Rumit brings a unique blend of",
+                  "technical expertise in GenAI",
+                  "and product strategy experience.",
+                ]}
+                name={"Rumit Anand"}
+                desc={["VP of Gen AI Product", "(15+ years)"]}
+                company={inmobi}
+                profile={rumit}
+              />
             </div>
           </div>
 
@@ -513,31 +474,30 @@ const Event1 = () => {
             <div className="text-[20px] lg:text-[28px] font-semibold">
               Workshop takeaways
             </div>
-            <ul className=" text-[16px] lg:text-[20px] flex flex-col gap-2 lg:gap-4 list-disc ml-4">
-              <li>Certificate of participation.</li>
+            <ul className=" text-[16px] lg:text-[20px] flex flex-col gap-2 lg:gap-4">
+              <li>📜 Certificate of participation.</li>
               <li>
-                Guides & resources on:
-                <ul className="font-normal lg:text-[18px] text-[#7f7f7f] space-y-2 list-none mt-1">
-                  <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
+                💥 Guides & resources on:
+                <ul className="font-normal lg:text-[18px] text-[#7f7f7f] space-y-3 list-disc mt-3 ml-11">
+                  <li className="relative   before:absolute before:left-0">
                     GenAI Fundamentals 101 guide
                   </li>
-                  <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
+                  <li className="relative   before:absolute before:left-0">
                     Introduction to LLMs guide
                   </li>
-                  <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
+                  <li className="relative   before:absolute before:left-0">
                     Prompt Engineering guide for PMs
                   </li>
-                  <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
+                  <li className="relative   before:absolute before:left-0">
                     Case Studies - How Netflix & Uber uses AI in their products
                   </li>
-                  <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
-                    Changing your content diet - [top 25 AI products and
-                    Influencers]
+                  <li className="relative   before:absolute before:left-0">
+                    Top 25 AI Products and Influencers Content Guide
                   </li>
                 </ul>
               </li>
-              <li>Doubt Clearing, Live Q&A</li>
-              <li>Recording of the session</li>
+              <li>🤝 Doubt Clearing, Live Q&A</li>
+              <li>🎥 Recording of the session</li>
             </ul>
           </div>
 
@@ -662,7 +622,7 @@ const Event1 = () => {
         </div>
 
         <div className="hidden lg:flex w-[30%] flex-col">
-          <div className="flex flex-col gap-1 bg-white shadow-[0_5px_25px_rgba(0,0,0,0.1)] rounded-xl p-8 sticky top-24">
+          <div className="flex flex-col gap-1 bg-white shadow-[0_5px_25px_rgba(0,0,0,0.1)] rounded-xl p-8 pt-3 sticky top-24">
             <div className="flex justify-between items-center">
               <div>{/* <img src={uberLogo} alt="" /> */}</div>
               <div>
@@ -677,13 +637,17 @@ const Event1 = () => {
 
             <div className="flex flex-col gap-4">
               <div className="text-[28px] font-bold">
-                Gen AI for Product Managers Workshop
+                Claim your Free seat now
               </div>
 
-              <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
+              <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold text-[22px]">
+                <div className="flex gap-2 items-center">
+                  <img src={calendarIcon1} alt="" className="h-5" />
+                  <p>Jan 18 - 19, 2025</p>
+                </div>
                 <div className="flex gap-2 items-center">
                   <img src={timeIcon} alt="" className="h-5" />
-                  <p>11 AM - 2 PM - Jan 18, 2025</p>
+                  <p>11 AM - 1 PM</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <img src={locationIcon} alt="" className="h-5" />
