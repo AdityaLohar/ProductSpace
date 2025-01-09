@@ -407,6 +407,7 @@ const EventGenAiForm = () => {
                   <option value="Tech">Technology</option>
                   <option value="Marketing">Marketing/Business</option>
                   <option value="Design">Design</option>
+                  <option value="Consultant">Consultant</option>
                   <option value="Other">Other</option>
                 </>
               ) : null}
