@@ -93,7 +93,7 @@ const GenAiInstructors = () => {
           <img src={arrow} alt="" />
         </button> */}
         <Link
-          to={"/gen-ai-form"}
+          to={"/ai-form"}
           className="bg-[#FEB70F] text-white flex items-center gap-2 p-3 rounded-xl px-4 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
         >
           <p>Join Waitlist to learn from the best</p>

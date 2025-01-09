@@ -699,7 +699,7 @@ const Event1 = () => {
 
               <div className="">
                 <Link
-                  to={"/events/gen-ai-form"}
+                  to={"/events/ai-form"}
                   // onClick={togglePopup}
                   disabled={isPastEventDate}
                   className={`flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ${

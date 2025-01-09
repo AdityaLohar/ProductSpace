@@ -39,17 +39,17 @@ const AiForPmStickyBar = ({ togglePopup }) => {
         <div className="flex gap-0 2xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
           <div className="hidden md:flex flex-col gap-1">
             <div className="text-[16px] text-[#969696]">
-              Saturday, Nov 16, 2024
+              Saturday, Jan 18, 2025
             </div>
             <div className="text-[20px] text-[#120D26] font-semibold">
-              Gen AI for PM 2024
+              Gen AI for PM 2025
             </div>
           </div>
 
           <div className="flex justify-between w-full md:w-auto items-center gap-6">
             <div className="flex flex-col items-start lg:items-end">
               <div className="flex text-[18px] md:text-[20px] text-[#FFA000] font-bold line-through">
-                1999
+                2999
               </div>
 
               <div>
@@ -60,7 +60,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
 
             <div className="flex items-center">
               <Link
-                to={"/events/gen-ai-form"}
+                to={"/events/ai-form"}
                 // onClick={togglePopup}
                 disabled={timeRemaining.isPast}
                 className={`shimmer bg-[#FFA000] font-semibold text-white py-2 px-4 2xl:px-8 rounded-lg ${

@@ -98,7 +98,7 @@ const GenAiHero = () => {
 
             <div className="flex flex-col xl:flex-row gap-3 w-full cursor-pointer lg:w-full text-center items-center">
               <Link
-                to={"/gen-ai-form"}
+                to={"/ai-form"}
                 className="flex w-4/5 md:w-full gap-2 justify-center p-3 lg:p-4 rounded-lg bg-[#FACC14] text-black items-center transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
               >
                 <p>Apply Now</p>

@@ -102,14 +102,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/events/ai-for-pm" element={<Event1 />} />
-          <Route path="/events/gen-ai-form" element={<EventGenAiForm />} />
+          <Route path="/events/ai-form" element={<EventGenAiForm />} />
           <Route path="/product-meetups-offline" element={<OfflineEvent />} />
           <Route path="/ai-for-pm" element={<GenAi />} />
           <Route path="/pm-workshop" element={<ProductAnalytics />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/gen-ai-form" element={<GenAiForm />} />
+          <Route path="/ai-form" element={<GenAiForm />} />
           <Route path="/blogs/:id" element={<Blog />} />
           {BlogsData.map((blog) => (
             <Route

@@ -65,7 +65,7 @@ const DropdownListEvents = ({ len, flag }) => {
     "This workshop is ideal for current and aspiring Product Managers who want to integrate AI into their existing products & daily work.",
     "Yes, all participants who share their learnings on LinkedIn will receive a certificate of participation.",
     "No prior AI experience is required.",
-    "The workshop is valued at ₹ 9999, but we are offering it for free to the first 100 registrants! Join the waitlist, you could be one of the selected few."
+    "The workshop is valued at ₹ 2999, but we are offering it for free to the first 100 registrants! Join the waitlist, you could be one of the selected few."
   ];
   
 
