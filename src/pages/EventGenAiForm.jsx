@@ -255,6 +255,10 @@ const EventGenAiForm = () => {
       }
     });
 
+    if (formData.contact.length < 5) {
+      newErrors.contact = "Contact number must be at least 5 digits long";
+    }
+
     if (formData.role === "Other" && !formData.otherRole) {
       newErrors.otherRole = "Please specify your role";
     }
