@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const endDate = "2025-01-18T23:59:59";
 
@@ -64,13 +65,14 @@ const AiForPmStickyBar = ({ togglePopup }) => {
 
               <div>
                 <span className="font-bold">FREE</span> for first{" "}
-                <span className="font-bold">50</span> seats only
+                <span className="font-bold">100</span> seats only
               </div>
             </div>
 
             <div className="flex items-center">
-              <button
-                onClick={togglePopup}
+              <Link
+                to={"/events/gen-ai-form"}
+                // onClick={togglePopup}
                 disabled={timeRemaining.isPast}
                 className={`shimmer bg-[#FFA000] font-semibold text-white py-2 px-4 2xl:px-8 rounded-lg ${
                   timeRemaining.isPast ? "opacity-50 cursor-not-allowed" : ""
@@ -78,7 +80,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
               >
                 {/* Register Now */}
                 Join Waitlist Now
-              </button>
+              </Link>
             </div>
 
             <div className="hidden md:flex flex-col gap-0">

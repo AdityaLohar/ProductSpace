@@ -1,6 +1,43 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import greenTick from "../assets/tick-green.svg";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
+
+const RegisterationSuccess = ({ toggleSuccess }) => {
+  return (
+    <div className="bg-white p-6 pb-12 mx-4 md:mx-0 rounded-xl">
+      <div className="flex justify-end">
+        <button onClick={toggleSuccess}>✖</button>
+      </div>
+
+      <div className="text-[14px] text-center flex flex-col gap-8 items-center">
+        <div className="flex justify-center">
+          <img src={greenTick} alt="" className="h-10" />
+        </div>
+
+        <div className="flex flex-col gap-3 lg:w-3/4 justify-center">
+          <div className="text-[20px] lg:text-[24px] font-semibold">
+            You&apos;ve successfully registered for AI for PMs workshop
+          </div>
+          <div className="text-[14px] lg:text-[16px]">
+            You will receive email on the next steps shortly
+          </div>
+        </div>
+
+        <button className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12">
+          <a
+            href="https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block w-full h-full"
+          >
+            Join Our Community for Active Updates
+          </a>
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const FormField = ({ label, type, id, name, value, onChange, error }) => {
   return (
@@ -84,7 +121,7 @@ const Notification = ({
   );
 };
 
-const GenAiForm = () => {
+const EventGenAiForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -98,29 +135,35 @@ const GenAiForm = () => {
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_AI_FOR_PM_URL;
+  const airtableBaseUrl = import.meta.env
+    .VITE_AIRTABLE_BASE_AI_FOR_PM_REGISTER_URL;
   const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const getEntryCount = async () => {
-    try {
-      const response = await axios.get(airtableBaseUrl, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-
-      const totalEntries = response.data.records.length;
-      return totalEntries;
-    } catch (error) {
-      console.error("Error fetching entries:", error);
-      return 0;
-    }
+  const toggleSuccess = () => {
+    setShowSuccess(!showSuccess);
   };
+
+  //   const getEntryCount = async () => {
+  //     try {
+  //       const response = await axios.get(airtableBaseUrl, {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       });
+
+  //       const totalEntries = response.data.records.length;
+  //       return totalEntries;
+  //     } catch (error) {
+  //       console.error("Error fetching entries:", error);
+  //       return 0;
+  //     }
+  //   };
 
   const saveUserData = async (
     name,
@@ -130,10 +173,10 @@ const GenAiForm = () => {
     userType,
     role,
     otherRole,
-    currentTimestamp,
-    totalEntries
+    currentTimestamp
   ) => {
     try {
+      console.log("here");
       setLoading(true);
       const response = await axios.post(
         airtableBaseUrl,
@@ -144,7 +187,6 @@ const GenAiForm = () => {
             "Email Id": email,
             Linkedin: linkedin,
             Timestamp: currentTimestamp,
-            Source: "Enroll Now",
             "Student/Working": userType,
             Role: role == "Other" ? otherRole : role,
           },
@@ -157,21 +199,10 @@ const GenAiForm = () => {
         }
       );
 
-      setNotification({
-        type: "success",
-        title: "Application Submitted!",
-        description: (
-          <>
-            <p>Thank you for applying!</p>
-            <p>Due to high demand, you’ve been added to the waitlist.</p>
-            <p>📋 Your Waitlist Number: #{51 + totalEntries}.</p>
-            <p>Within 24 hours, our admission team will reach out to you.</p>
-          </>
-        ),
-      });
+      console.log("outside");
 
       setLoading(false);
-      setShowNotification(true);
+      toggleSuccess();
       setTimeout(() => {
         window.location.href =
           "https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i";
@@ -246,8 +277,9 @@ const GenAiForm = () => {
       hour12: false, // Ensures 24-hour format
     });
 
-    const totalEntries = await getEntryCount();
+    // const totalEntries = await getEntryCount();
     console.log(formData);
+    // toggleSuccess();
 
     const res = await saveUserData(
       formData.name,
@@ -257,9 +289,9 @@ const GenAiForm = () => {
       formData.userType,
       formData.role,
       formData.otherRole,
-      currentTimestamp,
-      totalEntries
+      currentTimestamp
     );
+
     setLoading(false);
   };
 
@@ -267,7 +299,7 @@ const GenAiForm = () => {
     <div className="flex justify-center items-center font-inter text-[#222] p-8">
       <div className="flex flex-col gap-4 w-full max-w-[700px] bg-white rounded-lg p-0 lg:p-6">
         <div className="text-[22px] lg:text-[32px] font-bold text-center">
-          Complete your application for AI for PM Course
+          Complete your application for AI for PM Workshop
         </div>
 
         <form
@@ -363,7 +395,7 @@ const GenAiForm = () => {
                 <>
                   <option value="Final Year">Final Year</option>
                   <option value="Pre Final Year">Pre-Final Year</option>
-                  <option value="Other Year">Other Year</option>
+                  <option value="Graduated">Graduated</option>
                 </>
               ) : formData.userType === "Working Professional" ? (
                 <>
@@ -424,6 +456,12 @@ const GenAiForm = () => {
         </form>
       </div>
 
+      {showSuccess && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+          <RegisterationSuccess toggleSuccess={toggleSuccess} />
+        </div>
+      )}
+
       <Notification
         setShowNotification={setShowNotification}
         showNotification={showNotification}
@@ -433,4 +471,4 @@ const GenAiForm = () => {
   );
 };
 
-export default GenAiForm;
+export default EventGenAiForm;

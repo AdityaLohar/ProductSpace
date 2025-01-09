@@ -101,12 +101,12 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
 const Event1 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [background, setBackground] = useState(eventsBg1);
-  const [showSuccess, setShowSuccess] = useState(false);
   const [showBottomBar, setShowBottomBar] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isPastEventDate, setIsPastEventDate] = useState(false);
 
+  const [showSuccess, setShowSuccess] = useState(false);
   const toggleSharePopup = () => {
     setCopied(false);
     setIsShareOpen(!isShareOpen);
@@ -698,8 +698,9 @@ const Event1 = () => {
               </div>
 
               <div className="">
-                <button
-                  onClick={togglePopup}
+                <Link
+                  to={"/events/gen-ai-form"}
+                  // onClick={togglePopup}
                   disabled={isPastEventDate}
                   className={`flex w-full gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ${
                     isPastEventDate ? "opacity-70 cursor-not-allowed" : ""
@@ -707,7 +708,7 @@ const Event1 = () => {
                 >
                   <p className="text-[20px] font-medium">Join Waitlist Now</p>
                   <img src={arrowIcon} alt="icon" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

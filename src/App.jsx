@@ -63,6 +63,7 @@ import SignupPopUp from "./components/SignupPopUp";
 import LoginPopUp from "./components/LoginPopUp";
 import UserProfile from "./pages/UserProfile";
 import GenAiForm from "./pages/GenAiForm";
+import EventGenAiForm from "./pages/EventGenAiForm";
 
 function App() {
   const location = useLocation();
@@ -101,14 +102,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
           <Route path="/events/ai-for-pm" element={<Event1 />} />
+          <Route path="/events/gen-ai-form" element={<EventGenAiForm />} />
           <Route path="/product-meetups-offline" element={<OfflineEvent />} />
           <Route path="/ai-for-pm" element={<GenAi />} />
           <Route path="/pm-workshop" element={<ProductAnalytics />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/pm-fellowship" element={<PmFellowship />} />
           <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/gen-ai-form" element={<GenAiForm />} /> 
-          
+          <Route path="/gen-ai-form" element={<GenAiForm />} />
           <Route path="/blogs/:id" element={<Blog />} />
           {BlogsData.map((blog) => (
             <Route
