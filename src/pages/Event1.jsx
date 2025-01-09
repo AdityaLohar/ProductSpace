@@ -215,7 +215,7 @@ const Event1 = () => {
     >
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4 lg:px-16">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          Start your AI Journey in Product Management with Us
+          Start your AI journey in Product Management with us
         </h1>
       </div>
 
