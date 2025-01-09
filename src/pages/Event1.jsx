@@ -677,7 +677,7 @@ const Event1 = () => {
 
             <div className="flex flex-col gap-4">
               <div className="text-[28px] font-bold">
-                Gen AI for Product Managers Workshop
+                AI for Product Managers Workshop
               </div>
 
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
