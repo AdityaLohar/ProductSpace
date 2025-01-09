@@ -46,17 +46,6 @@ const AiForPmStickyBar = ({ togglePopup }) => {
             </div>
           </div>
 
-          {/* <div className="flex md:hidden flex-col gap-0">
-            <div className="text-[12px] text-[#969696]">
-              {timeRemaining.isPast ? "STARTED ON" : "STARTS IN"}
-            </div>
-            <div className="text-[16px] text-[#120D26] font-semibold">
-              {timeRemaining.isPast
-                ? "Wednesday, Oct 30, 2024"
-                : `${timeRemaining.days}d: ${timeRemaining.hours}h: ${timeRemaining.minutes}m`}
-            </div>
-          </div> */}
-
           <div className="flex justify-between w-full md:w-auto items-center gap-6">
             <div className="flex flex-col items-start lg:items-end">
               <div className="flex text-[18px] md:text-[20px] text-[#FFA000] font-bold line-through">

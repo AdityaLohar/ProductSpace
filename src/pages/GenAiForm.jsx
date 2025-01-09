@@ -98,6 +98,7 @@ const GenAiForm = () => {
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_AI_FOR_PM_URL;
   const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
@@ -130,9 +131,11 @@ const GenAiForm = () => {
     userType,
     role,
     otherRole,
-    currentTimestamp
+    currentTimestamp,
+    totalEntries
   ) => {
     try {
+      console.log("here");
       setLoading(true);
       const response = await axios.post(
         airtableBaseUrl,
@@ -295,7 +298,7 @@ const GenAiForm = () => {
               disabled={loading}
             />
             <FormField
-              label="Contact"
+              label="Phone"
               type="tel"
               id="contact"
               name="contact"
@@ -362,7 +365,7 @@ const GenAiForm = () => {
                 <>
                   <option value="Final Year">Final Year</option>
                   <option value="Pre Final Year">Pre-Final Year</option>
-                  <option value="Other Year">Other Year</option>
+                  <option value="Graduated">Graduated</option>
                 </>
               ) : formData.userType === "Working Professional" ? (
                 <>

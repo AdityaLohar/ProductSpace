@@ -328,7 +328,7 @@ const EventGenAiForm = () => {
               disabled={loading}
             />
             <FormField
-              label="Contact"
+              label="Phone"
               type="tel"
               id="contact"
               name="contact"
