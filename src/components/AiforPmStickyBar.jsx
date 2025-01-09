@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const endDate = "2024-11-16T23:59:59";
+const endDate = "2025-01-18T23:59:59";
 
 const AiForPmStickyBar = ({ togglePopup }) => {
   const [timeRemaining, setTimeRemaining] = useState({
@@ -45,7 +45,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
             </div>
           </div>
 
-          <div className="flex md:hidden flex-col gap-0">
+          {/* <div className="flex md:hidden flex-col gap-0">
             <div className="text-[12px] text-[#969696]">
               {timeRemaining.isPast ? "STARTED ON" : "STARTS IN"}
             </div>
@@ -54,10 +54,19 @@ const AiForPmStickyBar = ({ togglePopup }) => {
                 ? "Wednesday, Oct 30, 2024"
                 : `${timeRemaining.days}d: ${timeRemaining.hours}h: ${timeRemaining.minutes}m`}
             </div>
-          </div>
+          </div> */}
 
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex items-center">FREE</div>
+          <div className="flex justify-between w-full md:w-auto items-center gap-6">
+            <div className="flex flex-col items-start lg:items-end">
+              <div className="flex text-[18px] md:text-[20px] text-[#FFA000] font-bold line-through">
+                1999
+              </div>
+
+              <div>
+                <span className="font-bold">FREE</span> for first{" "}
+                <span className="font-bold">50</span> seats only
+              </div>
+            </div>
 
             <div className="flex items-center">
               <button
@@ -68,7 +77,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
                 }`}
               >
                 {/* Register Now */}
-                Register Now
+                Join Waitlist Now
               </button>
             </div>
 

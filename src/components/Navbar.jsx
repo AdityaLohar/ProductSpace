@@ -256,7 +256,7 @@ const Navbar = () => {
                   href="/events/ai-for-pm"
                   className="px-4 py-2 hover:bg-gray-100 rounded-md"
                 >
-                  Gen AI for PM
+                  AI for PM Workshop
                 </a>
                 <a
                   href="/pm-hackathon"
@@ -370,7 +370,7 @@ const Navbar = () => {
                 href="/events/ai-for-pm"
                 className="px-4 py-2 hover:bg-gray-100 rounded-md"
               >
-                Gen AI for PM
+                AI for PM Workshop
               </a>
               <a
                 href="/pm-hackathon"

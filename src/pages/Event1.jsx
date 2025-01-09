@@ -14,6 +14,7 @@ import linkedInIcon from "../assets/linkedin-circle.svg";
 import substackIcon from "../assets/substack-logo.svg";
 import greenTick from "../assets/tick-green.svg";
 import hackBg from "../assets/ai-for-pm-bg.svg";
+import hackBg1 from "../assets/ai-for-pm-bg-1.svg";
 import eventsBg1 from "../assets/events-bg.png";
 import eventsBg2 from "../assets/events-bg.svg";
 import judge1 from "../assets/rumit.jpeg";
@@ -42,9 +43,8 @@ import { Helmet } from "react-helmet-async";
 
 const slackInviteLink =
   "https://productspacecommunity.slack.com/join/shared_invite/zt-2l4itbe2r-fiAdPz5jEW8pPn6wacYrIw#/shared-invite/email";
-const whatsappInviteLink = "https://wa.me/917219542525";
-const eventDate = new Date("2024-11-16T23:59:59");
-
+const whatsappInviteLink = "https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i";
+const eventDate = new Date("2025-01-18T23:59:59");
 
 const EventInfo = ({ icon, title, desc }) => {
   return (
@@ -76,17 +76,14 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
 
         <div className="flex flex-col gap-3 lg:w-3/4 justify-center">
           <div className="text-[20px] lg:text-[24px] font-semibold">
-            You&apos;ve successfully registered for AI for PMs
-            workshop
+            You&apos;ve successfully registered for AI for PMs workshop
           </div>
           <div className="text-[14px] lg:text-[16px]">
             You will receive email on the next steps shortly
           </div>
         </div>
 
-        <button
-          className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12"
-        >
+        <button className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12">
           <a
             href="https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i"
             target="_blank"
@@ -96,7 +93,6 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
             Join Our Community for Active Updates
           </a>
         </button>
-
       </div>
     </div>
   );
@@ -217,10 +213,9 @@ const Event1 = () => {
         backgroundRepeat: "no-repeat, repeat", // Specify repeat behavior for each background
       }}
     >
-
       <div className="text-[28px] lg:text-[48px] text-center font-bold px-4 lg:px-16">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#041540] to-[#062677]">
-          Get ahead of the Product Management curve with Gen AI
+          Start your AI Journey in Product Management with Us
         </h1>
       </div>
 
@@ -231,7 +226,7 @@ const Event1 = () => {
               <img
                 src={hackBg}
                 alt=""
-                className="h-[200px] sm:h-[300px] lg:h-[507px] w-full object-cover rounded-xl"
+                className="h-[250px] sm:h-[400px] lg:h-[507px] w-full object-cover rounded-xl"
               />
 
               <button
@@ -251,15 +246,15 @@ const Event1 = () => {
             </div>
 
             <div className="text-[20px] lg:text-[26px] text-[#24304C] font-bold">
-              From Ideation to Delivery: Master the most cutting-edge Tools and
-              Techniques
+              3 hours extensive session to help you transform your PM career
+              with AI
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between gap-3">
               <EventInfo
                 icon={calendarIcon}
                 title={"When"}
-                desc={"Sat, Nov 16, 2024 (11 AM - 1 PM)"}
+                desc={"Sat, Jan 18, 2025 (11 AM - 2 PM)"}
               />
               <EventInfo
                 icon={locationDarkIcon}
@@ -274,38 +269,10 @@ const Event1 = () => {
               Description
             </div>
             <div className="text-[#7f7f7f]">
-              Join us for an immersive two-day workshop designed to elevate your
-              product management skills using the power of Generative AI. Learn
-              from industry leaders and gain hands-on experience with AI tools
-              that will revolutionise your approach to product development.
+              Ready to transform your product career? Join us for this 3-hour
+              workshop that provides the foundational AI knowledge and practical
+              skills to navigate the evolving product landscape.
             </div>
-          </div>
-
-          <div className="flex flex-col gap-3 lg:gap-4 text-[16px] lg:text-[20px]">
-            <div className="text-[20px] lg:text-[28px] font-semibold">
-              Learning Outcomes
-            </div>
-
-            <ul className="flex flex-col gap-2 lg:gap-5 font-normal text-[#7f7f7f] list-disc ml-4">
-              <li>
-                Fundamentals of Generative AI and its applications in product
-                management.
-              </li>
-              <li>
-                Techniques to prompt LLMs in each stage of the Double Diamond
-                Framework.
-              </li>
-
-              <li>
-                Practical experience in creating a website from ideation to
-                delivery.
-              </li>
-
-              <li>
-                Live Case including Research, User Personas, Problem Definition,
-                Prioritization and UX Solutioning.
-              </li>
-            </ul>
           </div>
 
           <div className="flex flex-col gap-3 lg:gap-4 text-[16px] lg:text-[20px]">
@@ -317,6 +284,7 @@ const Event1 = () => {
                 Product Managers looking to leverage AI & improve their daily
                 productivity.
               </li>
+              <li>Startup founders who want to build & launch AI products</li>
               <li>
                 Aspiring PMs who want to stay ahead of the curve with the latest
                 AI technologies.
@@ -407,7 +375,7 @@ const Event1 = () => {
 
           <div className="flex flex-col gap-6 lg:gap-8">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Speakers
+              Speaker
             </div>
 
             <div className="flex flex-col gap-10 lg:gap-12">
@@ -447,15 +415,15 @@ const Event1 = () => {
                       <b>Republic TV</b>.
                     </li>
                     <li>
-                      Presently leading P&L for <b>Glance</b> & their smart
-                      lock screen product.
+                      Presently leading P&L for <b>Glance</b> & their smart lock
+                      screen product.
                     </li>
                   </ul>
                 </div>
               </div>
 
               {/* Speaker 3 */}
-              <div className="flex flex-col gap-3">
+              {/* <div className="flex flex-col gap-3">
                 <div className="flex gap-3 text-[18px] lg:text-[24px] items-center justify-between">
                   <div className="flex items-center gap-4 w-4/5">
                     <img
@@ -493,10 +461,10 @@ const Event1 = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
 
               {/* Speaker 2 */}
-              <div className="flex flex-col gap-3">
+              {/* <div className="flex flex-col gap-3">
                 <div className="flex gap-3 text-[18px] lg:text-[24px] items-center justify-between">
                   <div className="flex items-center gap-4 w-4/5">
                     <img
@@ -526,15 +494,16 @@ const Event1 = () => {
                 <div className="text-[#7f7f7f] text-[16px] lg:text-[20px]">
                   <ul className="list-disc ml-5 space-y-2">
                     <li>
-                      Winner of IAMAI's Product Leadership Award for <b>Shaadi.com</b> {" "} App.
+                      Winner of IAMAI's Product Leadership Award for{" "}
+                      <b>Shaadi.com</b> App.
                     </li>
                     <li>
-                      <b>Ex-OLA</b> with 15+ years in
-                      AI-based Recommendation Systems.
+                      <b>Ex-OLA</b> with 15+ years in AI-based Recommendation
+                      Systems.
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -550,23 +519,25 @@ const Event1 = () => {
                 Guides & resources on:
                 <ul className="font-normal lg:text-[18px] text-[#7f7f7f] space-y-2 list-none mt-1">
                   <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
-                    Use cases for PMs with Prompts.
+                    GenAI Fundamentals 101 guide
                   </li>
                   <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
-                    How to become a PM empowered by Gen AI.
+                    Introduction to LLMs guide
                   </li>
                   <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
-                    Case study repository of how companies are integrating AI.
+                    Prompt Engineering guide for PMs
                   </li>
                   <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
-                    How to prepare for your PM interview with AI.
+                    Case Studies - How Netflix & Uber uses AI in their products
+                  </li>
+                  <li className="relative pl-5 before:content-['→'] before:absolute before:left-0">
+                    Changing your content diet - [top 25 AI products and
+                    Influencers]
                   </li>
                 </ul>
               </li>
-              <li>
-                Doubt Clearing, Live Q&A, and 1-year access to Community.
-              </li>
-              <li>Recording of the session.</li>
+              <li>Doubt Clearing, Live Q&A</li>
+              <li>Recording of the session</li>
             </ul>
           </div>
 
@@ -618,22 +589,10 @@ const Event1 = () => {
                   <img src={whatsappIcon1} alt="" className="h-8 lg:h-12" />
                 </a>
               </div>
-
-              <div className="text-[16px] lg:text-[20px]">
-                💁🏻
-                <a
-                  href={whatsappInviteLink}
-                  target="_blank"
-                  className="underline text-[#FFA600]"
-                >
-                  DM us
-                </a>{" "}
-                for any queries
-              </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-4 my-8">
+          {/* <div className="flex flex-col items-center gap-4 my-8">
             <div className="text-[20px] lg:text-[28px] w-full font-semibold text-start">
               Refer & Earn exciting Rewards
             </div>
@@ -684,14 +643,20 @@ const Event1 = () => {
                 </div>
               </div>
             </div>
-              
-            <a href="https://pages.viral-loops.com/product-space-gen-ai-for-pms-bcp5e0e2" target="_blank" className={`flex w-full lg:w-1/3 gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ${isPastEventDate ? "pointer-events-none opacity-70" : ""}`}>
+
+            <a
+              href="https://pages.viral-loops.com/product-space-gen-ai-for-pms-bcp5e0e2"
+              target="_blank"
+              className={`flex w-full lg:w-1/3 gap-3 p-3 rounded-xl justify-center items-center bg-[#24304C] text-white ${
+                isPastEventDate ? "pointer-events-none opacity-70" : ""
+              }`}
+            >
               <p className="text-[18px] md:text-[20px] font-medium">
                 Refer Now
               </p>
               <img src={arrowIcon} alt="icon" />
             </a>
-          </div>
+          </div> */}
 
           <FaqAiForPm />
         </div>
@@ -699,9 +664,7 @@ const Event1 = () => {
         <div className="hidden lg:flex w-[30%] flex-col">
           <div className="flex flex-col gap-1 bg-white shadow-[0_5px_25px_rgba(0,0,0,0.1)] rounded-xl p-8 sticky top-24">
             <div className="flex justify-between items-center">
-              <div>
-                {/* <img src={uberLogo} alt="" /> */}
-              </div>
+              <div>{/* <img src={uberLogo} alt="" /> */}</div>
               <div>
                 <button
                   onClick={toggleSharePopup}
@@ -720,7 +683,7 @@ const Event1 = () => {
               <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold">
                 <div className="flex gap-2 items-center">
                   <img src={timeIcon} alt="" className="h-5" />
-                  <p>11 AM - Nov 16, 2024</p>
+                  <p>11 AM - 2 PM - Jan 18, 2025</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <img src={locationIcon} alt="" className="h-5" />
@@ -742,7 +705,7 @@ const Event1 = () => {
                     isPastEventDate ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  <p className="text-[20px] font-medium">Register Now</p>
+                  <p className="text-[20px] font-medium">Join Waitlist Now</p>
                   <img src={arrowIcon} alt="icon" />
                 </button>
               </div>
