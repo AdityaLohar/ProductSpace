@@ -130,8 +130,7 @@ const GenAiForm = () => {
     userType,
     role,
     otherRole,
-    currentTimestamp,
-    totalEntries
+    currentTimestamp
   ) => {
     try {
       setLoading(true);
