@@ -269,7 +269,7 @@ const GenAiForm = () => {
     <div className="flex justify-center items-center font-inter text-[#222] p-8">
       <div className="flex flex-col gap-4 w-full max-w-[700px] bg-white rounded-lg p-0 lg:p-6">
         <div className="text-[22px] lg:text-[32px] font-bold text-center">
-          Complete your application for AI for PM Course
+          Start your Application
         </div>
 
         <form
@@ -298,7 +298,7 @@ const GenAiForm = () => {
               disabled={loading}
             />
             <FormField
-              label="Phone"
+              label="Phone Number"
               type="tel"
               id="contact"
               name="contact"
