@@ -39,7 +39,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
         <div className="flex gap-0 2xl:gap-20 justify-between w-full max-w-screen-2xl mx-auto font-hind text-[14px] xl:text-[17px]">
           <div className="hidden md:flex flex-col gap-1">
             <div className="text-[16px] text-[#969696]">
-              Saturday, Jan 18, 2025
+              Jan 18 - 19, 2025
             </div>
             <div className="text-[20px] text-[#120D26] font-semibold">
               AI for PM 2025
