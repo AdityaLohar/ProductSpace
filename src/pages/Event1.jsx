@@ -317,19 +317,10 @@ const Event1 = () => {
               Who should attend
             </div>
             <ul className="font-normal text-[#7f7f7f] list-disc ml-4 flex flex-col gap-2 lg:gap-4">
-              <li>
-                Product Managers looking to leverage AI & improve their daily
-                productivity.
-              </li>
-              <li>Startup founders who want to build & launch AI products</li>
-              <li>
-                Aspiring PMs who want to stay ahead of the curve with the latest
-                AI technologies.
-              </li>
-              <li>
-                Tech enthusiasts interested in the concepts & applications of
-                AI.
-              </li>
+              <li>Product Managers</li>
+              <li>Startup founders</li>
+              <li>Aspiring PMs</li>
+              <li>Tech enthusiasts</li>
             </ul>
           </div>
 
@@ -473,7 +464,7 @@ const Event1 = () => {
                   "multiple AI internet businesses",
                   "across India, Singapore, and London.",
                 ]}
-                name={"P Anand"}
+                name={"Anand P"}
                 desc={["Sr. VP & Head of Product", "(20+ years)"]}
                 company={magicbricks}
                 profile={pamit}
@@ -649,7 +640,7 @@ const Event1 = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="text-[28px] font-bold">
+              <div className="text-[24px] font-bold">
                 Claim your Free seat now
               </div>
 
