@@ -660,7 +660,7 @@ const Event1 = () => {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <div className="bg-[#E7F7FC] border border-[#013B4D3D] p-2 px-3 rounded-lg">
+                <div className="bg-[#26C947] p-2 px-3 rounded-lg text-white font-bold">
                   Live
                 </div>
               </div>
