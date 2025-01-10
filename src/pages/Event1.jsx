@@ -37,6 +37,8 @@ import aitool6 from "../assets/aitool6.svg";
 import aitool7 from "../assets/aitool7.svg";
 import inmobi from "../assets/inmobi.svg";
 import rumit from "../assets/rumitProfile.png";
+import magicbricks from "../assets/magicbricks-logo.png";
+import pamit from "../assets/pamit1.svg";
 
 import GenAiForPMRegisteration from "../components/GenAiForPMRegisteration";
 import FaqAiForPm from "../components/FaqAiForPm";
@@ -411,7 +413,7 @@ const Event1 = () => {
               Speaker
             </div>
 
-            <div className="flex">
+            <div className="flex flex-col lg:flex-row gap-4">
               {/* Speaker 1 */}
               {/* <div className="flex flex-col gap-3">
                 <div className="flex gap-3 text-[18px] lg:text-[24px] items-center justify-between">
@@ -460,10 +462,21 @@ const Event1 = () => {
                   "technical expertise in GenAI",
                   "and product strategy experience.",
                 ]}
-                name={"Rumit Anand"}
+                name={"Rumit A"}
                 desc={["VP of Gen AI Product", "(15+ years)"]}
                 company={inmobi}
                 profile={rumit}
+              />
+              <Speakers
+                title={[
+                  "Pamit has built and scaled",
+                  "multiple AI internet businesses",
+                  "across India, Singapore, and London.",
+                ]}
+                name={"P Anand"}
+                desc={["Sr. VP & Head of Product", "(20+ years)"]}
+                company={magicbricks}
+                profile={pamit}
               />
             </div>
           </div>
@@ -640,17 +653,17 @@ const Event1 = () => {
                 Claim your Free seat now
               </div>
 
-              <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold text-[22px]">
+              <div className="flex flex-col gap-2 text-[#7f7f7f] font-semibold text-[18px]">
                 <div className="flex gap-2 items-center">
-                  <img src={calendarIcon1} alt="" className="h-5" />
+                  <img src={calendarIcon1} alt="" className="h-6" />
                   <p>Jan 18 - 19, 2025</p>
                 </div>
                 <div className="flex gap-2 items-center">
-                  <img src={timeIcon} alt="" className="h-5" />
+                  <img src={timeIcon} alt="" className="h-6" />
                   <p>11 AM - 1 PM</p>
                 </div>
                 <div className="flex gap-2 items-center">
-                  <img src={locationIcon} alt="" className="h-5" />
+                  <img src={locationIcon} alt="" className="h-6" />
                   <p>Online</p>
                 </div>
               </div>
