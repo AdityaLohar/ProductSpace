@@ -53,7 +53,7 @@ const eventDate = new Date("2025-01-18T23:59:59");
 
 const Speakers = ({ title, name, desc, company, profile }) => {
   return (
-    <div className="flex flex-col max-w-[440px] justify-between bg-[#00C1FD1A] text-[#00C1FD] text-[16px] md:text-[22px] rounded-xl">
+    <div className="flex flex-col max-w-[440px] justify-between bg-[#00C1FD1A] text-black text-[16px] md:text-[22px] rounded-xl">
       <div className="p-6 pb-0">
         {title[0]} <span className="font-bold">{title[1]}</span> {title[2]}
       </div>
@@ -401,7 +401,7 @@ const Event1 = () => {
 
           <div className="flex flex-col gap-6 lg:gap-8">
             <div className="text-[20px] lg:text-[28px] font-semibold">
-              Speaker
+              Speakers
             </div>
 
             <div className="flex flex-col lg:flex-row gap-4">
