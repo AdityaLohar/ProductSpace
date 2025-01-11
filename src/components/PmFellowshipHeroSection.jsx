@@ -119,12 +119,12 @@ const PmFellowshipHeroSection = () => {
           </div>
           <div className="text-start pt-2">
             <p className="text-[14px] hidden sm:block">
-              👉🏻 New Year Discount, Valid for next 2 seats
+              👉🏻 Early Bird Offer for first 8 seats
             </p>
             <p className="text-[14px] block sm:hidden">
-              👉🏻 New Year Discount,
+              👉🏻 Early Bird Offer,
               <br />
-              <span className="ml-5">Valid for next 2 seats</span>
+              <span className="ml-5">Valid for first 8 seats</span>
             </p>
             <div className="flex gap-2 items-end">
               <p className="text-[24px] md:text-[32x] lg:text-[40px] font-bold text-black font-sans">
@@ -155,7 +155,7 @@ const PmFellowshipHeroSection = () => {
               </div>
             </div>
 
-            <p className="font-bold"> ⏳Price rises to 40,000 in Feb 2025</p>
+            {/* <p className="font-bold"> ⏳Price rises to 40,000 in Feb 2025</p> */}
 
             <div className="font-semibold text-[14px]">
               Cohort seats: {PM_FELLOWSHIP_DETAILS.seats}
