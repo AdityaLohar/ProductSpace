@@ -176,10 +176,28 @@ const GenAiHero = () => {
             </div> */}
 
             <div className="flex flex-col gap-2 bg-[#f5f5f5] py-4 px-4 lg:px-6 rounded-lg text-[12px] lg:text-[16px]">
+            <div className="flex items-center gap-2">
+              <div>
+                <img
+                  src={offer}
+                  alt="offer-valid"
+                  className="h-[20px] w-[20px]"
+                />
+              </div>
+              <div>
+                <p>Offer valid till {GEN_AI_FOR_PM_DETAILS.valid}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <p >
+                👉🏻 &ensp;Early Bird Offer for first 4 seats
+              </p>
+              </div>
               <div className="flex items-center gap-2">
                 <img src={cohortSeats} alt="" className="h-4" />
                 <p>Total cohort seats : 20</p>
               </div>
+
               <div className="flex items-center gap-2">
                 <img src={clock} alt="" className="h-4 w-5" />
                 <p>

@@ -1,7 +1,7 @@
 const GEN_AI_FOR_PM_DETAILS = {
-  price: 30000,
-  discount: 30,
-  valid: "10th Jan 2025",
+  price: 24999,
+  discount: 40,
+  valid: "17th Jan 2025",
   startDate: "2025-02-08",
   startDateText: "Feb 08, 2025",
   brochureDriveLink: "https://drive.google.com/file/d/19gpZ_azSzEIcGgbPHeBUt-XNGyfvZYSA/view?usp=sharing",
