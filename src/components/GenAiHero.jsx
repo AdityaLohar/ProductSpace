@@ -133,6 +133,11 @@ const GenAiHero = () => {
                 <img src={priceTag} alt="" className="h-3 lg:h-5" />
                 <p>Offer price</p>
               </div>
+              <div className="flex gap-1 text-[12px] lg:text-[16px] mx-4 lg:mx-8 p-1">
+                <p >
+                  👉🏻 &ensp;Early Bird Offer for first 4 seats
+                </p>
+              </div>
 
               <div className="flex items-center gap-2 px-4 lg:px-8">
                 <div className="text-[28px] lg:text-[44px] font-bold">
@@ -188,11 +193,6 @@ const GenAiHero = () => {
                 <p>Offer valid till {GEN_AI_FOR_PM_DETAILS.valid}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <p >
-                👉🏻 &ensp;Early Bird Offer for first 4 seats
-              </p>
-              </div>
               <div className="flex items-center gap-2">
                 <img src={cohortSeats} alt="" className="h-4" />
                 <p>Total cohort seats : 20</p>
