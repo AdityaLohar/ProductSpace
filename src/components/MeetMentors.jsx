@@ -4,28 +4,74 @@ import microsoft from "../assets/microsoft.svg";
 import fedex from "../assets/fedex.svg";
 import reliance from "../assets/reliance.svg";
 import inmobi from "../assets/inmobi.svg";
+import viacom from "../assets/viacom.jpg"
+import anish from "../assets/anish.jpeg";
 import sonia from "../assets/sonia.svg";
+import winzo from "../assets/winzo.avif";
+import angel_one from "../assets/angel_one.png";
+import moengage from "../assets/moengage.jpeg";
 import arun from "../assets/arun.svg";
+import rohit_verma from "../assets/rohit_verma.jpeg";
+import peeyush from "../assets/peeyush.jpeg";
 import lalith from "../assets/lalith.jpeg";
 import shilpi from "../assets/shilpi.jpeg";
+import satyam from "../assets/satyam-agarwal.jpeg";
 import kanishk from "../assets/kanishk.jpeg";
 import MentorCard1 from "./MentorCard1";
 import { useState } from "react";
 import EnrollmentForm from "./EnrollmentForm";
 
 const mentors = [
+
   {
     id: 1,
-    profile: sonia,
-    name: "Sonia Vora",
-    company: "Narayana Health",
-    post: "Head of Product",
-    linkedIn:
-      "https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in",
-    img: narayana,
+    profile:
+      "https://www.productleadership.com/wp-content/uploads/elementor/thumbs/PamitAnand-qmxkokvkzv0bog8m181ixmu3wadbnidfy2jnbc5xc0.png",
+    name: "Pamit Anand",
+    company: "Magicbricks",
+    post: "VP of Product",
+    linkedIn: "https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in",
+    img: magicbricks,
   },
   {
     id: 2,
+    profile: kanishk,
+    name: "Kanishk Mehta",
+    company: "InMobi",
+    post: "Director of Product",
+    linkedIn: "https://www.linkedin.com/in/kanishkm/",
+    img: inmobi,
+  },
+  {
+    id: 3,
+    profile: anish,
+    name: "Anish Gambhir",
+    company: "WinZO",
+    post: "Engineering Lead",
+    linkedIn: "https://www.linkedin.com/in/ashishgambhir2/?originalSubdomain=in",
+    img: winzo,
+  },
+  
+  {
+    id: 4,
+    profile: satyam,
+    name: "Satyam Agarwal",
+    company: "Viacom 18",
+    post: "Senior Director of Product",
+    linkedIn: "https://www.linkedin.com/in/satyam-agarwal/?originalSubdomain=in",
+    img: viacom,
+  },
+  {
+    id: 5,
+    profile: rohit_verma,
+    name: "Rohit Verma",
+    company: "Angel One",
+    post: "GPM",
+    linkedIn: "https://www.linkedin.com/in/rohitverma141/?originalSubdomain=in",
+    img: angel_one,
+  },
+  {
+    id: 6,
     profile: arun,
     name: "Arun Nandewal",
     company: "Microsoft",
@@ -34,7 +80,7 @@ const mentors = [
     img: microsoft,
   },
   {
-    id: 3,
+    id: 7,
     profile: lalith,
     name: "Lalith Kumar",
     company: "FedEx",
@@ -44,33 +90,36 @@ const mentors = [
     img: fedex,
   },
   {
-    id: 4,
+    id: 8,
+    profile: peeyush,
+    name: "Peeyush",
+    company: "Moengage",
+    post: "GPM",
+    linkedIn: "https://www.linkedin.com/in/peeyush-vardhan/?originalSubdomain=in",
+    img: moengage,
+  },
+  {
+    id: 9,
     profile: shilpi,
     name: "Shilpi",
     company: "Reliance",
     post: "Sr. Product Manager",
     linkedIn: "https://www.linkedin.com/in/shilpi-swati/?originalSubdomain=in",
     img: reliance,
-  },
-  {
-    id: 5,
-    profile: kanishk,
-    name: "Kanishk Mehta",
-    company: "InMobi",
-    post: "Director of Product",
-    linkedIn: "https://www.linkedin.com/in/kanishkm/",
-    img: inmobi,
-  },
-  {
-    id: 6,
-    profile:
-      "https://www.productleadership.com/wp-content/uploads/elementor/thumbs/PamitAnand-qmxkokvkzv0bog8m181ixmu3wadbnidfy2jnbc5xc0.png",
-    name: "Pamit Anand",
-    company: "Magicbricks",
-    post: "VP of Product",
-    linkedIn: "https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in",
-    img: magicbricks,
-  },
+  }
+  // ,
+  // {
+  //   id: 1,
+  //   profile: sonia,
+  //   name: "Sonia Vora",
+  //   company: "Narayana Health",
+  //   post: "Head of Product",
+  //   linkedIn:
+  //     "https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in",
+  //   img: narayana,
+  // }
+  
+  
 ];
 
 const MeetMentors = ({ bgColor }) => {
