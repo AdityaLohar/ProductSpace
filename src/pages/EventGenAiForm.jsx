@@ -356,7 +356,7 @@ const EventGenAiForm = () => {
               disabled={loading}
             />
             <FormField
-              label="Rererral Code"
+              label="Referral Code"
               type="text"
               id="referralCode"
               name="referralCode"
