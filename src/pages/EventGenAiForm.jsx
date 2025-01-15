@@ -57,7 +57,7 @@ const FormField = ({ label, type, id, name, value, onChange, error }) => {
         className={`border rounded-md px-3 py-2 text-[12px] lg:text-[16px] focus:outline-none ${
           error ? "border-red-500 focus:ring-red-200" : "focus:ring-blue-200"
         }`}
-        placeholder={`${id == "linkedin" ? "Optional" : ""}`}
+        placeholder={`${(id == "linkedin" || id =="referralCode") ? "Optional" : ""}`}
       />
       {error && (
         <span className="text-red-500 text-[10px] lg:text-[12px]">
@@ -130,6 +130,7 @@ const EventGenAiForm = () => {
     userType: "",
     role: "",
     otherRole: "",
+    referralCode: ""
   });
   const [errors, setErrors] = useState({});
   const [notification, setNotification] = useState(null);
@@ -173,7 +174,8 @@ const EventGenAiForm = () => {
     userType,
     role,
     otherRole,
-    currentTimestamp
+    currentTimestamp,
+    referralCode
   ) => {
     try {
       console.log("here");
@@ -189,6 +191,7 @@ const EventGenAiForm = () => {
             Timestamp: currentTimestamp,
             "Student/Working": userType,
             Role: role == "Other" ? otherRole : role,
+            "Referral Code": referralCode,
           },
         },
         {
@@ -293,7 +296,8 @@ const EventGenAiForm = () => {
       formData.userType,
       formData.role,
       formData.otherRole,
-      currentTimestamp
+      currentTimestamp,
+      formData.referralCode
     );
 
     setLoading(false);
@@ -349,6 +353,16 @@ const EventGenAiForm = () => {
               value={formData.linkedin}
               onChange={handleChange}
               error={errors.linkedin}
+              disabled={loading}
+            />
+            <FormField
+              label="Rererral Code"
+              type="text"
+              id="referralCode"
+              name="referralCode"
+              value={formData.referralCode}
+              onChange={handleChange}
+              error={errors.referralCode}
               disabled={loading}
             />
           </div>
