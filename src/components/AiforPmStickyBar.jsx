@@ -68,7 +68,7 @@ const AiForPmStickyBar = ({ togglePopup }) => {
                 }`}
               >
                 {/* Register Now */}
-                Join Waitlist Now
+                Register Now
               </Link>
             </div>
 
