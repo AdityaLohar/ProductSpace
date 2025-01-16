@@ -53,7 +53,7 @@ const DropdownList = ({ len, flag }) => {
       "What type of roles can I apply for after completing the fellowship?",
       "Do I need prior work experience to be eligible for job interviews?",
       "Which companies hire from the Product Space Fellowship?",
-      "What if I need to withdraw from the program? Is there a refund policy?",
+      // "What if I need to withdraw from the program? Is there a refund policy?",
       "Is the Product Space Fellowship worth it?",
       "What are the session timings for the fellowship?",
       " I still have doubts about the course. Can I connect with mentors or alumni of Product Space?"
@@ -82,7 +82,7 @@ const DropdownList = ({ len, flag }) => {
       
       "We work with a wide variety of companies, from startups to large enterprises. Over 310 companies are part of our hiring network, and we add new partners with each cohort.",
       
-      "You can request a refund up to two weeks before the fellowship begins. If your reason is valid, we'll provide a full refund. Any requests made after the deadline will be reviewed on a case-by-case basis by our team.",
+      // "You can request a refund up to two weeks before the fellowship begins. If your reason is valid, we'll provide a full refund. Any requests made after the deadline will be reviewed on a case-by-case basis by our team.",
       
       "If you're serious about launching your product management career, the fellowship offers the perfect blend of knowledge, mentorship, and placement support. But don't take our word for it—check out our success stories from alumni who've landed their dream PM roles!",
 
