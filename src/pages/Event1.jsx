@@ -674,7 +674,7 @@ const Event1 = () => {
                     isPastEventDate ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  <p className="text-[20px] font-medium">Join Waitlist Now</p>
+                  <p className="text-[20px] font-medium">Register Now</p>
                   <img src={arrowIcon} alt="icon" />
                 </Link>
               </div>
