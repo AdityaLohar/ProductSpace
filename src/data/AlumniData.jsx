@@ -29,23 +29,23 @@ const alumni = [
       "I'm incredibly grateful to the Product Space team for helping me develop the skills and knowledge I needed to succeed in product management. The practical experience and personalized 1:1 support were especially helpful.",
     linkedin: "https://www.linkedin.com/in/aditya-mandothia-84882520a/",
   },
-  {
-    id: 2,
-    profile:
-    likeshKumar,
-    name: "Likesh Kumar Tangudu",
-    // prevCompany: "Droame",
-    prevCompany:
-      "https://media.licdn.com/dms/image/v2/C4D0BAQE69ntFHh3yiQ/company-logo_200_200/company-logo_200_200/0/1663559468849/droame_logo?e=2147483647&v=beta&t=bJLjvxxdzZv5Pb8oXQBM12vLOfD6Ip9bumu5fawaBNM",
-    prevPost: "Product & Strategy Associate",
-    company: "Magicbricks",
-    curCompany:
-      "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
-    curPost: "Product Management Intern",
-    testimonial:
-      "Product Space played a pivotal role in my career transition. Their personalized mentorship provided me with the confidence and skills I needed to excel in my new role. The tailored guidance and support I received were invaluable, and I am grateful for the resources they provided. Product Space's support to my success was evident in every aspect of the program.",
-    linkedin: "https://www.linkedin.com/in/likesh-kumar-tangudu-6819961b5",
-  },
+  // {
+  //   id: 2,
+  //   profile:
+  //   likeshKumar,
+  //   name: "Likesh Kumar Tangudu",
+  //   // prevCompany: "Droame",
+  //   prevCompany:
+  //     "https://media.licdn.com/dms/image/v2/C4D0BAQE69ntFHh3yiQ/company-logo_200_200/company-logo_200_200/0/1663559468849/droame_logo?e=2147483647&v=beta&t=bJLjvxxdzZv5Pb8oXQBM12vLOfD6Ip9bumu5fawaBNM",
+  //   prevPost: "Product & Strategy Associate",
+  //   company: "Magicbricks",
+  //   curCompany:
+  //     "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
+  //   curPost: "Product Management Intern",
+  //   testimonial:
+  //     "Product Space played a pivotal role in my career transition. Their personalized mentorship provided me with the confidence and skills I needed to excel in my new role. The tailored guidance and support I received were invaluable, and I am grateful for the resources they provided. Product Space's support to my success was evident in every aspect of the program.",
+  //   linkedin: "https://www.linkedin.com/in/likesh-kumar-tangudu-6819961b5",
+  // },
   {
     id: 3,
     profile: medhyaBudhwar,
@@ -94,22 +94,22 @@ const alumni = [
       "The Product Space program was a game-changer for my career. The mentors were incredibly knowledgeable and supportive, providing me with the guidance and tools I needed to succeed. I especially appreciated the opportunity to work on real-world projects and gain hands-on experience. ",
     linkedin: "https://www.linkedin.com/in/nishant-sinha-134701134",
   },
-  {
-    id: 7,
-    profile: arpita,
-    name: "Arpita",
-    // prevCompany: "Salarpuria Sattva",
-    prevCompany:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0ufc8DbCUiZR72d7gFTA4kPIsvGsI3EJFbA&s",
-    prevPost: "Project Manager",
-    company: "Magicbricks",
-    curCompany:
-      "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
-    curPost: "APM",
-    testimonial:
-      "I'm incredibly grateful to Product Space and Akhil Yash Tiwari for their mentorship and support, which played a crucial role in my successful career transition to product management. This experience has strengthened my passion for the field and equipped me with the necessary skills to excel.",
-    linkedin: "https://www.linkedin.com/in/aatavalgi",
-  },
+  // {
+  //   id: 7,
+  //   profile: arpita,
+  //   name: "Arpita",
+  //   // prevCompany: "Salarpuria Sattva",
+  //   prevCompany:
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0ufc8DbCUiZR72d7gFTA4kPIsvGsI3EJFbA&s",
+  //   prevPost: "Project Manager",
+  //   company: "Magicbricks",
+  //   curCompany:
+  //     "https://www.track2realty.track2media.com/wp-content/uploads/2016/04/Magicbricks-Logo.jpg",
+  //   curPost: "APM",
+  //   testimonial:
+  //     "I'm incredibly grateful to Product Space and Akhil Yash Tiwari for their mentorship and support, which played a crucial role in my successful career transition to product management. This experience has strengthened my passion for the field and equipped me with the necessary skills to excel.",
+  //   linkedin: "https://www.linkedin.com/in/aatavalgi",
+  // },
   {
     id: 8,
     profile: anshul,

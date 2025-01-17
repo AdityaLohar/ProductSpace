@@ -118,15 +118,15 @@ const transitions = [
     curPost: "Product Executive",
     linkedin: "https://www.linkedin.com/in/ayushi-maurya-iit"
   },
-  {
-    id: 28,
-    profile: arpita,
-    name: "Arpita",
-    curCompany: "Magicbricks",
-    company: magicbricks,
-    curPost: "Product",
-    linkedin: "https://www.linkedin.com/in/aatavalgi"
-  },
+  // {
+  //   id: 28,
+  //   profile: arpita,
+  //   name: "Arpita",
+  //   curCompany: "Magicbricks",
+  //   company: magicbricks,
+  //   curPost: "Product",
+  //   linkedin: "https://www.linkedin.com/in/aatavalgi"
+  // },
   {
     id: 15,
     profile: aryanJaiswal,
