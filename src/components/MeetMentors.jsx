@@ -33,16 +33,16 @@ const mentors = [
     linkedIn: "https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in",
     img: microsoft,
   },
-  {
-    id: 3,
-    profile: lalith,
-    name: "Lalith Kumar",
-    company: "FedEx",
-    post: "VP of Product",
-    linkedIn:
-      "https://www.linkedin.com/in/lalithkumarvemali/?originalSubdomain=in",
-    img: fedex,
-  },
+  // {
+  //   id: 3,
+  //   profile: lalith,
+  //   name: "Lalith Kumar",
+  //   company: "FedEx",
+  //   post: "VP of Product",
+  //   linkedIn:
+  //     "https://www.linkedin.com/in/lalithkumarvemali/?originalSubdomain=in",
+  //   img: fedex,
+  // },
   // {
   //   id: 4,
   //   profile: shilpi,
