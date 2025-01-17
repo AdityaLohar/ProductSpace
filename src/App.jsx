@@ -101,10 +101,10 @@ function App() {
           />
           <Route path="/" element={<Home />} />
           <Route path="/pm-hackathon" element={<Events />} />
+          <Route path="/gen-ai-for-pm" element={<GenAi />} />
           <Route path="/events/ai-for-pm" element={<Event1 />} />
           <Route path="/events/ai-form" element={<EventGenAiForm />} />
           <Route path="/product-meetups-offline" element={<OfflineEvent />} />
-          <Route path="/gen-ai-for-pm" element={<GenAi />} />
           <Route path="/ai-for-pm" element={<GenAi />} />
           <Route path="/pm-workshop" element={<ProductAnalytics />} />
           <Route path="/faq" element={<FaqPage />} />

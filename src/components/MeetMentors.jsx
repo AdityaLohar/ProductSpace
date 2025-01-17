@@ -24,15 +24,15 @@ const mentors = [
       "https://www.linkedin.com/in/sonia-vora-4b321377/?originalSubdomain=in",
     img: narayana,
   },
-  {
-    id: 2,
-    profile: arun,
-    name: "Arun Nandewal",
-    company: "Microsoft",
-    post: "Sr. Product Manager",
-    linkedIn: "https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in",
-    img: microsoft,
-  },
+  // {
+  //   id: 2,
+  //   profile: arun,
+  //   name: "Arun Nandewal",
+  //   company: "Microsoft",
+  //   post: "Sr. Product Manager",
+  //   linkedIn: "https://www.linkedin.com/in/arun-nandewal/?originalSubdomain=in",
+  //   img: microsoft,
+  // },
   {
     id: 3,
     profile: lalith,
@@ -43,15 +43,15 @@ const mentors = [
       "https://www.linkedin.com/in/lalithkumarvemali/?originalSubdomain=in",
     img: fedex,
   },
-  {
-    id: 4,
-    profile: shilpi,
-    name: "Shilpi",
-    company: "Reliance",
-    post: "Sr. Product Manager",
-    linkedIn: "https://www.linkedin.com/in/shilpi-swati/?originalSubdomain=in",
-    img: reliance,
-  },
+  // {
+  //   id: 4,
+  //   profile: shilpi,
+  //   name: "Shilpi",
+  //   company: "Reliance",
+  //   post: "Sr. Product Manager",
+  //   linkedIn: "https://www.linkedin.com/in/shilpi-swati/?originalSubdomain=in",
+  //   img: reliance,
+  // },
   {
     id: 5,
     profile: kanishk,
@@ -61,16 +61,16 @@ const mentors = [
     linkedIn: "https://www.linkedin.com/in/kanishkm/",
     img: inmobi,
   },
-  {
-    id: 6,
-    profile:
-      "https://www.productleadership.com/wp-content/uploads/elementor/thumbs/PamitAnand-qmxkokvkzv0bog8m181ixmu3wadbnidfy2jnbc5xc0.png",
-    name: "Pamit Anand",
-    company: "Magicbricks",
-    post: "VP of Product",
-    linkedIn: "https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in",
-    img: magicbricks,
-  },
+  // {
+  //   id: 6,
+  //   profile:
+  //     "https://www.productleadership.com/wp-content/uploads/elementor/thumbs/PamitAnand-qmxkokvkzv0bog8m181ixmu3wadbnidfy2jnbc5xc0.png",
+  //   name: "Pamit Anand",
+  //   company: "Magicbricks",
+  //   post: "VP of Product",
+  //   linkedIn: "https://www.linkedin.com/in/pamit82anand/?originalSubdomain=in",
+  //   img: magicbricks,
+  // },
 ];
 
 const MeetMentors = ({ bgColor }) => {
