@@ -26,7 +26,7 @@ const RegisterationSuccess = ({ toggleSuccess }) => {
 
         <button className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12">
           <a
-            href="https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i"
+            href="https://chat.whatsapp.com/BOXBhT2Xyp28WtffIqqDsR"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block w-full h-full"

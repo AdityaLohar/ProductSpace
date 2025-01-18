@@ -19,13 +19,13 @@ const CaseStudies1 = () => {
       desc: "Improving Amazon Prime Viewing Experience",
       url: "https://pitch.com/public/ccb8b2d8-642c-4563-9abd-f8a48285b25b/143ca6f4-1750-4744-b325-57d899174ad5 ",
     },
-    {
-      id: 2,
-      title: "MagicBricks",
-      image: magicBricks,
-      desc: "Improving MagicBricks Viewing Experience",
-      url: "https://pitch.com/v/magicbricks-gigy4i",
-    },
+    // {
+    //   id: 2,
+    //   title: "MagicBricks",
+    //   image: magicBricks,
+    //   desc: "Improving MagicBricks Viewing Experience",
+    //   url: "https://pitch.com/v/magicbricks-gigy4i",
+    // },
     {
       id: 3,
       title: "Miro",

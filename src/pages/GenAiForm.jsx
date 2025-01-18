@@ -176,7 +176,7 @@ const GenAiForm = () => {
       setShowNotification(true);
       setTimeout(() => {
         window.location.href =
-          "https://chat.whatsapp.com/GyOBDk1JVJvArbj7wnVb3i";
+          "https://chat.whatsapp.com/BOXBhT2Xyp28WtffIqqDsR";
         setShowNotification(false);
       }, 6000);
     } catch (error) {
