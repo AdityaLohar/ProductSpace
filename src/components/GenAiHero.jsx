@@ -135,7 +135,7 @@ const GenAiHero = () => {
               </div>
               <div className="flex gap-1 text-[12px] lg:text-[16px] mx-4 lg:mx-8 p-1">
                 <p >
-                  👉🏻 &ensp;Early Bird Offer for first 4 seats
+                  👉🏻 &ensp;Early Bird Offer for first 2 seats
                 </p>
               </div>
 
