@@ -64,6 +64,7 @@ import LoginPopUp from "./components/LoginPopUp";
 import UserProfile from "./pages/UserProfile";
 import GenAiForm from "./pages/GenAiForm";
 import EventGenAiForm from "./pages/EventGenAiForm";
+import BlogP3 from "./pages/PrivateBlogs/BlogP3";
 
 function App() {
   const location = useLocation();
@@ -234,6 +235,10 @@ function App() {
           <Route
             path="/blogs/genai-101-a-guide-for-product-managers"
             element={<BlogP2 />}
+          />
+          <Route
+            path="/blogs/prompting-guide-for-product-managers"
+            element={<BlogP3 />}
           />
           <Route path="*" element={<Navigate to="/" />} />{" "}
         </Routes>
