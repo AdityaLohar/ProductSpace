@@ -141,9 +141,7 @@ const GenAiDownloadCurriculumForm = ({
                 </h2>
                 <h3 className="text-[14px] md:text-[16px] mb-4 text-center">
                   Excel in your Product Management Career with practical AI
-                  skills and 1:1 mentorship from industry experts. Excel in your
-                  Product Management Career with practical AI skills and 1:1
-                  mentorship from industry experts.
+                  skills and 1:1 mentorship from industry experts.
                 </h3>
 
                 <div className="mb-4">

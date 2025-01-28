@@ -13,8 +13,8 @@ const VideoWithCustomCover = () => {
       description: "",
       thumbnailUrl: ["https://example.com/thumbnail.jpg"],
       uploadDate: "2024-12-01T08:00:00+00:00",
-      embedUrl: "https://www.youtube.com/embed/V2yr4Z65D5Y",
-      contentUrl: "https://www.youtube.com/watch?v=V2yr4Z65D5Y",
+      embedUrl: "https://www.youtube.com/embed/DIGWM_ypndM",
+      contentUrl: "https://www.youtube.com/watch?v=DIGWM_ypndM",
     };
 
     const script = document.createElement("script");
@@ -52,7 +52,7 @@ const VideoWithCustomCover = () => {
         {playVideo && (
           <iframe
             className="absolute top-0 left-0 w-full h-full rounded-xl"
-            src="https://www.youtube.com/embed/V2yr4Z65D5Y?autoplay=1&rel=0"
+            src="https://www.youtube.com/embed/DIGWM_ypndM?autoplay=1&rel=0"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
