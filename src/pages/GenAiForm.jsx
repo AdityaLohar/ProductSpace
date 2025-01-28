@@ -1,6 +1,44 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import greenTick from "../assets/tick-green.svg";
 import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
+
+const RegisterationSuccess = ({ toggleSuccess, totalEntries }) => {
+  return (
+    <div className="bg-white p-6 pb-12 mx-4 md:mx-0 rounded-xl">
+      <div className="flex justify-end">
+        <button onClick={toggleSuccess}>✖</button>
+      </div>
+
+      <div className="text-[14px] text-center flex flex-col gap-8 items-center">
+        <div className="flex justify-center">
+          <img src={greenTick} alt="" className="h-10" />
+        </div>
+
+        <div className="flex flex-col gap-3 lg:w-3/4 justify-center">
+          <div className="text-[20px] lg:text-[24px] font-semibold">            
+          🎉 Application Submitted
+          </div>
+          <div className="text-[14px] lg:text-[16px]">
+          Our Admissions Team will contact you within 24 hours with next steps.<br/><br/>
+          <span className="font-bold">Your Waitlist Position: <span className="text-[18px] lg:text-[22px]"> #{Math.min(39 + totalEntries, 199)}</span></span>
+          </div>
+        </div>
+
+        <button className="bg-[#24304C] text-white p-4 text-[16px] lg:text-[18px] rounded-xl px-4 lg:px-12">
+          <a
+            href="https://chat.whatsapp.com/BOXBhT2Xyp28WtffIqqDsR"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block w-full h-full"
+          >
+            Join Our AI Community
+          </a>
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const FormField = ({ label, type, id, name, value, onChange, error }) => {
   return (
@@ -30,6 +68,8 @@ const FormField = ({ label, type, id, name, value, onChange, error }) => {
     </div>
   );
 };
+
+
 
 const Notification = ({
   setShowNotification,
@@ -99,9 +139,15 @@ const GenAiForm = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [totalEntries, setTotalEntries] = useState(0);
+
 
   const airtableBaseUrl = import.meta.env.VITE_AIRTABLE_AI_FOR_PM_URL;
   const accessToken = import.meta.env.VITE_AIRTABLE_ACCESS_TOKEN;
+
+  const toggleSuccess = () => {
+    setShowSuccess(!showSuccess);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -116,6 +162,7 @@ const GenAiForm = () => {
       });
 
       const totalEntries = response.data.records.length;
+      setTotalEntries(totalEntries);
       return totalEntries;
     } catch (error) {
       console.error("Error fetching entries:", error);
@@ -159,26 +206,28 @@ const GenAiForm = () => {
         }
       );
 
-      setNotification({
-        type: "success",
-        title: "Application Submitted!",
-        description: (
-          <>
-            <p>Thank you for applying!</p>
-            <p>Due to high demand, you’ve been added to the waitlist.</p>
-            <p>📋 Your Waitlist Number: #{51 + totalEntries}.</p>
-            <p>Within 24 hours, our admission team will reach out to you.</p>
-          </>
-        ),
-      });
+      toggleSuccess();
 
-      setLoading(false);
-      setShowNotification(true);
-      setTimeout(() => {
-        window.location.href =
-          "https://chat.whatsapp.com/BOXBhT2Xyp28WtffIqqDsR";
-        setShowNotification(false);
-      }, 6000);
+      // setNotification({
+      //   type: "success",
+      //   title: "Application Submitted!",
+      //   description: (
+      //     <>
+      //       <p>Thank you for applying!</p>
+      //       <p>Due to high demand, you’ve been added to the waitlist.</p>
+      //       <p>📋 Your Waitlist Number: #{51 + totalEntries}.</p>
+      //       <p>Within 24 hours, our admission team will reach out to you.</p>
+      //     </>
+      //   ),
+      // });
+
+      // setLoading(false);
+      // setShowNotification(true);
+      // setTimeout(() => {
+      //   window.location.href =
+      //     "https://chat.whatsapp.com/BOXBhT2Xyp28WtffIqqDsR";
+      //   setShowNotification(false);
+      // }, 6000);
     } catch (error) {
       console.log(error);
       setNotification({
@@ -332,7 +381,7 @@ const GenAiForm = () => {
               value={formData.userType}
               onChange={handleChange}
               disabled={loading}
-              className="mt-2 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-200 focus:border-blue-200 text-[12px] lg:text-[16px]"
+              className="mt-2 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:ring-blue-200 focus:border-blue-200 text-[12px] lg:text-[16px]"
             >
               <option value="">Select an option</option>
               <option value="Student">Student/Fresher</option>
@@ -358,7 +407,7 @@ const GenAiForm = () => {
               value={formData.role}
               onChange={handleChange}
               disabled={loading || !formData.userType}
-              className="mt-2 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-black focus:border-black text-[12px] lg:text-[16px]"
+              className="mt-2 p-2 border block w-full rounded-md border-gray-300 shadow-sm focus:ring-black focus:border-black text-[12px] lg:text-[16px]"
             >
               <option value="">Select an option</option>
               {formData.userType === "Student" ? (
@@ -423,14 +472,15 @@ const GenAiForm = () => {
               {loading ? "Loading..." : "Submit"}
             </button>
           </div>
+
+          {showSuccess && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+                <RegisterationSuccess toggleSuccess={toggleSuccess} totalEntries={totalEntries} />
+
+            </div>
+          )}
         </form>
       </div>
-
-      <Notification
-        setShowNotification={setShowNotification}
-        showNotification={showNotification}
-        notification={notification}
-      />
     </div>
   );
 };
