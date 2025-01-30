@@ -59,7 +59,7 @@ const BottomBar = () => {
                 Next cohort starts on
               </div>
               <div className="font-bold border-l border-l-2 border-[#21C1F3] px-2">
-                12th January
+                March 1st
               </div>
             </div>
             <div>
