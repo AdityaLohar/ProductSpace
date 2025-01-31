@@ -97,7 +97,7 @@ const DownloadCurriculumForm = ({
     setLoading(false);
 
     window.location.href =
-      "https://drive.google.com/file/d/1lKVH1HGKchPYV6nDRfdTgBuAXCLWGSfz/view";
+      "https://drive.google.com/file/d/1W1RcHIzl0536bQPJ6W9ka5Fdt4kRNw8q/view";
 
     // Automatically hide notification after 10 seconds
     setTimeout(() => {
