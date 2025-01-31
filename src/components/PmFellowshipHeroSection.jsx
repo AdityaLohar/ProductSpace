@@ -74,7 +74,7 @@ const PmFellowshipHeroSection = () => {
             <div className="flex flex-col gap-3 text-center lg:text-start">
               <div>
                 <h1 className="text-[24px] md:text-[28px] lg:text-[40px] font-bold font-sans">
-                  Product Management <br /> Fellowship Program
+                  Product Management <br /> Fellowship
                 </h1>
               </div>
               <div className="hidden lg:flex text-[18px]">
